@@ -1,0 +1,67 @@
+#!/bin/bash
+
+OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'`
+bashrc="$(dirname "${BASH_SOURCE[0]}")/bashrc"
+
+# Add custom bashrc to user config
+if [[ ! ` cat ~/.bashrc | grep "[[ -e $bashrc ]] && source $bashrc" ` ]]; then
+  echo "" >> ~/.bashrc
+  echo "[[ -e $bashrc ]] && source $bashrc" >> ~/.bashrc
+fi
+
+case "$OS" in
+  "darwin")
+    # Dock
+
+    defaults write com.apple.dock autohide -boolean true
+
+    # http://www.macbug.de/2012/01/23/os-x-automatisches-aus-und-einblenden-des-docks-beschleunigen/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Macbug+%28MacBug.de%29
+    #defaults write com.apple.dock autohide-time-modifier -int 0
+    defaults write com.apple.dock autohide-time-modifier -float 0.1
+    #defaults delete com.apple.dock autohide-time-modifier
+
+    # Do not dim hidden applications
+    defaults write com.apple.dock showhidden -boolean false
+
+    # Dock size
+    defaults write com.apple.dock tilesize -integer 50
+    defaults write com.apple.Dock size-immutable -bool yes
+    defaults write com.apple.Dock contents-immutable -bool no 
+
+    # http://www.cultofmac.com/155992/view-stacks-more-useful-list-view/
+    defaults write com.apple.dock use-new-list-stack -bool YES
+    
+    killall Dock
+
+    # Hide Library
+    SetFile -a V ~/Library
+
+
+    # Show Posix path in Finder
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+    
+    # Disable the Crash Dialog Box
+    defaults write com.apple.CrashReporter DialogType none
+
+    # Set The Expanded Save Dialogue As Default
+    defaults write -g NSNavPanelExpandedStateForSaveMode -bool TRUE
+    
+    # Disable Terminal mouse over
+    defaults write com.apple.Terminal FocusFollowsMouse -string NO
+
+    # Enable Text Substitutions
+    # http://www.macosxtips.co.uk/index_files/terminal-commands-for-hidden-settings-in-snow-leopard.php
+    defaults write -g WebAutomaticTextReplacementEnabled -bool true
+    defaults write -g WebAutomaticDashSubstitutionEnabled -bool true
+    defaults write -g WebContinuousSpellCheckingEnabled -bool true
+    
+    ;;
+  "linux")
+    echo "This is linux!"
+    ;;
+  default)
+    echo "unsupported os!"
+    exit
+esac
+
+source $bashrc
