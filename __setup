@@ -12,6 +12,7 @@ fi
 case "$OS" in
   "darwin")
     echo "Autohide dock"
+    defaults write com.apple.dock orientation -string bottom
     defaults write com.apple.dock autohide -boolean true
 
     # http://www.macbug.de/2012/01/23/os-x-automatisches-aus-und-einblenden-des-docks-beschleunigen/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Macbug+%28MacBug.de%29
@@ -111,9 +112,6 @@ case "$OS" in
     echo "Show item info below desktop icons"
     /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
 
-    echo "Enable snap-to-grid for desktop icons"
-    /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
     echo "Disable the warning before emptying the Trash"
     defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
@@ -161,6 +159,25 @@ case "$OS" in
 
     #echo "Reset Launchpad"
     #[ -e ~/Library/Application\ Support/Dock/*.db ] && rm ~/Library/Application\ Support/Dock/*.db
+
+
+    # https://github.com/j2fly/babushka-deps/blob/master/osx.rb
+
+    echo 'Show these items on the desktop'
+    defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+    defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+    defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+    defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+
+    echo 'finder view options'
+    /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:arrangeBy' dateModified" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:gridSpacing' 100" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:iconSize' 128" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:labelOnBottom' true" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:showItemInfo' true" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:showIconPreview' true" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:textSize' 12" ~/Library/Preferences/com.apple.finder.plist
+
 
     echo "Kill affected applications"
     for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
