@@ -24,8 +24,12 @@ case "$OS" in
     echo "Do not dim hidden applications"
     defaults write com.apple.dock showhidden -boolean false
 
+
+    echo "Minimize to app icon"
+    defaults write com.apple.dock minimize-to-application -boolean true
+
     echo "Set dock size"
-    defaults write com.apple.dock tilesize -integer 50
+    defaults write com.apple.dock tilesize -integer 40
     defaults write com.apple.Dock size-immutable -bool yes
     defaults write com.apple.Dock contents-immutable -bool no 
 
@@ -72,7 +76,7 @@ case "$OS" in
     defaults write com.apple.menuextra.battery ShowTime -string "NO"
 
     echo "Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons"
-    defaults write com.apple.finder QuitMenuItem -bool true
+    defaults write com.apple.finder QuitMenuItem -bool false
 
     #echo "Show all filename extensions in Finder"
     #defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -178,13 +182,12 @@ case "$OS" in
     /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:showIconPreview' true" ~/Library/Preferences/com.apple.finder.plist
     /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:textSize' 12" ~/Library/Preferences/com.apple.finder.plist
 
-
     echo "Kill affected applications"
     for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
 
-    # Browse to basic software
-    open http://www.google.de/chrome/
-    open http://appdrive.net/mediathek/
+
+    echo "Download Google Chrome"
+    curl -C - -O http://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg && open googlechrome.dmg
     
     ;;
   "linux")
