@@ -182,6 +182,12 @@ case "$OS" in
     /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:showIconPreview' true" ~/Library/Preferences/com.apple.finder.plist
     /usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:textSize' 10" ~/Library/Preferences/com.apple.finder.plist
 
+
+    echo 'disable internet plugins'
+    mkdir /Library/Internet\ Plug-Ins/_DISABLED
+    mv /Library/Internet\ Plug-Ins/* /Library/Internet\ Plug-Ins/_DISABLED
+
+
     echo "Kill affected applications"
     for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
 

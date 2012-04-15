@@ -58,6 +58,7 @@ case "$OS" in "linux")
   alias grep='grep --color'
   alias ls='ls -G'
   alias say='say -v Vicki'
+  alias top='top -o cpu'
 
   export LC_ALL=C
   shopt -s checkwinsize
@@ -98,7 +99,7 @@ esac
 alias ...='cd ../..'
 alias ..='cd ..'
 alias KILL='sudo kill -9'
-alias RM='sudo rm -Rfv'
+alias RM='rm -Rfv'
 alias cd...='cd ../..'
 alias cd..='cd ..'
 alias cp='cp -v'
@@ -122,7 +123,7 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 alias reboot='sudo reboot'
 alias reloadbash="source ~/.bashrc"
 alias systail='tail -f /var/log/system.log'
-alias top='top -o cpu'
+
 alias unmount='umount'
 
 _have jmp && alias einfach='jmp chriz emo && jmp 24'
