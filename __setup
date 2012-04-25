@@ -192,12 +192,19 @@ case "$OS" in
     for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
 
 
+    echo "Clear cookies, set cookie store to RO"
+    rm ~/Library/Cookies/Cookies.plist
+    touch ~/Library/Cookies/Cookies.plist
+    SetFile -a L ~/Library/Cookies/Cookies.plist
+
     echo "Download Google Chrome"
     curl -C - -O http://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg && open googlechrome.dmg
     
     ;;
   "linux")
     echo "This is linux!"
+    # sudo apt-get install ubuntu-restricted-extras
+    # cat /etc/*-release
     ;;
   default)
     echo "unsupported os!"
