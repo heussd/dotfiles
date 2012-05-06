@@ -158,6 +158,9 @@ case "$OS" in
     # defaults write com.apple.Mail DisableReplyAnimations -bool true
     # defaults write com.apple.Mail DisableSendAnimations -bool true
 
+    echo "Copy/paste mail addresses only"
+    defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
+
     # Disable Resume system-wide
     # defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
