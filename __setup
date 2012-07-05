@@ -203,6 +203,25 @@ case "$OS" in
     echo "Download Google Chrome"
     curl -C - -O http://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg && open googlechrome.dmg
     
+    echo "Set Google Chrome default settings"
+    rm -Rfv ~/Library/Application\ Support/Google/Chrome/
+    mkdir -p ~/Library/Application\ Support/Google/Chrome/Default/
+    cat > ~/Library/Application\ Support/Google/Chrome/Default/Preferences << EOF
+{
+  "profile": {
+      "block_third_party_cookies": true,
+      "clear_site_data_on_exit": true
+  },
+  "session": {
+      "restore_on_startup": 4,
+      "restore_on_startup_migrated": true,
+      "urls_to_restore_on_startup": [ "about:blank" ]
+   },
+  "translate_language_blacklist": [ "en" ]
+}
+EOF
+
+
     ;;
   "linux")
     echo "This is linux!"
