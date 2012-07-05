@@ -259,4 +259,10 @@ if "%execRegistry%"=="y" (
 	net user %USERNAME% ""
 )
 
+REM UNTESTED!
+echo Download essential software
+start http://sourceforge.net/projects/sevenzip/files/latest/download
+
+
+
 shutdown -r -t 0
