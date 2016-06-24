@@ -54,6 +54,8 @@ cask 'retinizer'
 cask 'spark'
 cask 'spectacle'
 cask 'unetbootin'
+cask 'hocus-focus'
+cask 'veracrypt'
 
 
 cask_args appdir: '~/Applications/Media'
@@ -96,11 +98,12 @@ cask 'vivaldi'
 
 cask_args appdir: '~/Applications/Office'
 brew 'pandoc'
-cask 'coteditor'
+cask 'adobe-reader'
 cask 'freemind'
 cask 'macdown'
 cask 'typora'
 cask 'yed'
+brew 'docbook-xsl'
 
 
 cask_args appdir: '~/Applications/Research'
@@ -109,6 +112,7 @@ cask 'r'
 cask 'skim'
 cask 'tagspaces'
 cask 'texstudio'
+cask 'openrefine-dev'
 
 
 cask_args appdir: '~/Applications/Development/Database Clients'
@@ -139,6 +143,7 @@ cask 'tunnelblick'
 
 
 cask_args appdir: '~/Applications/Games'
+cask 'battle-net'
 cask 'steam'
 cask 'teeworlds'
 
@@ -156,6 +161,8 @@ cask 'teamviewer'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'kdiff3'
+cask 'cocoarestclient'
+cask 'pacifist'
 
 
 cask_args appdir: '~/Applications/Development/Editors'
@@ -169,6 +176,7 @@ cask 'sublime-text'
 cask_args appdir: '~/Applications/Sync'
 cask 'box-sync'
 cask 'dropbox'
+cask 'google-drive'
 cask 'sparkleshare'
 cask 'bittorrent-sync'
 
