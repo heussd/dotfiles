@@ -21,7 +21,7 @@ cask 'pacifist'
 brew 'aria2'
 brew 'cloc'
 brew 'maven'
-
+brew 'imagemagick'
 
 # iOS
 cask 'iphone-backup-extractor'
