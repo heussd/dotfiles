@@ -2,6 +2,7 @@ tap 'caskroom/fonts'
 cask 'font-source-code-pro'
 
 brew 'bash-completion'
+brew 'coreutils'
 brew 'figlet'
 brew 'gnupg2'
 brew 'htop'
