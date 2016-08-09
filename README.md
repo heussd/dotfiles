@@ -1,14 +1,5 @@
-Settle down in a new ~ within seconds!
-===================================
+# Say hi to your new home
 
-```bash
-curl -sL https://raw.github.com/heussd/dotfiles/master/__setup | sh
-
-```
-
-
-```bash
-git clone https://github.com/heussd/dotfiles .dotfiles
-.dotfiles/__setup
-
-```
+	git clone https://github.com/heussd/dotfiles ~/dotfiles
+	cd ~/dotfiles
+	stow bash
