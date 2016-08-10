@@ -4,3 +4,12 @@
 [submodule "externals/mpcscripts"]
 	path = externals/mpcscripts
 	url = https://github.com/heussd/mpcscripts.git
+[submodule "externals/limelight.vim"]
+	path = externals/limelight.vim
+	url = https://github.com/junegunn/limelight.vim.git
+[submodule "externals/vimroom"]
+	path = externals/vimroom
+	url = https://github.com/mikewest/vimroom.git
+[submodule "externals/molokai"]
+	path = externals/molokai
+	url = https://github.com/tomasr/molokai.git
