@@ -1,5 +1,5 @@
 # Say hi to your new home
 
 	git clone https://github.com/heussd/dotfiles ~/dotfiles
-	cd ~/dotfiles
-	stow bash
+	brew bundle -v --file="$HOME/dotfiles/brew/Brewfile"
+	stow --dir="$HOME/dotfiles/" -vv bash
