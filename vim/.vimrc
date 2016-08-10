@@ -33,13 +33,15 @@ color molokai
 
 " using Source Code Pro
 " http://jonathanmh.com/using-adobes-source-code-pro-in-vim/
-set anti enc=utf-8
+" set anti enc=utf-8
 set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
 
 :function FocusMode()
+:	set guifont=Lucida_Console:h14
+:	VimroomToggle
 :	Limelight
-:	VimroomToggle 
+:	set guioptions-=L
 :endfunction
 :command FocusMode call FocusMode()
