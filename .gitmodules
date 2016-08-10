@@ -1,0 +1,6 @@
+[submodule "externals/my-way-to-view-things"]
+	path = externals/my-way-to-view-things
+	url = https://github.com/heussd/my-way-to-view-things.git
+[submodule "externals/mpcscripts"]
+	path = externals/mpcscripts
+	url = https://github.com/heussd/mpcscripts.git
