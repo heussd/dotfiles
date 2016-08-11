@@ -16,3 +16,6 @@
 [submodule "externals/writer.vim"]
 	path = externals/writer.vim
 	url = https://github.com/honza/writer.vim
+[submodule "externals/goyo.vim"]
+	path = externals/goyo.vim
+	url = https://github.com/junegunn/goyo.vim

@@ -1,1 +1,0 @@
-../../../externals/vimroom/plugin/vimroom.vim

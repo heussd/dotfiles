@@ -40,8 +40,7 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 
 :function FocusMode()
 :	WriterToggle
-:	VimroomToggle
+:	Goyo
 :	Limelight
-:	set guioptions-=L
 :endfunction
 :command FocusMode call FocusMode()
