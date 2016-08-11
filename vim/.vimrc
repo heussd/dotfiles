@@ -39,7 +39,7 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
 :function FocusMode()
-:	set guifont=Lucida_Console:h14
+:	WriterToggle
 :	VimroomToggle
 :	Limelight
 :	set guioptions-=L

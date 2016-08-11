@@ -13,3 +13,6 @@
 [submodule "externals/molokai"]
 	path = externals/molokai
 	url = https://github.com/tomasr/molokai.git
+[submodule "externals/writer.vim"]
+	path = externals/writer.vim
+	url = https://github.com/honza/writer.vim
