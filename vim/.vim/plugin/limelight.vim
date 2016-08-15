@@ -1,1 +1,1 @@
-../../../externals/limelight.vim/plugin/limelight.vim
+../../../_externals/limelight.vim/plugin/limelight.vim

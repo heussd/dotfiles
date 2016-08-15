@@ -1,1 +1,1 @@
-../../../externals/writer.vim/plugin/writer.vim
+../../../_externals/writer.vim/plugin/writer.vim

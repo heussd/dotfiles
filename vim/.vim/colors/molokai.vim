@@ -1,1 +1,1 @@
-../../../externals/molokai/colors/molokai.vim
+../../../_externals/molokai/colors/molokai.vim

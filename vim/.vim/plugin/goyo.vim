@@ -1,1 +1,1 @@
-../../../externals/goyo.vim/plugin/goyo.vim
+../../../_externals/goyo.vim/plugin/goyo.vim
