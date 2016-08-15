@@ -1,21 +1,21 @@
-[submodule "externals/my-way-to-view-things"]
-	path = externals/my-way-to-view-things
+[submodule "_externals/my-way-to-view-things"]
+	path = "_externals/my-way-to-view-things"
 	url = https://github.com/heussd/my-way-to-view-things.git
-[submodule "externals/mpcscripts"]
-	path = externals/mpcscripts
+[submodule "_externals/mpcscripts"]
+	path = "_externals/mpcscripts"
 	url = https://github.com/heussd/mpcscripts.git
-[submodule "externals/limelight.vim"]
-	path = externals/limelight.vim
+[submodule "_externals/limelight.vim"]
+	path = "_externals/limelight.vim"
 	url = https://github.com/junegunn/limelight.vim.git
-[submodule "externals/vimroom"]
-	path = externals/vimroom
+[submodule "_externals/vimroom"]
+	path = "_externals/vimroom"
 	url = https://github.com/mikewest/vimroom.git
-[submodule "externals/molokai"]
-	path = externals/molokai
+[submodule "_externals/molokai"]
+	path = "_externals/molokai"
 	url = https://github.com/tomasr/molokai.git
-[submodule "externals/writer.vim"]
-	path = externals/writer.vim
+[submodule "_externals/writer.vim"]
+	path = "_externals/writer.vim"
 	url = https://github.com/honza/writer.vim
-[submodule "externals/goyo.vim"]
-	path = externals/goyo.vim
+[submodule "_externals/goyo.vim"]
+	path = "_externals/goyo.vim"
 	url = https://github.com/junegunn/goyo.vim
