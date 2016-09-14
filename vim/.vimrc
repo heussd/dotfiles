@@ -42,5 +42,6 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 :	WriterToggle
 :	Goyo
 :	Limelight
+:	set fu
 :endfunction
 :command FocusMode call FocusMode()
