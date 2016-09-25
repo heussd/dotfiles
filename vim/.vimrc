@@ -1,9 +1,5 @@
 " Essential: no automatic & persistent line breaks
-set wrapmargin=0
-set textwidth=0
-set wrap
-set linebreak
-set nolist  " list disables linebreak
+:set wrap linebreak nolist
 
 
 " https://stackoverflow.com/questions/743150/how-to-prevent-vim-from-creating-and-leaving-temporary-files
@@ -43,5 +39,6 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 :	Goyo
 :	Limelight
 :	set fu
+:	set wrap linebreak nolist
 :endfunction
 :command FocusMode call FocusMode()
