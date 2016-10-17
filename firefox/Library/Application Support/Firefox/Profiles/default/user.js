@@ -27,3 +27,8 @@ user_pref("extensions.pocket.enabled", false);
 user_pref("browser.search.suggest.enabled",			false);
 // Disable "Show search suggestions in location bar results"
 user_pref("browser.urlbar.suggest.searches", false);
+
+
+// Disable mouse wheel zoom
+user_pref("mousewheel.with_control.action", 0);
+user_pref("mousewheel.with_meta.action", 0);
