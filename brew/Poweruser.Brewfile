@@ -1,3 +1,10 @@
+brew 'terminal-notifier'
+brew 'tmux'
+brew 'tree'
+brew 'htop'
+brew 'unrar'
+
+tap 'caskroom/cask'
 cask 'amethyst'
 cask 'bitbar'
 cask 'caffeine'
@@ -28,11 +35,12 @@ cask 'iphone-backup-extractor'
 cask 'ibettercharge'
 cask 'iexplorer'
 
-
 # IDEs
 cask 'intellij-idea-ce-eap'
 cask 'netbeans'
 cask 'eclipse-jee'
+cask 'coteditor'
+cask 'nvalt'
 
 
 # VCS Clients
@@ -77,3 +85,50 @@ cask 'opera'
 cask 'opera-developer'
 cask 'google-chrome'
 cask 'vivaldi'
+
+
+tap 'caskroom/versions'
+tap 'homebrew/core'
+tap 'homebrew/dupes'
+tap 'homebrew/fuse'
+tap 'homebrew/versions'
+
+
+# Internet
+cask 'colloquy'
+cask 'rssowl'
+cask 'rssowl'
+cask 'filezilla'
+cask 'cyberduck'
+cask 'gpodder'
+cask 'telegram'
+
+
+cask 'spectacle'
+
+# Media
+cask 'mediathekview'
+cask 'plex-home-theater'
+brew 'mpc'
+brew 'mpd'
+
+
+
+# File Management
+cask 'kid3'
+cask 'grandperspective'
+cask 'handbrake'dd
+cask 'knockknock'
+cask 'handbrake'
+cask 'unetbootin'
+
+# Word Processing
+cask 'adobe-reader'
+cask 'alfred'
+cask 'calibre'
+cask 'handbrake'
+cask 'skim'
+brew 'pandoc'
+
+
+brew 'wine'
