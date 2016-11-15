@@ -19,6 +19,3 @@
 [submodule "_externals/goyo.vim"]
 	path = _externals/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
-[submodule "_externals/osx-font-smoothing-in-browsers"]
-	path = _externals/osx-font-smoothing-in-browsers
-	url = https://github.com/heussd/osx-font-smoothing-in-browsers
