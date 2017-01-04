@@ -10,9 +10,11 @@ set nolist  " list disables linebreak
 set nobackup       "no backup files
 set nowritebackup  "only in case you don't want a backup file while editing
 set noswapfile     "no swap files
-
+" https://stackoverflow.com/questions/2816719/clear-the-viminfo-file
+:set viminfo=	   "no ~/.viminfo file
 
 " Essential: use proper encryption by default
+" https://dgl.cx/2014/10/vim-blowfish
 :setlocal cm=blowfish2
 
 " Line Numbers
@@ -50,3 +52,4 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 :	set nolist  " list disables linebreak
 :endfunction
 :command FocusMode call FocusMode()
+
