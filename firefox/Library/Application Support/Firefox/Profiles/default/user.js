@@ -41,4 +41,6 @@ user_pref("browser.sessionstore.resume_from_crash", false);
 user_pref("browser.sessionstore.max_resumed_crashes", 0);
 user_pref("browser.sessionstore.restore_on_demand", false);
 
-user_pref("media.block-play-until-visible", 1);
+
+// Media opened in a new tab is played when the tab is visible
+user_pref("media.block-play-until-visible", true);
