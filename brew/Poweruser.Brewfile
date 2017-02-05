@@ -117,7 +117,7 @@ brew 'mpd'
 # File Management
 cask 'kid3'
 cask 'grandperspective'
-cask 'handbrake'dd
+cask 'handbrake'
 cask 'knockknock'
 cask 'handbrake'
 cask 'unetbootin'
