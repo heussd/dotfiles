@@ -1,0 +1,26 @@
+# Turn on advanced bash completion if the file exists (get it here: http://www.caliban.org/bash/index.shtml#completion)
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+alias free='free -lm'
+alias ls='ls --color=auto' # For linux, etc
+alias startx='exec startx'
+
+# Started within a X-Server?
+if [ `set | grep WINDOWID` ]; then
+	alias vim='gvim'
+fi
+
+# Gentoo only
+_has emerge && ( 
+  alias emerge='emerge -vp'
+  alias unmerge='emerge -va --unmerge'
+  alias lsflaws='glsa-check -l affected'
+  alias fixflaws='sudo glsa-check -f affected'
+  # deprecated - use "euse -i" instead
+  #alias descuse='cat /usr/portage/profiles/use.desc | grep '
+)
+
+_has trayer && alias trayer='trayer --edge top --align right --widthtype request --heighttype request --transparent true --alpha 255 --SetPartialStrut false --SetDockType false'
+
