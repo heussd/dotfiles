@@ -44,3 +44,6 @@ user_pref("browser.sessionstore.restore_on_demand", false);
 
 // Media opened in a new tab is played when the tab is visible
 user_pref("media.block-play-until-visible", true);
+
+// Enable containers
+user_pref("privacy.userContext.enabled", true);
