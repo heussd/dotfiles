@@ -1,7 +1,8 @@
 # Try to resume screen session
 if [ $TERM != 'screen' ]; then
   if [[ ! `screen -r` ]]; then
-    exit
+    #exit
+    echo "Screen resume not implemented"
   fi
 fi
 
