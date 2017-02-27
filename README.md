@@ -4,15 +4,12 @@ In the great tradition of sharing dotfiles, this repository contains configurati
 
 ## Initial Setup
 
-	mkdir -p ~/dotfiles
-	cd ~/dotfiles
 	git clone https://github.com/heussd/dotfiles .
 	git submodule update --init --remote _externals/
 	brew bundle -v --file="brew/Brewfile"
-	stow -Rv [^_]*/
+	stow -v --dir=$(pwd) --target=../../. --ignore=README.md [^_]*/
 
 ## Updating
-	cd ~/dotfiles
 	git fetch --all && 	git reset --hard origin/master
 	git submodule update --init --remote _externals/
-	stow -Rv [^_]*/
+	stow -v --dir=$(pwd) --target=../../. --ignore=README.md [^_]*/
