@@ -20,6 +20,9 @@ set noswapfile     "no swap files
 " Line Numbers
 :set number
 
+" Highlight current line
+:set cursorline
+
 
 " Taken from http://nvie.com/posts/how-i-boosted-my-vim/
 set autoindent    " always set autoindenting on
