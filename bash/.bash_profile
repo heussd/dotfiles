@@ -90,11 +90,14 @@ bind "set show-all-if-ambiguous On"
 
 # Load OS specific bash settings
 [[ -e "${BASH_SOURCE[0]}."`uname -s` ]] && source "${BASH_SOURCE[0]}.`uname -s`"
+
+
 # Load Host specific bash settings
-[[ -e ${BASH_SOURCE[0]}.$HOSTNAME ]] && source "${BASH_SOURCE[0]}.$HOSTNAME"
+SHORTHOSTNAME=`hostname | cut -d"." -f 1`
+[[ -e ${BASH_SOURCE[0]}.$SHORTHOSTNAME ]] && source "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
 
 
 echo
-figlet -c `hostname | cut -d"." -f 1`
+figlet -c $SHORTHOSTNAME
 echo
 
