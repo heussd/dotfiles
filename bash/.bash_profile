@@ -67,6 +67,7 @@ alias top='top -o cpu'
 
 # Path additions
  [[ -d $(dirname "${BASH_SOURCE[0]}")/scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/scripts/
+ [[ -d $(dirname "${BASH_SOURCE[0]}")/projects/scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/projects/scripts/
 
 
 # Tiny tools
