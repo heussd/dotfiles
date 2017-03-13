@@ -98,6 +98,6 @@ SHORTHOSTNAME=`hostname | cut -d"." -f 1`
 
 
 echo
-figlet -c $SHORTHOSTNAME
+figlet -c $SHORTHOSTNAME 2>/dev/null || echo "$SHOTHOSTNAME"
 echo
 
