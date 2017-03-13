@@ -56,3 +56,9 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 :endfunction
 :command FocusMode call FocusMode()
 
+
+" Taken from https://github.com/fitzage/.vim/blob/master/gvimrc#L9
+
+set antialias		" MacVim: smooth fonts.
+set encoding=utf-8	" Use UTF-8 everywhere.
+
