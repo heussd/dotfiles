@@ -52,3 +52,9 @@
 # Restart
 	killall Finder
 	killall Dock
+
+
+
+# Brew stuff
+
+	brew bundle -v 
