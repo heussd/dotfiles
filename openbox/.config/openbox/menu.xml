@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+	<menu id="menu-internet" label="Internet">
+		<item label="LinuxDC++">
+			<action name="Execute">
+				<command>linuxdcpp</command>
+			</action>
+		</item>
+		<item label="TOR">
+			<action name="Execute">
+				<command>vidalia</command>
+			</action>
+		</item>
+	</menu>
+<menu id="apps-office-menu" label="Office">
+  <item label="OpenOffice Base">
+    <action name="Execute">
+      <command>ooffice -base</command>
+    </action>
+  </item>
+  <item label="OpenOffice Calc">
+    <action name="Execute">
+      <command>ooffice -calc</command>
+    </action>
+  </item>
+  <item label="OpenOffice Draw">
+    <action name="Execute">
+      <command>ooffice -draw</command>
+    </action>
+  </item>
+  <item label="OpenOffice Impress">
+    <action name="Execute">
+      <command>ooffice -impress</command>
+    </action>
+  </item>
+  <item label="OpenOffice Math">
+    <action name="Execute">
+      <command>ooffice -math</command>
+    </action>
+  </item>
+  <item label="OpenOffice Printer Administration">
+    <action name="Execute">
+      <command>ooffice-printeradmin</command>
+    </action>
+  </item>
+  <item label="OpenOffice Writer">
+    <action name="Execute">
+      <command>ooffice -writer</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="system-menu" label="System">
+  <item label="Openbox Configuration Manager">
+    <action name="Execute">
+      <command>obconf</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Gnome Control Center">
+    <action name="Execute">
+      <command>gnome-control-center</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="KDE Control Center">
+    <action name="Execute">
+      <command>kcontrol</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Xfce Settings">
+    <action name="Execute">
+      <command>xfce-setting-show</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Manage Cups Printers">
+    <action name="Execute">
+      <command>xdg-open http://localhost:631/</command>
+      <startupnotify>
+        <enabled>no</enabled>
+        <icon>cups</icon>
+      </startupnotify>
+    </action>
+  </item>
+  <separator />
+  <item label="Reconfigure Openbox">
+    <action name="Reconfigure" />
+  </item>
+  <item label="Exit Openbox">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+  <item label="_Mount FreeAgent">
+	  <action name="Execute">
+		  <command>sudo truecrypt /dev/sdb /media/FreeAgent</command>
+	  </action>
+  </item>
+  <item label="_Mount fantec">
+	  <action name="Execute">
+		  <command>sudo truecrypt /dev/sdc /media/fantec</command>
+	  </action>
+  </item>
+  <menu id="bin" label="_bin" execute="obBins ~/bin" />
+  <menu id="downloads" label="_downloads" execute="obDirMenu ~/downloads" />
+  <menu id="hda" label="_h_da" execute="obDirMenu ~/h_da" />
+  
+  <separator label="Applications" />
+  <menu id="menu-internet"/>
+  <menu id="apps-office-menu"/>
+  <menu id="VBoxMachines" label="_VirtualBox Machines" execute="obVBMachines" />
+  
+  <separator label="System" />
+  <menu id="system-menu"/>
+  
+  <separator label="Podcasts"/>
+  <menu id="heute" label="_heute Journal" execute="obPodcast0r http://content.zdf.de/podcast/zdf_hjo/hjo.xml" />
+  <menu id="tagesthemen" label="_Tagesthemen" execute="obPodcast0r http://www.tagesschau.de/export/video-podcast/tagesthemen" />
+  <separator />
+  <item label="Log Out">
+    <action name="SessionLogout">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+</menu>
+
+</openbox_menu>
