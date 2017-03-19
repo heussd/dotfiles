@@ -5,4 +5,4 @@ git reset --hard origin/master
 git submodule update --init --remote _externals/
 
 source "`uname -s`.md"
-./stowthis.sh -v --dir=$(pwd) --target=$HOME --ignore=.DS_Store [^_]*/
+./stowthis.sh [^_]*/
