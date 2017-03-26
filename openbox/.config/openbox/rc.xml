@@ -14,7 +14,7 @@
 			always try to focus new windows when they appear. other rules do
 			apply
 		-->
-    <followMouse>no</followMouse>
+    <followMouse>yes</followMouse>
     <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
     <!--
@@ -35,23 +35,24 @@
 		-->
   </focus>
   <placement>
-    <policy>Smart</policy>
+    <policy>UnderMouse</policy>
     <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
     <!--
 			whether to place windows in the center of the free area found or the
 			top left corner
 		-->
-    <monitor>Any</monitor>
+    <monitor>Mouse</monitor>
     <!--
 			with Smart placement on a multi-monitor system, try to place new
 			windows on: 'Any' - any monitor, 'Mouse' - where the mouse is,
 			'Active' - where the active window is
 		-->
+    <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>timm</name>
-    <titleLayout>NLIMC</titleLayout>
+    <name>Numix</name>
+    <titleLayout>NDSLIMC</titleLayout>
     <!--
 			available characters are NDSLIMC, each can occur at most once. N:
 			window icon L: window label (AKA title). I: iconify M: maximize C:
@@ -95,14 +96,14 @@
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
-    <font place="OnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+    <font place="ActiveOnScreenDisplay">
+      <name/>
+    </font>
+    <font place="InactiveOnScreenDisplay">
+      <name>Sans</name>
+      <size>8</size>
+      <weight/>
+      <slant/>
     </font>
   </theme>
   <desktops>
@@ -248,12 +249,29 @@
         <desktop>4</desktop>
       </action>
     </keybind>
+    <keybind key="W-Tab">
+      <action name="ShowMenu">
+        <menu>client-list-combined-menu</menu>
+      </action>
+    </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
+    </keybind>
+    <keybind key="A-w">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="A-q">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="C-A-Up">
+      <action name="Maximize"/>
+    </keybind>
+    <keybind key="C-A-Down">
+      <action name="Unmaximize"/>
     </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
@@ -266,7 +284,9 @@
 		-->
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
-      <action name="NextWindow"/>
+      <action name="NextWindow">
+      	<allDesktops>true</allDesktops>
+      </action>
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
@@ -277,6 +297,11 @@
         <desktop>yes</desktop>
       </action>
     </keybind>
+<keybind key="W-Tab">
+<action name="execute">
+	<execute>wmctrl-switch-by-application</execute>
+</action>
+</keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-e">
       <action name="Execute">
@@ -342,7 +367,7 @@
     </keybind>
     <keybind key="W-l">
       <action name="Execute">
-        <execute>xlock</execute>
+        <execute>slock</execute>
       </action>
     </keybind>
     <keybind key="C-A-z">
@@ -392,7 +417,7 @@
     </keybind>
     <keybind key="W-f">
       <action name="execute">
-        <execute>firefox -no-remote</execute>
+        <execute>firefox</execute>
       </action>
     </keybind>
     <keybind key="W-g">
@@ -615,7 +640,7 @@
         <action name="Move"/>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
-        <action name="ToggleMaximizeFull"/>
+        <action name="ToggleShade"/>
       </mousebind>
       <mousebind button="Middle" action="Press">
         <action name="Lower"/>
@@ -972,6 +997,13 @@
 
   # end of the example
 -->
+    <application class="vlc">
+      <desktop>all</desktop>
+    </application>
+    <application class="Firefox">
+      <maximized>yes</maximized>
+      <decor>no</decor>
+    </application>
     <application name="urxvt">
       <decor>no</decor>
     </application>
