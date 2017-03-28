@@ -1,6 +1,6 @@
 #!/bin/bash
 xrandr --output VGA-1 --above LVDS-1
-
+(sleep 5; sh ~/.fehbg) &
 
 # Load user keycodes
 #if [[ -e ~/.Xmodmap.$HOSTNAME ]]; then
@@ -14,8 +14,11 @@ xrandr --output VGA-1 --above LVDS-1
 #xscreensaver -no-splash &
 
 urxvtd -f -q -o &
-#sleep 2 & trayer --edge top --align right --widthtype request --heighttype request --transparent true --alpha 255 --SetPartialStrut false --SetDockType false &
+sleep 5 && trayer --edge top --align right --widthtype request --heighttype request --transparent true --alpha 255 --SetPartialStrut false --SetDockType false &
 glipper &
 
+# Reset audio levels
+amixer set PCM 85%
+amixer set Headphone 95%
+amixer set Master 100%
 
-sleep 4 & eval `cat ~/.fehbg`
