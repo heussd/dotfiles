@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# Set intitial field separator
+IFS=$'\n'
+
+makeItem() {
+	label=$1
+	echo '<item label="'$label'">'
+	echo '<action name="Execute"><command>'
+	echo '<startupnotify><enabled>yes</enabled></startupnotify>'
+	echo $2
+	echo '</command></action>'
+	echo '</item>'
+}
+
+makeMenu() {
+	# Is $1 a directory?
+	if [ -d $1 ]
+	then
+		# Create submenu and call myself
+		echo '<menu id="'$1'" label="_'`echo ${1##*/}`'" execute="obDirMenu '"'"$1"'"'">'
+		echo "</menu>"
+	else
+		itemName=${1##*/}
+		itemType=${1##*.}
+		itemPath=$1
+
+		itemName=`echo $itemName | utf8`
+		itemPath=`echo $itemPath | utf8`
+
+		case $itemType in
+			html)
+				makeItem "_$itemName" "firefox ''$itemPath''"
+				return
+				;;
+			abw)
+				makeItem "_$itemName" "abiword ''$itemPath''"
+				return
+				;;
+			odt)
+				makeItem "_$itemName" "abiword '$itemPath'"
+				return
+				;;
+			ods)
+				makeItem "_$itemName" "ooffice '$itemPath'"
+				return
+				;;
+			exe)
+				makeItem "_$itemName" "wine ''$itemPath''"
+				return
+				;;
+			ppt)
+				makeItem "_$itemName" "ooffice '$itemPath'"
+				return
+				;;
+			pdf)
+				makeItem "_$itemName [R]" "xpdf -z page '$itemPath'"
+				makeItem "_$itemName [W]" "xournal '$itemPath'"
+				return
+				;;
+			xoj)
+				makeItem "_$itemName" "xournal '$itemPath'"
+				return
+				;;
+		esac
+		case `file -b --mime-type $itemPath` in 
+			"application/"*)
+				makeItem "_$itemName" "'$itemPath'"
+				return
+				;;
+			"audio/"*)
+				makeItem "_$itemName" "vlc '$itemPath'"
+				return
+				;;
+			"image/"*)
+				makeItem "_$itemName" "gpicview '$itemPath'"
+				return
+				;;
+			"video/"*)
+				makeItem "_$itemName" "videoPlayerMaster '$itemPath'"
+				return
+				;;
+		esac
+	
+	fi
+}
+
+[ ! -d $1 ] && exit
+
+echo "<openbox_pipe_menu>"
+for i in `ls -B $1 -St`; do
+	makeMenu $1/$i
+done
+echo "</openbox_pipe_menu>"
