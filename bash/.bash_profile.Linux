@@ -4,8 +4,8 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 alias free='free -lm'
-alias ls='ls --color=auto' # For linux, etc
-alias startx='exec startx'
+alias ls='ls --color=auto'
+alias apt='sudo apt -y'
 
 # Started within a X-Server?
 if [ `set | grep WINDOWID` ]; then
@@ -21,6 +21,4 @@ _has emerge && (
   # deprecated - use "euse -i" instead
   #alias descuse='cat /usr/portage/profiles/use.desc | grep '
 )
-
-_has trayer && alias trayer='trayer --edge top --align right --widthtype request --heighttype request --transparent true --alpha 255 --SetPartialStrut false --SetDockType false'
 

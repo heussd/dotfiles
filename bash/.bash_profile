@@ -9,10 +9,10 @@ fi
 # https://github.com/rizumu/rizumu-dotfiles/blob/master/bash/env.sh
 _has() { which "$1" &>/dev/null; }
 
+
 # Commonly used programs
 export BROWSER="firefox"
 export TERM=xterm-color
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export HISTCONTROL=ignoredups
 export EDITOR='vim'
 export LC_ALL=C
