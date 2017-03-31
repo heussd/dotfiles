@@ -18,7 +18,7 @@ sleep 5 && trayer --edge top --align right --widthtype request --heighttype requ
 glipper &
 
 # Reset audio levels
-amixer set PCM 85%
-amixer set Headphone 95%
-amixer set Master 100%
+amixer set PCM 85% &
+amixer set Headphone 95% &
+amixer set Master 100% &
 
