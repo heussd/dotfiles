@@ -73,6 +73,7 @@ alias top='top -o cpu'
 # Tiny tools
 alias rmEmtpyFolders='find . -type d -empty -exec rmdir "{}" \;'
 alias rmdsstore="find . -name '*.DS_Store' -type f -delete"
+alias rmdsvn="find . -name '*.svn' -type f -delete"
 
 
 # Third party commands
