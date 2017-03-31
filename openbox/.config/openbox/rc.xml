@@ -285,7 +285,8 @@
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow">
-      	<allDesktops>true</allDesktops>
+      	<raise>true</raise>
+      	<dialog>none</dialog>
       </action>
     </keybind>
     <keybind key="A-S-Tab">
