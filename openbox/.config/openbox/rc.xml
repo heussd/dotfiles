@@ -285,12 +285,14 @@
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow">
+        <!-- http://openbox.org/wiki/Help:Actions#NextWindow -->
       	<raise>true</raise>
-      	<dialog>none</dialog>
+      	<dialog>icons</dialog>
       </action>
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
+      <dialog>icons</dialog>
     </keybind>
     <keybind key="C-A-Tab">
       <action name="NextWindow">
@@ -1027,6 +1029,7 @@
     </application>
     <application class="Firefox">
       <maximized>yes</maximized>
+      <desktop>all</desktop>
       <decor>no</decor>
     </application>
     <application name="urxvt">
