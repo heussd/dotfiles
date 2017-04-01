@@ -1,10 +1,10 @@
-# Try to resume screen session
-if [ $TERM != 'screen' ]; then
-  if [[ ! `screen -r` ]]; then
-    #exit
-    echo "Screen resume not implemented"
-  fi
-fi
+# Try to resume screen session - currently disabled
+#if [ $TERM != 'screen' ]; then
+#  if [[ ! `screen -r` ]]; then
+#    #exit
+#    echo "Screen resume not implemented"
+#  fi
+#fi
 
 # https://github.com/rizumu/rizumu-dotfiles/blob/master/bash/env.sh
 _has() { which "$1" &>/dev/null; }
