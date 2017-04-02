@@ -15,7 +15,7 @@ fi
 # Gentoo only
 _has emerge && ( 
   alias emerge='emerge -vp'
-  alias unmerge='emerge -va --unmerge'
+  alias unmerge='CONFIG_PROTECT="-*" CONFIG_PROTECT_MASK="-*" emerge -Cva --unmerge'
   alias lsflaws='glsa-check -l affected'
   alias fixflaws='sudo glsa-check -f affected'
   # deprecated - use "euse -i" instead

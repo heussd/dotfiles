@@ -74,6 +74,7 @@ alias top='top -o cpu'
 alias rmEmtpyFolders='find . -type d -empty -exec rmdir "{}" \;'
 alias rmdsstore="find . -name '*.DS_Store' -type f -delete"
 alias rmdsvn="find . -name '*.svn' -type f -delete"
+alias noftchcks="du -akx | sort -nr | less"
 
 
 # Third party commands
