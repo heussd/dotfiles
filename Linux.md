@@ -1,3 +1,36 @@
-# Favourite Linux packages
+# Linux / APT
 
-	sudo apt install -y glipper stow vim vim-gtk3 gmrun rxvt-unicode tint2 feh trayer tilda
+## Update / Upgrade
+	sudo apt update 
+	sudo apt upgrade -y 
+
+## Install packages
+
+	sudo apt install -y \
+		feh \
+		glipper \
+		gmrun \
+		liferea \
+		putty \
+		rar \
+		redshift \
+		rxvt-unicode \
+		seahorse \
+		stow \
+		tint2 \
+		trayer \
+		unrar \
+		vim \
+		vim-gtk3
+
+
+## Remove
+
+	sudo apt remove -y \
+		flashplugin-installer \
+		parole \
+		pidgin \
+		xfburn
+## Clean up
+
+	sudo apt autoremove -y
