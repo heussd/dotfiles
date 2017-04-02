@@ -62,7 +62,6 @@ alias ls='ls -G'
 alias lsd='ls -l | egrep -e "^d"'
 alias mv='mv -v'
 alias reboot='sudo reboot'
-alias top='top -o cpu'
 
 
 # Path additions
