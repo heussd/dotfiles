@@ -18,6 +18,7 @@ _has emerge && (
   alias unmerge='CONFIG_PROTECT="-*" CONFIG_PROTECT_MASK="-*" emerge -Cva --unmerge'
   alias lsflaws='glsa-check -l affected'
   alias fixflaws='sudo glsa-check -f affected'
+  unmask() { sudo sh -c "echo -e \"$1\t\t\t\t~x86\" >> /etc/portage/package.keywords"; }
   # deprecated - use "euse -i" instead
   #alias descuse='cat /usr/portage/profiles/use.desc | grep '
 )
