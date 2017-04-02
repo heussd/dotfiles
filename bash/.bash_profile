@@ -62,7 +62,6 @@ alias ls='ls -G'
 alias lsd='ls -l | egrep -e "^d"'
 alias mv='mv -v'
 alias reboot='sudo reboot'
-git-lala() { echo "$1"; echo "$2"; }
 git-cosh() { git commit $1 -m "$2"; git push; }
 
 
