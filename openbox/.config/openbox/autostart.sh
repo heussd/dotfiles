@@ -24,6 +24,3 @@ sleep 5 && (
 	amixer set Master 100% &
 )
 
-
-# Disable Trackpad
-xinput disable 11
