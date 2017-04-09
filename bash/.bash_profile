@@ -57,6 +57,7 @@ alias du='du -h'
 alias grep='grep --color'
 alias halt='sudo halt'
 alias l='ls -lh'
+alias ll='l --sort=time'
 alias la='l -A'
 alias ls='ls -G'
 alias lsd='ls -l | egrep -e "^d"'
@@ -74,7 +75,7 @@ git-cosh() { git commit $1 -m "$2"; git push; }
 # Tiny tools
 alias rmEmtpyFolders='find . -type d -empty -exec rmdir "{}" \;'
 alias rmdsstore="find . -name '*.DS_Store' -type f -delete"
-alias rmdsvn="find . -name '*.svn' -type f -delete"
+alias rmsvn="find . -name '*.svn' -type f -delete"
 alias noftchcks="du -akx | sort -nr | less"
 alias mvn-upgrade='mvn versions:use-next-releases'
 
