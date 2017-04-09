@@ -345,22 +345,22 @@
     </keybind>
     <keybind key="W-minus">
       <action name="Execute">
-        <execute>amixer set PCM 2dB-</execute>
+        <execute>amixer set Master 2dB-</execute>
       </action>
     </keybind>
     <keybind key="W-KP_Down">
       <action name="Execute">
-        <execute>amixer set PCM 2dB-</execute>
+        <execute>amixer set Master 2dB-</execute>
       </action>
     </keybind>
     <keybind key="W-plus">
       <action name="Execute">
-        <execute>amixer set PCM 2dB+</execute>
+        <execute>amixer set Master 2dB+</execute>
       </action>
     </keybind>
     <keybind key="W-KP_Up">
       <action name="Execute">
-        <execute>amixer set PCM 2dB+</execute>
+        <execute>amixer set Master 2dB+</execute>
       </action>
     </keybind>
     <keybind key="W-j">
