@@ -415,7 +415,12 @@
     </keybind>
     <keybind key="W-c">
       <action name="execute">
-        <execute>urxvt</execute>
+        <startupnotify>
+        <enabled>yes</enabled>
+        <name>Terminal</name>
+        <icon>konsole</icon>
+        </startupnotify>
+        <execute>xfce4-terminal</execute>
       </action>
     </keybind>
     <keybind key="W-f">
