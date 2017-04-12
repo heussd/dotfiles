@@ -6,10 +6,12 @@ fi
 alias free='free -lm'
 alias ls='ls --color=auto'
 alias apt='sudo apt -y'
+alias service='sudo service'
 
 # Started within a X-Server?
 if [ `set | grep WINDOWID` ]; then
 	alias vim='gvim'
+	alias open='xdg-open'
 fi
 
 # Gentoo only
