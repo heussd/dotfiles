@@ -34,3 +34,6 @@
 ## Clean up
 
 	sudo apt autoremove -y
+
+## Refresh font cache
+	fc-cache -fv
