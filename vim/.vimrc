@@ -57,8 +57,16 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 :command FocusMode call FocusMode()
 
 
+function Date()
+	:r! date "+\%A, \%d. \%B, \%H:\%M Uhr"
+endfunction
+command Date call Date()
+
+
 " Taken from https://github.com/fitzage/.vim/blob/master/gvimrc#L9
 
 set antialias		" MacVim: smooth fonts.
 set encoding=utf-8	" Use UTF-8 everywhere.
 
+" https://github.com/tpope/vim-pathogen
+execute pathogen#infect()
