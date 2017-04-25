@@ -1,0 +1,28 @@
+#!/bin/bash
+# "docker save" for docker-compose.yml-files. Stores all referenced images in a tar archive.
+
+while test $# -gt 0; do
+        case "$1" in
+                -f)
+                	shift
+                	ymlFile=$1
+                	shift
+                	;;
+                -o)
+                	shift
+                	tar=$1
+                	shift
+                	;;
+                *)
+                	break
+        esac
+done
+
+[ -z $ymlFile ] && ymlFile="docker-compose.yml"
+[ -z $tar ] && echo "Please provide a tar file using -o" && exit 1
+
+# Extracting all 'image:' statements
+images=`sed -n 's/\s*image: //p' $ymlFile | tr "\n" " "`
+
+echo "Storing images $images in $tar..."
+docker save $images -o $tar
