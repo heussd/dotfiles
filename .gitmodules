@@ -19,9 +19,6 @@
 [submodule "_externals/goyo.vim"]
 	path = _externals/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
-[submodule "_externals/scripts"]
-	path = _externals/scripts
-	url = git@github.com:heussd/scripts
 [submodule "_externals/latexcommons"]
 	path = _externals/latexcommons
 	url = git@github.com:heussd/latexcommons
