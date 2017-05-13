@@ -1,0 +1,20 @@
+#!/bin/bash
+
+STOW_DIR=$(dirname $(readlink -f $0)) || STOW_DIR=$(pwd)
+STOW_OPTS="--override=. --verbose=1"
+STOW_IGNORE="--ignore=.DS_Store --ignore=.git"
+
+# Use supplied stow action or fall back to restow
+STOW_ACTION="$1"
+if [[ $STOW_ACTION == -* ]]; then
+	# First parameter is stow action
+	shift
+else
+	# No action supplied. 
+	STOW_ACTION="--restow"
+fi
+
+# Ignore Library-folder for non macOS systems
+uname -s | grep -v Darwin > /dev/null && STOW_IGNORE="$STOW_IGNORE --ignore=Library"
+
+stow $STOW_ACTION $STOW_OPTS --dir=$STOW_DIR --target=$HOME $STOW_IGNORE $*
