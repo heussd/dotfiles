@@ -28,3 +28,9 @@
 [submodule "vim/.vim/bundle/YouCompleteMe"]
 	path = vim/.vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule "vim/.vim/bundle/writer.vim"]
+	path = vim/.vim/bundle/writer.vim
+	url = git://github.com/honza/writer.vim
+[submodule "vim/.vim/bundle/goyo.vim"]
+	path = vim/.vim/bundle/goyo.vim
+	url = https://github.com/junegunn/goyo.vim

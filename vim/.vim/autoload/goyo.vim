@@ -1,1 +1,0 @@
-../../../_externals/goyo.vim/autoload/goyo.vim
