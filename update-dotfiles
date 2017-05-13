@@ -1,8 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+
+STOW_DIR=$(dirname $(readlink -f $0))
+
+pushd $STOW_DIR
 
 git fetch --all
 git reset --hard origin/master
 git submodule update --recursive --remote --init
 
-source "`uname -s`.md"
+#source "`uname -s`.md"
 #./stow-dotfiles [^_]*/
+
+popd
