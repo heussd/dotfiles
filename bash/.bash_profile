@@ -63,8 +63,12 @@ alias ls='ls -G'
 alias lsd='ls -l | egrep -e "^d"'
 alias mv='mv -v'
 alias reboot='sudo reboot'
+
+
+# Git shortcuts
 git-cosh() { git commit $1 -m "$2"; git push; }
 git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
+git-rollback() { git reset --hard; git clean -fdx; }
 
 
 # Path additions
