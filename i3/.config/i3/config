@@ -178,7 +178,7 @@ exec redshift-gtk
 
 # Does not work :(
 exec --no-startup-id "xrandr --output VGA1 --mode 1600x1200 --above LVDS"
-exec "source ~/.fehbg"
+exec --no-startup-id "source ~/.fehbg"
 
 bindsym Ctrl+Shift+l exec i3lock -c 000000 && sleep 1 && xset s activate
 
@@ -188,3 +188,4 @@ exec xset -dpms s off
 
 # Disable Touchpad clicks (as it triggers to easy on a X220)
 exec "synclient MaxTapTime=0"
+
