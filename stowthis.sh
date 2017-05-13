@@ -1,7 +1,7 @@
 #!/bin/sh
 
 STOW_DIR=$(dirname $(readlink -f $0)) || STOW_DIR=$(pwd)
-STOW_OPTS="--restow --override=. --verbose=2"
+STOW_OPTS="--restow --override=. --verbose=1"
 
 STOW_IGNORE="--ignore=.DS_Store --ignore=.git"
 # Ignore Library-folder for non macOS systems
