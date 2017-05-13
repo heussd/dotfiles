@@ -13,9 +13,6 @@
 [submodule "vim/.vim/bundle/limelight.vim"]
 	path = vim/.vim/bundle/limelight.vim
 	url = https://github.com/junegunn/limelight.vim
-[submodule "vim/.vim/bundle/YouCompleteMe"]
-	path = vim/.vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
 [submodule "vim/.vim/bundle/writer.vim"]
 	path = vim/.vim/bundle/writer.vim
 	url = git://github.com/honza/writer.vim
