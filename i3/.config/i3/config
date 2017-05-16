@@ -191,3 +191,6 @@ exec xset -dpms s off
 # Disable Touchpad clicks (as it triggers to easy on a X220)
 exec "synclient MaxTapTime=0"
 
+# A dmenu-based quick file opener - find-command taken from
+# https://superuser.com/questions/294161/unix-linux-find-and-sort-by-date-modified/294164#294164
+bindsym $mod+o exec --no-startup-id "xdg-open `find ~/* -printf '%T@ %p\n' | sort -k 1nr | sed 's/^[^ ]* //' | dmenu -i`"
