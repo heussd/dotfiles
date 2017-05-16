@@ -19,9 +19,9 @@ user_pref("browser.safebrowsing.downloads.remote.enabled",	false);
 
 // Disable pocket
 // https://support.mozilla.org/en-US/kb/save-web-pages-later-pocket-firefox
-user_pref("browser.pocket.enabled",				false);
+user_pref("browser.pocket.enabled",true);
 // https://github.com/pyllyukko/user.js/issues/143
-user_pref("extensions.pocket.enabled", false);
+user_pref("extensions.pocket.enabled",true);
 
 // http://kb.mozillazine.org/Browser.search.suggest.enabled
 user_pref("browser.search.suggest.enabled",			false);
@@ -44,6 +44,8 @@ user_pref("browser.sessionstore.restore_on_demand", false);
 
 // Media opened in a new tab is played when the tab is visible
 user_pref("media.block-play-until-visible", true);
+user_pref("media.block-autoplay-until-in-foreground", true);
 
 // Enable containers
 user_pref("privacy.userContext.enabled", true);
+
