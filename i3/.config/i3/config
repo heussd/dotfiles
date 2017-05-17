@@ -178,10 +178,6 @@ exec glipper
 exec redshift-gtk
 #exec nm-applet
 
-# Does not work :(
-exec --no-startup-id "xrandr --output VGA1 --mode 1600x1200 --above LVDS"
-exec --no-startup-id "source ~/.fehbg"
-
 bindsym Ctrl+Shift+l exec i3lock -c 000000 && sleep 1 && xset s activate
 
 # Disable screen standy
