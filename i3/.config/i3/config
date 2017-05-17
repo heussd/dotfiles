@@ -194,3 +194,8 @@ exec "synclient MaxTapTime=0"
 # A dmenu-based quick file opener - find-command taken from
 # https://superuser.com/questions/294161/unix-linux-find-and-sort-by-date-modified/294164#294164
 bindsym $mod+o exec --no-startup-id "xdg-open `find ~/* -printf '%T@ %p\n' | sort -k 1nr | sed 's/^[^ ]* //' | dmenu -i`"
+
+
+# external monitor hotkeys
+bindsym $mod+p exec --no-startup-id "xrandr --output VGA1 --auto --above LVDS1"
+bindsym $mod+Shift+p exec --no-startup-id "xrandr --output VGA1 --off"
