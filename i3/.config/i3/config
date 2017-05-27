@@ -155,13 +155,17 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         mode hide
-        position top
 }
 
 
 
-# No title bar for Firefox
+# Window decoration properties
 for_window [class="Firefox"] border none
+for_window [class="vlc"] floating enable sticky enable border none
+# pop-ups
+# https://faq.i3wm.org/question/61/forcing-windows-as-always-floating.1.html
+for_window [window_role="pop-up"] floating enable
+
 
 bindsym XF86AudioRaiseVolume exec amixer set Master 2dB+
 bindsym XF86AudioLowerVolume exec amixer set Master 2dB-
@@ -171,11 +175,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 bindsym XF86Launch1 exec sudo shutdown -t now
+bindsym XF86Eject exec sudo shutdown -t now
 
 
 exec firefox
 exec glipper 
-exec redshift-gtk
 #exec nm-applet
 
 bindsym Ctrl+Shift+l exec i3lock -c 000000 && sleep 1 && xset s activate
@@ -195,3 +199,8 @@ bindsym $mod+o exec --no-startup-id "xdg-open `find ~/* -printf '%T@ %p\n' | sor
 # external monitor hotkeys
 bindsym $mod+p exec --no-startup-id "xrandr --output VGA1 --auto --above LVDS1"
 bindsym $mod+Shift+p exec --no-startup-id "xrandr --output VGA1 --off"
+
+# Firefox
+# Netflix on workspace 2
+bindsym $mod+n workspace 2; exec "firefox --new-window netflix.com"
+bindsym $mod+Shift+f exec "firefox"
