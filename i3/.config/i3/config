@@ -177,9 +177,11 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 bindsym XF86Launch1 exec sudo shutdown -t now
 bindsym XF86Eject exec sudo shutdown -t now
 
-
-exec firefox
+# Autostart
+# Start a number of tabs automatically https://askubuntu.com/a/618003
+exec xargs -a urlsautostart firefox -new-tab "$line"
 exec glipper 
+exec fluxgui
 #exec nm-applet
 
 bindsym Ctrl+Shift+l exec i3lock -c 000000 && sleep 1 && xset s activate
