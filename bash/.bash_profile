@@ -68,7 +68,7 @@ alias reboot='sudo reboot'
 # Git shortcuts
 git-cosh() { git commit $1 -m "$2"; git push; }
 git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
-git-ROLLBACK() { git reset --hard; git clean -fdx; }
+git-ROLLBACK() { git fetch origin; git reset --hard origin/master; git clean -fdx; }
 
 
 # Path additions
