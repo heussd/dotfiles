@@ -82,6 +82,7 @@ alias rmdsstore="find . -name '*.DS_Store' -type f -delete"
 alias rmsvn="find . -name '*.svn' -type f -delete"
 alias noftchcks="du -akx | sort -nr | less"
 alias mvn-upgrade='mvn versions:use-next-releases'
+alias java-list-imports='find . -iname "*.java" | xargs cat | grep -e "^import" | sort -r | uniq'
 
 
 # Third party commands
