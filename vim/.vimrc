@@ -42,6 +42,8 @@ color molokai
 set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
+set spell spelllang=de,en
+
 
 :function FocusMode()
 :	silent! WriterToggle
@@ -67,6 +69,7 @@ command Date call Date()
 
 set antialias		" MacVim: smooth fonts.
 set encoding=utf-8	" Use UTF-8 everywhere.
+set termencoding=utf-8
 
 " https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
