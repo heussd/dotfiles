@@ -70,3 +70,7 @@ set encoding=utf-8	" Use UTF-8 everywhere.
 
 " https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
+
+" Neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
