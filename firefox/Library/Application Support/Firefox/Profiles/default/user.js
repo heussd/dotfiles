@@ -47,5 +47,5 @@ user_pref("media.block-play-until-visible", true);
 user_pref("media.block-autoplay-until-in-foreground", true);
 
 // Enable containers
-user_pref("privacy.userContext.enabled", true);
+//user_pref("privacy.userContext.enabled", true);
 
