@@ -3,3 +3,5 @@
 *.swp
 bashrc.*
 vim/.vim/spell
+mpv/.config/mpv/watch_later/
+
