@@ -42,7 +42,7 @@ color molokai
 set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
-set spell spelllang=de,en
+"set spell spelllang=de,en
 
 
 :function FocusMode()
