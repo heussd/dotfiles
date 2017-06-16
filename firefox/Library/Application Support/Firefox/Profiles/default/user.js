@@ -35,11 +35,11 @@ user_pref("mousewheel.with_meta.action", 0);
 
 // Disable session restore, legend says that this saves quite some hard disk I/O
 // https://forums.servethehome.com/index.php?threads/firefox-is-chewing-through-your-nand.11346/page-3
-user_pref("browser.sessionstore.max_tabs_undo", 0);
-user_pref("browser.sessionstore.max_windows_undo", 0);
-user_pref("browser.sessionstore.resume_from_crash", false);
-user_pref("browser.sessionstore.max_resumed_crashes", 0);
-user_pref("browser.sessionstore.restore_on_demand", false);
+//user_pref("browser.sessionstore.max_tabs_undo", 0);
+//user_pref("browser.sessionstore.max_windows_undo", 0);
+//user_pref("browser.sessionstore.resume_from_crash", false);
+//user_pref("browser.sessionstore.max_resumed_crashes", 0);
+//user_pref("browser.sessionstore.restore_on_demand", false);
 
 
 // Media opened in a new tab is played when the tab is visible
