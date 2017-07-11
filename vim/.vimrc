@@ -22,6 +22,7 @@ set noswapfile     "no swap files
 
 " Highlight current line
 :set cursorline
+":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 
 " Taken from http://nvie.com/posts/how-i-boosted-my-vim/
@@ -77,3 +78,6 @@ execute pathogen#infect()
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+
+
+hi CursorLine term=bold cterm=bold guibg=Grey40
