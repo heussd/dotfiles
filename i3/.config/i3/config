@@ -31,6 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+for_window [title="Terminal"] border pixel 1
 
 # kill focused window
 bindsym $mod+q kill
@@ -179,7 +180,9 @@ bindsym XF86Eject exec sudo shutdown -t now
 
 # Autostart
 # Start a number of tabs automatically https://askubuntu.com/a/618003
-exec xargs -a urlsautostart firefox -new-tab "$line"
+#exec xargs -a urlsautostart firefox -new-tab "$line"
+exec sleep 3 && firefox --new-instance -P autostart
+exec xrandr --output LVDS-1 --off
 exec glipper 
 exec fluxgui
 #exec nm-applet
@@ -205,4 +208,4 @@ bindsym $mod+Shift+p exec --no-startup-id "xrandr --output VGA1 --off"
 # Firefox
 # Netflix on workspace 2
 bindsym $mod+n workspace 2; exec "firefox --new-window netflix.com"
-bindsym $mod+Shift+f exec "firefox"
+bindsym $mod+Shift+f exec "firefox -P default"
