@@ -183,7 +183,9 @@ bindsym XF86Eject exec sudo shutdown -t now
 # Start a number of tabs automatically https://askubuntu.com/a/618003
 #exec xargs -a urlsautostart firefox -new-tab "$line"
 exec firefox
-exec xrandr --output LVDS-1 --off
+
+# Disable Laptop screen if external monitor is connected
+exec xrandr | grep "VGA-1 connected" && xrandr --output LVDS-1 --off
 exec glipper 
 exec fluxgui
 #exec nm-applet
