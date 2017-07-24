@@ -25,3 +25,6 @@
 [submodule "_externals/zim-plugin-instantsearch"]
 	path = _externals/zim-plugin-instantsearch
 	url = https://github.com/e3rd/zim-plugin-instantsearch
+[submodule "_externals/zim-plugin-append"]
+	path = _externals/zim-plugin-append
+	url = https://github.com/Osndok/zim-plugin-append
