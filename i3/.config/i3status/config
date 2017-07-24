@@ -17,6 +17,7 @@ general {
 }
 
 order += "volume master"
+order += "battery 0"
 order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
@@ -36,6 +37,12 @@ volume master {
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
+}
+
+
+battery 0 {
+	format = "%status %percentage %remaining"
+	path = "/sys/class/power_supply/BAT0/uevent"
 }
 
 load {
