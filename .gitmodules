@@ -22,3 +22,6 @@
 [submodule "vim/.vim/bundle/neocomplete.vim"]
 	path = vim/.vim/bundle/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim
+[submodule "_externals/zim-plugin-instantsearch"]
+	path = _externals/zim-plugin-instantsearch
+	url = https://github.com/e3rd/zim-plugin-instantsearch
