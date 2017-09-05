@@ -5,3 +5,4 @@ bashrc.*
 vim/.vim/spell
 mpv/.config/mpv/watch_later/
 
+zim/.local/share/zim/plugins/*.pyc
