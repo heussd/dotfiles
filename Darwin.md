@@ -8,16 +8,6 @@
 	defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 
-## Dock
-### Dock Hiding Animation Speed 
-	defaults write com.apple.dock autohide -bool false
-	defaults write com.apple.dock autohide-time-modifier -float 0
-	defaults write com.apple.dock autohide-delay -float 0
-
-### Lower delay between moving windows from space to space
-	defaults write com.apple.dock workspaces-edge-delay -float 0.001
-
-
 ## Finder
 
 
