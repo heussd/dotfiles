@@ -1,6 +1,16 @@
 #!/bin/bash
 
-STOW_DIR=$(dirname $(readlink -f $0)) || STOW_DIR=$(pwd)
+# Find the .dotfiles root folder where this script is located at, taken from https://stackoverflow.com/a/246128
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+
+STOW_DIR=$DIR
 STOW_OPTS="--override=. --verbose=1"
 STOW_IGNORE="--ignore=.DS_Store --ignore=.git"
 
