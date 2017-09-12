@@ -107,7 +107,18 @@ SHORTHOSTNAME=`hostname | cut -d"." -f 1`
 [[ -e ${BASH_SOURCE[0]}.$SHORTHOSTNAME ]] && source "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
 
 
-echo
-figlet -c $SHORTHOSTNAME 2>/dev/null || echo "$SHOTHOSTNAME"
-echo
-
+# Console prints may be skipped
+if [ "$1" != "silent" ]; then
+	echo
+	figlet -c $SHORTHOSTNAME 2>/dev/null || echo "$SHOTHOSTNAME"
+	echo
+	
+	# Print status of important folders
+	
+	if [ -d .dotfiles ]; then
+		echo -e ".dotfiles \t $(cd .dotfiles && git log --oneline | head -n 1)"
+	fi
+	if [ -d scripts ]; then
+		echo -e "scripts \t $(cd scripts && git log --oneline | head -n 1)"
+	fi
+fi
