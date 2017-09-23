@@ -72,6 +72,9 @@ git-ROLLBACK() { git fetch origin; git reset --hard origin/master; git clean -fd
 
 source-if-exist() { [[ -e $1 ]] && source "$1"; }
 
+# http://www.open-source-blog.de/2014/11/17/apple-spezifische-dateien-wie-appledouble-ds_store-etc-loeschen-mittels-find/
+rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
+
 # Path additions
  [[ -d $(dirname "${BASH_SOURCE[0]}")/scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/scripts/
  [[ -d $(dirname "${BASH_SOURCE[0]}")/projects/scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/projects/scripts/
@@ -123,3 +126,5 @@ if [ "$1" != "silent" ]; then
 		echo -e "scripts \t $(cd scripts && git log --oneline | head -n 1)"
 	fi
 fi
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
