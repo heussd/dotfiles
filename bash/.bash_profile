@@ -93,6 +93,10 @@ _has rsync && alias gentlecp='rsync --update --progress --human-readable'
 _has thefuck && eval "$(thefuck --alias)"
 _has stow && alias stow='stow --dir="$HOME/dotfiles/" --ignore=README.md -v'
 
+if [ -d .bash-git-prompt ]; then
+	GIT_PROMPT_ONLY_IN_REPO=1
+	source ~/.bash-git-prompt/gitprompt.sh
+fi
 
 # Enable and configure bash completion
 # Taken from https://gist.github.com/holywarez/578695

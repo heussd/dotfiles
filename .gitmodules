@@ -28,3 +28,6 @@
 [submodule "_externals/zim-plugin-append"]
 	path = _externals/zim-plugin-append
 	url = https://github.com/Osndok/zim-plugin-append
+[submodule "_externals/bash-git-prompt"]
+	path = _externals/bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt.git
