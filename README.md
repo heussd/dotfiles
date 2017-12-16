@@ -1,5 +1,9 @@
 # dotfiles
-In the great tradition of sharing dotfiles, this repository contains configuration files for third party software to meet my demands. 
+In the great tradition of sharing dotfiles this repository contains various configuration files for Unix and Linux software. 
 
-	git clone https://github.com/heussd/dotfiles .
-	./update.sh
+
+## Git clone
+	git clone github.com:heussd/dotfiles .dotfiles
+
+## HTTPs clone
+	git clone https://github.com/heussd/dotfiles .dotfiles
