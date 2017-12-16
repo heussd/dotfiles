@@ -76,8 +76,7 @@ source-if-exist() { [[ -e $1 ]] && source "$1"; }
 rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
 
 # Path additions
- [[ -d $(dirname "${BASH_SOURCE[0]}")/scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/scripts/
- [[ -d $(dirname "${BASH_SOURCE[0]}")/projects/scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/projects/scripts/
+ [[ -d $(dirname "${BASH_SOURCE[0]}")/.scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/.scripts/
 
 
 # Tiny tools
@@ -122,8 +121,8 @@ if [ "$1" != "silent" ]; then
 	if [ -d .dotfiles ]; then
 		echo -e ".dotfiles \t $(cd .dotfiles && git log --oneline | head -n 1)"
 	fi
-	if [ -d scripts ]; then
-		echo -e "scripts \t $(cd scripts && git log --oneline | head -n 1)"
+	if [ -d .scripts ]; then
+		echo -e ".scripts \t $(cd .scripts && git log --oneline | head -n 1)"
 	fi
 fi
 
