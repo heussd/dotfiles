@@ -10,6 +10,9 @@
 _has() { which "$1" &>/dev/null; }
 
 
+_hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; } 
+
+
 # Commonly used programs
 export BROWSER="firefox"
 export TERM=xterm-color
@@ -69,6 +72,8 @@ alias reboot='sudo reboot'
 git-cosh() { git commit $1 -m "$2"; git push; }
 git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
 git-ROLLBACK() { git fetch origin; git reset --hard origin/master; git clean -fdx; }
+git-head-stat() { pushd $1 > /dev/null ; git log --oneline | head -n 1; popd > /dev/null; }
+
 
 source-if-exist() { [[ -e $1 ]] && source "$1"; }
 
@@ -93,10 +98,7 @@ _has rsync && alias gentlecp='rsync --update --progress --human-readable'
 _has thefuck && eval "$(thefuck --alias)"
 _has stow && alias stow='stow --dir="$HOME/dotfiles/" --ignore=README.md -v'
 
-if [ -d .bash-git-prompt ]; then
-	GIT_PROMPT_ONLY_IN_REPO=1
-	source ~/.bash-git-prompt/gitprompt.sh
-fi
+_hasFolder ".bash-git-prompt" && GIT_PROMPT_ONLY_IN_REPO=1 && source ~/.bash-git-prompt/gitprompt.sh
 
 # Enable and configure bash completion
 # Taken from https://gist.github.com/holywarez/578695
@@ -116,18 +118,15 @@ source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
 
 # Console prints may be skipped
 if [ "$1" != "silent" ]; then
+
 	echo
 	figlet -c $SHORTHOSTNAME 2>/dev/null || echo "$SHOTHOSTNAME"
 	echo
 	
 	# Print status of important folders
-	
-	if [ -d .dotfiles ]; then
-		echo -e ".dotfiles \t $(cd .dotfiles && git log --oneline | head -n 1)"
-	fi
-	if [ -d .scripts ]; then
-		echo -e ".scripts \t $(cd .scripts && git log --oneline | head -n 1)"
-	fi
+	stat-folders() { _hasFolder $1 && echo -e "$1 \t $(git-head-stat $1)"; }
+	stat-folders .dotfiles
+	stat-folders .scripts
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
