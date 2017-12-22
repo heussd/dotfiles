@@ -238,3 +238,7 @@ bindsym $mod+Shift+p exec --no-startup-id "xrandr --output VGA1 --off"
 # Netflix on workspace 2
 bindsym $mod+n workspace 2; exec "firefox --new-window netflix.com"
 bindsym $mod+Shift+f exec "firefox -P default"
+
+
+
+exec "redshift -t 6500:2500 &"
