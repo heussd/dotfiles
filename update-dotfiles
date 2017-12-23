@@ -15,19 +15,10 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-
-STOW_DIR=$DIR
-
-pushd $STOW_DIR
-
-gitfetchresetmodules
-#source "`uname -s`.md"
-#./stow-dotfiles [^_]*/
-
-
-if [ -d ~/.scripts ]; then
-	cd ~/.scripts
+for directory in $DIR "~/.scripts"; do
+	echo "Updating $directory..."
+	pushd $directory
 	gitfetchresetmodules
-fi
+	popd
+done
 
-popd
