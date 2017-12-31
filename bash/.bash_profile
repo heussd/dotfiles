@@ -124,9 +124,10 @@ if [ "$1" != "silent" ]; then
 	echo
 	
 	# Print status of important folders
-	stat-folders() { _hasFolder $1 && echo -e "$1 \t $(git-head-stat $1)"; }
+	stat-folders() { _hasFolder $1 && printf " %-9s @ %s\n" "$1" "$(git-head-stat $1)"; }
 	stat-folders .dotfiles
 	stat-folders .scripts
+	echo
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
