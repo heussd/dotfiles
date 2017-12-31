@@ -34,3 +34,4 @@
 [submodule "_externals/zim-mendeley-plugin"]
 	path = _externals/zim-mendeley-plugin
 	url = https://github.com/grahamrow/zim-mendeley-plugin
+	branch = fix/ui-issues
