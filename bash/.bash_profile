@@ -81,7 +81,7 @@ source-if-exist() { [[ -e $1 ]] && source "$1"; }
 rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
 
 # Path additions
- [[ -d $(dirname "${BASH_SOURCE[0]}")/.scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/.scripts/
+ [[ -d $(dirname "${BASH_SOURCE[0]}")/.scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/.scripts
 
 
 # Tiny tools
