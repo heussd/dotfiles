@@ -47,10 +47,12 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
 :function FocusMode()
+:	silent! set fu
+:	sleep 2
+:	redraw
 :	silent! WriterToggle
 :	Goyo
 :	Limelight
-:	silent! set fu
 :	set wrapmargin=0
 :	set textwidth=0
 :	set wrap
