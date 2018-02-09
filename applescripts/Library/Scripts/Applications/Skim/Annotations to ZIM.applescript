@@ -22,15 +22,18 @@ on run argv
 					set oneNoteText to text of oneNote
 				else
 					set oneNoteText to selection of oneNote
+					log selection
 				end if
 				
 				if oneNoteText is missing value or oneNoteText is "" then
 					display alert "Failed to extract the text of notation" & my newline() & my newline() & "Note number " & counter & " on Page " & pdfPage & my newline() & "Type " & oneNoteType
 				else
-					-- Extraction seems to have worked
-					set oneNoteText to my removeJunk(oneNoteText)
-					set allNotes to allNotes & my asQuote(oneNoteText, pdfName, pdfPage) & my newline() & my newline() & my newline()
-				end if
+					try
+						-- Extraction seems to have worked
+						set oneNoteText to my removeJunk(oneNoteText as string)
+					end try
+				set allNotes to allNotes & my asQuote(oneNoteText, pdfName, pdfPage) & my newline() & my newline() & my newline()
+end if
 			end if
 		end repeat
 		

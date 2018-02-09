@@ -33,6 +33,11 @@ tell application "Skim"
 				display alert "Failed to extract the text of notation" & my newline() & my newline() & "Note number " & counter & " on Page " & pdfPage & my newline() & "Type " & oneNoteType
 			else
 				-- Extraction seems to have worked
+				try
+					set oneNoteText to oneNoteText as Unicode text
+				on error the error_message number the error_number
+					display dialog "Error: " & the error_number & ". " & the error_message buttons {"OK"} default button 1
+				end try
 				set oneNoteText to my removeJunk(oneNoteText)
 				set allNotes to allNotes & my asQuote(oneNoteText, pdfName, pdfPage) & my newline() & my newline() & my newline()
 			end if
