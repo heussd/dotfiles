@@ -205,40 +205,38 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 bindsym XF86Launch1 exec sudo shutdown -t now
 bindsym XF86Eject exec sudo shutdown -t now
 
-# Autostart
-# Start a number of tabs automatically https://askubuntu.com/a/618003
-#exec xargs -a urlsautostart firefox -new-tab "$line"
-exec --no-startup-id "if [ -f .deinit ]; then source .deinit; fi"
+# external monitor hotkeys
+bindsym $mod+p exec --no-startup-id "xrandr --output VGA1 --auto --above LVDS1"
+bindsym $mod+Shift+p exec --no-startup-id "xrandr --output VGA1 --off"
 
-# Disable Laptop screen if external monitor is connected
-exec xrandr | grep "VGA-1 connected" && xrandr --output LVDS-1 --off
-exec glipper 
-exec fluxgui
-#exec nm-applet
 
 bindsym Ctrl+Shift+l exec i3lock -c 000000 && sleep 1 && xset s activate
 
-# Disable screen standy
-exec xset s off
-exec xset -dpms s off
 
-# Disable Touchpad clicks (as it triggers to easy on a X220)
-exec "synclient MaxTapTime=0"
+# Netflix on workspace 2
+bindsym $mod+n workspace 2; exec "firefox --new-window netflix.com"
+bindsym $mod+Shift+f exec "firefox -P default"
 
 # A dmenu-based quick file opener - find-command taken from
 # https://superuser.com/questions/294161/unix-linux-find-and-sort-by-date-modified/294164#294164
 bindsym $mod+o exec --no-startup-id "xdg-open `find ~/* -printf '%T@ %p\n' | sort -k 1nr | sed 's/^[^ ]* //' | dmenu -i`"
 
 
-# external monitor hotkeys
-bindsym $mod+p exec --no-startup-id "xrandr --output VGA1 --auto --above LVDS1"
-bindsym $mod+Shift+p exec --no-startup-id "xrandr --output VGA1 --off"
+# Autostart
+# Start a number of tabs automatically https://askubuntu.com/a/618003
+#exec xargs -a urlsautostart firefox -new-tab "$line"
+exec --no-startup-id if [ -f .deinit ]; then source .deinit; fi
 
-# Firefox
-# Netflix on workspace 2
-bindsym $mod+n workspace 2; exec "firefox --new-window netflix.com"
-bindsym $mod+Shift+f exec "firefox -P default"
+# Disable Laptop screen if external monitor is connected
+exec --no-startup-id xrandr | grep "VGA-1 connected" && xrandr --output LVDS-1 --off
+exec --no-startup-id glipper 
+exec --no-startup-id fluxgui
+exec --no-startup-id nm-applet
 
+# Disable screen standy
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms s off
 
-
-exec "redshift -t 6500:2500 &"
+# Disable Touchpad clicks (as it triggers to easy on a X220)
+exec --no-startup-id synclient MaxTapTime=0
+exec --no-startup-id redshift -t 6500:2500
