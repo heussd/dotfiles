@@ -44,7 +44,6 @@
 	killall Dock
 
 
+# Apps that cannot be installed automatically
 
-# Brew stuff
-
-	brew bundle -v 
+	open https://github.com/dmarcotte/easy-move-resize/releases
