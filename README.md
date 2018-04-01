@@ -6,8 +6,11 @@ In the great tradition of sharing dotfiles this repository contains various conf
 	git clone github.com:heussd/dotfiles .dotfiles
 	# HTTPS
 	# git clone https://github.com/heussd/dotfiles .dotfiles
-	open https://brew.sh
-	
 	cd ~/.dotfiles
+	mkdir ~/.scripts
+	source "$(uname -s).md"
+	
+	
 	brew bundle install -v
 	./stow-dotfiles dotfiles
+	

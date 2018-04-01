@@ -46,4 +46,5 @@
 
 # Apps that cannot be installed automatically
 
+	open https://brew.sh
 	open https://github.com/dmarcotte/easy-move-resize/releases
