@@ -1,0 +1,83 @@
+{
+  "hotkey": "alt+space",
+  "theme": "danielbayerlein/zazu-simple-theme",
+  "displayOn": "detect",
+  "plugins": [
+    {
+      "name": "tinytacoteam/zazu-fallback",
+      "variables": {
+        "rootSearches": [
+          "g"
+        ],
+        "prefixSearches": {
+          "g": {
+            "icon": "fa-google",
+            "name": "Google",
+            "url": "https://www.google.de/search?q="
+          },
+          "yt": {
+            "icon": "fa-youtube",
+            "name": "Youtube",
+            "url": "https://www.youtube.com/results?search_query="
+          },
+          "mvn": {
+            "icon": "fa-book",
+            "name": "Maven Central",
+            "url": "http://mvnrepository.com/search?q="
+          },
+          "gif": {
+            "icon": "fa-smile",
+            "name": "Giphy",
+            "url": "https://giphy.com/search/mind-blown"
+          },
+          "doi": {
+            "icon": "fa-library",
+            "name": "DOI",
+            "url": "http://dx.doi.org/"
+          },
+          "speak": {
+            "icon": "fa-headphones",
+            "name": "Forvo",
+            "url": "https://www.forvo.com/search/"
+          },
+          "fa": {
+            "icon": "fa-book",
+            "name": "Font Awesome",
+            "url": "https://fontawesome.com/icons?q="
+          },
+          "d": {
+            "icon": "fa-globe",
+            "name": "dict.cc",
+            "url": "http://www.dict.cc/?s="
+          },
+          "ling": {
+            "icon": "fa-globe",
+            "name": "Linguee",
+            "url": "https://www.linguee.de/deutsch-englisch/search?source=auto&query="
+          },
+          "docker": {
+            "icon": "fa-docker",
+            "name": "Docker Hub",
+            "url": "https://hub.docker.com/search/?q="
+          },
+          "alt": {
+            "icon": "fa-box",
+            "name": "AlternativeTo.net",
+            "url": "https://alternativeto.net/browse/search?q="
+          },
+          "stats": {
+            "icon": "fa-signal",
+            "name": "Statista",
+            "url": "https://www.statista.com/search/?q="
+          }
+	      }
+      }
+    },
+    {
+      "name": "tinytacoteam/zazu-clipboard",
+      "variables": {
+        "ClipboardKey": "cmd+shift+v"
+      }
+    }
+  ]
+}
