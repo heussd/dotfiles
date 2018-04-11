@@ -78,6 +78,9 @@
       "variables": {
         "ClipboardKey": "cmd+shift+v"
       }
+    },
+    {
+      "name": "tinytacoteam/zazu-snippets"
     }
   ]
 }
