@@ -240,3 +240,6 @@ exec --no-startup-id xset -dpms s off
 # Disable Touchpad clicks (as it triggers to easy on a X220)
 exec --no-startup-id synclient MaxTapTime=0
 exec --no-startup-id redshift -t 6500:2500
+
+
+exec --no-startup-id eval ~/.fehbg
