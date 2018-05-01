@@ -161,8 +161,7 @@ cask "yed"
 cask "caskroom/fonts/font-source-code-pro"
 mas "CotEditor", id: 1024640650
 mas "Disk Graph", id: 697942581
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
 mas "OTP Manager", id: 928941247
 mas "The Duplicate Finder", id: 654667344
 mas "Xcode", id: 497799835
+mas "AutoMute", id: 1118136179
