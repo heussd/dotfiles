@@ -35,9 +35,6 @@ color molokai
 set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
-"set spell spelllang=de,en
-
-
 :function FocusMode()
 :	silent! set fu
 :	sleep 2
@@ -50,6 +47,7 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 :	set wrap
 :	set linebreak
 :	set nolist  " list disables linebreak
+: set spell spelllang=de,en
 :endfunction
 :command FocusMode call FocusMode()
 
