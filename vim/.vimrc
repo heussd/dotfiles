@@ -1,11 +1,3 @@
-" Essential: no automatic & persistent line breaks
-set wrapmargin=0
-set textwidth=0
-set wrap
-set linebreak
-set nolist  " list disables linebreak
-
-
 " https://stackoverflow.com/questions/743150/how-to-prevent-vim-from-creating-and-leaving-temporary-files
 set nobackup       "no backup files
 set nowritebackup  "only in case you don't want a backup file while editing
