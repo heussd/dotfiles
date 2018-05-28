@@ -74,10 +74,7 @@
       }
     },
     {
-      "name": "tinytacoteam/zazu-clipboard",
-      "variables": {
-        "ClipboardKey": "cmd+shift+v"
-      }
+      "name": "tinytacoteam/zazu-snippets"
     }
   ]
 }
