@@ -7,7 +7,7 @@
       "name": "tinytacoteam/zazu-fallback",
       "variables": {
         "rootSearches": [
-          "g"
+          "g", "docker"
         ],
         "prefixSearches": {
           "g": {
