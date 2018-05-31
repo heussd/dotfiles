@@ -5,11 +5,11 @@ end tell
 
 tell application "Skim"
 	open pdfFile
-	delay 3
-	set allNotes to ""
-	
 	convert notes document 1
+	delay 3
 	
+	set allNotes to ""
+		
 	log (number of notes of document 1) & " notes to extract"
 	set pdfName to name of document 1 as text
 	
