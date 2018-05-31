@@ -34,7 +34,7 @@ on randomFileName()
 end randomFileName
 
 on asQuote(content, source)
-	return my newline() & "> " & content & my newline() & my newline() & my removeNewline((source) & "<br/>(Last access " & (do shell script "date")) & ")"
+	return my newline() & my removeNewline("> " & content) & my newline() & my newline() & my removeNewline((source) & "<br/>(Last access " & (do shell script "date")) & ")"
 end asQuote
 
 on getPocketText(decodedPocketMailSource)
@@ -57,10 +57,10 @@ on getPocketSource(decodedPocketMailSource)
 	return source
 end getPocketSource
 on removeNewline(content)
-	set content to my replaceText("
-", "", content)
 	set content to my replaceText(ASCII character 13, "
 ", content)
+	set content to my replaceText("
+", "", content)
 	return content
 end removeNewline
 on removeJunk(content)
