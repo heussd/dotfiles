@@ -8,7 +8,7 @@
       "name": "tinytacoteam/zazu-fallback",
       "variables": {
         "rootSearches": [
-          "g", "docker"
+          "g"
         ],
         "prefixSearches": {
           "g": {
@@ -56,7 +56,7 @@
             "name": "Linguee",
             "url": "https://www.linguee.de/deutsch-englisch/search?source=auto&query="
           },
-          "docker": {
+          "dockerhub": {
             "icon": "fa-docker",
             "name": "Docker Hub",
             "url": "https://hub.docker.com/search/?q="
