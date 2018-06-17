@@ -1,4 +1,5 @@
 {
+  "disableAnalytics": false,
   "hotkey": "alt+space",
   "theme": "danielbayerlein/zazu-simple-theme",
   "displayOn": "detect",
