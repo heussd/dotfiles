@@ -77,7 +77,7 @@
     {
       "name": "tinytacoteam/zazu-snippets",
       "variables": {
-        "directory": "~/projects",
+        "directory": "/Users/th/projects/",
         "folder": "snippets"
       }
     },
