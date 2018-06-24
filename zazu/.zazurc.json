@@ -70,6 +70,11 @@
             "icon": "fa-signal",
             "name": "Statista",
             "url": "https://www.statista.com/search/?q="
+          },
+          "deepl": {
+            "name": "DeepL Translation",
+            "icon": "fa-globe",
+            "url": "https://www.deepl.com/translator#en/de/"
           }
 	      }
       }
