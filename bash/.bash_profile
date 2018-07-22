@@ -10,7 +10,7 @@
 _has() { which "$1" &>/dev/null; }
 
 
-_hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; } 
+_hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
 
 
 # Commonly used programs
@@ -69,6 +69,11 @@ alias mv='mv -v'
 alias reboot='sudo reboot'
 
 
+# Docker shortcuts
+alias dc-UP='docker-compose up --abort-on-container-exit'
+alias dc-DOWN='docker-compose down --volumes --remove-orphans'
+alias dcl='dc-UP; dc-DOWN'
+
 # Git shortcuts
 git-cosh() { git commit $1 -m "$2"; git push; }
 git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
@@ -123,7 +128,7 @@ if [ "$1" != "silent" ]; then
 	echo
 	figlet -c $SHORTHOSTNAME 2>/dev/null || echo "$SHOTHOSTNAME"
 	echo
-	
+
 	# Print status of important folders
 	stat-folders() { _hasFolder $1 && printf " %-9s @ %s\n" "$1" "$(git-head-stat $1)"; }
 	stat-folders .dotfiles
