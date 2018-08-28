@@ -8,7 +8,7 @@
       "name": "tinytacoteam/zazu-fallback",
       "variables": {
         "rootSearches": [
-          "g"
+          "g", "cheat"
         ],
         "prefixSearches": {
           "g": {
@@ -75,6 +75,11 @@
             "name": "DeepL Translation",
             "icon": "fa-globe",
             "url": "https://www.deepl.com/translator#en/de/"
+          },
+          "cheat": {
+            "name": "Cheat.sh",
+            "icon": "fa-code",
+            "url": "http://cheat.sh/"
           }
 	      }
       }
