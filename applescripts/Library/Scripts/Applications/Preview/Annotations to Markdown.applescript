@@ -1,3 +1,8 @@
+global markdownTargetFolder, pdfVerzetteltTargetFolder
+set markdownTargetFolder to "~/projects/zettelwirtschaft/excerpts/"
+set pdfVerzetteltTargetFolder to expandTilde("~/Archive/Verzettelt/")
+
+
 set pdfFile to ""
 tell application "Preview"
 	set pdfFile to get path of document 1
@@ -9,14 +14,13 @@ tell application "Skim"
 	delay 3
 	
 	set allNotes to ""
-		
+	
 	log (number of notes of document 1) & " notes to extract"
 	set pdfName to name of document 1 as text
 	
 	set counter to 0
 	repeat with oneNote in (notes of document 1)
 		set pdfPage to label of page of oneNote
-		set counter to (counter + 1)
 		
 		set oneNoteType to (type of oneNote)
 		
@@ -35,22 +39,27 @@ tell application "Skim"
 			else
 				-- Extraction seems to have worked
 				try
-					set oneNoteText to oneNoteText as Unicode text
-				on error the error_message number the error_number
-					display dialog "Error: " & the error_number & ". " & the error_message buttons {"OK"} default button 1
+					set oneNoteText to "" & oneNoteText
+					
+					set oneNoteText to my removeJunk(oneNoteText)
+					set allNotes to allNotes & my asQuote(oneNoteText, pdfName, pdfPage) & my newline() & my newline() & my newline()
+					
+					
+					my writeFile(my hashedFileName(allNotes), allNotes)
+					set allNotes to ""
+					set counter to (counter + 1)
 				end try
-				set oneNoteText to my removeJunk(oneNoteText)
-				set allNotes to allNotes & my asQuote(oneNoteText, pdfName, pdfPage) & my newline() & my newline() & my newline()
 			end if
+			
 		end if
 	end repeat
+	
+	if counter is 0 then display dialog "Nothing was extracted - sorry"
 	
 	quit saving no
 end tell
 
-my writeFile(my fsEscape(pdfName), allNotes)
-
-
+do shell script "mv \"" & (pdfFile) & "\" " & pdfVerzetteltTargetFolder & "/"
 
 on asQuote(content, pdfName, page)
 	return my newline() & "> " & content & my newline() & my newline() & escapePdfName(pdfName) & ", page " & page
@@ -72,7 +81,7 @@ on hashedFileName(content)
 end hashedFileName
 
 on writeFile(filename, content)
-	do shell script "echo " & quoted form of (content) & " > " & ("~/Desktop/" & fsEscape(filename) & ".md")
+	do shell script "echo " & quoted form of (content) & " > " & (markdownTargetFolder & fsEscape(filename) & ".md")
 end writeFile
 
 on randomFileName()
@@ -110,3 +119,12 @@ on newline()
 	return " 
 "
 end newline
+
+use framework "Foundation"
+on expandTilde(givenPath)
+	-- create a temporary Obj-C/Cocoa NSString object with the givenPath
+	set tempCocoaString to current application's NSString's stringWithString:givenPath
+	-- call the object's stringByExpandingTildeInPath method
+	-- to create a new path with expanded tilde
+	return (tempCocoaString's stringByExpandingTildeInPath) as string
+end expandTilde
