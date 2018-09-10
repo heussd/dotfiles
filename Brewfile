@@ -85,5 +85,4 @@ mas "OTP Manager", id: 928941247
 mas "Pages", id: 409201541
 mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
-mas "WhatsApp", id: 1147396723
 mas "Xcode", id: 497799835
