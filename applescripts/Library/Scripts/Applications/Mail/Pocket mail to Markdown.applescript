@@ -4,18 +4,18 @@ on run
 		if (count of selectedMessages) is equal to 0 then
 			display alert "No Messages Selected" message "You must select a message first."
 		else
-			set theNotes to ""
+			
 			set theSource to ""
 			repeat with theMessage in selectedMessages
 				set theSource to source of theMessage
 				set the clipboard to my extractFromMailSource(theSource)
 				set theDecodedZettel to do shell script "pbpaste | perl -MMIME::QuotedPrint=decode_qp -e 'print decode_qp join\"\",<>' | tail -n +8 | tail -r | tail -n +2 | tail -r"
-				
+	
+							set theNotes to ""
 				set theNotes to theNotes & my asQuote(my getPocketText(theDecodedZettel), (my getPocketSource(theDecodedZettel))) & my newline() & my newline()
 				
+				my writeFile(my hashedFileName(theNotes), theNotes)
 			end repeat
-			my writeFile(my getPocketTitle(theDecodedZettel), theNotes)
-			
 		end if
 	end tell
 end run
