@@ -22,16 +22,6 @@
 [submodule "vim/.vim/bundle/neocomplete.vim"]
 	path = vim/.vim/bundle/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim
-[submodule "_externals/zim-plugin-instantsearch"]
-	path = _externals/zim-plugin-instantsearch
-	url = https://github.com/e3rd/zim-plugin-instantsearch
-[submodule "_externals/zim-plugin-append"]
-	path = _externals/zim-plugin-append
-	url = https://github.com/Osndok/zim-plugin-append
 [submodule "_externals/bash-git-prompt"]
 	path = _externals/bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt.git
-[submodule "_externals/zim-mendeley-plugin"]
-	path = _externals/zim-mendeley-plugin
-	url = https://github.com/grahamrow/zim-mendeley-plugin
-	branch = fix/ui-issues
