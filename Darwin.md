@@ -47,4 +47,7 @@
 # Apps that cannot be installed automatically
 
 	open https://brew.sh
-	open https://github.com/dmarcotte/easy-move-resize/releases
+	read -n1 -r -p "Please continue after Brew is installed" key && brew bundle install -v
+
+	
+	

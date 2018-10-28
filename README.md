@@ -3,14 +3,14 @@ In the great tradition of sharing dotfiles this repository contains various conf
 
 
 
+## Terraform a system within seconds
+
 	git clone github.com:heussd/dotfiles .dotfiles
-	# HTTPS
 	# git clone https://github.com/heussd/dotfiles .dotfiles
+	
 	cd ~/.dotfiles
-	mkdir ~/.scripts
 	source "$(uname -s).md"
 	
+	./stow-dotfiles scripts
 	
-	brew bundle install -v
-	./stow-dotfiles dotfiles
 	
