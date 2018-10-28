@@ -25,3 +25,6 @@
 [submodule "_externals/bash-git-prompt"]
 	path = _externals/bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt.git
+[submodule "_externals/674099"]
+	path = _externals/674099
+	url = https://gist.github.com/mathiasbynens/674099
