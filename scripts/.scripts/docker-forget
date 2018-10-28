@@ -1,0 +1,10 @@
+#!/bin/bash
+# Let docker forget everything it knows.
+
+docker ps -a | grep -v CONTAINER | awk '{print $1}' | xargs docker stop
+docker ps -a | grep -v CONTAINER | awk '{print $1}' | xargs docker rm --force
+docker images | grep -v REPOSITORY | awk '{print $3}' | xargs docker rmi --force
+docker volume ls -q | xargs docker volume rm --force 
+docker network ls | grep -v NETWORK | awk '{print $1}' | xargs docker network rm
+docker system prune -a -f
+docker system prune -a -f --volumes

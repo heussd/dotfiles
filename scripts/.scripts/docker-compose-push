@@ -1,0 +1,26 @@
+#!/bin/bash
+# Does what "docker-compose push" is supposed to do but doesn't
+
+while test $# -gt 0; do
+        case "$1" in
+                -f)
+                	shift
+                	ymlFile=$1
+                	shift
+                	;;
+                *)
+                	break
+        esac
+done
+
+[ -z $ymlFile ] && ymlFile="docker-compose.yml"
+
+# Extracting all 'image:' statements
+images=`sed -n 's/\s*image: //p' $ymlFile | sed 's/"//g'`
+
+#echo "Storing images $images in $tar..."
+IFS="
+"
+for image in $images; do
+	docker push "$image"
+done

@@ -1,0 +1,3 @@
+#!/bin/sh
+# https://blog.larskasper.de/2017/01/25/torbrowser-launcher-signature-verification-failed/
+gpg --homedir "$HOME/.local/share/torbrowser/gnupg_homedir/" --refresh-keys --keyserver pool.sks-keyservers.net

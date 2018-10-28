@@ -1,0 +1,3 @@
+#!/bin/sh
+
+VBoxManage modifyhd "$1" --compact

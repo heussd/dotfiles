@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>
+
+<!DOCTYPE rss PUBLIC \"-//Netscape Communications//DTD RSS 0.91//EN\" \"http://my.netscape.com/publish/formats/rss-0.91.dtd\">
+<rss version=\"0.91\">
+<channel>"
+
+echo "	<title>$2</title>"
+echo "	<link>$2</link>"
+
+find $1 -type f -printf "%C@ <item><link>$2/%p</link><title>%p</title><description>File has been changed: %f</description></item>\n" | sort -r | head -n 30 | sed 's/^\S* //'
+
+
+echo "</channel>"
+echo "</rss>"

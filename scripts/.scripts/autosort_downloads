@@ -1,0 +1,42 @@
+#!/bin/bash
+source ~/.bash_profile
+
+filename=$(basename $*)
+
+function notify() {
+	/usr/local/bin/terminal-notifier -sound default -title "Download Autosort" -message "$*"
+}
+
+
+if [ ! -e $* ]; then
+	notify "File not found $*"
+	exit
+fi
+
+case "$filename" in 
+	Linux_Magazin*.zip )
+		tempdir="temp$RANDOM"
+		notify "Detected Linux Magazin abo download."
+		cd ~/Downloads
+		mkdir $tempdir 
+		mv $filename $tempdir
+		cd $tempdir
+		unzip $filename
+		mv */*.pdf "$HOME/Dropbox/Lesestapel/"
+		cd ..
+		rm -Rf $tempdir
+		;;
+	*onto*Kontoauszug*.pdf)
+		notify "Detected Kontoauszug"
+		cd ~/Downloads
+		mv $filename ~/Documents/Bürokratie/
+		;;
+	*.txt)
+		# Detect ZIM wiki pages
+		cat "$1" | grep "x-zim-wiki" && mv "$1" "$ZIM_LOCATION/" && notify "ZIM page imported"
+		;;
+	"" )
+		notify "Nothing provided";;
+	default)
+		notify "Don't know how to handle $*";;
+esac

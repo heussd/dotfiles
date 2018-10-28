@@ -1,0 +1,4 @@
+#!/bin/sh
+
+convert $1 -compress Zip $1_converted
+qpdf --linearize $1_converted $1_linearized

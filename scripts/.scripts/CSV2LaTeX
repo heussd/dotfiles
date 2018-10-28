@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+use strict;
+
+open(CSV, $ARGV[0]) or die($!);
+
+my $line = "";	
+my $firstLine = 0;
+foreach $line (<CSV>) {
+	if($firstLine == 0) {
+		print 'begin{table}[h]' . "\n" .
+			'\begin{tabular}{|';
+
+		for(my $i=0; $i<=($line =~ tr/\;//); $i++) {
+			print "c|";
+		}
+		print "}\n" . '\hline' . "\n";
+		
+		$firstLine = 1;
+	}
+	
+	$line =~ s/\;/ \& /g;
+	chop($line);
+	print $line . ' \\\\' . "\n";
+	print '\hline' . "\n";
+}
+
+print '\end{tabular}' . "\n";
+

@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+
+use Getopt::Std;
+#use utf8;
+use warnings;
+use strict;
+
+my %opts;
+getopt('c:d:r:e', \%opts);
+
+if (exists $opts{'h'}) {
+	print "usage: $0 -c <CSV> [-d <DIVIDER>] [-r <ROOT>] [-e <Element>] \n";
+	exit;
+}
+
+die("No CSV given") if not defined $opts{'c'};
+die("CSV '" . $opts{'c'} . "' not found") if not -f $opts{'c'};
+
+
+$opts{'d'}|=';';
+$opts{'r'}|='ROOT';
+$opts{'e'}|='ELEMENT';
+
+open(CSV, $opts{'c'});
+
+my @columns = split($opts{'d'}, <CSV>);
+chomp @columns;
+$_ =~ s/"//g foreach @columns;
+
+die("Wrong divider") if @columns eq 1;
+
+
+print "<" . $opts{'r'} . ">\n";
+
+my @line;
+while(@line = split($opts{'d'}, <CSV>)) {
+	chomp @line;
+	
+	$_ =~ s/"//g foreach @line;
+	
+	print "<" . $opts{'e'} . ">\n";
+	
+	for(my $i=0; $i<@columns; $i++) {
+		print "\t<" . $columns[$i] . ">" . "\n";
+		print "\t\t" . $line[$i] . "\n";
+		print "\t</" . $columns[$i] . ">" . "\n";
+	}
+	
+	print '</' . $opts{'e'} . '>' . "\n";
+}
+print "</" . $opts{'r'} . ">\n";

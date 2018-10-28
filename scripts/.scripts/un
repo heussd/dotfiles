@@ -1,0 +1,49 @@
+#!/bin/bash
+# T.H. un - Universal Archive Extraction Wrapper
+
+directory=$PWD
+if [[ $1 == "" ]]; then 
+	IFSbck=$IFS
+	IFS=$'\n'
+
+  echo "HE";
+  for file in *; do un "'$file'"; done
+fi
+
+for arg in $*; do
+	[ -d $arg ] && directory=$arg
+done
+
+for archive in $*; do
+  echo $archive
+	if [ -f $archive ]; then
+
+		fileType=`file -b "$archive"`
+
+		case $fileType in
+			"7-zip archive data"*)
+				7z x -o$directory $archive;;
+
+			"Debian binary package"*)
+				ar xv $archive;;
+
+			"Zip archive data"*)
+				unzip "$archive" -d $directory;;
+
+			"gzip compressed data"*)
+				tar xfv $archive -C $directory;;
+
+			"RAR archive data"*)
+				unrar x $archive $directory/;;
+			"bzip2 compressed data"*)
+				tar xfv $archive -C $directory;;
+				
+			"Microsoft Cabinet archive"*)
+				cabextract -d $directory $archive;;
+
+			*)
+				echo "Don't know how to extract $fileType";;
+		esac
+
+	fi
+done

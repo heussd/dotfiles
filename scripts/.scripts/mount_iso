@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" = "" ]
+then	echo "usage:"
+	echo "$0 <ISO-Image> [<mount path>]"
+	exit
+fi
+
+mountpoint=$2
+
+if [ "$mountpoint" = "" ]
+then    mountpoint="/mnt/iso"
+fi
+
+sudo mount -o loop -t iso9660 "$1" "$mountpoint"

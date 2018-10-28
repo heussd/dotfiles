@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# https://stackoverflow.com/questions/23521889/how-to-get-maven-groupid-artifactid-project-version-to-the-command-line
+pom_version=`mvn org.apache.maven.plugins:maven-help-plugin:2.2:evaluate -Dexpression=project.version 2> /dev/null |grep -Ev '(^\[|Download\w+:)'`
+
+echo $pom_version

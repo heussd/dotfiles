@@ -1,0 +1,8 @@
+#!/bin/sh
+
+RSYNC_OPTS="--archive --delete --delete-excluded --progress --human-readable -F -v"
+
+# create a timestamp
+touch "$HOME/.rsync-timestamp"
+
+rsync $RSYNC_OPTS "$HOME/" $*

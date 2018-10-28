@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" = "" ]
+then	echo "usage:"
+	echo "$0 <user>@<server>:/<folder>/<subfolder> [<mount point>]"
+	exit
+fi
+
+mountpoint=$2
+
+if [ "$mountpoint" = "" ]
+then	mountpoint="/mnt/ssh"
+fi
+
+sshfs $1 $mountpoint -o nonempty,allow_other
