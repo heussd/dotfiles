@@ -132,7 +132,6 @@ if [ "$1" != "silent" ]; then
 	# Print status of important folders
 	stat-folders() { _hasFolder $1 && printf " %-9s @ %s\n" "$1" "$(git-head-stat $1)"; }
 	stat-folders .dotfiles
-	stat-folders .scripts
 	echo
 fi
 
