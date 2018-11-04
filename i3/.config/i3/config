@@ -1,9 +1,3 @@
-# It will not be overwritten, so edit it as you like.
-#
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-#
-
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
@@ -192,6 +186,7 @@ for_window [class="Firefox"] border none
 # pop-ups
 # https://faq.i3wm.org/question/61/forcing-windows-as-always-floating.1.html
 for_window [window_role="pop-up"] floating enable
+for_window [class="zazu"] floating enable
 
 
 bindsym XF86AudioRaiseVolume exec amixer set Master 2dB+
@@ -240,5 +235,6 @@ exec --no-startup-id xset -dpms s off
 exec --no-startup-id synclient MaxTapTime=0
 exec --no-startup-id redshift -t 6500:2500
 
-
 exec --no-startup-id eval ~/.fehbg
+
+exec --no-startup-id zazu
