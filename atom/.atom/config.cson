@@ -1,0 +1,22 @@
+"*":
+  core:
+    telemetryConsent: "no"
+  editor:
+    fontFamily: "Source Code Pro, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 18
+  "exception-reporting":
+    userId: "d1f3a2c4-3b94-4016-aca4-db87fb6a4a87"
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
+  typewriter: {}
+  welcome:
+    showOnStartup: false
