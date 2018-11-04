@@ -5,7 +5,7 @@ In the great tradition of sharing dotfiles, this repository contains various con
 
 ## Terraform a system within seconds
 
-	git clone github.com:heussd/dotfiles .dotfiles || git clone https://github.com/heussd/dotfiles .dotfiles
+	git clone --recursive github.com:heussd/dotfiles .dotfiles || git clone --recursive https://github.com/heussd/dotfiles .dotfiles
 	
 	cd ~/.dotfiles
 	source "$(uname -s).md"
