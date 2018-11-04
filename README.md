@@ -1,5 +1,5 @@
 # dotfiles
-In the great tradition of sharing dotfiles this repository contains various configuration files for Unix and Linux software. 
+In the great tradition of sharing dotfiles, this repository contains various configuration files for Unix and Linux software. 
 
 
 
