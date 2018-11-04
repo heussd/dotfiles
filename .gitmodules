@@ -28,3 +28,7 @@
 [submodule "_externals/674099"]
 	path = _externals/674099
 	url = https://gist.github.com/mathiasbynens/674099
+[submodule "_externals/source-code-pro"]
+	path = _externals/source-code-pro
+	url = https://github.com/adobe-fonts/source-code-pro.git
+	branch = release
