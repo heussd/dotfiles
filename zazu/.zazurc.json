@@ -85,11 +85,7 @@
       }
     },
     {
-      "name": "tinytacoteam/zazu-snippets",
-      "variables": {
-        "directory": "/Users/th/projects/",
-        "folder": "snippets"
-      }
+      "name": "tinytacoteam/zazu-snippets"
     },
     {
       "name": "chrishelgert/zazu-fkill"
