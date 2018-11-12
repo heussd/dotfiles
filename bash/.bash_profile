@@ -79,6 +79,11 @@ git-cosh() { git commit $1 -m "$2"; git push; }
 git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
 git-ROLLBACK() { git fetch origin; git reset --hard origin/master; git clean -fdx; }
 git-head-stat() { pushd $1 > /dev/null ; git log --oneline | head -n 1; popd > /dev/null; }
+alias gk='gitk --all'
+alias gs='git status'
+alias gca='git commit --ammend'
+alias gb='git branch -v && git remote show origin'
+alias gru='git remote update'
 
 
 source-if-exist() { [[ -e $1 ]] && source "$1"; }
