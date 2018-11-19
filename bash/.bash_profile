@@ -84,6 +84,7 @@ alias gs='git status'
 alias gca='git commit --ammend'
 alias gb='git branch -v && git remote show origin'
 alias gru='git remote update'
+alias gp='git pull --rebase origin'
 
 
 source-if-exist() { [[ -e $1 ]] && source "$1"; }
