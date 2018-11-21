@@ -11,6 +11,6 @@ In the great tradition of sharing dotfiles, this repository contains various con
 	cd ~/.dotfiles
 	source "$(uname -s).md"
 	
-	for p in bash fonts scripts; do ./stow-dotfiles $p; done
+	./stow-dotfiles bash fonts scripts
 	
 	
