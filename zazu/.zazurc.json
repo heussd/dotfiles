@@ -21,6 +21,11 @@
             "name": "Youtube",
             "url": "https://www.youtube.com/results?search_query="
           },
+          "mail": {
+            "icon": "fa-envelope-open",
+            "name": "Google Mail",
+            "url": "https://mail.google.com/mail/u/0/#search/"
+          },
           "mvn": {
             "icon": "fa-book",
             "name": "Maven Central",
