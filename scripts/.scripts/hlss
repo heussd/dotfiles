@@ -1,0 +1,21 @@
+#!/bin/bash
+
+pathToWavs="$HOME/Library/Application Support/Steam/steamapps/common/Half-Life/valve/sound"
+voice="fvox"
+
+if [[ ! -d $pathToWavs ]]; then
+	echo "404: $pathToWavs"
+	exit 1
+fi
+
+for i in $*; do
+	if [[ -d $pathToWavs/$i ]]; then
+		voice=$i
+	else
+		case $i in
+			,)	sleep 0.3;;
+			.)	sleep 0.5;;
+			*)	afplay "$pathToWavs/$voice/$i.wav";;
+		esac
+	fi
+done
