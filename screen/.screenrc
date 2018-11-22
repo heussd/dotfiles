@@ -1,0 +1,12 @@
+escape ^Yy
+
+# Abschalten des Splash-Screens bei Programmstart:
+startup_message off
+
+# Setzen des Puffers, z. B. auf 1000 Zeilen, um nicht
+# mehr "screen -h 1000" tippen zu muessen:
+defscrollback 1000
+
+# Blendet immer eine Statuszeile mit dem Namen des
+# aktiven Fensters ein:
+caption always
