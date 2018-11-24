@@ -8,6 +8,7 @@ packages: [
   "dockerletion"
   "file-icons"
   "git-blame"
+  "git-plus"
   "git-time-machine"
   "highlight-selected"
   "intentions"
