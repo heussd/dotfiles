@@ -2,6 +2,7 @@
   core:
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "no"
+    titleBar: "custom"
   editor:
     fontFamily: "Source Code Pro, Menlo, Consolas, DejaVu Sans Mono, monospace"
     fontSize: 18
@@ -15,6 +16,7 @@
       "git-diffDecorationsZIndex": 0
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
+  "no-title-bar": {}
   "package-sync":
     createOnChange: true
     forceOverwrite: true

@@ -1,8 +1,12 @@
 packages: [
+  "atom-beautify"
   "autocomplete-json"
   "busy-signal"
   "dockerletion"
+  "git-blame"
+  "git-time-machine"
   "highlight-selected"
+  "file-icons"
   "intentions"
   "language-docker"
   "linter"
@@ -12,7 +16,9 @@ packages: [
   "minimap-find-and-replace"
   "minimap-git-diff"
   "minimap-highlight-selected"
+  "no-title-bar"
   "package-sync"
   "pretty-json"
   "sort-lines"
+  "split-diff"
 ]
