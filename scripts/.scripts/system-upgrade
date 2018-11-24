@@ -1,14 +1,15 @@
 #!/bin/sh
 
-sudo softwareupdate -i -a;
+sudo softwareupdate -i -a
 
 brew update
 brew upgrade -all
-brew cleanup --force -s
+brew cleanup -s
 rm -rf $(brew --cache)
-brew cask cleanup --verbose
 
-npm install npm -g; npm update -g;
+npm install npm -g
+npm update -g
 
-sudo gem update --system; sudo gem update; sudo gem cleanup
-
+sudo gem update --system
+sudo gem update
+sudo gem cleanup
