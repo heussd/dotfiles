@@ -14,6 +14,10 @@
   "file-icons":
     coloured: false
     onChanges: true
+  "git-plus":
+    commits:
+      verboseCommits: true
+    remoteInteractions: {}
   minimap:
     plugins:
       "find-and-replace": true
