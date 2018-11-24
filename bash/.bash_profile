@@ -16,10 +16,28 @@ _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
 # Commonly used programs
 export BROWSER="firefox"
 export TERM=xterm-color
-export HISTCONTROL=ignoredups
+
+
+# https://github.com/mathiasbynens/dotfiles/blob/master/.exports
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth';
+
+
 export EDITOR='vim'
 export LC_ALL=C
-shopt -s checkwinsize
+
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend;
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
 
 
 # Setup some colors to use later in interactive shell or scripts
@@ -74,7 +92,13 @@ alias dc-UP='docker-compose up --abort-on-container-exit'
 alias dc-DOWN='docker-compose down --volumes --remove-orphans'
 alias dcl='dc-UP; dc-DOWN'
 
-# Git shortcuts
+
+# Git 
+alias g="git"
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+	complete -o default -o nospace -F _git g;
+fi;
 git-cosh() { git commit $1 -m "$2"; git push; }
 git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
 git-ROLLBACK() { git fetch origin; git reset --hard origin/master; git clean -fdx; }
@@ -142,3 +166,19 @@ if [ "$1" != "silent" ]; then
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+
+
+# Add tab completion for many Bash commands
+if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+	source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+	source /etc/bash_completion;
+fi;
+
+
+# Shortcuts
+alias h="cd ~/"
+alias d="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias p="cd ~/projects"

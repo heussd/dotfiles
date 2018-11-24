@@ -1,7 +1,0 @@
-#!/bin/sh
-
-brew update
-brew upgrade -all
-brew cleanup --force -s
-rm -rf $(brew --cache)
-brew cask cleanup --verbose
