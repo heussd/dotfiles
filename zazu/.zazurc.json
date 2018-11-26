@@ -16,6 +16,11 @@
             "name": "Google",
             "url": "https://www.google.de/search?q="
           },
+          "cs": {
+            "icon": "fa-google",
+            "name": "Google Cloud Search",
+            "url": "https://cloudsearch.google.com/cloudsearch/search?q="
+          },
           "yt": {
             "icon": "fa-youtube",
             "name": "Youtube",
