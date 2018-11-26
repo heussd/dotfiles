@@ -8,7 +8,7 @@
       "name": "tinytacoteam/zazu-fallback",
       "variables": {
         "rootSearches": [
-          "g", "cheat"
+          "g", "cs", "cheat"
         ],
         "prefixSearches": {
           "g": {
@@ -17,7 +17,7 @@
             "url": "https://www.google.de/search?q="
           },
           "cs": {
-            "icon": "fa-google",
+            "icon": "fa-search",
             "name": "Google Cloud Search",
             "url": "https://cloudsearch.google.com/cloudsearch/search?q="
           },
