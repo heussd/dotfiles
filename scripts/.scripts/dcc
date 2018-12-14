@@ -1,13 +1,22 @@
 #!/bin/bash
 # Cycling Docker containers for local development rapidly
 
+[ ! -x "multitail" ] || brew install multitail
+[ ! -x "shyaml" ] || pip install shyaml
+
 function openExposedPorts {
-  #pip install shyaml
   sleep 3
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
     port=$(docker-compose $ymlfiles config | shyaml get-value services.$service.ports 2> /dev/null | grep -o -E '[0-9]+' | head -n 1)
     [ ! -z "$port" ] && open http://localhost:$port
   done
+}
+function openMultitail {
+  multitailcmd="multitail "
+  for service in $(docker-compose $ymlfiles config | shyaml keys services); do
+    multitailcmd="$multitailcmd -p o 17 -p l -cT ansi -l 'docker-compose logs -f $service'"
+  done
+  eval $multitailcmd
 }
 
 # collect .yml files
@@ -19,6 +28,8 @@ done
 
 
 openExposedPorts &
-docker-compose $ymlfiles up --abort-on-container-exit --build --remove-orphans --timeout 2
+#docker-compose $ymlfiles up --abort-on-container-exit --build --remove-orphans --timeout 2
+docker-compose $ymlfiles up -d --build --remove-orphans --timeout 2
+openMultitail
 docker-compose $ymlfiles down --remove-orphans --timeout 2
 exit 0
