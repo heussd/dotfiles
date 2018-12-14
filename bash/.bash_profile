@@ -86,14 +86,7 @@ alias lsd='ls -l | egrep -e "^d"'
 alias mv='mv -v'
 alias reboot='sudo reboot'
 
-
-# Docker shortcuts
-alias dc-UP='docker-compose up --abort-on-container-exit'
-alias dc-DOWN='docker-compose down --volumes --remove-orphans'
-alias dcl='dc-UP; dc-DOWN'
-
-
-# Git 
+# Git
 alias g="git"
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then

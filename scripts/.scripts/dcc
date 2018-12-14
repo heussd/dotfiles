@@ -1,0 +1,24 @@
+#!/bin/bash
+# Cycling Docker containers for local development rapidly
+
+function openExposedPorts {
+  #pip install shyaml
+  sleep 3
+  for service in $(docker-compose $ymlfiles config | shyaml keys services); do
+    port=$(docker-compose $ymlfiles config | shyaml get-value services.$service.ports 2> /dev/null | grep -o -E '[0-9]+' | head -n 1)
+    [ ! -z "$port" ] && open http://localhost:$port
+  done
+}
+
+# collect .yml files
+ymlfiles=""
+for filename in *docker-compose*.yml; do
+    [ -e "$filename" ] || continue
+    set ymlfiles = $ymlfiles + "-f \"$filename\""
+done
+
+
+openExposedPorts &
+docker-compose $ymlfiles up --abort-on-container-exit --build --remove-orphans --timeout 2
+docker-compose $ymlfiles down --remove-orphans --timeout 2
+exit 0
