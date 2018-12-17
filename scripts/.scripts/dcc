@@ -14,7 +14,7 @@ function openExposedPorts {
 function openMultitail {
   multitailcmd="multitail -M 10000"
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
-    multitailcmd="$multitailcmd -p o 17 -p l -cT ansi -l 'docker-compose logs -f $service'"
+    multitailcmd="$multitailcmd -p o 17 -p l -cT ansi -l 'docker-compose logs -f $service; sleep 120000'"
   done
   eval $multitailcmd
 }
