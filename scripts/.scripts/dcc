@@ -5,7 +5,6 @@
 [ ! -x "shyaml" ] || pip install shyaml
 
 function openExposedPorts {
-  sleep 3
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
     port=$(docker-compose $ymlfiles config | shyaml get-value services.$service.ports 2> /dev/null | grep -o -E '[0-9]+' | head -n 1)
     [ ! -z "$port" ] && open http://localhost:$port
@@ -23,13 +22,16 @@ function openMultitail {
 ymlfiles=""
 for filename in *docker-compose*.yml; do
     [ -e "$filename" ] || continue
-    set ymlfiles = $ymlfiles + "-f \"$filename\""
+    ymlfiles="$ymlfiles -f $filename"
 done
 
 
-openExposedPorts &
+
 #docker-compose $ymlfiles up --abort-on-container-exit --build --remove-orphans --timeout 2
 docker-compose $ymlfiles up -d --build --remove-orphans --timeout 2
+if [ $? -gt 0 ]; then exit 1; fi
+
+openExposedPorts
 openMultitail
 docker-compose $ymlfiles down --remove-orphans --timeout 2
 exit 0
