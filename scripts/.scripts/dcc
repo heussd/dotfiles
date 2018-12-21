@@ -1,9 +1,12 @@
 #!/bin/bash
 # Cycling Docker containers for local development rapidly
 
-[ ! -x "multitail" ] || brew install multitail
-[ ! -x "shyaml" ] || pip install shyaml
-
+function checkIfInstalled {
+  if [ ! -x "$(command -v $1)" ]; then
+      echo -e "$1 is required to launch this script. Install it via: \n\t$2"
+      exit 1
+  fi
+}
 function openExposedPorts {
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
     port=$(docker-compose $ymlfiles config | shyaml get-value services.$service.ports 2> /dev/null | grep -o -E '[0-9]+' | head -n 1)
@@ -13,10 +16,13 @@ function openExposedPorts {
 function openMultitail {
   multitailcmd="multitail -M 10000"
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
-    multitailcmd="$multitailcmd -p o 17 -p l -cT ansi -l 'docker-compose logs -f $service; sleep 120000'"
+    multitailcmd="$multitailcmd -p l -cT ansi -l 'docker-compose logs -f $service; sleep 120000'"
   done
   eval $multitailcmd
 }
+
+checkIfInstalled multitail "brew install multitail"
+checkIfInstalled shyaml "pip install shyaml"
 
 # collect .yml files
 ymlfiles=""
@@ -25,13 +31,14 @@ for filename in *docker-compose*.yml; do
     ymlfiles="$ymlfiles -f $filename"
 done
 
-
-
 #docker-compose $ymlfiles up --abort-on-container-exit --build --remove-orphans --timeout 2
 docker-compose $ymlfiles up -d --build --remove-orphans --timeout 2
 if [ $? -gt 0 ]; then exit 1; fi
 
 openExposedPorts
 openMultitail
+
 docker-compose $ymlfiles down --remove-orphans --timeout 2
+if [ $? -gt 0 ]; then exit 1; fi
+
 exit 0
