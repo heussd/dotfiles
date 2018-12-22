@@ -16,6 +16,11 @@
             "name": "Google",
             "url": "https://www.google.de/search?q="
           },
+          "alpine": {
+            "icon": "fa-cube",
+            "name": "Alpine",
+            "url": "https://pkgs.alpinelinux.org/packages?name="
+          },
           "cs": {
             "icon": "fa-search",
             "name": "Google Cloud Search",
