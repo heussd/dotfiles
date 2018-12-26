@@ -33,3 +33,6 @@
 	url = https://github.com/adobe-fonts/source-code-pro.git
 	branch = release
 	shallow = true
+[submodule "_externals/zim-plugin-append"]
+	path = _externals/zim-plugin-append
+	url = https://github.com/Osndok/zim-plugin-append
