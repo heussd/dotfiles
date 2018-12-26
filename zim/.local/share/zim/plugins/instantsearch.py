@@ -1,1 +1,1 @@
-../../../../../_externals/zim-plugin-instantsearch/instantsearch.py
+../../../../../_externals/zim-plugin-instantsearch-1.04/instantsearch.py
