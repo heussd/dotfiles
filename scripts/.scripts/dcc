@@ -8,6 +8,7 @@ function checkIfInstalled {
   fi
 }
 function openExposedPorts {
+  sleep 3
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
     port=$(docker-compose $ymlfiles config | shyaml get-value services.$service.ports 2> /dev/null | grep -o -E '[0-9]+' | head -n 1)
     [ ! -z "$port" ] && open http://localhost:$port
@@ -35,7 +36,7 @@ done
 docker-compose $ymlfiles up -d --build --remove-orphans --timeout 2
 if [ $? -gt 0 ]; then exit 1; fi
 
-openExposedPorts
+openExposedPorts &
 openMultitail
 
 docker-compose $ymlfiles down --remove-orphans --timeout 2
