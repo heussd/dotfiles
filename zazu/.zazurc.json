@@ -16,10 +16,15 @@
             "name": "Google",
             "url": "https://www.google.de/search?q="
           },
-          "alpine": {
+          "ap": {
             "icon": "fa-cube",
-            "name": "Alpine",
+            "name": "Alpine Package Search",
             "url": "https://pkgs.alpinelinux.org/packages?name="
+          },
+          "af": {
+            "icon": "fa-cube",
+            "name": "Alpine File Search",
+            "url": "https://pkgs.alpinelinux.org/contents?file="
           },
           "cs": {
             "icon": "fa-search",
