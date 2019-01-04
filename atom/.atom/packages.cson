@@ -1,9 +1,7 @@
 packages: [
   "atom-beautify"
-  "atom-terminal"
   "autoclose-html"
   "autocomplete-json"
-  "autocomplete-paths"
   "busy-signal"
   "color-picker"
   "dockerletion"
