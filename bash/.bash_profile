@@ -29,7 +29,7 @@ export HISTCONTROL='ignoreboth';
 
 
 export EDITOR='vim'
-export LC_ALL=C
+export LC_ALL='en_US.UTF-8'
 
 
 # Case-insensitive globbing (used in pathname expansion)
@@ -172,7 +172,7 @@ elif [ -f /etc/bash_completion ]; then
 fi;
 
 
-if [ -f ~/.fzf.bash2 ]; then
+if [ -f ~/.fzf.bash ]; then
 	source ~/.fzf.bash
 else
 	_warn "fzf" "https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew"
