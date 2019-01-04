@@ -1,5 +1,6 @@
 "*":
   "atom-terminal":
+    MacWinRunDirectly: true
     app: "iTerm.app"
     surpressDirectoryArgument: false
   core:
@@ -18,6 +19,8 @@
     commits:
       verboseCommits: true
     remoteInteractions: {}
+  "linter-ui-default":
+    panelHeight: 300
   "markdown-preview":
     grammars: [
       "source.gfm"

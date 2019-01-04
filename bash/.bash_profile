@@ -8,9 +8,11 @@
 
 # https://github.com/rizumu/rizumu-dotfiles/blob/master/bash/env.sh
 _has() { which "$1" &>/dev/null; }
-
-
 _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
+_warn() {
+	echo -e "\nWARNING: $1 not found or installed!"
+	echo -e "You might want to follow these instructions here: $2\n"
+}
 
 
 # Commonly used programs
@@ -168,6 +170,14 @@ if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
+
+
+if [ -f ~/.fzf.bash2 ]; then
+	source ~/.fzf.bash
+else
+	_warn "fzf" "https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew"
+fi
+
 
 
 # Shortcuts
