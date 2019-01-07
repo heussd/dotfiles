@@ -12,9 +12,10 @@ INCLUDED_FILES=""
 
 # Bookmarks + History
 INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/places.sqlite"
+INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/favicons.sqlite"
 
 # Passwords
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/key3.db"
+INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/key*.db"
 INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/logins.json"
 
 # Site-specific permissions
