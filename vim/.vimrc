@@ -73,3 +73,5 @@ let g:neocomplete#enable_smart_case = 1
 
 
 hi CursorLine term=bold cterm=bold guibg=Grey40
+
+syntax enable
