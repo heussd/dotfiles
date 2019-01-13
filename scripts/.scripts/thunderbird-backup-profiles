@@ -12,6 +12,7 @@ INCLUDED_FILES=""
 
 # Local Mail Archive
 INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/Mail/"
+INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/ImapMail/"
 
 # Bookmarks + History
 INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/places.sqlite"
