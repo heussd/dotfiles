@@ -7,10 +7,8 @@
 ## Install packages
 
 	sudo apt install -y \
-		i3 \
 		vim \
-		stow \
-		git 
+		stow
 
 ## Clean up
 
