@@ -1,5 +1,7 @@
 {
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "window.restoreWindows": "none"
+    "window.restoreWindows": "none",
+    "git.confirmSync": false,
+    "git.autofetch": true
 }
