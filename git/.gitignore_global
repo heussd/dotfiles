@@ -1,0 +1,15 @@
+*~
+.DS_Store
+*.swp
+queue.xml
+.idea
+
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+log/
+*.log
