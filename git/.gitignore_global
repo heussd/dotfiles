@@ -3,6 +3,7 @@
 *.swp
 queue.xml
 .idea
+*.iml
 
 
 # Mac
@@ -13,3 +14,8 @@ Thumbs.db
 
 log/
 *.log
+.env
+
+
+.ipynb_checkpoints/
+__pycache__/
