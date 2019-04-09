@@ -1,10 +1,10 @@
+tap buo/cask-upgrade
 tap "beeftornado/rmtree"
 tap "dteoh/sqa"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/completions"
 tap "homebrew/core"
 brew "bash-completion"
 brew "brew-cask-completion"
