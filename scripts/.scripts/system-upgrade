@@ -4,7 +4,7 @@ sudo softwareupdate -i -a
 
 brew update
 brew upgrade -all
-brew cu --yes --cleanup
+brew cu -y --cleanup
 brew cleanup -s
 rm -rf $(brew --cache)
 
