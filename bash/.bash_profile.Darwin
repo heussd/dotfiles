@@ -1,3 +1,4 @@
+echo "WARNING: Deprecated aliases loaded"
 alias appsign='codesign --force --deep --sign - '
 alias say='say -v Vicki'
 alias vim='mvim'
@@ -5,7 +6,6 @@ alias vim='mvim'
 
 # Homebrew specific
 export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
-export HOMEBREW_NO_ANALYTICS=1
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion

@@ -6,19 +6,13 @@
 #  fi
 #fi
 
+source .shell-aliases
+
 # https://github.com/rizumu/rizumu-dotfiles/blob/master/bash/env.sh
-_has() { which "$1" &>/dev/null; }
-_hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
 _warn() {
 	echo -e "\nWARNING: $1 not found or installed!"
 	echo -e "You might want to follow these instructions here: $2\n"
 }
-
-
-# Commonly used programs
-export BROWSER="firefox"
-export TERM=xterm-color
-
 
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Increase Bash history size. Allow 32³ entries; the default is 500.
@@ -26,11 +20,6 @@ export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
-
-
-export EDITOR='vim'
-export LC_ALL='en_US.UTF-8'
-
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
@@ -69,65 +58,10 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 
 
-# Fine-tuning basic Unix commands
-alias ...='cd ../..'
-alias ..='cd ..'
-alias KILL='sudo kill -9'
-alias RM='rm -Rfv'
-alias SRM='sudo rm -Rfv'
-alias cp='cp -v'
-alias df='df -h'
-alias du='du -h'
-alias grep='grep --color'
-alias halt='sudo halt'
-alias l='ls -lh'
-alias ll='l -ltr'
-alias la='l -A'
-alias ls='ls -G'
-alias lsd='ls -l | egrep -e "^d"'
-alias mv='mv -v'
-alias reboot='sudo reboot'
-
-# Git
-alias g="git"
-# Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-	complete -o default -o nospace -F _git g;
-fi;
-git-cosh() { git commit $1 -m "$2"; git push; }
-git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
-git-ROLLBACK() { git fetch origin; git reset --hard origin/master; git clean -fdx; }
-git-head-stat() { pushd $1 > /dev/null ; git log --oneline | head -n 1; popd > /dev/null; }
-alias gk='gitk --all'
-alias gs='git status'
-alias gca='git commit --ammend'
-alias gb='git branch -v && git remote show origin'
-alias gru='git remote update'
-alias gp='git pull --rebase origin'
-
-
-source-if-exist() { [[ -e $1 ]] && source "$1"; }
-
-# http://www.open-source-blog.de/2014/11/17/apple-spezifische-dateien-wie-appledouble-ds_store-etc-loeschen-mittels-find/
-rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
-
 # Path additions
  [[ -d $(dirname "${BASH_SOURCE[0]}")/.scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/.scripts
 
 
-# Tiny tools
-alias rmEmtpyFolders='find . -type d -empty -exec rmdir "{}" \;'
-alias rmdsstore="find . -name '*.DS_Store' -type f -delete"
-alias rmsvn="find . -name '*.svn' -type f -delete"
-alias noftchcks="du -akx | sort -nr | less"
-alias mvn-upgrade='mvn versions:use-next-releases'
-alias java-list-imports='find . -iname "*.java" | xargs cat | grep -e "^import" | sort -r | uniq'
-
-
-# Third party commands
-_has rsync && alias gentlecp='rsync --update --progress --human-readable'
-_has thefuck && eval "$(thefuck --alias)"
-_has stow && alias stow='stow --dir="$HOME/dotfiles/" --ignore=README.md -v'
 
 _hasFolder ".bash-git-prompt" && GIT_PROMPT_ONLY_IN_REPO=1 && source ~/.bash-git-prompt/gitprompt.sh
 
@@ -137,28 +71,8 @@ bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous On"
 
+source .shell-motd
 
-# Load OS specific bash settings
-source-if-exist "${BASH_SOURCE[0]}."`uname -s`
-
-
-# Load Host specific bash settings
-SHORTHOSTNAME=`hostname | cut -d"." -f 1`
-source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
-
-
-# Console prints may be skipped
-if [ "$1" != "silent" ]; then
-
-	echo
-	figlet -c $SHORTHOSTNAME 2>/dev/null || echo "$SHOTHOSTNAME"
-	echo
-
-	# Print status of important folders
-	stat-folders() { _hasFolder $1 && printf " %-9s @ %s\n" "$1" "$(git-head-stat $1)"; }
-	stat-folders .dotfiles
-	echo
-fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
@@ -179,9 +93,4 @@ else
 fi
 
 
-
-# Shortcuts
-alias h="cd ~/"
-alias d="cd ~/Documents"
-alias dl="cd ~/Downloads"
-alias p="cd ~/projects"
+source-if-exist ".bash_profile."`uname -s`
