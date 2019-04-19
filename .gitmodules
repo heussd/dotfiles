@@ -36,6 +36,3 @@
 [submodule "_externals/zim-plugin-append"]
 	path = _externals/zim-plugin-append
 	url = https://github.com/Osndok/zim-plugin-append
-[submodule "_externals/oh-my-zsh"]
-	path = _externals/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
