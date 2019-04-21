@@ -26,6 +26,10 @@ antigen bundle command-not-found
 
 # Specify additional external plugins we want
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle smallhadroncollider/antigen-git-rebase
+antigen bundle zsh-users/zsh-autosuggestions
+
+antigen theme denysdovhan/spaceship-prompt
 
 # Load everything
 antigen apply
