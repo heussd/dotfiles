@@ -71,3 +71,8 @@ source-if-exist() { [[ -e $1 ]] && source "$1"; }
 # Load Host specific bash settings
 SHORTHOSTNAME=`hostname | cut -d"." -f 1`
 source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
+
+# Install stuff
+
+[[ ! -e "$HOME/Library/Fonts/Sauce Code Powerline Regular.otf" ]] && brew cask install font-source-code-pro-for-powerline
+
