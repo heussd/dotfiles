@@ -385,11 +385,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>268 139 606 469 0 0 2560 1418 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1239 759 796 486 0 0 2560 1417 </string>
+	<string>1239 651 918 514 0 0 2560 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>107 49 1060 677 0 0 2560 1417 </string>
+	<string>1060 190 1060 700 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -941,11 +941,13 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 12</string>
+			<string>SourceCodeProForPowerline-Regular 12</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
+			<key>Non-ASCII Ligatures</key>
+			<false/>
 			<key>Normal Font</key>
-			<string>SourceCodePro-Regular 10</string>
+			<string>SourceCodeProForPowerline-Regular 10</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -1952,6 +1954,8 @@
 	<integer>1</integer>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>20C4AA2F-8338-4907-9D90-31B4FA99D655</string>
 	<key>NoSyncLastTipTime</key>
@@ -2113,7 +2117,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-04-09T17:37:37Z</date>
+	<date>2019-04-21T14:06:19Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
