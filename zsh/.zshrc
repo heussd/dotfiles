@@ -29,11 +29,11 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle smallhadroncollider/antigen-git-rebase
 antigen bundle zsh-users/zsh-autosuggestions
 
-antigen theme denysdovhan/spaceship-prompt
+antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 # Load everything
 antigen apply
 
 export PATH=$PATH:~/.dotfiles:~/.scripts
-source .shell-aliases
-source .shell-motd
+source ~/.shell-aliases
+source ~/.shell-motd
