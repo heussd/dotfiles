@@ -14,6 +14,16 @@ function openExposedPorts {
     [ ! -z "$port" ] && open http://localhost:$port
   done
 }
+function buildImages {
+  echo "Building images..."
+  for service in $(docker-compose $ymlfiles config | shyaml keys services); do
+    buildcontext=$(docker-compose $ymlfiles config | shyaml get-value services.$service.build.context)
+    image=$(docker-compose $ymlfiles config | shyaml get-value services.$service.image)
+    if [ ! -z $image ]; then
+    	DOCKER_BUILDKIT=1 docker build $buildcontext -t $image --progress plain
+    fi
+  done
+}
 function openMultitail {
   multitailcmd="multitail -M 10000"
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
@@ -25,15 +35,18 @@ function openMultitail {
 checkIfInstalled multitail "brew install multitail"
 checkIfInstalled shyaml "pip install shyaml"
 
+
 # collect .yml files
 ymlfiles=""
-for filename in *docker-compose*.yml; do
-    [ -e "$filename" ] || continue
-    ymlfiles="$ymlfiles -f $filename"
-done
+#for filename in *docker-compose*.yml; do
+#    [ -e "$filename" ] || continue
+#    ymlfiles="$ymlfiles -f $filename"
+#done
+
+buildImages
 
 #docker-compose $ymlfiles up --abort-on-container-exit --build --remove-orphans --timeout 2
-docker-compose $ymlfiles up -d --build --remove-orphans --timeout 2
+docker-compose $ymlfiles up -d --remove-orphans --timeout 2
 if [ $? -gt 0 ]; then exit 1; fi
 
 openExposedPorts &
