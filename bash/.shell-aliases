@@ -76,3 +76,4 @@ source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
 
 [[ ! -e "$HOME/Library/Fonts/Sauce Code Powerline Regular.otf" ]] && brew cask install font-source-code-pro-for-powerline
 
+#[[ -d "/usr/local/lib/ruby/gems/2.6.0/bin" ]] && export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"

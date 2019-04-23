@@ -10,4 +10,6 @@ if [ "$1" != "silent" ]; then
   git-stat-folder .dotfiles
 	echo
 
+	_has docker && docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+
 fi
