@@ -2,17 +2,18 @@ function _hasNotFile() { if [ -e "$1" ]; then return 1; fi; return 0; }
 function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
 function _hasCmd() { which "$1" &>/dev/null; }
 
+_hasFolder /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 if ! _hasCmd brew; then
   case "$(uname -s)" in
   Linux*)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     ;;
   Darwin*)
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ;;
   esac
 fi
-_hasFolder /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 if ! _hasCmd thefuck; then
   brew install thefuck
