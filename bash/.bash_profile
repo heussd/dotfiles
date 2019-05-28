@@ -6,13 +6,9 @@
 #  fi
 #fi
 
+source .shell-installs
 source .shell-aliases
 
-# https://github.com/rizumu/rizumu-dotfiles/blob/master/bash/env.sh
-_warn() {
-	echo -e "\nWARNING: $1 not found or installed!"
-	echo -e "You might want to follow these instructions here: $2\n"
-}
 
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Increase Bash history size. Allow 32³ entries; the default is 500.
@@ -83,14 +79,6 @@ if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_
 	source "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
-fi;
-
-
-if [ -f ~/.fzf.bash ]; then
-	source ~/.fzf.bash
-else
-	_warn "fzf" "https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew"
 fi
-
 
 source-if-exist ".bash_profile."`uname -s`

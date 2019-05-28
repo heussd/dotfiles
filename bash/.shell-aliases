@@ -49,12 +49,8 @@ alias java-list-imports='find . -iname "*.java" | xargs cat | grep -e "^import" 
 rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
 
 
-_has() { which "$1" &>/dev/null; }
-_hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
-
 # Third party commands
-_has rsync && alias gentlecp='rsync --update --progress --human-readable'
-_has thefuck && eval "$(thefuck --alias)"
+alias gentlecp='rsync --update --progress --human-readable'
 
 
 # Shortcuts
@@ -71,9 +67,3 @@ source-if-exist() { [[ -e $1 ]] && source "$1"; }
 # Load Host specific bash settings
 SHORTHOSTNAME=`hostname | cut -d"." -f 1`
 source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
-
-# Install stuff
-
-[[ ! -e "$HOME/Library/Fonts/Sauce Code Powerline Regular.otf" ]] && brew cask install font-source-code-pro-for-powerline
-
-#[[ -d "/usr/local/lib/ruby/gems/2.6.0/bin" ]] && export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"

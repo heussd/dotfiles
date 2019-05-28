@@ -1,0 +1,30 @@
+function _hasNotFile() { if [ -e "$1" ]; then return 1; fi; return 0; }
+function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
+function _hasCmd() { which "$1" &>/dev/null; }
+
+if ! _hasCmd brew; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+if _hasCmd thefuck; then
+  eval "$(thefuck --alias)"
+else
+  brew install thefuck
+fi
+
+if _hasCmd fzf; then
+  echo $SHELL | grep "bash" > /dev/null && source ~/.fzf.bash
+  echo $SHELL | grep "zsh" > /dev/null && source ~/.fzf.zsh
+else
+  brew install fzf
+  $(brew --prefix)/opt/fzf/install --all --no-update-rc
+fi
+
+
+function installFont() {
+  echo "Installing font $1..."
+  brew tap homebrew/cask-fonts && brew cask install "$1"
+}
+
+_hasNotFile "$HOME/Library/Fonts/SourceCodePro-Regular.otf" && installFont "font-source-code-pro"
+_hasNotFile "$HOME/Library/Fonts/Sauce Code Powerline Regular.otf" && installFont "font-source-code-pro-for-powerline"

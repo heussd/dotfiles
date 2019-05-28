@@ -1,15 +1,17 @@
+git-stat-folder() { [ -d "$1" ] && printf " %-9s @ %s\n" "$1" "$(git-head-stat $1)"; }
+function _hasCmd() { which "$1" &>/dev/null; }
+
 # Console prints may be skipped
 if [ "$1" != "silent" ]; then
 
 	echo
-	figlet -c $SHORTHOSTNAME 2>/dev/null || echo "$SHOTHOSTNAME"
+	figlet -c $SHORTHOSTNAME 2>/dev/null
 	echo
 
 	# Print status of important folders
-	git-stat-folder() { _hasFolder $1 && printf " %-9s @ %s\n" "$1" "$(git-head-stat $1)"; }
-  git-stat-folder .dotfiles
+	git-stat-folder .dotfiles
 	echo
 
-	_has docker && docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+	_hasCmd docker && docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
 
 fi
