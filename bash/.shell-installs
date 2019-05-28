@@ -3,7 +3,14 @@ function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
 function _hasCmd() { which "$1" &>/dev/null; }
 
 if ! _hasCmd brew; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  case "$(uname -s)" in
+  Linux*)
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    ;;
+  Darwin*)
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ;;
+  esac
 fi
 
 if _hasCmd thefuck; then
