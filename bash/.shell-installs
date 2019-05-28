@@ -12,20 +12,19 @@ if ! _hasCmd brew; then
     ;;
   esac
 fi
+_hasFolder /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-if _hasCmd thefuck; then
-  eval "$(thefuck --alias)"
-else
+if ! _hasCmd thefuck; then
   brew install thefuck
 fi
+_hasCmd thefuck && eval "$(thefuck --alias)"
 
-if _hasCmd fzf; then
-  echo $SHELL | grep "bash" > /dev/null && source ~/.fzf.bash
-  echo $SHELL | grep "zsh" > /dev/null && source ~/.fzf.zsh
-else
+if ! _hasCmd fzf; then
   brew install fzf
   $(brew --prefix)/opt/fzf/install --all --no-update-rc
 fi
+echo $SHELL | grep "bash" > /dev/null && source ~/.fzf.bash
+echo $SHELL | grep "zsh" > /dev/null && source ~/.fzf.zsh
 
 
 function installFont() {
