@@ -5,6 +5,7 @@ queue.xml
 .idea
 *.iml
 
+.gradle
 
 # Mac
 .DS_Store
