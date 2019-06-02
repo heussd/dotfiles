@@ -11,6 +11,8 @@ set noswapfile     "no swap files
 
 " Line Numbers
 :set number
+" turn hybrid line numbers on
+:set number relativenumber
 
 " Highlight current line
 :set cursorline
