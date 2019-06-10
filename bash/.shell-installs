@@ -13,9 +13,9 @@ if ! _hasCmd brew; then
   )
 fi
 
-if ! _hasCmd thefuck; then
-  brew install thefuck
-fi
+if ! _hasCmd ctop; then brew install ctop; fi
+
+if ! _hasCmd thefuck; then brew install thefuck; fi
 _hasCmd thefuck && eval "$(thefuck --alias)"
 
 if ! _hasCmd fzf; then
