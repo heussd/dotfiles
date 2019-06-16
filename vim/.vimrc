@@ -93,4 +93,31 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'honza/writer.vim'
+Plug 'https://github.com/alok/notational-fzf-vim'
+Plug 'vimwiki/vimwiki'
+Plug 'scrooloose/nerdtree'
+Plug 'michal-h21/vim-zettel'
 call plug#end()
+
+" Notational Velocity Vim settings
+let g:nv_search_paths = ['~/vimwiki', '~/Documents', '~/projects', 'docs.md' , './notes.md']
+
+" vimwiki settings
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" Filename format. The filename is created using strftime() function
+let g:zettel_format = "%y%m%d-%H%M"
+" Disable default keymappings
+let g:zettel_default_mappings = 0
+" This is basically the same as the default configuration
+augroup filetype_vimwiki
+  autocmd!
+  autocmd FileType vimwiki imap <silent> [[ [[<esc><Plug>ZettelSearchMap
+  autocmd FileType vimwiki nmap T <Plug>ZettelYankNameMap
+  autocmd FileType vimwiki xmap z <Plug>ZettelNewSelectedMap
+  autocmd FileType vimwiki nmap gZ <Plug>ZettelReplaceFileWithLink
+augroup END
+
+" Settings for Vimwiki
+let g:vimwiki_list = [{'path':'~/vimwiki/','ext':'.md','syntax':'markdown', 'zettel_template': "~/mytemplate.tpl"}]
+" Set template and custom header variable for the second Wiki
+let g:zettel_options = [{},{"front_matter" : {"tags" : ""}, "template" :  "~/mytemplate.tpl"}]
