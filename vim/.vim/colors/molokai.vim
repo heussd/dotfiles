@@ -1,1 +1,0 @@
-../../../_externals/molokai/colors/molokai.vim

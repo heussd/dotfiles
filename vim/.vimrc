@@ -66,8 +66,6 @@ set antialias		" MacVim: smooth fonts.
 set encoding=utf-8	" Use UTF-8 everywhere.
 set termencoding=utf-8
 
-" https://github.com/tpope/vim-pathogen
-execute pathogen#infect()
 
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -80,3 +78,19 @@ syntax enable
 
 set nocompatible
 filetype plugin on
+
+
+" Install VIM plug - https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'honza/writer.vim'
+call plug#end()

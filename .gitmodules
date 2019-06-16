@@ -4,24 +4,9 @@
 [submodule "_externals/mpcscripts"]
 	path = _externals/mpcscripts
 	url = https://github.com/heussd/mpcscripts.git
-[submodule "_externals/molokai"]
-	path = _externals/molokai
-	url = https://github.com/tomasr/molokai.git
 [submodule "_externals/latexcommons"]
 	path = _externals/latexcommons
 	url = https://github.com/heussd/latexcommons.git
-[submodule "vim/.vim/bundle/limelight.vim"]
-	path = vim/.vim/bundle/limelight.vim
-	url = https://github.com/junegunn/limelight.vim
-[submodule "vim/.vim/bundle/writer.vim"]
-	path = vim/.vim/bundle/writer.vim
-	url = https://github.com/honza/writer.vim
-[submodule "vim/.vim/bundle/goyo.vim"]
-	path = vim/.vim/bundle/goyo.vim
-	url = https://github.com/junegunn/goyo.vim
-[submodule "vim/.vim/bundle/neocomplete.vim"]
-	path = vim/.vim/bundle/neocomplete.vim
-	url = https://github.com/Shougo/neocomplete.vim
 [submodule "_externals/674099"]
 	path = _externals/674099
 	url = https://gist.github.com/mathiasbynens/674099
