@@ -15,6 +15,7 @@ fi
 
 if ! _hasCmd ctop; then brew install ctop; fi
 if ! _hasCmd rg; then brew install ripgrep; fi
+if ! _hasCmd ag; then brew install the_silver_searcher; fi
 
 if ! _hasCmd thefuck; then brew install thefuck; fi
 _hasCmd thefuck && eval "$(thefuck --alias)"
