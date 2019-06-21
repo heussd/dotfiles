@@ -1,7 +1,7 @@
 {
   "disableAnalytics": true,
   "hotkey": "alt+space",
-  "theme": "danielbayerlein/zazu-simple-theme",
+  "theme": "heussd/zazu-simple-and-dense-theme",
   "displayOn": "detect",
   "plugins": [
     {
