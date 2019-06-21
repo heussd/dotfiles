@@ -29,8 +29,6 @@ set smartcase     " ignore case if search pattern is all lowercase,
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 
-colorscheme desert
-
 " using Source Code Pro
 " http://jonathanmh.com/using-adobes-source-code-pro-in-vim/
 " set anti enc=utf-8
@@ -97,7 +95,11 @@ Plug 'https://github.com/alok/notational-fzf-vim'
 Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdtree'
 Plug 'michal-h21/vim-zettel'
+Plug 'tomasr/molokai'
 call plug#end()
+
+
+colorscheme Molokai
 
 " Notational Velocity Vim settings
 let g:nv_search_paths = ['~/vimwiki', '~/Documents', '~/projects', 'docs.md' , './notes.md']
