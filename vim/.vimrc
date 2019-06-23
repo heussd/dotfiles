@@ -102,7 +102,7 @@ call plug#end()
 colorscheme Molokai
 
 " Notational Velocity Vim settings
-let g:nv_search_paths = ['~/vimwiki', '~/Documents', '~/projects', 'docs.md' , './notes.md']
+let g:nv_search_paths = ['~/vimwiki']
 
 " vimwiki settings
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
@@ -123,3 +123,13 @@ augroup END
 let g:vimwiki_list = [{'path':'~/vimwiki/','ext':'.md','syntax':'markdown', 'zettel_template': "~/mytemplate.tpl"}]
 " Set template and custom header variable for the second Wiki
 let g:zettel_options = [{},{"front_matter" : {"tags" : ""}, "template" :  "~/mytemplate.tpl"}]
+
+
+function! g:init_funcs#fzf_nv()
+  let l:fzf_opts = {}
+  let l:fzf_opts.sink = 'e'
+  let l:fzf_opts.dir = '~/vimwiki'
+  let l:fzf_opts.source = 'ls -td $(fd .)'
+  let l:fzf_opts.options = '--delimiter ":" --preview="bat ~/vimwiki/{1}" --preview-window=right:80'
+  call fzf#run(fzf#wrap(l:fzf_opts))
+endfunction
