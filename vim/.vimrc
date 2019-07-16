@@ -35,21 +35,24 @@ set incsearch     " show search matches as you type
 set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
-:function FocusMode()
-:	#silent! set fu
-:	sleep 2
-:	redraw
-:	silent! WriterToggle
-:	Goyo
-:	Limelight
-:	set wrapmargin=0
-:	set textwidth=0
-:	set wrap
-:	set linebreak
-:	set nolist  " list disables linebreak
-: set spell spelllang=de,en
-:endfunction
-:command FocusMode call FocusMode()
+function Fullscreen()
+	silent! set fu
+endfunction
+
+function FocusMode()
+	sleep 2
+	redraw
+	silent! WriterToggle
+	Goyo
+	Limelight
+	set wrapmargin=0
+	set textwidth=0
+	set wrap
+	set linebreak
+	set nolist  " list disables linebreak
+	set spell spelllang=de,en
+endfunction
+command FocusMode call FocusMode()
 
 
 function Date()
