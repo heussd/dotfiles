@@ -2,17 +2,18 @@
   "disableAnalytics": true,
   "hotkey": "alt+space",
   "theme": "heussd/zazu-simple-and-dense-theme",
+  "hideTrayItem": "True",
   "displayOn": "detect",
   "plugins": [
     {
       "name": "tinytacoteam/zazu-fallback",
       "variables": {
         "rootSearches": [
-          "g", "cs", "cheat"
+          "g", "dockerhub", "ap"
         ],
         "prefixSearches": {
           "g": {
-            "icon": "fa-google",
+            "icon": "fa-search",
             "name": "Google",
             "url": "https://www.google.de/search?q="
           },
@@ -82,7 +83,7 @@
             "url": "https://www.linguee.de/deutsch-englisch/search?source=auto&query="
           },
           "dockerhub": {
-            "icon": "fa-docker",
+            "icon": "fa-cloud",
             "name": "Docker Hub",
             "url": "https://hub.docker.com/search/?q="
           },
@@ -110,7 +111,10 @@
       }
     },
     {
-      "name": "tinytacoteam/zazu-snippets"
+      "name": "tinytacoteam/zazu-snippets",
+	      "variables": {
+	    "folder": "snippets"
+	  }
     },
     {
       "name": "chrishelgert/zazu-fkill"
