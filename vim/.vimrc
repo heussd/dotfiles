@@ -49,6 +49,7 @@ function FocusMode()
 	set linebreak
 	set nolist  " list disables linebreak
 	set spell spelllang=de,en
+	set lines=55 columns=120
 endfunction
 command FocusMode call FocusMode()
 
@@ -103,5 +104,5 @@ colorscheme Molokai
 let g:vimwiki_list = [{'path':'~/vimwiki/','ext':'.md','syntax':'markdown', 'zettel_template': "~/mytemplate.tpl"}]
 
 " Change working copy (for rg, fzf) when entering vimwiki
-au FileType vimwiki :lcd %:p:h
+au FileType vimwiki lcd %:p:h
 au FileType vimwiki call FocusMode()
