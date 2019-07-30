@@ -40,17 +40,19 @@ function Fullscreen()
 endfunction
 
 function FocusMode()
-	WriterToggle
 	Goyo
-	Limelight
 	set wrapmargin=0
 	set textwidth=0
 	set wrap
 	set linebreak
 	set nolist  " list disables linebreak
 	set spell spelllang=de,en
-	set lines=55 columns=120
-endfunction
+	if has("gui_running")
+	  WriterToggle
+	  Limelight
+	  set lines=55 columns=120
+	endif
+	endfunction
 command FocusMode call FocusMode()
 
 
@@ -105,4 +107,5 @@ let g:vimwiki_list = [{'path':'~/vimwiki/','ext':'.md','syntax':'markdown', 'zet
 
 " Change working copy (for rg, fzf) when entering vimwiki
 au FileType vimwiki lcd %:p:h
+
 au FileType vimwiki call FocusMode()
