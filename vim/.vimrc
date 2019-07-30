@@ -52,7 +52,8 @@ function FocusMode()
 	  Limelight
 	  set lines=55 columns=120
 	endif
-	endfunction
+	let foo = "bar"
+endfunction
 command FocusMode call FocusMode()
 
 
@@ -103,9 +104,17 @@ call plug#end()
 colorscheme Molokai
 
 " vimwiki settings
-let g:vimwiki_list = [{'path':'~/vimwiki/','ext':'.md','syntax':'markdown', 'zettel_template': "~/mytemplate.tpl"}]
+let g:vimwiki_list = [{ 
+	\ 'path': '~/vimwiki/',
+	\ 'ext':'.md',
+	\ 'syntax':'markdown',
+	\ 'diary_rel_path': "/",
+	\ 'diary_index': "index"
+	\ }]
 
 " Change working copy (for rg, fzf) when entering vimwiki
 au FileType vimwiki lcd %:p:h
 
-au FileType vimwiki call FocusMode()
+"au FileType vimwiki call FocusMode()
+au BufReadPost index.md call FocusMode()
+
