@@ -104,3 +104,6 @@ colorscheme Molokai
 " vimwiki settings
 let g:vimwiki_list = [{'path':'~/vimwiki/','ext':'.md','syntax':'markdown', 'zettel_template': "~/mytemplate.tpl"}]
 
+" Change working copy (for rg, fzf) when entering vimwiki
+au FileType vimwiki :lcd %:p:h
+
