@@ -40,9 +40,7 @@ function Fullscreen()
 endfunction
 
 function FocusMode()
-	sleep 2
-	redraw
-	silent! WriterToggle
+	WriterToggle
 	Goyo
 	Limelight
 	set wrapmargin=0
@@ -106,4 +104,4 @@ let g:vimwiki_list = [{'path':'~/vimwiki/','ext':'.md','syntax':'markdown', 'zet
 
 " Change working copy (for rg, fzf) when entering vimwiki
 au FileType vimwiki :lcd %:p:h
-
+au FileType vimwiki call FocusMode()
