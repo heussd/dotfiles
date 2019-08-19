@@ -1,4 +1,4 @@
-tap buo/cask-upgrade
+tap "buo/cask-upgrade"
 tap "beeftornado/rmtree"
 tap "dteoh/sqa"
 tap "homebrew/bundle"
