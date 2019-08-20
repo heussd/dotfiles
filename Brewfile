@@ -11,7 +11,6 @@ brew "brew-cask-completion"
 brew "figlet"
 brew "graphviz"
 brew "htop"
-brew "mackup"
 brew "mas"
 brew "maven"
 brew "offlineimap"
@@ -33,14 +32,12 @@ cask "betterzipql"
 cask "cronnix"
 cask "cryptomator"
 cask "cyberduck"
+cask "dozer"
 cask "dupeguru"
 cask "easy-move-plus-resize"
-cask "eclipse-java"
 cask "firefox"
 cask "font-source-code-pro"
-cask "freeplane"
 cask "gimp"
-cask "go2shell"
 cask "handbrake"
 cask "imageoptim"
 cask "iterm2"
@@ -59,28 +56,21 @@ cask "quicklook-csv"
 cask "quicklook-json"
 cask "quicklookase"
 cask "retinizer"
-cask "rssowl"
-cask "skim"
 cask "sourcetree"
-cask "spotify"
-cask "sqlitebrowser"
+cask "db-browser-for-sqlite"
 cask "suspicious-package"
-cask "torbrowser"
+cask "tor-browser"
 cask "transmission"
 cask "vlc"
 cask "webpquicklook"
 cask "yed"
 cask "zazu"
-cask "dteoh/sqa/slowquitapps"
 mas "CotEditor", id: 1024640650
 mas "Disk Graph", id: 697942581
 mas "Flycut", id: 442160987
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "LibreOffice Vanilla", id: 921923693
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
-mas "OneDrive", id: 823766827
 mas "OTP Manager", id: 928941247
 mas "Pages", id: 409201541
 mas "SleepTime", id: 465772885
