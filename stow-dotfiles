@@ -11,7 +11,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 
 STOW_DIR=$DIR
-STOW_OPTS="--override=. --verbose=1"
+STOW_OPTS="--override=. --verbose=1 --no-folding"
 STOW_IGNORE="--ignore=.DS_Store --ignore=.git"
 
 # Use supplied stow action or fall back to restow
