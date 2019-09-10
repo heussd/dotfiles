@@ -4,36 +4,8 @@ function _hasCmd() { which "$1" &>/dev/null; }
 function _isMacOS() { uname -s | grep "Darwin" > /dev/null; }
 function _isLinux() { uname -s | grep "Linux" > /dev/null; }
 
-_hasFolder /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-if ! _hasCmd brew; then
-  _isMacOS && /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  _isLinux && (
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-  )
-fi
-
-if ! _hasCmd ctop; then brew install ctop; fi
-if ! _hasCmd rg; then brew install ripgrep; fi
-if ! _hasCmd ag; then brew install the_silver_searcher; fi
-
-if ! _hasCmd thefuck; then brew install thefuck; fi
 _hasCmd thefuck && eval "$(thefuck --alias)"
 
-if ! _hasCmd fzf; then
-  brew install fzf
-  $(brew --prefix)/opt/fzf/install --all --no-update-rc
-fi
 echo $SHELL | grep "bash" > /dev/null && source ~/.fzf.bash
 echo $SHELL | grep "zsh" > /dev/null && source ~/.fzf.zsh
 
-
-function installFont() {
-  echo "Installing font $1..."
-  brew tap homebrew/cask-fonts && brew cask install "$1"
-}
-
-_isMacOS && (
-  _hasNotFile "$HOME/Library/Fonts/SourceCodePro-Regular.otf" && installFont "font-source-code-pro"
-  _hasNotFile "$HOME/Library/Fonts/Sauce Code Powerline Regular.otf" && installFont "font-source-code-pro-for-powerline"
-)
