@@ -27,10 +27,9 @@ since_last_modified() {
    fi
 }
 
-days=$(since_last_modified .brewfile-logs days)
+days=$(since_last_modified .brewfile-install days)
 if [[ $days -gt 30 ]]; then
-	echo ".brewfile-logs are older than 30 days, executing brew bundle install in background..."
-	brew bundle install -v &> .brewfile-logs &
+	brew bundle install -v && touch ~/.brewfile-install
 fi
 
 
