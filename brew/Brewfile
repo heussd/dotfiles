@@ -1,3 +1,12 @@
+tap "beeftornado/rmtree"
+tap "buo/cask-upgrade"
+tap "dteoh/sqa"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+
 brew "bash-completion"
 brew "brew-cask-completion"
 brew "ctop"
@@ -33,7 +42,6 @@ cask "dozer"
 cask "dupeguru"
 cask "easy-move-plus-resize"
 cask "firefox"
-cask "flycut"
 cask "font-source-code-pro"
 cask "font-source-code-pro-for-powerline"
 cask "gimp"
@@ -78,11 +86,4 @@ mas "Pages", id: 409201541
 mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
 mas "Xcode", id: 497799835
-tap "beeftornado/rmtree"
-tap "buo/cask-upgrade"
-tap "dteoh/sqa"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
+
