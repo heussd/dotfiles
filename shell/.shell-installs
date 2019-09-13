@@ -27,8 +27,10 @@ since_last_modified() {
    fi
 }
 
-days=$(since_last_modified .brewfile-install days)
-if [[ $days -gt 30 ]]; then
+lastinstall=$(since_last_modified .brewfile-install days)
+brewfile=$(since_last_modified $(readlink Brewfile) days)
+
+if [[ $lastinstall -gt 30 ]] || [[ $brewfile -lt $lastinstall ]]; then
 	brew bundle install -v && touch ~/.brewfile-install
 fi
 
