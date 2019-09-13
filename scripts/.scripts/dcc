@@ -1,5 +1,5 @@
 #!/bin/bash
-# Cycling Docker containers for local development rapidly
+# Power-cycle local Docker containers
 
 function checkIfInstalled {
   if [ ! -x "$(command -v $1)" ]; then
@@ -20,7 +20,7 @@ function buildImages {
       buildcontext=$(docker-compose $ymlfiles config | shyaml get-value services.$service.build.context)
       image=$(docker-compose $ymlfiles config | shyaml get-value services.$service.image)
       if [ ! -z $image ]; then
-      	DOCKER_BUILDKIT=1 docker build $buildcontext -t $image --progress plain
+      	DOCKER_BUILDKIT=1 docker build $buildcontext -t $image
       fi
     )
   done
