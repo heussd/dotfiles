@@ -51,3 +51,6 @@ user_pref("browser.safebrowsing.provider.google.updateURL", ""); // update googl
 user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // list hash check
 user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // (FF50+)
 user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // (FF50+)
+
+
+user_pref("media.videocontrols.picture-in-picture.enabled", "true");
