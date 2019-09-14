@@ -118,3 +118,7 @@ au FileType vimwiki lcd %:p:h
 "au FileType vimwiki call FocusMode()
 "au BufReadPost index.md call FocusMode()
 
+" Inspired by https://gist.github.com/jondkinney/2040114
+""" FUZZY FIND
+nnoremap <C-f> :Rg<CR>
+
