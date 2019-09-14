@@ -116,5 +116,5 @@ let g:vimwiki_list = [{
 au FileType vimwiki lcd %:p:h
 
 "au FileType vimwiki call FocusMode()
-au BufReadPost index.md call FocusMode()
+"au BufReadPost index.md call FocusMode()
 
