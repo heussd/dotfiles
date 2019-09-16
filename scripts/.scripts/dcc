@@ -1,6 +1,10 @@
 #!/bin/bash
 # Power-cycle local Docker containers
 
+# Terminate if commands fail
+set -e
+set -o pipefail
+
 function checkIfInstalled {
   if [ ! -x "$(command -v $1)" ]; then
       echo -e "$1 is required to launch this script. Install it via: \n\t$2"
