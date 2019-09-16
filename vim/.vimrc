@@ -116,7 +116,7 @@ let g:vimwiki_list = [{
 au FileType vimwiki lcd %:p:h
 
 " Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
-au FileType vimwiki :autocmd BufWritePost * execute '!git add % && git commit -m %'
+au FileType vimwiki :autocmd BufWritePost * silent exec '!git add "%" && git commit -m "%" > /dev/null'
 
 "au FileType vimwiki call FocusMode()
 "au BufReadPost index.md call FocusMode()
