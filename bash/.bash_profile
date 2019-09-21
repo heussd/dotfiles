@@ -6,7 +6,6 @@
 #  fi
 #fi
 
-source .shell-installs
 source .shell-aliases
 
 
@@ -82,3 +81,5 @@ elif [ -f /etc/bash_completion ]; then
 fi
 
 source-if-exist ".bash_profile."`uname -s`
+
+source .shell-installs

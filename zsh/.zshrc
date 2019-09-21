@@ -35,6 +35,6 @@ antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 antigen apply
 
 export PATH=$PATH:~/.dotfiles:~/.scripts
-source ~/.shell-installs
 source ~/.shell-aliases
 source ~/.shell-motd
+source ~/.shell-installs
