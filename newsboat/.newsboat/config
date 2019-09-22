@@ -26,3 +26,5 @@ color article            default   default
 highlight article "^(Title):.*$" blue default
 highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
+
+browser "/Applications/VLC.app/Contents/MacOS/VLC -q --play-and-exit %u &> /dev/null &"
