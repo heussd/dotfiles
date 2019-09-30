@@ -3,7 +3,7 @@ browser		open
 download-path	~/Downloads/
 max-downloads	2
 prepopulate-query-feeds yes
-reload-time	20 
+reload-time	120
 
 
 # Taken from https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
