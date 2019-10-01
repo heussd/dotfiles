@@ -57,7 +57,7 @@ export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$
  [[ -d $(dirname "${BASH_SOURCE[0]}")/.scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/.scripts
 
 
- [[ ! -d "$HOME/.bash-git-prompt" ]] && git clone https://github.com/magicmonty/bash-git-prompt "$HOME/.ash-git-prompt"
+ [[ ! -d "$HOME/.bash-git-prompt" ]] && git clone https://github.com/magicmonty/bash-git-prompt "$HOME/.bash-git-prompt"
  source "$HOME/.bash-git-prompt/gitprompt.sh"
 
 # Enable and configure bash completion

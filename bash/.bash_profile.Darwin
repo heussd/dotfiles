@@ -1,4 +1,3 @@
-echo "WARNING: Deprecated aliases loaded"
 alias appsign='codesign --force --deep --sign - '
 alias say='say -v Vicki'
 alias vim='mvim'

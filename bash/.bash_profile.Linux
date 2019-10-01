@@ -15,7 +15,7 @@ if [ `set | grep WINDOWID` ]; then
 fi
 
 # Gentoo only
-_has emerge && ( 
+_hasCmd emerge && ( 
   alias emerge='emerge -vp'
   alias unmerge='CONFIG_PROTECT="-*" CONFIG_PROTECT_MASK="-*" emerge -Cva --unmerge'
   alias lsflaws='glsa-check -l affected'

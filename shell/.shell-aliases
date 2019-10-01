@@ -48,6 +48,11 @@ alias java-list-imports='find . -iname "*.java" | xargs cat | grep -e "^import" 
 # http://www.open-source-blog.de/2014/11/17/apple-spezifische-dateien-wie-appledouble-ds_store-etc-loeschen-mittels-find/
 rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
 
+function _hasNotFile() { if [ -e "$1" ]; then return 1; fi; return 0; }
+function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
+function _hasCmd() { which "$1" &>/dev/null; }
+function _isMacOS() { uname -s | grep "Darwin" > /dev/null; }
+function _isLinux() { uname -s | grep "Linux" > /dev/null; }
 
 # Third party commands
 alias gentlecp='rsync --update --progress --human-readable'
