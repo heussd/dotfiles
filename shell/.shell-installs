@@ -25,12 +25,12 @@ lastinstall=$(since_last_modified .brewfile-install days)
 brewfile=$(since_last_modified $(readlink Brewfile) days)
 
 if [[ $lastinstall -gt 30 ]] || [[ $brewfile -lt $lastinstall ]]; then
-	brew bundle install -v && touch ~/.brewfile-install
+	_hasCmd brew && brew bundle install -v && touch ~/.brewfile-install
 fi
 
 
 _hasCmd thefuck && eval "$(thefuck --alias)"
 
-echo $SHELL | grep "bash" > /dev/null && source ~/.fzf.bash
-echo $SHELL | grep "zsh" > /dev/null && source ~/.fzf.zsh
+echo $SHELL | grep "bash" > /dev/null && _hasFile ~/.fzf.bash && source ~/.fzf.bash
+echo $SHELL | grep "zsh" > /dev/null && _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
 
