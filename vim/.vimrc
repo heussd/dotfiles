@@ -101,7 +101,7 @@ Plug 'tomasr/molokai'
 call plug#end()
 
 
-colorscheme Molokai
+colorscheme molokai
 
 " vimwiki settings
 let g:vimwiki_list = [{ 
