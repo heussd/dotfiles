@@ -1,9 +1,14 @@
 {
+"_full_config_file_here": "https://github.com/ianyh/Amethyst/blob/development/Amethyst/default.amethyst",
 "floating": [
         "com.apple.systempreferences",
         "com.tinytacoteam.zazu",
         "com.torusknot.SourceTreeNotMAS",
         "com.apple.finder",
-        "com.apple.Music"
-    ]
+        "com.apple.Music",
+        "com.apple.*"
+    ],
+    "mouse-follows-focus": true,
+    "focus-follows-mouse": true,
+    "send-crash-reports": false
 }
