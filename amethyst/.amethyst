@@ -3,6 +3,7 @@
         "com.apple.systempreferences",
         "com.tinytacoteam.zazu",
         "com.torusknot.SourceTreeNotMAS",
-        "com.apple.finder"
+        "com.apple.finder",
+        "com.apple.Music"
     ]
 }
