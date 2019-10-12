@@ -1,6 +1,11 @@
 {
 "_full_config_file_here": "https://github.com/ianyh/Amethyst/blob/development/Amethyst/default.amethyst",
-"floating": [
+    "layouts": [
+    	"tall",
+    	"wide",
+    	"floating"
+    ],
+    "floating": [
         "com.apple.systempreferences",
         "com.tinytacoteam.zazu",
         "com.torusknot.SourceTreeNotMAS",
