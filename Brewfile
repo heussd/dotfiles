@@ -71,6 +71,7 @@ cask "r"
 cask "retinizer"
 cask "sourcetree"
 cask "suspicious-package"
+cask "tiles"
 cask "tor-browser"
 cask "transmission"
 cask "visual-studio-code"
@@ -89,4 +90,3 @@ mas "Pages", id: 409201541
 mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
 mas "Xcode", id: 497799835
-
