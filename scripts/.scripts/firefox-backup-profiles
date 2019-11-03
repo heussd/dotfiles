@@ -4,7 +4,7 @@
 # Source for filenames: https://support.mozilla.org/de/kb/benutzerprofile-mit-ihren-persoenlichen-daten
 
 TARGET=$1
-[ -z $TARGET ] && TARGET="firefox-backup-profiles.7z"
+[ -z "$TARGET" ] && TARGET="firefox-backup-profiles.7z"
 
 FF_PROFILE="$HOME/Library/Application\ Support/Firefox/"
 
