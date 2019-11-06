@@ -9,6 +9,7 @@ tap "homebrew/core"
 
 brew "azure-cli"
 brew "bash-completion"
+brew "bat"
 brew "brew-cask-completion"
 brew "ctop"
 brew "dive"
