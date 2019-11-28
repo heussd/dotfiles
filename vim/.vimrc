@@ -41,11 +41,7 @@ endfunction
 
 function FocusMode()
 	Goyo
-	set wrapmargin=0
 	set textwidth=0
-	set wrap
-	set linebreak
-	set nolist  " list disables linebreak
 	set spell spelllang=de,en
 	if has("gui_running")
 	  WriterToggle
@@ -124,4 +120,10 @@ au FileType vimwiki :autocmd BufWritePost * silent exec '!git add "%" && git com
 " Inspired by https://gist.github.com/jondkinney/2040114
 """ FUZZY FIND
 nnoremap <C-f> :Rg<CR>
+
+
+" https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
+:set wrap
+:set linebreak
+" :set nolist In vim versions prior to 7.4.353 list disabled linebreak
 
