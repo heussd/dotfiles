@@ -102,6 +102,11 @@
             "icon": "fa-globe",
             "url": "https://www.deepl.com/translator#en/de/"
           },
+          "pro": {
+            "name": "Issue Board",
+            "icon": "clipboard-check",
+            "url": "https://accelerator-fs.atlassian.net/browse/PRO-"
+          },
           "cheat": {
             "name": "Cheat.sh",
             "icon": "fa-code",
