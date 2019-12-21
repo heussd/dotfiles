@@ -27,7 +27,7 @@ say-hi:
 	@echo $(realpath $(MAKEFILE_LIST))
 
 
-setup:	setup-$(OS_NAME)
+setup:	$(DOTFILES_BARE_REPO)/ setup-$(OS_NAME)
 setup-linux:
 	sudo apt install -y \
     vim \
@@ -35,6 +35,8 @@ setup-linux:
 setup-darwin: 
 ifndef BREW
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+	@brew bundle install -v --file=.Brewfile
 endif
 	# Check for software updates daily, not just once per week
 	defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1

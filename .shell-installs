@@ -22,10 +22,10 @@ since_last_modified() {
 }
 
 lastinstall=$(since_last_modified .brewfile-install days)
-brewfile=$(since_last_modified ~/.dotfiles/Brewfile days)
+brewfile=$(since_last_modified ~/.Brewfile days)
 
 if [[ $lastinstall -gt 30 ]] || [[ $brewfile -lt $lastinstall ]]; then
-	_hasCmd brew && brew bundle install -v --file=~/.dotfiles/Brewfile && touch ~/.brewfile-install
+	_hasCmd brew && brew bundle install -v --file=~/.Brewfile && touch ~/.brewfile-install
 fi
 
 
