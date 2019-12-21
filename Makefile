@@ -26,7 +26,14 @@ say-hi:
 
 
 setup:	setup-$(OS_NAME)
-setup-darwin:
+setup-linux:
+	sudo apt install -y \
+    vim \
+    figlet
+setup-darwin: 
+ifndef BREW
+	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+endif
 	# Check for software updates daily, not just once per week
 	defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 	# Text selection in QuickView
@@ -48,13 +55,15 @@ setup-darwin:
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 	@killall Finder
 	@killall Dock
-	ifndef BREW
-		@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	endif
+
 
 
 install-docker-linux:
 	@curl -fsSL https://get.docker.com/ -o - | sh
+	@sudo usermod -aG docker $(USER)
+	@sudo apt-get install -y python3-pip python3-dev
+	@sudo pip3 install docker-compose
+	docker-compose --version
 
 
 sync-maya:
