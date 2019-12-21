@@ -8,7 +8,7 @@ BREW := $(shell command -v brew 2> /dev/null)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 DOTFILES = $(HOME)/.dotfiles
 
-DOTFILES_WORKDIR   := $(HOME)/dotfiles
+DOTFILES_WORK_DIR  := $(HOME)/dotfiles
 DOTFILES_BARE_REPO := $(HOME)/.dotfiles-bare-repo/
 
 RSYNC_OPTIONS  := -auip --progress --safe-links
@@ -22,8 +22,8 @@ default:	$(DOTFILES_BARE_REPO)/ say-hi
 $(DOTFILES_BARE_REPO)/:
 	@git clone --bare git@github.com:heussd/dotfiles.git $(DOTFILES_BARE_REPO)/
 	@cd $(HOME)/MAKE-dotfiles
-	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORKDIR)/ checkout -f git-alias --recurse-submodules
-	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORKDIR)/ config --local status.showUntrackedFiles no
+	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f git-alias --recurse-submodules
+	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ config --local status.showUntrackedFiles no
 
 
 say-hi:
