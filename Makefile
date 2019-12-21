@@ -1,3 +1,5 @@
+# Timm's home Makefile
+
 SHELL:=bash
 # xcode-select --install 
 
@@ -35,9 +37,8 @@ setup-linux:
 setup-darwin: 
 ifndef BREW
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-	@brew bundle install -v --file=.Brewfile
 endif
+	@brew bundle install -v --file=.Brewfile
 	# Check for software updates daily, not just once per week
 	defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 	# Text selection in QuickView
