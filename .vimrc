@@ -101,7 +101,7 @@ colorscheme molokai
 
 " vimwiki settings
 let g:vimwiki_list = [{ 
-	\ 'path': '~/vimwiki/',
+	\ 'path': '~/projects/vimwiki/',
 	\ 'ext':'.md',
 	\ 'syntax':'markdown',
 	\ 'diary_rel_path': "/",

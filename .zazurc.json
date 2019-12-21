@@ -118,7 +118,7 @@
     {
       "name": "tinytacoteam/zazu-snippets",
 	      "variables": {
-	    "folder": "snippets"
+	    "folder": "projects/snippets"
 	  }
     },
     {
