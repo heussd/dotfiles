@@ -1,15 +1,18 @@
 [submodule "_externals/my-way-to-view-things"]
-	path = _externals/my-way-to-view-things
+	path = .dotfiles-externals/my-way-to-view-things
 	url = https://github.com/heussd/my-way-to-view-things.git
 [submodule "_externals/mpcscripts"]
-	path = _externals/mpcscripts
+	path = .dotfiles-externals/mpcscripts
 	url = https://github.com/heussd/mpcscripts.git
 [submodule "_externals/latexcommons"]
-	path = _externals/latexcommons
+	path = .dotfiles-externals/latexcommons
 	url = https://github.com/heussd/latexcommons.git
 [submodule "_externals/674099"]
-	path = _externals/674099
+	path = .dotfiles-externals/674099
 	url = https://gist.github.com/mathiasbynens/674099
 [submodule "_externals/zim-plugin-append"]
 	path = _externals/zim-plugin-append
 	url = https://github.com/Osndok/zim-plugin-append
+[submodule ".dotfiles-externals/zim-plugin-instantsearch"]
+	path = .dotfiles-externals/zim-plugin-instantsearch
+	url = https://github.com/e3rd/zim-plugin-instantsearch

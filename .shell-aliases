@@ -1,0 +1,77 @@
+# Commonly used programs
+export HOMEBREW_NO_ANALYTICS=1
+
+export BROWSER="firefox"
+export TERM=xterm-color
+export EDITOR='vim'
+export LC_ALL='en_US.UTF-8'
+
+# Fine-tuning basic Unix commands
+alias ...='cd ../..'
+alias ..='cd ..'
+alias KILL='sudo kill -9'
+alias RM='rm -Rfv'
+alias plz="sudo !!"
+alias cp='cp -v'
+alias df='df -h'
+alias du='du -h'
+alias grep='grep --color'
+alias halt='sudo halt'
+alias l='ls -lh'
+alias ll='l -ltr'
+alias la='l -A'
+alias ls='ls -G'
+alias lsd='ls -l | egrep -e "^d"'
+alias mv='mv -v'
+alias reboot='sudo reboot'
+
+git-cosh() { git commit $1 -m "$2"; git push; }
+git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
+git-ROLLBACK() { git fetch origin; git reset --hard origin/master; git clean -fdx; }
+git-head-stat() { pushd $1 > /dev/null ; git log --oneline | head -n 1; popd > /dev/null; }
+alias gk='gitk --all'
+alias gs='git status'
+alias gca='git commit --ammend'
+alias gb='git branch -v && git remote show origin'
+alias gru='git remote update'
+alias gp='git pull --rebase origin'
+
+alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
+
+
+# Tiny tools
+alias rmEmtpyFolders='find . -type d -empty -exec rmdir "{}" \;'
+alias rmdsstore="find . -name '*.DS_Store' -type f -delete"
+alias rmsvn="find . -name '*.svn' -type f -delete"
+alias noftchcks="du -akx | sort -nr | less"
+alias mvn-upgrade='mvn versions:use-next-releases'
+alias java-list-imports='find . -iname "*.java" | xargs cat | grep -e "^import" | sort -r | uniq'
+
+# http://www.open-source-blog.de/2014/11/17/apple-spezifische-dateien-wie-appledouble-ds_store-etc-loeschen-mittels-find/
+rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
+
+function _hasFile() { if [ -e "$1" ]; then return 0; fi; return 1; }
+function _hasNotFile() { if [ -e "$1" ]; then return 1; fi; return 0; }
+function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
+function _hasCmd() { which "$1" &>/dev/null; }
+function _isMacOS() { uname -s | grep "Darwin" > /dev/null; }
+function _isLinux() { uname -s | grep "Linux" > /dev/null; }
+
+# Third party commands
+alias gentlecp='rsync --update --progress --human-readable'
+
+
+# Shortcuts
+alias h="cd ~/"
+alias d="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias p="cd ~/projects"
+
+
+# Load OS specific bash settings
+source-if-exist() { [[ -e $1 ]] && source "$1"; }
+
+
+# Load Host specific bash settings
+SHORTHOSTNAME=`hostname | cut -d"." -f 1`
+source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
