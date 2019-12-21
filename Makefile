@@ -11,7 +11,9 @@ DOTFILES_BARE_REPO := $(HOME)/MAKE-dotfiles-bare-repo/
 RSYNC_OPTIONS  := -auip --progress --safe-links
 RSYNC_EXCLUDES := --exclude=.DS_Store
 
-default:	$(DOTFILES_BARE_REPO)/ say-hi $(OS_NAME)-install
+
+
+default:	$(DOTFILES_BARE_REPO)/ say-hi
 
 
 $(DOTFILES_BARE_REPO)/:
