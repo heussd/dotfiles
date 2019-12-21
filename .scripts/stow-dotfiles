@@ -1,1 +1,35 @@
-../../stow-dotfiles
+#!/bin/bash
+
+# Find the .dotfiles root folder where this script is located at, taken from https://stackoverflow.com/a/246128
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+if [ $# -eq 0 ]; then
+	# If no parameter is provided call myself again with all folders as parameter - aka "stow everything"
+	{ cd "$DIR" && find . -maxdepth 1 -type d; } | cut -c 3- | grep -v ".git" | grep -v "_" | xargs -0 $SOURCE
+	exit
+fi
+
+STOW_DIR=$DIR
+STOW_OPTS="--override=. --verbose=1 --no-folding"
+STOW_IGNORE="--ignore=.DS_Store --ignore=.git"
+
+# Use supplied stow action or fall back to restow
+STOW_ACTION="$1"
+if [[ $STOW_ACTION == -* ]]; then
+	# First parameter is stow action
+	shift
+else
+	# No action supplied. 
+	STOW_ACTION="--restow"
+fi
+
+# Ignore Library-folder for non macOS systems
+uname -s | grep -v Darwin > /dev/null && STOW_IGNORE="$STOW_IGNORE --ignore=Library"
+
+stow $STOW_ACTION $STOW_OPTS --dir=$STOW_DIR --target=$HOME $STOW_IGNORE $*
