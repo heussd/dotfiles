@@ -37,6 +37,8 @@ say-hi:
 
 show-os-version: show-os-version-$(OS_NAME)
 	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
+show-os-version-linux:
+	@lsb_release --short --description
 show-os-version-darwin:
 	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
 
