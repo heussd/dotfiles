@@ -10,9 +10,11 @@ if [ "$1" != "silent" ]; then
 		echo
 	)
 
-	dotfiles log --oneline | head -n 1
-	dotfiles status --porcelain
-	echo
+	_hasCmd dotfiles && (
+		dotfiles log --oneline | head -n 1
+		dotfiles status --porcelain
+		echo
+	)
 
 	_hasCmd gita && (
 		gita ll
