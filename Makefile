@@ -22,7 +22,7 @@ default:	$(DOTFILES_BARE_REPO)/ say-hi
 $(DOTFILES_BARE_REPO)/:
 	@git clone --bare git@github.com:heussd/dotfiles.git $(DOTFILES_BARE_REPO)/
 	@cd $(DOTFILES_WORK_DIR)/
-	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout --recurse-submodules
+	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ config --local status.showUntrackedFiles no
 
 
