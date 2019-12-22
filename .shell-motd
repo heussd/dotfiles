@@ -1,22 +1,29 @@
 git-stat-folder() { [ -d "$1" ] && printf " %-9s @ %s\n" "$1" "$(git-head-stat $1)"; }
-function _hasCmd() { which "$1" &>/dev/null; }
+function _hasCmd() { type "$1" &>/dev/null; }
 
 # Console prints may be skipped
 if [ "$1" != "silent" ]; then
 
 	echo
-	figlet -c $SHORTHOSTNAME 2>/dev/null
-	echo
+	_hasCmd figlet && (
+		figlet -c $SHORTHOSTNAME 2>/dev/null
+		echo
+	)
 
 	_hasCmd dotfiles && (
 		dotfiles log --oneline | head -n 1
 		dotfiles status --porcelain
+		echo
 	)
-	echo
 
-	_hasCmd gita && gita ll
-	echo
+	_hasCmd gita && (
+		gita ll
+		echo
+	)
 
-	_hasCmd docker && docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+	_hasCmd docker && (
+		docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+		echo
+	)
 
 fi
