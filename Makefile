@@ -1,12 +1,9 @@
 # Timm's home Makefile
-
-SHELL:=bash
 # xcode-select --install 
 
-BREW := $(shell command -v brew 2> /dev/null)
-
+SHELL   := bash
+BREW    := $(shell command -v brew 2> /dev/null)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
-DOTFILES = $(HOME)/.dotfiles
 
 DOTFILES_WORK_DIR  := $(HOME)/
 DOTFILES_BARE_REPO := $(HOME)/.dotfiles-bare-repo/
