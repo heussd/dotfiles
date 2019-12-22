@@ -16,7 +16,7 @@ RSYNC_EXCLUDES := --exclude=.DS_Store
 
 
 
-default:	$(DOTFILES_BARE_REPO)/ show-os-version say-hi
+default:	$(DOTFILES_BARE_REPO)/ version say-hi
 
 
 $(DOTFILES_BARE_REPO)/:
@@ -35,11 +35,34 @@ say-hi:
 	@echo $(realpath $(MAKEFILE_LIST))
 
 
-show-os-version: show-os-version-$(OS_NAME)
+clean:
+	@-rm -rf ~/.tmp/*
+	@-rm -rf ~/.Trash/*
+very-clean-darwin:
+	@-rm -rf ~/Library/Caches/*
+	# Maybe redundant to the line above
+	@-rm -rf "$(brew --cache)"
+	@-brew cleanup -s
+very-clean: clean very-clean-$(OS_NAME)
+	@-docker system prune --all --force
+	@-rm -rf ~/.m2/*
+
+
+update: update-$(OS_NAME)
+	@-apm update --confirm=false
+	@-npm update -g
+update-darwin:
+	@-sudo softwareupdate -i -a
+	@-brew update
+	@-brew upgrade
+	@-brew bundle install -v --file=.Brewfile
+
+
+version: version-$(OS_NAME)
 	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
-show-os-version-linux:
+version-linux:
 	@lsb_release --short --description
-show-os-version-darwin:
+version-darwin:
 	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
 
 
