@@ -22,7 +22,11 @@ default:	$(DOTFILES_BARE_REPO)/ show-os-version say-hi
 $(DOTFILES_BARE_REPO)/:
 	@git clone --bare git@github.com:heussd/dotfiles.git $(DOTFILES_BARE_REPO)/
 	@cd $(DOTFILES_WORK_DIR)/
-	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
+	# recursive-submodules is limited to git >= 2.13
+	# We are doing it the old way here to increase compatibility
+	#@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
+	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f
+	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ submodule update --init --recursive
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ config --local status.showUntrackedFiles no
 
 
