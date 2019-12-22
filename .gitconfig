@@ -17,3 +17,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
+[alias]
+        ac = !git add -A && git commit
+		cosh = !git commit && git push
