@@ -8,8 +8,13 @@ if [ "$1" != "silent" ]; then
 	figlet -c $SHORTHOSTNAME 2>/dev/null
 	echo
 
-	# Print status of important folders
-	git-stat-folder .dotfiles
+	_hasCmd dotfiles && (
+		dotfiles log --oneline | head -n 1
+		dotfiles status --porcelain
+	)
+	echo
+
+	_hasCmd gita && gita ll
 	echo
 
 	_hasCmd docker && docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
