@@ -16,7 +16,7 @@ RSYNC_EXCLUDES := --exclude=.DS_Store
 
 
 
-default:	$(DOTFILES_BARE_REPO)/ say-hi
+default:	$(DOTFILES_BARE_REPO)/ show-os-version say-hi
 
 
 $(DOTFILES_BARE_REPO)/:
@@ -29,6 +29,12 @@ $(DOTFILES_BARE_REPO)/:
 say-hi:
 	@echo "OHHAI"
 	@echo $(realpath $(MAKEFILE_LIST))
+
+
+show-os-version: show-os-version-$(OS_NAME)
+	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
+show-os-version-darwin:
+	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
 
 
 setup:	$(DOTFILES_BARE_REPO)/ setup-$(OS_NAME)
@@ -62,7 +68,6 @@ endif
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 	@killall Finder
 	@killall Dock
-
 
 
 install-docker-linux:
