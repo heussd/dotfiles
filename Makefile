@@ -23,10 +23,10 @@ $(DOTFILES_BARE_REPO)/:
 # Include everything
 	@echo "/*" > $(DOTFILES_BARE_REPO)/info/sparse-checkout
 # Exclude readme
-	@echo "Readme.md" > $(DOTFILES_BARE_REPO)/info/sparse-checkout
+	@echo "!Readme.md" >> $(DOTFILES_BARE_REPO)/info/sparse-checkout
 # Ignore Library folder on Linux
 ifeq ($(OS_NAME),"linux")
-	@echo "Readme.md" > $(DOTFILES_BARE_REPO)/info/sparse-checkout
+	@echo "!Library" >> $(DOTFILES_BARE_REPO)/info/sparse-checkout
 endif
 	
 	@cd $(DOTFILES_WORK_DIR)/
