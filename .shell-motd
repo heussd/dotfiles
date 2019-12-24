@@ -6,13 +6,13 @@ if [ "$1" != "silent" ]; then
 
 	echo
 	_hasCmd figlet && (
-		figlet -c $SHORTHOSTNAME 2>/dev/null
+		figlet '  ' $SHORTHOSTNAME 2>/dev/null
 		echo
 	)
 
 	_hasCmd dotfiles && (
-		dotfiles log --oneline | head -n 1
-		dotfiles status --porcelain
+		echo "dotfiles @ $(dotfiles log --oneline | head -n 1)"
+		echo -e "\033[31m$(dotfiles status --porcelain)\e[0m"
 		echo
 	)
 
@@ -22,7 +22,7 @@ if [ "$1" != "silent" ]; then
 	)
 
 	_hasCmd docker && (
-		docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+		docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Ports}}"
 		echo
 	)
 
