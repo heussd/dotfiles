@@ -16,15 +16,25 @@ RSYNC_EXCLUDES := --exclude=.DS_Store
 default:	$(DOTFILES_BARE_REPO)/ version say-hi
 
 
-$(DOTFILES_BARE_REPO)/:
+$(DOTFILES_BARE_REPO)/: 
 	@git clone --bare git@github.com:heussd/dotfiles.git $(DOTFILES_BARE_REPO)/
+	@git --git-dir=$(DOTFILES_BARE_REPO) config --local status.showUntrackedFiles no
+	@git --git-dir=$(DOTFILES_BARE_REPO) config --local core.sparseCheckout true
+# Include everything
+	@echo "/*" > $(DOTFILES_BARE_REPO)/info/sparse-checkout
+# Exclude readme
+	@echo "Readme.md" > $(DOTFILES_BARE_REPO)/info/sparse-checkout
+# Ignore Library folder on Linux
+ifeq ($(OS_NAME),"linux")
+	@echo "Readme.md" > $(DOTFILES_BARE_REPO)/info/sparse-checkout
+endif
+	
 	@cd $(DOTFILES_WORK_DIR)/
-	# recursive-submodules is limited to git >= 2.13
-	# We are doing it the old way here to increase compatibility
-	#@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
+# recursive-submodules is limited to git >= 2.13
+# We are doing it the old way here to increase compatibility
+#@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ submodule update --init --recursive
-	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ config --local status.showUntrackedFiles no
 
 
 say-hi:
@@ -37,7 +47,7 @@ clean:
 	@-rm -rf ~/.Trash/*
 very-clean-darwin:
 	@-rm -rf ~/Library/Caches/*
-	# Maybe redundant to the line above
+# Maybe redundant to the line above
 	@-rm -rf "$(brew --cache)"
 	@-brew cleanup -s
 very-clean: clean very-clean-$(OS_NAME)
