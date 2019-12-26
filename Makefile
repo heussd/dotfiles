@@ -105,6 +105,18 @@ endif
 	@killall Finder
 	@killall Dock
 
+vs-code:
+	@code --install-extension christian-kohler.path-intellisense --force
+	@code --install-extension dakara.transformer --force
+	@code --install-extension eamodio.gitlens --force
+	@code --install-extension esbenp.prettier-vscode --force
+	@code --install-extension formulahendry.auto-close-tag --force
+	@code --install-extension formulahendry.auto-rename-tag --force
+	@code --install-extension ms-azuretools.vscode-docker --force
+	@code --install-extension ms-python.python --force
+	@code --install-extension streetsidesoftware.code-spell-checker --force
+	@code --install-extension VisualStudioExptTeam.vscodeintellicode --force
+	@code --install-extension Zignd.html-css-class-completion --force
 
 install-docker-linux:
 	@curl -fsSL https://get.docker.com/ -o - | sh
