@@ -121,6 +121,8 @@ au FileType vimwiki :autocmd BufWritePost * silent exec '!git add "%" && git com
 """ FUZZY FIND
 nnoremap <C-f> :Rg<CR>
 
+" Open current editor file externally
+nnoremap gO :!open '%:p'<CR>
 
 " https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
 :set wrap
