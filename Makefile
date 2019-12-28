@@ -6,12 +6,16 @@ SHELL   := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-BREW    := $(shell command -v brew 2> /dev/null)
+ccred	:=	$(shell echo -e "\033[0;31m")
+ccend 	:=	$(shell echo -e "\e[0m")
+
+SHORTHOSTNAME=$(shell hostname | cut -d"." -f 1)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
 DOTFILES_WORK_DIR  := $(HOME)/
 DOTFILES_BARE_REPO := $(HOME)/.dotfiles-bare-repo/
 
+BREW    := $(shell command -v brew 2> /dev/null)
 RSYNC_OPTIONS  := -auip --progress --safe-links
 RSYNC_EXCLUDES := --exclude=.DS_Store
 
@@ -23,7 +27,7 @@ endif
 
 
 
-default:	$(DOTFILES_BARE_REPO)/ version say-hi
+default:	$(DOTFILES_BARE_REPO)/ hostname version
 .PHONY: default
 
 
@@ -38,8 +42,7 @@ $(DOTFILES_BARE_REPO)/:
 # Ignore Library folder on Linux
 ifeq ($(OS_NAME),"linux")
 	@echo "!Library" >> $(DOTFILES_BARE_REPO)/info/sparse-checkout
-endif
-	
+endif	
 	@cd $(DOTFILES_WORK_DIR)/
 # recursive-submodules is limited to git >= 2.13
 # We are doing it the old way here to increase compatibility
@@ -48,10 +51,32 @@ endif
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ submodule update --init --recursive
 
 
+hostname:
+	@echo
+ifeq (, $(shell which figlet))
+	@echo '  ' $(SHORTHOSTNAME)
+else
+	@figlet '  ' $(SHORTHOSTNAME)
+endif
+	@echo
+.PHONY: hostname
+
+
 say-hi:
 	@echo "OHHAI"
 	@echo $(realpath $(MAKEFILE_LIST))
 .PHONY: say-hi
+
+
+version: version-$(OS_NAME)
+	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
+	@echo -e "\033[31m$$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ status --porcelain)\033[0m"
+	@echo
+version-linux:
+	@lsb_release --short --description
+version-darwin:
+	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
+.PHONY: version version-linux version-darwin
 
 
 clean:
@@ -77,15 +102,6 @@ update-darwin:
 	@-brew upgrade
 	@-brew bundle install -v --file=.Brewfile
 .PHONY: update update-linux update-darwin
-
-
-version: version-$(OS_NAME)
-	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
-version-linux:
-	@lsb_release --short --description
-version-darwin:
-	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
-.PHONY: version version-linux version-darwin
 
 
 install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) firefox vs-code 
