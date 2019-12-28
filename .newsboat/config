@@ -1,9 +1,18 @@
-auto-reload	yes
-browser		open
-download-path	~/Downloads/
-max-downloads	2
-prepopulate-query-feeds yes
-reload-time	120
+auto-reload		yes
+browser			open
+download-path		~/Downloads/
+max-downloads		2
+prepopulate-query-feeds	yes
+
+reload-threads		3
+reload-time		120
+
+show-read-articles	no
+show-read-feeds		no
+
+feed-sort-order 	lastupdated
+
+user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
 
 
 # Taken from https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
