@@ -61,6 +61,7 @@ user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // (FF50+)
 user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // (FF50+)
 
 
+
 # Mozilla User Preferences
 # kuketz-blog.de | Firefox-Kompendium | 06.12.2018
 # Download: https://www.kuketz-blog.de/firefox-aboutconfig-user-js-firefox-kompendium-teil10/
@@ -195,3 +196,8 @@ user_pref("security.insecure_connection_icon.enabled", true);
 user_pref("security.insecure_connection_icon.pbmode.enabled", true);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
+
+
+
+// Overwrite newtab page setting to have a black background on new tabs ¯\_(ツ)_/¯
+user_pref("browser.newtabpage.enabled", true);
