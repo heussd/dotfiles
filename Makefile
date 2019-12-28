@@ -2,6 +2,10 @@
 # xcode-select --install 
 
 SHELL   := bash
+.SHELLFLAGS := -eu -o pipefail -c  
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rules
+
 BREW    := $(shell command -v brew 2> /dev/null)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
@@ -18,7 +22,9 @@ else
 endif
 
 
+
 default:	$(DOTFILES_BARE_REPO)/ version say-hi
+.PHONY: default
 
 
 $(DOTFILES_BARE_REPO)/: 
@@ -45,6 +51,7 @@ endif
 say-hi:
 	@echo "OHHAI"
 	@echo $(realpath $(MAKEFILE_LIST))
+.PHONY: say-hi
 
 
 clean:
@@ -58,6 +65,7 @@ very-clean-darwin:
 very-clean: clean very-clean-$(OS_NAME)
 	@-docker system prune --all --force
 	@-rm -rf ~/.m2/*
+.PHONY: clean very-clean very-clean-darwin
 
 
 update: update-$(OS_NAME)
@@ -68,6 +76,7 @@ update-darwin:
 	@-brew update
 	@-brew upgrade
 	@-brew bundle install -v --file=.Brewfile
+.PHONY: update update-linux update-darwin
 
 
 version: version-$(OS_NAME)
@@ -76,14 +85,16 @@ version-linux:
 	@lsb_release --short --description
 version-darwin:
 	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
+.PHONY: version version-linux version-darwin
 
 
-setup:	$(DOTFILES_BARE_REPO)/ setup-$(OS_NAME) firefox vs-code 
-setup-linux:
+install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) firefox vs-code 
+install-linux:
 	sudo apt install -y \
     vim \
     figlet
-setup-darwin: homebrew finder macvim
+install-darwin: homebrew finder macvim
+.PHONY: setup setup-linux setup-darwin
 
 
 homebrew:
@@ -91,6 +102,7 @@ ifndef BREW
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@brew bundle install -v --file=.Brewfile
+.PHONY: homebrew
 
 
 finder:
@@ -114,7 +126,7 @@ finder:
 	# Show absolute path in Finder's title bar
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 	@killall Finder
-	@killall Dock
+.PHONY: finder
 
 
 vs-code:
@@ -130,26 +142,31 @@ vs-code:
 	VisualStudioExptTeam.vscodeintellicode,\
 	Zignd.html-css-class-completion,\
 	}; do code --install-extension $$extension --force; done
+.PHONY: vs-code
 
 
 macvim:
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
+.PHONY: macvim
 
 
 firefox:
 	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; done
+.PHONY: firefox
 
 
-install-docker-linux:
+docker-linux:
 	@curl -fsSL https://get.docker.com/ -o - | sh
 	@sudo usermod -aG docker $(USER)
 	@sudo apt-get install -y python3-pip python3-dev
 	@sudo pip3 install docker-compose
 	docker-compose --version
+.PHONY: docker-linux
 
 
 sync-maya:
 	@echo "Uploading..."
-	@rsync $(RSYNC_OPTIONS) $(RSYNC_EXCLUDES) ~/data/ maya:~/data/
-	
+	@rsync $(RSYNC_OPTIONS) $(RSYNC_EXCLUDES) ~/data/ maya:~/data/	
+
 	@if ssh maya "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; rsync $(RSYNC_OPTIONS) $(RSYNC_EXCLUDES) maya:~/data/ ~/data/; fi
+.PHONY: sync-maya
