@@ -1,13 +1,12 @@
-# Timm's home Makefile
+# Home Makefile
+# Timm's dirty little bootstrapping, configuring, cleaning, routing job doer.
+
 # xcode-select --install 
 
 SHELL   := bash
 .SHELLFLAGS := -eu -o pipefail -c  
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
-
-ccred	:=	$(shell echo -e "\033[0;31m")
-ccend 	:=	$(shell echo -e "\e[0m")
 
 SHORTHOSTNAME=$(shell hostname | cut -d"." -f 1)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
@@ -40,7 +39,7 @@ $(DOTFILES_BARE_REPO)/:
 # Exclude readme
 	@echo "!Readme.md" >> $(DOTFILES_BARE_REPO)/info/sparse-checkout
 # Ignore Library folder on Linux
-ifeq ($(OS_NAME),"linux")
+ifeq ("$(OS_NAME)","linux")
 	@echo "!Library" >> $(DOTFILES_BARE_REPO)/info/sparse-checkout
 endif	
 	@cd $(DOTFILES_WORK_DIR)/
