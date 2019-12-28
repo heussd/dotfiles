@@ -52,6 +52,11 @@
             "name": "Maven Central",
             "url": "http://mvnrepository.com/search?q="
           },
+          "github": {
+            "icon": "fa-github",
+            "name": "GitHub",
+            "url": "https://github.com/search?q="
+          },
           "gif": {
             "icon": "fa-smile",
             "name": "Giphy",
