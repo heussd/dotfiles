@@ -78,11 +78,17 @@ setup-linux:
 	sudo apt install -y \
     vim \
     figlet
-setup-darwin: 
+setup-darwin: homebrew finder vs-code macvim
+
+
+homebrew:
 ifndef BREW
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@brew bundle install -v --file=.Brewfile
+
+
+finder:
 	# Check for software updates daily, not just once per week
 	defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 	# Text selection in QuickView
@@ -119,6 +125,10 @@ vs-code:
 	VisualStudioExptTeam.vscodeintellicode,\
 	Zignd.html-css-class-completion,\
 	}; do code --install-extension $$extension --force; done
+
+
+macvim:
+	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 
 
 install-docker-linux:
