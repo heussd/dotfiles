@@ -1,6 +1,10 @@
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
 
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+
+
 export BROWSER="firefox"
 export TERM=xterm-color
 export EDITOR='vim'
