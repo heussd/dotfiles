@@ -11,6 +11,11 @@ DOTFILES_BARE_REPO := $(HOME)/.dotfiles-bare-repo/
 RSYNC_OPTIONS  := -auip --progress --safe-links
 RSYNC_EXCLUDES := --exclude=.DS_Store
 
+ifeq ("$(OS_NAME)","darwin")
+	FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
+else
+	FIREFOX_PROFILES_LOCATION=$$HOME/.mozilla/firefox/
+endif
 
 
 default:	$(DOTFILES_BARE_REPO)/ version say-hi
@@ -73,12 +78,12 @@ version-darwin:
 	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
 
 
-setup:	$(DOTFILES_BARE_REPO)/ setup-$(OS_NAME)
+setup:	$(DOTFILES_BARE_REPO)/ setup-$(OS_NAME) firefox vs-code 
 setup-linux:
 	sudo apt install -y \
     vim \
     figlet
-setup-darwin: homebrew finder vs-code macvim
+setup-darwin: homebrew finder macvim
 
 
 homebrew:
@@ -129,6 +134,10 @@ vs-code:
 
 macvim:
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
+
+
+firefox:
+	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; done
 
 
 install-docker-linux:
