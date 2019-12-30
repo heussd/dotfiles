@@ -4,7 +4,7 @@ download-path		~/Downloads/
 max-downloads		2
 prepopulate-query-feeds	yes
 
-reload-threads		3
+reload-threads		1
 reload-time		120
 
 show-read-articles	no
