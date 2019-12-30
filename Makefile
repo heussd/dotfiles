@@ -26,7 +26,7 @@ endif
 
 
 
-default:	$(DOTFILES_BARE_REPO)/ hostname version
+default:	$(DOTFILES_BARE_REPO)/ hostname version zfspoolstatus
 .PHONY: default
 
 
@@ -77,6 +77,11 @@ version-darwin:
 	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
 .PHONY: version version-linux version-darwin
 
+
+zfspoolstatus:
+ifneq (, $(shell which zpool))
+	@zpool status
+endif
 
 clean:
 	@-rm -rf ~/.tmp/*
