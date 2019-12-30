@@ -31,7 +31,7 @@ default:	$(DOTFILES_BARE_REPO)/ hostname version zfspoolstatus
 
 
 $(DOTFILES_BARE_REPO)/: 
-	@git clone --bare git@github.com:heussd/dotfiles.git $(DOTFILES_BARE_REPO)/
+	@git clone --bare https://github.com/heussd/dotfiles.git $(DOTFILES_BARE_REPO)/
 	@git --git-dir=$(DOTFILES_BARE_REPO) config --local status.showUntrackedFiles no
 	@git --git-dir=$(DOTFILES_BARE_REPO) config --local core.sparseCheckout true
 # Include everything
