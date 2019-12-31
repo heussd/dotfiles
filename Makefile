@@ -110,9 +110,8 @@ update-darwin:
 
 install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) firefox vs-code 
 install-linux:
-	sudo apt install -y \
-    vim \
-    figlet
+# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
+	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
 install-darwin: homebrew finder macvim
 .PHONY: setup setup-linux setup-darwin
 
@@ -150,6 +149,8 @@ finder:
 
 
 vs-code:
+ifneq (, $(shell which code))
+	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
 	@for extension in {\
 	dakara.transformer,\
 	eamodio.gitlens,\
@@ -162,6 +163,7 @@ vs-code:
 	VisualStudioExptTeam.vscodeintellicode,\
 	Zignd.html-css-class-completion,\
 	}; do code --install-extension $$extension --force; done
+endif
 .PHONY: vs-code
 
 
