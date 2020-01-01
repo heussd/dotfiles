@@ -55,19 +55,19 @@ cpu_usage {
 
 cpu_temperature 0 {
 	format = " %degrees°"
-	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
 	max_threshold = 95
 }
 
 cpu_temperature 1 {
 	format = "%degrees°"
-	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input"
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp2_input"
 	max_threshold = 95
 }
 
 cpu_temperature 2 {
 	format = "%degrees°"
-	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp3_input"
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp3_input"
 	max_threshold = 95
 }
 
