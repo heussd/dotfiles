@@ -1,10 +1,6 @@
-tap "beeftornado/rmtree"
-tap "buo/cask-upgrade"
-tap "dteoh/sqa"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/core"
 
 brew "azure-cli"

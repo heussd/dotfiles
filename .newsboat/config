@@ -15,6 +15,10 @@ feed-sort-order 	lastupdated
 user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
 
 
+unbind-key C
+unbind-key A
+
+
 # Taken from https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
 # Dark solarized color scheme for newsbeuter, based on
 # Ethan Schoonover's Solarized.
