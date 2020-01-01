@@ -209,7 +209,7 @@ bindsym Ctrl+Shift+l exec i3lock -c 000000 && sleep 1 && xset s activate
 
 # Netflix on workspace 2
 bindsym $mod+n workspace 2; exec "firefox --new-window netflix.com"
-bindsym $mod+Shift+f exec "firefox -P default"
+bindsym $mod+Shift+f exec "firefox"
 
 # A dmenu-based quick file opener - find-command taken from
 # https://superuser.com/questions/294161/unix-linux-find-and-sort-by-date-modified/294164#294164
@@ -224,7 +224,6 @@ exec --no-startup-id if [ -f .deinit ]; then source .deinit; fi
 # Disable Laptop screen if external monitor is connected
 exec --no-startup-id xrandr | grep "VGA-1 connected" && xrandr --output LVDS-1 --off
 exec --no-startup-id glipper 
-exec --no-startup-id fluxgui
 exec --no-startup-id nm-applet
 
 # Disable screen standy
