@@ -15,8 +15,10 @@ DOTFILES_WORK_DIR  := $(HOME)/
 DOTFILES_BARE_REPO := $(HOME)/.dotfiles-bare-repo/
 
 BREW    := $(shell command -v brew 2> /dev/null)
-RSYNC_OPTIONS  := -auip --progress --safe-links
-RSYNC_EXCLUDES := --exclude=.DS_Store
+
+define rsync-folder
+	rsync -auip --progress --safe-links --exclude=.DS_Store $(1) $(2)
+endef
 
 ifeq ("$(OS_NAME)","darwin")
 	FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
@@ -188,7 +190,7 @@ docker-linux:
 
 sync-maya:
 	@echo "Uploading..."
-	@rsync $(RSYNC_OPTIONS) $(RSYNC_EXCLUDES) ~/data/ maya:~/data/	
+	@$(call rsync-folder,~/data/,maya:~/data/)
 
-	@if ssh maya "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; rsync $(RSYNC_OPTIONS) $(RSYNC_EXCLUDES) maya:~/data/ ~/data/; fi
+	@if ssh maya "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; $(call rsync-folder,maya:~/data/,~/data/); fi
 .PHONY: sync-maya
