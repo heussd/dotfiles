@@ -108,21 +108,26 @@ let g:vimwiki_list = [{
 	\ 'diary_index': "index"
 	\ }]
 
-" Change working copy (for rg, fzf) when entering vimwiki
-au FileType vimwiki lcd %:p:h
 
-" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
-au FileType vimwiki :autocmd BufWritePost * silent exec '!git add "%" && git commit -m "%" > /dev/null'
+function VimwikiMode()
+	" Change working copy (for rg, fzf) when entering vimwiki
+	lcd %:p:h
+	
+	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
+	autocmd BufWritePost * silent exec '!git add "%" && git commit -m "%" > /dev/null'
+	
+	" Inspired by https://gist.github.com/jondkinney/2040114
+	" FUZZY FIND
+	nnoremap <C-f> :Rg<CR>
 
-"au FileType vimwiki call FocusMode()
-"au BufReadPost index.md call FocusMode()
+	set spell spelllang=de,en
+endfunction
+au FileType vimwiki call VimwikiMode()
 
-" Inspired by https://gist.github.com/jondkinney/2040114
-""" FUZZY FIND
-nnoremap <C-f> :Rg<CR>
 
 " Open current editor file externally
 nnoremap gO :!open '%:p'<CR>
+
 
 " https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
 :set wrap
