@@ -19,7 +19,15 @@ function openExposedPorts {
   done
 }
 function buildImages {
-  DOCKER_BUILDKIT=1 docker buildx bake
+  for service in $(docker-compose $ymlfiles config | shyaml keys services); do
+    docker-compose config | shyaml keys services.$service.build 2> /dev/null && (
+      buildcontext=$(docker-compose $ymlfiles config | shyaml get-value services.$service.build.context)
+      image=$(docker-compose $ymlfiles config | shyaml get-value services.$service.image)
+      if [ ! -z $image ]; then
+      	DOCKER_BUILDKIT=1 docker build $buildcontext -t $image
+      fi
+    )
+  done
 }
 function openMultitail {
   multitailcmd="multitail -M 10000"
