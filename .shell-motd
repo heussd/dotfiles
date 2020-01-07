@@ -10,10 +10,4 @@ if [ "$1" != "silent" ]; then
 		gita ll
 		echo
 	)
-
-	_hasCmd docker && (
-		docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Ports}}"
-		echo
-	)
-
 fi

@@ -28,7 +28,7 @@ endif
 
 
 
-default:	$(DOTFILES_BARE_REPO)/ hostname version zfspoolstatus
+default:	$(DOTFILES_BARE_REPO)/ hostname version zfspoolstatus dockercontainerstatus
 .PHONY: default
 
 
@@ -84,6 +84,14 @@ zfspoolstatus:
 ifneq (, $(shell which zpool))
 	@zpool status
 endif
+
+
+dockercontainerstatus:
+ifneq (, $(shell which docker))
+	@docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" | tail -n +2
+endif
+.PHONY: dockercontainerstatus
+
 
 clean:
 	@-rm -rf ~/.tmp/*
