@@ -84,6 +84,7 @@ zfspoolstatus:
 ifneq (, $(shell which zpool))
 	@zpool status
 endif
+.PHONY: zfspoolstatus
 
 
 dockercontainerstatus:
