@@ -81,7 +81,7 @@ version-darwin:
 
 zfspoolstatus:
 ifneq (, $(shell which zpool))
-	@zpool status
+	@zpool status && echo
 endif
 .PHONY: zfspoolstatus
 
