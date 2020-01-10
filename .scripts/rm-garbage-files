@@ -1,0 +1,5 @@
+#!/bin/sh
+
+find $1 -depth -name ".AppleDouble" -exec rm -Rvf {} \;
+find $1 -depth -name ".DS_Store" -exec rm -Rvf {} \;
+find $1 -depth -name "Thumbs.db" -exec rm -Rvf {} \;
