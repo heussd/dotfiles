@@ -121,6 +121,7 @@ function VimwikiMode()
 	nnoremap <C-f> :Rg<CR>
 
 	set spell spelllang=de,en
+	set spell
 endfunction
 au FileType vimwiki call VimwikiMode()
 
