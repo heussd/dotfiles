@@ -1,3 +1,5 @@
+export OS=`uname -s | tr A-Z a-z`
+
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
 
@@ -41,7 +43,11 @@ alias gru='git remote update'
 alias gp='git pull --rebase origin'
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
-export DOTFILES_SECONDS_SINCE_LAST_PULL=$(($(date +%s) - $(stat -f '%m' .dotfiles-bare-repo/FETCH_HEAD)))
+if [ "$OS"=="darwin" ]; then
+    export DOTFILES_SECONDS_SINCE_LAST_PULL=$(($(date +%s) - $(stat -f '%m' .dotfiles-bare-repo/FETCH_HEAD)))
+else
+    export DOTFILES_SECONDS_SINCE_LAST_PULL=$(($(date +%s) - $(stat -c %y .dotfiles-bare-repo/FETCH_HEAD)))
+fi
 
 # Tiny tools
 alias rmEmtpyFolders='find . -type d -empty -exec rmdir "{}" \;'
