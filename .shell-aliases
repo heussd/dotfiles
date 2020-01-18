@@ -46,7 +46,7 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
 if [ "$OS" = "darwin" ]; then
     export DOTFILES_SECONDS_SINCE_LAST_PULL=$(($(date +%s) - $(stat -f '%m' .dotfiles-bare-repo/FETCH_HEAD)))
 else
-    export DOTFILES_SECONDS_SINCE_LAST_PULL=$(($(date +%s) - $(stat -c %y .dotfiles-bare-repo/FETCH_HEAD)))
+    export DOTFILES_SECONDS_SINCE_LAST_PULL=$(($(date +%s) - $(stat -c %Y .dotfiles-bare-repo/FETCH_HEAD)))
 fi
 
 # Tiny tools
