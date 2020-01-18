@@ -27,8 +27,7 @@ else
 endif
 
 
-
-default:	$(DOTFILES_BARE_REPO)/ hostname version zfspoolstatus dockercontainerstatus
+default:	$(DOTFILES_BARE_REPO)/ motd
 .PHONY: default
 
 
@@ -52,6 +51,16 @@ endif
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ submodule update --init --recursive
 
 
+motd: hostname version
+ifneq (, $(shell which zpool))
+	@zpool status && echo
+endif
+ifneq (, $(shell which docker))
+	@docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" | tail -n +2
+endif
+.PHONY: motd
+
+
 hostname:
 	@echo
 ifeq (, $(shell which figlet))
@@ -70,6 +79,10 @@ say-hi:
 
 
 version: version-$(OS_NAME)
+ifneq (, $(shell echo $(DOTFILES_SECONDS_SINCE_LAST_PULL) > /dev/null))
+	$(if $(shell [ $(DOTFILES_SECONDS_SINCE_LAST_PULL) -ge 604800 ] && echo "OK"), \
+		@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull)
+endif
 	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
 	@echo -e "\033[31m$$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ status --porcelain)\033[0m"
 version-linux:
@@ -77,20 +90,6 @@ version-linux:
 version-darwin:
 	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
 .PHONY: version version-linux version-darwin
-
-
-zfspoolstatus:
-ifneq (, $(shell which zpool))
-	@zpool status && echo
-endif
-.PHONY: zfspoolstatus
-
-
-dockercontainerstatus:
-ifneq (, $(shell which docker))
-	@docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" | tail -n +2
-endif
-.PHONY: dockercontainerstatus
 
 
 clean:
