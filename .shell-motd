@@ -10,4 +10,8 @@ if [ "$1" != "silent" ]; then
 		gita ll
 		echo
 	)
+
+	_hasCmd screen -&& (
+		screen -r > /dev/null
+	)
 fi

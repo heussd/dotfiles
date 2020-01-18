@@ -1,3 +1,4 @@
+export SHORTHOSTNAME=`hostname | cut -d"." -f 1`
 export OS=`uname -s | tr A-Z a-z`
 
 # Commonly used programs
@@ -62,6 +63,8 @@ rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -
 
 alias tv="newsboat --config-file=$HOME/.newsboat/config-tv --url-file=$HOME/Documents/urls-tv"
 
+alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
+
 function _hasFile() { if [ -e "$1" ]; then return 0; fi; return 1; }
 function _hasNotFile() { if [ -e "$1" ]; then return 1; fi; return 0; }
 function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
@@ -85,5 +88,5 @@ source-if-exist() { [[ -e $1 ]] && source "$1"; }
 
 
 # Load Host specific bash settings
-SHORTHOSTNAME=`hostname | cut -d"." -f 1`
+
 source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
