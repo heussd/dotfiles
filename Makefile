@@ -109,11 +109,8 @@ very-clean: clean very-clean-$(OS_NAME)
 update: update-$(OS_NAME)
 	@-apm update --confirm=false
 	@-npm update -g
-update-darwin:
+update-darwin: homebrew
 	@-sudo softwareupdate -i -a
-	@-brew update
-	@-brew upgrade
-	@-brew bundle install -v --file=.Brewfile
 .PHONY: update update-linux update-darwin
 
 
@@ -130,6 +127,8 @@ ifndef BREW
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@brew bundle install -v --file=.Brewfile
+	@brew upgrade
+	@brew cask upgrade --greedy
 .PHONY: homebrew
 
 
@@ -176,7 +175,7 @@ endif
 .PHONY: vs-code
 
 
-macvim:
+macvim: homebrew
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 .PHONY: macvim
 
