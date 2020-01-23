@@ -2,8 +2,8 @@
 # Power-cycle local Docker containers
 
 # Terminate if commands fail
-set -e
-set -o pipefail
+#set -e
+#set -o pipefail
 
 function checkIfInstalled {
   if [ ! -x "$(command -v $1)" ]; then
@@ -15,49 +15,38 @@ function openExposedPorts {
   sleep 3
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
     port=$(docker-compose $ymlfiles config | shyaml get-value services.$service.ports 2> /dev/null | grep -o -E '[0-9]+' | head -n 1)
-    [ ! -z "$port" ] && open http://localhost:$port
+    [ ! -z "$port" ] && (
+        echo "Opening $service $port..."
+        open http://localhost:$port
+    )
   done
 }
 function buildImages {
-  for service in $(docker-compose $ymlfiles config | shyaml keys services); do
-    docker-compose config | shyaml keys services.$service.build 2> /dev/null && (
-      buildcontext=$(docker-compose $ymlfiles config | shyaml get-value services.$service.build.context)
-      image=$(docker-compose $ymlfiles config | shyaml get-value services.$service.image)
-      if [ ! -z $image ]; then
-      	DOCKER_BUILDKIT=1 docker build $buildcontext -t $image
-      fi
-    )
-  done
+	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
 }
 function openMultitail {
   multitailcmd="multitail -M 10000"
   for service in $(docker-compose $ymlfiles config | shyaml keys services); do
     multitailcmd="$multitailcmd -p l -cT ansi -l 'docker-compose logs -f $service; sleep 120000'"
   done
-  eval $multitailcmd
+  eval $multitailcmd 
 }
+function runImages {
+	docker-compose $ymlfiles up -d --remove-orphans --timeout 2
+	#if [ $? -gt 0 ]; then exit 1; fi
+}
+
 
 checkIfInstalled multitail "brew install multitail"
 checkIfInstalled shyaml "pip install shyaml"
 
-
-# collect .yml files
-ymlfiles=""
-#for filename in *docker-compose*.yml; do
-#    [ -e "$filename" ] || continue
-#    ymlfiles="$ymlfiles -f $filename"
-#done
-
 buildImages
-
-#docker-compose $ymlfiles up --abort-on-container-exit --build --remove-orphans --timeout 2
-docker-compose $ymlfiles up -d --remove-orphans --timeout 2
-if [ $? -gt 0 ]; then exit 1; fi
+runImages
 
 openExposedPorts &
 openMultitail
 
 docker-compose $ymlfiles down --remove-orphans --timeout 2
-if [ $? -gt 0 ]; then exit 1; fi
+#if [ $? -gt 0 ]; then exit 1; fi
 
 exit 0
