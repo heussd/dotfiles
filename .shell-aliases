@@ -4,6 +4,9 @@ export OS=`uname -s | tr A-Z a-z`
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
 
+# Use BuildKit in Docker
+alias docker-compose=COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose
+
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
