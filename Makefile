@@ -176,6 +176,10 @@ macvim: homebrew
 .PHONY: macvim
 
 
+github-over-ssh: 
+	@echo -e "[url \"ssh://git@github.com/\"]\n\tinsteadOf = https://github.com/" > $(HOME)/.github-over-ssh
+
+
 firefox:
 	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; done
 .PHONY: firefox

@@ -19,11 +19,11 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	trustExitCode = true
 
 [alias]
-        ac = !git add -A && git commit
+    ac = !git add -A && git commit
 	cosh = !git commit && git push
 	co = checkout
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	ref-ignore = !sh -c 'curl https://raw.githubusercontent.com/github/gitignore/master/'$1'.gitignore -o .gitignore'
 
 [include]
-	path = ~/.ssh/github-over-ssh
+	path = ~/.github-over-ssh
