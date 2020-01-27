@@ -29,10 +29,14 @@ wait-for() {
    echo
 }
 
+intervene() {
+   echo "$1 - confirm with [ENTER]"
+   timeout 3 read _ 
+}
 
 _hasFolder $HOME/.dotfiles-bare-repo && _hasCmd dotfiles && (
    if [ $(since_last_modified .dotfiles-bare-repo/FETCH_HEAD days) -ge 7 ]; then
-         wait-for "dotfiles pull" && dotfiles pull
+         intervene "dotfiles pull" && dotfiles pull
    fi
 )
 
@@ -41,7 +45,7 @@ _hasCmd brew && (
    brewfile=$(since_last_modified ~/.Brewfile days)
 
    if [[ $lastinstall -gt 30 ]] || [[ $brewfile -lt $lastinstall ]]; then
-      wait-for "Brewfile install" && make homebrew && touch ~/.brewfile-install
+      intervene "Brewfile install" && make homebrew && touch ~/.brewfile-install
    fi
 )
 
