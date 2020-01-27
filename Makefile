@@ -79,10 +79,6 @@ say-hi:
 
 
 version: version-$(OS_NAME)
-ifneq (, $(shell echo $(DOTFILES_SECONDS_SINCE_LAST_PULL) > /dev/null))
-	$(if $(shell [ $(DOTFILES_SECONDS_SINCE_LAST_PULL) -ge 604800 ] && echo "OK"), \
-		@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull)
-endif
 	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
 	@echo -e "\033[31m$$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ status --porcelain)\033[0m"
 version-linux:
