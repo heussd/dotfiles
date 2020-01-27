@@ -31,7 +31,7 @@ wait-for() {
 
 intervene() {
    echo "$1 - confirm with [ENTER]"
-   timeout 3 read _ 
+   read -t 3
 }
 
 _hasFolder $HOME/.dotfiles-bare-repo && _hasCmd dotfiles && (
