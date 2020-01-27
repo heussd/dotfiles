@@ -21,10 +21,18 @@ since_last_modified() {
    fi
 }
 
+wait-for() {
+   for s in $(seq 3 1); do
+      echo -ne "$1 in $s...\033[0K\r"
+      sleep 1
+   done
+   echo
+}
+
 
 _hasFolder $HOME/.dotfiles-bare-repo && _hasCmd dotfiles && (
    if [ $(since_last_modified .dotfiles-bare-repo/FETCH_HEAD days) -ge 7 ]; then
-         dotfiles pull
+         wait-for "dotfiles pull" && dotfiles pull
    fi
 )
 
@@ -33,7 +41,7 @@ _hasCmd brew && (
    brewfile=$(since_last_modified ~/.Brewfile days)
 
    if [[ $lastinstall -gt 30 ]] || [[ $brewfile -lt $lastinstall ]]; then
-      make homebrew && touch ~/.brewfile-install
+      wait-for "Brewfile install" && make homebrew && touch ~/.brewfile-install
    fi
 )
 
