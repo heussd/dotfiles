@@ -110,7 +110,7 @@ update-darwin: homebrew
 .PHONY: update update-linux update-darwin
 
 
-install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) firefox vs-code 
+install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub firefox vs-code 
 install-linux:
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
 	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
@@ -126,6 +126,10 @@ endif
 	@brew upgrade
 	@brew cask upgrade --greedy
 .PHONY: homebrew
+
+
+$(HOME)/.ssh/id_rsa.pub:
+	ssh-keygen -f $(HOME)/.ssh/id_rsa -P "" -v
 
 
 finder:
