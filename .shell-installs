@@ -36,7 +36,7 @@ intervene() {
 
 _hasFolder $HOME/.dotfiles-bare-repo && _hasCmd dotfiles && (
    if [ $(since_last_modified .dotfiles-bare-repo/FETCH_HEAD days) -ge 7 ]; then
-         intervene "dotfiles pull" && dotfiles pull
+         dotfiles pull
    fi
 )
 
@@ -45,7 +45,7 @@ _hasCmd brew && (
    brewfile=$(since_last_modified ~/.Brewfile days)
 
    if [[ $lastinstall -gt 30 ]] || [[ $brewfile -lt $lastinstall ]]; then
-      intervene "Brewfile install" && make homebrew && touch ~/.brewfile-install
+      make homebrew && touch ~/.brewfile-install
    fi
 )
 
