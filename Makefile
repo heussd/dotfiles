@@ -182,8 +182,8 @@ macvim: homebrew
 .PHONY: macvim
 
 
-github-over-ssh: 
-	@echo -e "[url \"ssh://git@github.com/\"]\n\tinsteadOf = https://github.com/" > $(HOME)/.github-over-ssh
+git-over-ssh:
+	@ln -s $(HOME)/.git-over-ssh $(HOME)/.git-over-ssh-enabled
 
 
 firefox:

@@ -26,4 +26,4 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	ref-ignore = !sh -c 'curl https://raw.githubusercontent.com/github/gitignore/master/'$1'.gitignore -o .gitignore'
 
 [include]
-	path = ~/.github-over-ssh
+	path = ~/.git-over-ssh-enabled
