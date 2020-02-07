@@ -56,7 +56,7 @@ ifneq (, $(shell which zpool))
 	@zpool status && echo
 endif
 ifneq (, $(shell which docker))
-	@docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" | tail -n +2
+	@docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" | tail -n +2 && echo
 endif
 .PHONY: motd
 
