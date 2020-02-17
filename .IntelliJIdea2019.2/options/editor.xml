@@ -1,5 +1,6 @@
 <application>
   <component name="DefaultFont">
-    <option name="FONT_FAMILY" value="Source Code Pro" />
+    <option name="FONT_SIZE" value="13" />
+    <option name="FONT_FAMILY" value="Source Code Pro for Powerline" />
   </component>
 </application>
