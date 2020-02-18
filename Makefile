@@ -157,6 +157,11 @@ finder:
 	@killall Finder
 .PHONY: finder
 
+default-write-darwin:
+	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
+	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
+	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
+.PHONY: default-write-darwin
 
 vs-code:
 ifneq (, $(shell which code))
