@@ -72,12 +72,6 @@ endif
 .PHONY: hostname
 
 
-say-hi:
-	@echo "OHHAI"
-	@echo $(realpath $(MAKEFILE_LIST))
-.PHONY: say-hi
-
-
 version: version-$(OS_NAME)
 	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
 	@echo -e "\033[31m$$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ status --porcelain)\033[0m"
@@ -113,12 +107,12 @@ update-homebrew: homebrew
 .PHONY: update update-linux update-darwin
 
 
-install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub firefox vs-code 
+install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) config
 install-linux:
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
 	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
-install-darwin: homebrew finder macvim
-.PHONY: setup setup-linux setup-darwin
+install-darwin: homebrew config-darwin
+.PHONY: install install-linux install-darwin
 
 
 homebrew:
@@ -126,46 +120,12 @@ ifndef BREW
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@brew bundle install -v --file=.Brewfile
-
 .PHONY: homebrew
 
 
-$(HOME)/.ssh/id_rsa.pub:
-	ssh-keygen -f $(HOME)/.ssh/id_rsa -P "" -v
-
-
-finder:
-	# Check for software updates daily, not just once per week
-	defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-	# Text selection in QuickView
-	defaults write com.apple.finder QLEnableTextSelection -bool TRUE
-	# Set default Finder location to home folder (~/)
-	defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
-	defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
-	# Expand save panel by default
-	defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-	# Disable ext change warning
-	defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-	# Use current directory as default search scope in Finder
-	defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-	# Show Path bar in Finder
-	defaults write com.apple.finder ShowPathbar -bool true
-	# Show Status bar in Finder
-	defaults write com.apple.finder ShowStatusBar -bool true
-	# Show absolute path in Finder's title bar
-	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
-	@killall Finder
-.PHONY: finder
-
-default-write-darwin:
-	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
-	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
-	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
-.PHONY: default-write-darwin
-
-vs-code:
+config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub 
+	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; done
 ifneq (, $(shell which code))
-	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
 	@for extension in {\
 	dakara.transformer,\
 	eamodio.gitlens,\
@@ -179,21 +139,32 @@ ifneq (, $(shell which code))
 	Zignd.html-css-class-completion,\
 	}; do code --install-extension $$extension --force; done
 endif
-.PHONY: vs-code
+config-linux:
+	@echo "No config!"
+config-darwin:
+	defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+	defaults write com.apple.finder NewWindowTarget -string "PfLo"
+	defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+	defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+	defaults write com.apple.finder ShowStatusBar -bool true
+	defaults write com.apple.finder ShowPathbar -bool true
+	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+	defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+	@killall Finder
 
-
-macvim: homebrew
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
-.PHONY: macvim
+	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
+	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
+	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
+.PHONY: config config-darwin config-linux
+
+
+$(HOME)/.ssh/id_rsa.pub:
+	ssh-keygen -f $(HOME)/.ssh/id_rsa -P "" -v
 
 
 git-over-ssh:
 	@ln -s $(HOME)/.git-over-ssh $(HOME)/.git-over-ssh-enabled
-
-
-firefox:
-	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; done
-.PHONY: firefox
 
 
 docker-linux:
