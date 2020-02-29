@@ -119,6 +119,7 @@ homebrew:
 ifndef BREW
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
+	@export HOMEBREW_CASK_OPTS="--no-quarantine"
 	@brew bundle install -v --file=.Brewfile
 .PHONY: homebrew
 
@@ -152,10 +153,23 @@ config-darwin:
 	defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 	@killall Finder
 
+	#https://github.com/mathiasbynens/dotfiles/issues/849
+	defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari SuppressSearchSuggestions -bool true
+	defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari  UniversalSearchEnabled -bool false
+
+	defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
+
+	sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+
+	defaults write NSGlobalDomain AppleInterfaceTheme Dark
+	@killall Dock;killall SystemUIServer
+
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
+
+	@sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 .PHONY: config config-darwin config-linux
 
 
