@@ -121,6 +121,7 @@ ifndef BREW
 endif
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
 	@brew bundle install -v --file=.Brewfile
+	@brew cleanup -s
 .PHONY: homebrew
 
 
@@ -151,15 +152,23 @@ config-darwin:
 	defaults write com.apple.finder ShowPathbar -bool true
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 	defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+	defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+	# https://brandonb.ca/os-x-for-hackers-coders
+	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy dateModified" ~/Library/Preferences/com.apple.finder.plist
+	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 54" ~/Library/Preferences/com.apple.finder.plist
+	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+	/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
 	@killall Finder
 
-	#https://github.com/mathiasbynens/dotfiles/issues/849
-	defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari SuppressSearchSuggestions -bool true
-	defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari  UniversalSearchEnabled -bool false
+	defaults write com.apple.screensaver askForPassword -int 1
+	defaults write com.apple.screensaver askForPasswordDelay -int 0
+	
+	defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+	defaults write NSGlobalDomain KeyRepeat -int 0
 
 	defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
-
-	sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 	defaults write NSGlobalDomain AppleInterfaceTheme Dark
 	@killall Dock;killall SystemUIServer
@@ -196,3 +205,7 @@ sync-maya:
 
 	@if ssh maya "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; $(call rsync-folder,maya:~/data/,~/data/); fi
 .PHONY: sync-maya
+
+
+fix-add-ssh-key-passphrase:
+	@ssh-keygen -p -f ~/.ssh/id_rsa
