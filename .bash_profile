@@ -6,7 +6,7 @@
 #  fi
 #fi
 
-source .shell-aliases
+source $HOME/.shell-aliases
 
 
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
@@ -79,6 +79,7 @@ if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi
+
 
 source-if-exist ".bash_profile."`uname -s`
 
