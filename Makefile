@@ -151,28 +151,16 @@ config-darwin:
 	defaults write com.apple.finder ShowStatusBar -bool true
 	defaults write com.apple.finder ShowPathbar -bool true
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+
 	defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-	defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-	# https://brandonb.ca/os-x-for-hackers-coders
-	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy dateModified" ~/Library/Preferences/com.apple.finder.plist
-	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 54" ~/Library/Preferences/com.apple.finder.plist
-	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-	/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
-	@killall Finder
-
-	defaults write com.apple.screensaver askForPassword -int 1
-	defaults write com.apple.screensaver askForPasswordDelay -int 0
-	
+	defaults write NSGlobalDomain AppleShowAllExtensions -bool true	
 	defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-	defaults write NSGlobalDomain KeyRepeat -int 0
+	defaults write NSGlobalDomain KeyRepeat -int 1
+	defaults write NSGlobalDomain AppleInterfaceTheme Dark
+	@killall Finder; killall Dock;killall SystemUIServer
 
 	defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
-
-	defaults write NSGlobalDomain AppleInterfaceTheme Dark
-	@killall Dock;killall SystemUIServer
-
+	
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
