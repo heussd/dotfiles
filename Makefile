@@ -124,8 +124,9 @@ endif
 	@brew cleanup -s
 .PHONY: homebrew
 
-
+	
 config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub 
+	chsh -s $$(which zsh) $$(whoami) 
 	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; done
 ifneq (, $(shell which code))
 	@for extension in {\
@@ -166,7 +167,6 @@ config-darwin:
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
 
-	@sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 .PHONY: config config-darwin config-linux
 
 
