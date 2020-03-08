@@ -164,10 +164,16 @@ config-darwin:
 	
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
+
+	defaults write io.masscode.app NSNavLastRootDirectory "~/projects/masscode-snippets"
+
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
 
 .PHONY: config config-darwin config-linux
+
+config-linux-disable-unattended-updates:
+	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
 
 
 $(HOME)/.ssh/id_rsa.pub:
