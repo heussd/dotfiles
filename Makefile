@@ -166,6 +166,10 @@ config-darwin:
 
 	defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 	
+	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
+	
+	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
+
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
 
