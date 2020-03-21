@@ -158,6 +158,10 @@ config-darwin:
 	defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 	defaults write NSGlobalDomain KeyRepeat -int 1
 	defaults write NSGlobalDomain AppleInterfaceTheme Dark
+
+	defaults write com.apple.dock autohide-delay -int 0
+	defaults write com.apple.dock autohide-time-modifier -float 0
+	
 	@killall Finder; killall Dock;killall SystemUIServer
 
 	defaults write com.apple.mail DisableInlineAttachmentViewing -bool true

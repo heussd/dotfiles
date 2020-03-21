@@ -77,6 +77,7 @@ alias gentlecp='rsync --update --progress --human-readable'
 
 # Shortcuts
 function take() { mkdir -p "$1" && cd "$1"; }
+function t() { mkdir -p "$HOME/temp" && cd "$HOME/temp"; }
 alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias p="cd ~/projects"
