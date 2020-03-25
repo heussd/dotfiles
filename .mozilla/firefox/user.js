@@ -201,3 +201,7 @@ user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
 // Overwrite newtab page setting to have a black background on new tabs ¯\_(ツ)_/¯
 user_pref("browser.newtabpage.enabled", true);
+
+
+// Enable userChrome.css
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);

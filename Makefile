@@ -125,9 +125,8 @@ endif
 .PHONY: homebrew
 
 	
-config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub 
+config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub config-firefox
 	chsh -s $$(which zsh) $$(whoami) 
-	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; done
 ifneq (, $(shell which code))
 	@for extension in {\
 	dakara.transformer,\
@@ -179,6 +178,14 @@ config-darwin:
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
 
 .PHONY: config config-darwin config-linux
+
+.PHONY: config-firefox
+config-firefox:
+	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do \
+		ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; \
+		mkdir -p "$$profile/chrome"; \
+		ln -sFf $$HOME/.mozilla/firefox/chrome/userChrome.css "$$profile/chrome/"; \
+	done
 
 config-linux-disable-unattended-updates:
 	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
