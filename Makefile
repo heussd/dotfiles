@@ -182,14 +182,14 @@ config-darwin: ## Configures macOS-based hosts
 
 
 .PHONY: config-firefox
-config-firefox: ## Symlinks Firefox user config files to all Firefox profiles
-	@open -a Firefox
 ifeq ("$(OS_NAME)","darwin")
-	FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
+FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
 else
-	FIREFOX_PROFILES_LOCATION=$$HOME/.mozilla/firefox/
+FIREFOX_PROFILES_LOCATION=$$HOME/.mozilla/firefox/
 endif
+config-firefox: ## Symlinks Firefox user config files to all Firefox profiles
 	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do \
+		echo "$$profile"; \
 		ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; \
 		mkdir -p "$$profile/chrome"; \
 		ln -sFf $$HOME/.mozilla/firefox/chrome/userChrome.css "$$profile/chrome/"; \
