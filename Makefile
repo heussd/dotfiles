@@ -126,6 +126,11 @@ endif
 	@brew bundle install -v --file=.Brewfile
 	@brew cleanup -s
 
+.PHONY: install-veracrypt
+install-veracrypt: ## Installs Veracrypt from a PPA
+	sudo add-apt-repository ppa:unit193/encryption
+	sudo apt update
+	sudo apt-get install veracrypt 
 
 .PHONY: config config-darwin config-linux
 config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub config-firefox ## Configures host
