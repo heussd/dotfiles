@@ -65,3 +65,6 @@
 	--identity-tab-color: #7E93C8 !important;
 	--identity-icon-color: #7E93C8 !important;
 }
+.tabbrowser-tab:not([pinned]) {
+	max-width: 100% !important;
+}
