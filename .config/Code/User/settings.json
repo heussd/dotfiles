@@ -1,0 +1,15 @@
+{
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "window.restoreWindows": "none",
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+    "window.zoomLevel": 0,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.startupEditor": "newUntitledFile"
+}
