@@ -25,3 +25,43 @@
 	transition: all 50ms linear 0s !important;
 	z-index: 5 !important;
 }
+
+/*
+* Overwrite Container tab colors with pastel colors
+*/
+.identity-color-blue {
+	--identity-tab-color: #8FC1E2 !important;
+	--identity-icon-color: #8FC1E2 !important;
+}
+.identity-color-turquoise {
+	--identity-tab-color: #8FC1E2 !important;
+	--identity-icon-color: #8FC1E2 !important;
+}
+.identity-color-green {
+	--identity-tab-color: #6B8790 !important;
+	--identity-icon-color: #6B8790 !important;
+}
+.identity-color-yellow {
+	--identity-tab-color: #F9C48C !important;
+	--identity-icon-color: #F9C48C !important;
+}
+.identity-color-orange {
+	--identity-tab-color: #F8AF85 !important;
+	--identity-icon-color: #F8AF85 !important;
+}
+.identity-color-red {
+	--identity-tab-color: #E19494 !important;
+	--identity-icon-color: #E19494 !important;
+}
+.identity-color-pink {
+	--identity-tab-color: #E15D81 !important;
+	--identity-icon-color: #E15D81 !important;
+}
+.identity-color-purple {
+	--identity-tab-color: #AC94C9 !important;
+	--identity-icon-color: #AC94C9 !important;
+}
+.identity-color-toolbar {
+	--identity-tab-color: #7E93C8 !important;
+	--identity-icon-color: #7E93C8 !important;
+}
