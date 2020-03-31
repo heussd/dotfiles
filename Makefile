@@ -151,7 +151,7 @@ ifneq (, $(shell which code))
 endif
 config-linux: ## Configures Linux-based hosts
 	@echo "No config!"
-config-darwin: ## Configures macOS-based hosts
+config-darwin: config-darwin-coteditor ## Configures macOS-based hosts
 	defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 	defaults write com.apple.finder NewWindowTarget -string "PfLo"
 	defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
@@ -202,6 +202,18 @@ config-firefox: ## Symlinks Firefox user config files to all Firefox profiles
 
 config-linux-disable-unattended-updates: ## Disable unattended updates on Linux hosts
 	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
+
+
+.PHONY: config-darwin-coteditor
+config-darwin-coteditor:
+	defaults write com.coteditor.CotEditor showNavigationBar 0
+	defaults write com.coteditor.CotEditor lineHeight 1.1
+	defaults write com.coteditor.CotEditor fontName SauceCodePowerline-Regular
+	defaults write com.coteditor.CotEditor fontSize 13
+	defaults write com.coteditor.CotEditor highlightCurrentLine 1
+	defaults write com.coteditor.CotEditor enablesAutosaveInPlace 0
+	defaults write com.coteditor.CotEditor documentConflictOption 1
+	@ln -vfs /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/cot
 
 
 $(HOME)/.ssh/id_rsa.pub:
