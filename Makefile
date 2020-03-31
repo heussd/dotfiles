@@ -22,12 +22,9 @@ OS_NAME := $(shell uname -s | tr A-Z a-z)
 DOTFILES_WORK_DIR  := $(HOME)/
 DOTFILES_BARE_REPO := $(HOME)/.dotfiles-bare-repo/
 
-BREW    := $(shell command -v brew 2> /dev/null)
-
 define rsync-folder
 	rsync -auip --progress --safe-links --exclude=.DS_Store $(1) $(2)
 endef
-
 
 .PHONY: default
 default:	$(DOTFILES_BARE_REPO)/ motd
@@ -119,7 +116,7 @@ install-darwin: install-homebrew config-darwin
 
 .PHONY: install-homebrew
 install-homebrew: ## Installs homebrew and all bundled apps
-ifndef BREW
+ifeq (, $(shell which brew))
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
@@ -127,10 +124,12 @@ endif
 	@brew cleanup -s
 
 .PHONY: install-veracrypt
-install-veracrypt: ## Installs Veracrypt from a PPA
+install-linux-veracrypt: ## Installs Veracrypt from a PPA
 	sudo add-apt-repository ppa:unit193/encryption
 	sudo apt update
 	sudo apt-get install veracrypt 
+
+
 
 .PHONY: config config-darwin config-linux
 config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub config-firefox ## Configures host
@@ -159,13 +158,11 @@ config-darwin: config-darwin-coteditor ## Configures macOS-based hosts
 	defaults write com.apple.finder ShowStatusBar -bool true
 	defaults write com.apple.finder ShowPathbar -bool true
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
-
 	defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 	defaults write NSGlobalDomain AppleShowAllExtensions -bool true	
 	defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 	defaults write NSGlobalDomain KeyRepeat -int 1
 	defaults write NSGlobalDomain AppleInterfaceTheme Dark
-
 	defaults write com.apple.dock autohide-delay -int 0
 	defaults write com.apple.dock autohide-time-modifier -float 0
 	
@@ -174,14 +171,10 @@ config-darwin: config-darwin-coteditor ## Configures macOS-based hosts
 	defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 	
 	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
-	
 	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
-
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
-
 	defaults write io.masscode.app NSNavLastRootDirectory "~/projects/masscode-snippets"
-
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
 
