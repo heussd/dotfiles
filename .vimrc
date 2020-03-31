@@ -49,6 +49,11 @@ function FocusMode()
 	  set lines=55 columns=120
 	endif
 	let foo = "bar"
+	set wrap
+	set linebreak
+	set textwidth=0
+	set wrapmargin=0
+	" :set nolist In vim versions prior to 7.4.353 list disabled linebreak
 endfunction
 command FocusMode call FocusMode()
 
