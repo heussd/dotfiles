@@ -41,13 +41,23 @@ _hasFolder $HOME/.dotfiles-bare-repo && _hasCmd dotfiles && (
 )
 
 _hasCmd brew && (
-   lastinstall=$(since_last_modified .brewfile-install days)
+   lastinstall=$(since_last_modified .last-install days)
    brewfile=$(since_last_modified ~/.Brewfile days)
 
    if [[ $lastinstall -gt 30 ]] || [[ $brewfile -lt $lastinstall ]]; then
-      make homebrew && touch ~/.brewfile-install
+      make install-darwin
    fi
 )
+
+_hasCmd apt && (
+   lastinstall=$(since_last_modified .last-install days)
+   aptfile=$(since_last_modified ~/.apt-packages-base days)
+
+   if [[ $lastinstall -gt 30 ]] || [[ $aptfile -lt $lastinstall ]]; then
+      make install-linux
+   fi
+)
+
 
 _hasCmd thefuck && eval "$(thefuck --alias)"
 

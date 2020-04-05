@@ -110,7 +110,10 @@ install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) config ## Installs and config
 install-linux:
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
 	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
-install-darwin: install-homebrew config-darwin
+	touch ~/.last-install
+install-darwin: install-homebrew
+	touch ~/.last-install
+
 .PHONY: install install-linux install-darwin
 
 
