@@ -199,6 +199,10 @@ config-firefox: ## Symlinks Firefox user config files to all Firefox profiles
 config-linux-disable-unattended-updates: ## Disable unattended updates on Linux hosts
 	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
 
+config-linux-apt-no-sudo-passwd:
+	echo "%sudo   ALL=(ALL:ALL) NOPASSWD:/usr/bin/apt" | sudo tee /etc/sudoers.d/010_apt-nopasswd
+
+
 
 .PHONY: config-darwin-coteditor
 config-darwin-coteditor:
