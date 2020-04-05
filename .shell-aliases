@@ -7,7 +7,7 @@ export HOMEBREW_CASK_OPTS="--no-quarantine"
 
 # Use BuildKit in Docker
 alias docker-compose="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
-docker-logs(){docker ps | fzf | awk '{print $1}' | xargs docker logs -f ;}
+docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
 
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
