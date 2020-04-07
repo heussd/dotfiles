@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Installs a hook to automatically clean Jupyter Notebooks on commit
+
+command -v jupyter >/dev/null 2>&1 || { echo >&2 "Jupyter command required. Aborting."; exit 1; }
+[[ ! -d .git ]] && echo >&2 "No .git repository found in this folder. Aborting." && exit 1
+
+{ echo '#!/bin/sh' & \
+  echo "$(which jupyter) nbconvert --ClearOutputPreprocessor.enabled=True --inplace *.ipynb"; \
+} > .git/hooks/pre-commit 
+
+[[ ! -e .git/hooks/pre-commit ]] && echo "Failed to install hook" && exit 1
+
+echo "Hook installed"
+exit 0
+
