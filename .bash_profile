@@ -6,9 +6,6 @@
 #  fi
 #fi
 
-source $HOME/.shell-aliases
-
-
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
@@ -66,12 +63,7 @@ bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous On"
 
-source .shell-motd
-
-
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
-
 
 # Add tab completion for many Bash commands
 if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
@@ -81,6 +73,10 @@ elif [ -f /etc/bash_completion ]; then
 fi
 
 
+export PATH=$PATH:~/.scripts
+
+source $HOME/.shell-aliases
+_hasFile ~/.fzf.bash && source ~/.fzf.bash
 source-if-exist ".bash_profile."`uname -s`
 
-source .shell-installs
+source .shell-motd

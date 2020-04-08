@@ -1,6 +1,14 @@
 export SHORTHOSTNAME=`hostname | cut -d"." -f 1`
 export OS=`uname -s | tr A-Z a-z`
 
+
+function _hasFile() { if [ -e "$1" ]; then return 0; fi; return 1; }
+function _hasNotFile() { if [ -e "$1" ]; then return 1; fi; return 0; }
+function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
+function _hasCmd() { which "$1" &>/dev/null; }
+function _isMacOS() { uname -s | grep "Darwin" > /dev/null; }
+function _isLinux() { uname -s | grep "Linux" > /dev/null; }
+
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_CASK_OPTS="--no-quarantine"
@@ -11,7 +19,6 @@ docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
 
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
-
 
 export BROWSER="firefox"
 export TERM=xterm-color
@@ -62,19 +69,12 @@ alias java-list-imports='find . -iname "*.java" | xargs cat | grep -e "^import" 
 # http://www.open-source-blog.de/2014/11/17/apple-spezifische-dateien-wie-appledouble-ds_store-etc-loeschen-mittels-find/
 rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
 
-alias tv="newsboat --config-file=$HOME/.newsboat/config-tv --cache-file=$HOME/Cryptomator/cache-tv.db --url-file=$HOME/Cryptomator/urls-tv"
-
-alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
-
-function _hasFile() { if [ -e "$1" ]; then return 0; fi; return 1; }
-function _hasNotFile() { if [ -e "$1" ]; then return 1; fi; return 0; }
-function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
-function _hasCmd() { which "$1" &>/dev/null; }
-function _isMacOS() { uname -s | grep "Darwin" > /dev/null; }
-function _isLinux() { uname -s | grep "Linux" > /dev/null; }
 
 # Third party commands
-alias gentlecp='rsync --update --progress --human-readable'
+_hasCmd rsync && alias gentlecp='rsync --update --progress --human-readable'
+_hasCmd screen && alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
+_hasCmd thefuck && eval "$(thefuck --alias)"
+_hasCmd newsboat && alias tv="newsboat --config-file=$HOME/.newsboat/config-tv --cache-file=$HOME/Cryptomator/cache-tv.db --url-file=$HOME/Cryptomator/urls-tv"
 
 
 # Shortcuts

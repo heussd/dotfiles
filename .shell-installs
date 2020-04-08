@@ -1,7 +1,0 @@
-make auto-install
-
-_hasCmd thefuck && eval "$(thefuck --alias)"
-
-echo $SHELL | grep "bash" > /dev/null && _hasFile ~/.fzf.bash && source ~/.fzf.bash
-echo $SHELL | grep "zsh" > /dev/null && _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
-

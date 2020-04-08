@@ -34,11 +34,6 @@ antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 # Load everything
 antigen apply
 
-export PATH=$PATH:~/.dotfiles:~/.scripts
-source ~/.shell-aliases
-source ~/.shell-motd
-source ~/.shell-installs
-
 # Better completion, taken from https://meabed.com/zsh-oh-my-zsh-up-and-running/
 zstyle ':completion:*:*:*:*:*' menu select
 
@@ -71,3 +66,12 @@ zstyle ':filter-select:highlight' matched fg=red
 zstyle ':filter-select' max-lines 1000
 zstyle ':filter-select' rotate-list yes
 zstyle ':filter-select' case-insensitive yes # enable case-insensitive search
+
+
+
+export PATH=$PATH:~/.scripts
+
+source ~/.shell-aliases
+_hasFile ~/.fzf.zsh && source ~/.fzf.zsh
+
+source ~/.shell-motd

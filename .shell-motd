@@ -4,7 +4,8 @@ function _hasCmd() { type "$1" &>/dev/null; }
 # Console prints may be skipped
 if [ "$1" != "silent" ]; then
 
-	home
+	make auto-install
+	make
 
 	_hasCmd gita && (
 		gita ll
