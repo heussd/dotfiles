@@ -62,7 +62,7 @@ alias java-list-imports='find . -iname "*.java" | xargs cat | grep -e "^import" 
 # http://www.open-source-blog.de/2014/11/17/apple-spezifische-dateien-wie-appledouble-ds_store-etc-loeschen-mittels-find/
 rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -name ".Trashes" -or -name "._*" -or -name ".TemporaryItems" \) -execdir rm -Rv {} \;; }
 
-alias tv="newboat --config-file=$HOME/.newsboat/config-tv --cache-file=$HOME/Cryptomator/cache-tv.db --url-file=$HOME/Cryptomator/urls-tv"
+alias tv="newsboat --config-file=$HOME/.newsboat/config-tv --cache-file=$HOME/Cryptomator/cache-tv.db --url-file=$HOME/Cryptomator/urls-tv"
 
 alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
 
