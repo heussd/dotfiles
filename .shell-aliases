@@ -48,6 +48,7 @@ git-cosh() { git commit $1 -m "$2"; git push; }
 git-submodule-rm() { git submodule deinit -f "$1"; git rm -f "$1"; rm -rf .git/modules/$1; }
 git-ROLLBACK() { git fetch origin; git reset --hard origin/master; git clean -fdx; }
 git-head-stat() { pushd $1 > /dev/null ; git log --oneline | head -n 1; popd > /dev/null; }
+git-stat-folder() { [ -d "$1" ] && printf " %-9s @ %s\n" "$1" "$(git-head-stat $1)"; }
 alias gk='gitk --all'
 alias gs='git status'
 alias gca='git commit --ammend'

@@ -1,11 +1,3 @@
-# Try to resume screen session - currently disabled
-#if [ $TERM != 'screen' ]; then
-#  if [[ ! `screen -r` ]]; then
-#    #exit
-#    echo "Screen resume not implemented"
-#  fi
-#fi
-
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
