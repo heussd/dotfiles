@@ -98,33 +98,31 @@ very-clean: clean very-clean-$(OS_NAME) ## Cleans various places (desperate mode
 update: update-$(OS_NAME)	## Updates OS applications and various package managers
 	@-apm update --confirm=false
 	@-npm update -g
-update-darwin: update-homebrew
+update-darwin:
 	@-sudo softwareupdate -i -a
-update-homebrew: install-homebrew
 	@brew upgrade
 	@brew cask upgrade --greedy
 .PHONY: update update-linux update-darwin
 
 
-install:	$(DOTFILES_BARE_REPO)/ install-$(OS_NAME) config ## Installs and configures stuff after fresh installs
-install-linux:
-# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
-	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
-	touch ~/.last-install
-install-darwin: install-homebrew
-	touch ~/.last-install
+auto-install: $(DOTFILES_BARE_REPO)/ .last-install-$(OS_NAME)
 
-.PHONY: install install-linux install-darwin
-
-
-.PHONY: install-homebrew
-install-homebrew: ## Installs homebrew and all bundled apps
+.PHONY: check-time-last-installed
+check-time-last-installed:
+	@if [ -e .last-install-$(OS_NAME) ]; then find .last-install-$(OS_NAME) -mmin +$$((7*24*60)) -exec bash -c 'rm -f "{}"; echo "Timestamp too old, triggering install"; $(MAKE) .last-install-$(OS_NAME)' \; ; fi
+.last-install-darwin: .Brewfile | check-time-last-installed
 ifeq (, $(shell which brew))
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
 	@brew bundle install -v --file=.Brewfile
 	@brew cleanup -s
+	@touch .last-install-darwin
+.last-install-linux: .apt-packages-base | check-time-last-installed
+# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
+	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
+	@touch .last-install-linux
+
 
 .PHONY: install-veracrypt
 install-linux-veracrypt: ## Installs Veracrypt from a PPA
@@ -133,10 +131,8 @@ install-linux-veracrypt: ## Installs Veracrypt from a PPA
 	sudo apt-get install veracrypt 
 
 
-
 .PHONY: config config-darwin config-linux
 config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub config-firefox ## Configures host
-	chsh -s $$(which zsh) $$(whoami) 
 ifneq (, $(shell which code))
 	@for extension in {\
 	dakara.transformer,\
@@ -195,6 +191,9 @@ config-firefox: ## Symlinks Firefox user config files to all Firefox profiles
 		mkdir -p "$$profile/chrome"; \
 		ln -sFf $$HOME/.mozilla/firefox/chrome/userChrome.css "$$profile/chrome/"; \
 	done
+
+config-set-zsh-as-default:
+	@chsh -s $(which zsh) $(whoami)
 
 config-linux-disable-unattended-updates: ## Disable unattended updates on Linux hosts
 	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
