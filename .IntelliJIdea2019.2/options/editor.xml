@@ -3,4 +3,11 @@
     <option name="FONT_SIZE" value="13" />
     <option name="FONT_FAMILY" value="Source Code Pro for Powerline" />
   </component>
+  <component name="TodoConfiguration">
+    <pattern pattern="\b(todo|fixme)\b.*" />
+    <pattern pattern="\breview-th\b" />
+    <filter name="Reviews">
+      <pattern index="1" />
+    </filter>
+  </component>
 </application>
