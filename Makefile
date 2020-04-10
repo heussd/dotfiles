@@ -27,7 +27,7 @@ define rsync-folder
 endef
 
 .PHONY: default
-default:	$(DOTFILES_BARE_REPO)/ motd
+default:	$(DOTFILES_BARE_REPO)/
 
 
 $(DOTFILES_BARE_REPO)/: 
@@ -48,37 +48,6 @@ endif
 #@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ submodule update --init --recursive
-
-
-motd: hostname version	## Show ZPool status and parameters of Docker containers
-ifneq (, $(shell which zpool))
-	@zpool status && echo
-endif
-ifneq (, $(shell which docker))
-	@docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" | tail -n +2 && echo
-endif
-.PHONY: motd
-
-
-hostname:
-	@echo
-ifeq (, $(shell which figlet))
-	@echo '  ' $(SHORTHOSTNAME)
-else
-	@figlet '  ' $(SHORTHOSTNAME)
-endif
-	@echo
-.PHONY: hostname
-
-
-version: version-$(OS_NAME)	## Print OS version + dotfiles revision and status
-	@echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ log --oneline | head -n 1)"
-	@echo -e "\033[31m$$(git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ status --porcelain)\033[0m"
-version-linux:
-	@lsb_release --short --description
-version-darwin:
-	@echo $$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)
-.PHONY: version version-linux version-darwin
 
 
 clean:	## Cleans various places
@@ -200,7 +169,6 @@ config-linux-disable-unattended-updates: ## Disable unattended updates on Linux 
 
 config-linux-apt-no-sudo-passwd:
 	echo "%sudo   ALL=(ALL:ALL) NOPASSWD:/usr/bin/apt" | sudo tee /etc/sudoers.d/010_apt-nopasswd
-
 
 
 .PHONY: config-darwin-coteditor
