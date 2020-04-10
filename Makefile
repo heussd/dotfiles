@@ -75,6 +75,7 @@ update-darwin:
 
 
 auto-install: $(DOTFILES_BARE_REPO)/ .last-install-$(OS_NAME)
+	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull --recurse-submodules \;
 
 .PHONY: check-time-last-installed
 check-time-last-installed:
