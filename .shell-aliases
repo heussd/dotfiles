@@ -78,7 +78,7 @@ rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -
 _hasCmd rsync && alias gentlecp='rsync --update --progress --human-readable'
 _hasCmd screen && alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
 _hasCmd thefuck && eval "$(thefuck --alias)"
-_hasCmd newsboat && alias tv="newsboat --config-file=$HOME/.newsboat/config-tv --cache-file=$HOME/Cryptomator/cache-tv.db --url-file=$HOME/Cryptomator/urls-tv"
+_hasCmd newsboat && alias tv="newsboat --config-file=$HOME/.newsboat/config-tv"
 
 # https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html#find-file-and-edit
 fzf_and_copy() {
