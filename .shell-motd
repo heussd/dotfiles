@@ -1,9 +1,11 @@
 # Console prints may be skipped
 if [ "$1" != "silent" ]; then
 
+	echo
 	_hasCmd figlet && (
 		figlet '  ' $SHORTHOSTNAME
 	) || echo '  ' $SHORTHOSTNAME
+	echo
 	
 	_isLinux && (
 		lsb_release --short --description
