@@ -19,7 +19,7 @@ if [ "$1" != "silent" ]; then
 	)
 
 	_hasCmd docker && (
-		docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" | tail -n +2 && echo
+		docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
 	)
 		
 	_hasCmd gita && (
