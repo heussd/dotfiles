@@ -57,7 +57,10 @@ alias gru='git remote update'
 alias gp='git pull --rebase origin'
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
-alias home='make --makefile=$HOME/Makefile'
+alias dotfiels='dotfiles'
+alias dotifles='dotfiles'
+
+alias motd="source $HOME/.shell-motd"
 
 # Tiny tools
 alias rmEmtpyFolders='find . -type d -empty -exec rmdir "{}" \;'
