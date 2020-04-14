@@ -75,3 +75,9 @@ source ~/.shell-aliases
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
 
 source ~/.shell-motd
+
+# https://gist.github.com/phette23/5270658#gistcomment-1265682
+precmd() {
+  # sets the tab title to current dir
+  echo -ne "\e]1;${PWD##*/}\a"
+}
