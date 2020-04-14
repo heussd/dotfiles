@@ -2,8 +2,8 @@
 # Power-cycle local Docker containers
 
 # Terminate if commands fail
-#set -e
-#set -o pipefail
+set -e
+set -o pipefail
 
 function checkIfInstalled {
   if [ ! -x "$(command -v $1)" ]; then
