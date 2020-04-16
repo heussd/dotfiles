@@ -110,6 +110,7 @@ ifneq (, $(shell which code))
 	esbenp.prettier-vscode,\
 	formulahendry.auto-close-tag,\
 	formulahendry.auto-rename-tag,\
+	LinusU.auto-dark-mode,\
 	ms-azuretools.vscode-docker,\
 	ms-python.python,\
 	streetsidesoftware.code-spell-checker,\
