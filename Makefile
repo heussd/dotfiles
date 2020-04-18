@@ -222,6 +222,7 @@ fix-add-ssh-key-passphrase: $(HOME)/.ssh/id_rsa.pub ## Adds a passphrase to loca
 # https://github.com/Homebrew/brew/issues/4388#issuecomment-401364773
 fix-brew-cleanup-warning: ## Fixes brew cleanup warnings about not having installed the most recent version
 	@brew cleanup 2>&1 | grep "Warning: Skipping" | awk -F: '{print $2}' | awk '{print $2}' | xargs brew upgrade
+	@brew cleanup
 
 .PHONY: help
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
