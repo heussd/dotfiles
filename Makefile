@@ -90,6 +90,8 @@ ifeq (, $(shell which brew))
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
+	@export HOMEBREW_NO_AUTO_UPDATE=1
+	@brew update
 	@brew bundle install -v --file=.Brewfile
 	@brew cleanup -s
 	@touch .last-install-darwin
