@@ -1,4 +1,4 @@
-# dotfiles
+# Timm's dotfiles
 
 In the great tradition of sharing dotfiles, this repository contains various configuration files for Unix and Linux software.
 
@@ -10,6 +10,17 @@ In the great tradition of sharing dotfiles, this repository contains various con
 
 ### Ubuntu
 	wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+
+
+## Selected Features 
+
+- Automatic setup for Linux and macOS
+- Automatic update of the dotfiles repository
+- Automatic installation and update of software
+- On demand git repository URL override
+- Replacement of MotD spam with something useful
+- Ready to go configs for Bash and ZSH
+
 
 
 ## Credits
