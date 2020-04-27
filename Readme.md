@@ -5,7 +5,11 @@ In the great tradition of sharing dotfiles, this repository contains various con
 
 ## Installation
 
-	curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/Makefile | make -f -
+### macOS
+	curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+
+### Ubuntu
+	wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
 
 
 ## Credits
