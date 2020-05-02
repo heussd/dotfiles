@@ -27,7 +27,7 @@ define rsync-folder
 endef
 
 .PHONY: default
-default:	$(DOTFILES_BARE_REPO)/
+default:	$(DOTFILES_BARE_REPO)/ auto-install
 
 
 $(DOTFILES_BARE_REPO)/: 
