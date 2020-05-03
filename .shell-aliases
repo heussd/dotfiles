@@ -61,6 +61,8 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
 alias dotfiels='dotfiles'
 alias dotifles='dotfiles'
 
+alias dotfiles-code='dotfiles ls-files | fzf | xargs code'
+
 alias motd="source $HOME/.shell-motd"
 
 # Tiny tools
