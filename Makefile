@@ -53,8 +53,8 @@ endif
 
 
 restart-shell:
-	@echo $0 | grep bash && exec bash --login
-	@echo $0 | grep zsh && . ~/.zshrc
+	@echo $$0 | grep bash && exec bash --login
+	@echo $$0 | grep zsh && . ~/.zshrc
 
 
 clean:	## Cleans various places
