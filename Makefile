@@ -27,7 +27,7 @@ define rsync-folder
 endef
 
 .PHONY: default
-default:	$(DOTFILES_BARE_REPO)/ auto-install restart-shell
+default:	$(DOTFILES_BARE_REPO)/ auto-install
 
 
 $(DOTFILES_BARE_REPO)/: 
@@ -50,11 +50,6 @@ endif
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ submodule update --init --recursive
 # Manual pull to create FETCH_HEAD
 	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull
-
-
-restart-shell:
-	@echo $$0 | grep bash && exec bash --login
-	@echo $$0 | grep zsh && . ~/.zshrc
 
 
 clean:	## Cleans various places
