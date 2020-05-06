@@ -19,26 +19,17 @@ user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
 unbind-key C
 unbind-key A
 
-# Taken from https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
-# Dark solarized color scheme for newsbeuter, based on
-# Ethan Schoonover's Solarized.
-#
-# In order to use this color scheme, you must first configure
-# your terminal emulator to use the Solarized palette.
-# See <http://ethanschoonover.com/solarized/> for more information.
+# Taken from https://github.com/tallguyjenks/dotfilez/blob/master/.config/newsboat/config
+color listnormal cyan default
+color listfocus black yellow standout bold
+color listnormal_unread blue default
+color listfocus_unread yellow default bold
+color info red black bold
+color article cyan default
 
-color background         default   default
-color listnormal         default   default
-color listnormal_unread  default   default
-color listfocus          black     yellow
-color listfocus_unread   black     yellow
-color info               default   black
-color article            default   default
-
+highlight-article "tags =~ \"P\"" red default bold
 
 browser "mpv %u &> /dev/null &"
 
 # use "u" to open podcasts
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
-
-highlight-article "tags =~ \"P\"" default red bold
