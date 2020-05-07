@@ -12,6 +12,9 @@ reload-time		120
 show-read-articles	no
 show-read-feeds		no
 
+datetime-format "%Y-%m-%d"
+articlelist-format  "%f %D %?T?%-20T ?%t"
+
 #feed-sort-order 	lastupdated
 
 user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
