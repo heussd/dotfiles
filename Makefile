@@ -59,15 +59,15 @@ clean:	## Cleans various places
 clean-downloads: ## Cleans old downloads
 	@find ~/Downloads -maxdepth 1 -mtime +30 -exec mv -v {} ~/.Trash/ \;
 
-very-clean-darwin:
+clean-all-the-stuff-darwin:
 	@-rm -rf ~/Library/Caches/*
 # Maybe redundant to the line above
 	@-rm -rf "$(brew --cache)"
 	@-brew cleanup -s
-very-clean: clean very-clean-$(OS_NAME) ## Cleans various places (desperate mode)
+clean-all-the-stuff: clean clean-downloads clean-all-the-stuff-$(OS_NAME) ## Cleans various places (aggressively)
 	@-docker system prune --all --force
 	@-rm -rf ~/.m2/*
-.PHONY: clean very-clean very-clean-darwin
+.PHONY: clean clean-all-the-stuff clean-all-the-stuff-darwin
 
 
 update: update-$(OS_NAME)	## Updates OS applications and various package managers
