@@ -134,9 +134,9 @@ ifneq (, $(shell which code))
 	Zignd.html-css-class-completion,\
 	}; do code --install-extension $$extension --force; done
 endif
-config-linux: ## Configures Linux-based hosts
+config-linux:
 	@echo "No config!"
-config-darwin: config-darwin-coteditor ## Configures macOS-based hosts
+config-darwin: config-darwin-coteditor
 	defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 	defaults write com.apple.finder NewWindowTarget -string "PfLo"
 	defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
@@ -187,6 +187,21 @@ config-linux-disable-unattended-updates: ## Disable unattended updates on Linux 
 
 config-linux-apt-no-sudo-passwd:
 	echo "%sudo   ALL=(ALL:ALL) NOPASSWD:/usr/bin/apt" | sudo tee /etc/sudoers.d/010_apt-nopasswd
+
+
+
+config-toggle-dark-mode: config-toggle-dark-mode-$(OS_NAME)
+config-toggle-dark-mode-linux:
+	@echo "No config!"
+config-toggle-dark-mode-darwin:
+	@osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
+config-wallpaper: .esoc0932a.jpg config-wallpaper-$(OS_NAME)
+config-wallpaper-darwin:
+	@osascript -e 'tell application "System Events" to tell every desktop to set picture to ((path to home folder as text) & ".esoc0932a.jpg")'
+
+.esoc0932a.jpg:
+	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O .esoc0932a.jpg
 
 
 .PHONY: config-darwin-coteditor
