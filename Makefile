@@ -245,6 +245,14 @@ sync-maya: ## Syncs stuff from maya ❤️
 	@if ssh maya "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; $(call rsync-folder,maya:~/data/,~/data/); fi
 
 
+fix-reset-iterm-permissions: ## Resets iTerm2 privacy settings
+	@tccutil reset Accessibility com.googlecode.iterm2
+	@tccutil reset AddressBook com.googlecode.iterm2
+	@tccutil reset AppleEvents com.googlecode.iterm2
+	@tccutil reset Calendar com.googlecode.iterm2
+	@killall iTerm2
+
+
 .PHONY: fix-add-ssh-key-passphrase 
 fix-add-ssh-key-passphrase: $(HOME)/.ssh/id_rsa.pub ## Adds a passphrase to local ssh keys
 	@ssh-keygen -p -f ~/.ssh/id_rsa
