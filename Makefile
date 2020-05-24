@@ -55,6 +55,10 @@ endif
 clean:	## Cleans various places
 	@-rm -rf ~/.tmp/*
 	@-rm -rf ~/.Trash/*
+
+clean-downloads: ## Cleans old downloads
+	@find ~/Downloads -maxdepth 1 -mtime +30 -exec mv -v {} ~/.Trash/ \;
+
 very-clean-darwin:
 	@-rm -rf ~/Library/Caches/*
 # Maybe redundant to the line above
