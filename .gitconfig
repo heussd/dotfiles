@@ -22,6 +22,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
     ac = !git add -u && git commit -m 
 	cosh = !git commit && git push
 	co = checkout
+	s = status
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	ref-ignore = !sh -c 'curl https://raw.githubusercontent.com/github/gitignore/master/'$1'.gitignore -o .gitignore'
 	# https://thoughtbot.com/blog/powerful-git-macros-for-automating-everyday-workflows
@@ -33,3 +34,5 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	path = ~/.git-over-ssh-enabled
 [help]
 	autocorrect = 10
+[merge]
+    tool = meld
