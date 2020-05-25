@@ -66,6 +66,7 @@ clean-all-the-stuff-darwin:
 	@-brew cleanup -s
 clean-all-the-stuff: clean clean-downloads clean-all-the-stuff-$(OS_NAME) ## Cleans various places (aggressively)
 	@-docker system prune --all --force
+	@-docker volume prune
 	@-rm -rf ~/.m2/*
 .PHONY: clean clean-all-the-stuff clean-all-the-stuff-darwin
 
