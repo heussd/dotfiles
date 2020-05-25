@@ -16,3 +16,6 @@
 [submodule ".dotfiles-externals/zim-plugin-instantsearch"]
 	path = .dotfiles-externals/zim-plugin-instantsearch
 	url = https://github.com/e3rd/zim-plugin-instantsearch
+[submodule ".dotfiles-externals/howdoi"]
+	path = .dotfiles-externals/howdoi
+	url = https://github.com/san-kumar/howdoi

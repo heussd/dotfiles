@@ -55,15 +55,19 @@ endif
 clean:	## Cleans various places
 	@-rm -rf ~/.tmp/*
 	@-rm -rf ~/.Trash/*
-very-clean-darwin:
+
+clean-downloads: ## Cleans old downloads
+	@find ~/Downloads -maxdepth 1 -mtime +30 -exec mv -v {} ~/.Trash/ \;
+
+clean-all-the-stuff-darwin:
 	@-rm -rf ~/Library/Caches/*
 # Maybe redundant to the line above
 	@-rm -rf "$(brew --cache)"
 	@-brew cleanup -s
-very-clean: clean very-clean-$(OS_NAME) ## Cleans various places (desperate mode)
+clean-all-the-stuff: clean clean-downloads clean-all-the-stuff-$(OS_NAME) ## Cleans various places (aggressively)
 	@-docker system prune --all --force
 	@-rm -rf ~/.m2/*
-.PHONY: clean very-clean very-clean-darwin
+.PHONY: clean clean-all-the-stuff clean-all-the-stuff-darwin
 
 
 update: update-$(OS_NAME)	## Updates OS applications and various package managers
@@ -76,18 +80,21 @@ update-darwin:
 .PHONY: update update-linux update-darwin
 
 
+update-dotfiles:
+	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull --recurse-submodules \;
+.PHONY: update-dotfiles
+
 auto-install-really:
-	@touch .last-install-$(OS_NAME)
-	@rm .last-install-$(OS_NAME)
+	@touch .auto-install-$(OS_NAME)
+	@rm .auto-install-$(OS_NAME)
 	@$(MAKE) auto-install
 
-auto-install: $(DOTFILES_BARE_REPO)/ .last-install-$(OS_NAME)
-	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull --recurse-submodules \;
+auto-install: $(DOTFILES_BARE_REPO)/ update-dotfiles .auto-install-$(OS_NAME)
 
 .PHONY: check-time-last-installed
 check-time-last-installed:
-	@if [ -e .last-install-$(OS_NAME) ]; then find .last-install-$(OS_NAME) -mmin +$$((7*24*60)) -exec bash -c 'rm -f "{}"; echo "Timestamp too old, triggering install"; $(MAKE) .last-install-$(OS_NAME)' \; ; fi
-.last-install-darwin: .Brewfile | check-time-last-installed
+	@if [ -e .auto-install-$(OS_NAME) ]; then find .auto-install-$(OS_NAME) -mmin +$$((7*24*60)) -exec bash -c 'rm -f "{}"; echo "Timestamp too old, triggering install"; $(MAKE) .auto-install-$(OS_NAME)' \; ; fi
+.auto-install-darwin: .Brewfile | check-time-last-installed
 ifeq (, $(shell which brew))
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
@@ -96,11 +103,11 @@ endif
 	@brew update
 	@brew bundle install -v --file=.Brewfile
 	@brew cleanup -s
-	@touch .last-install-darwin
-.last-install-linux: .apt-packages-base | check-time-last-installed
+	@touch .auto-install-darwin
+.auto-install-linux: .apt-packages-base | check-time-last-installed
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
 	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
-	@touch .last-install-linux
+	@touch .auto-install-linux
 
 
 .PHONY: install-veracrypt
@@ -127,9 +134,9 @@ ifneq (, $(shell which code))
 	Zignd.html-css-class-completion,\
 	}; do code --install-extension $$extension --force; done
 endif
-config-linux: ## Configures Linux-based hosts
+config-linux:
 	@echo "No config!"
-config-darwin: config-darwin-coteditor ## Configures macOS-based hosts
+config-darwin: config-darwin-coteditor
 	defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 	defaults write com.apple.finder NewWindowTarget -string "PfLo"
 	defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
@@ -182,6 +189,21 @@ config-linux-apt-no-sudo-passwd:
 	echo "%sudo   ALL=(ALL:ALL) NOPASSWD:/usr/bin/apt" | sudo tee /etc/sudoers.d/010_apt-nopasswd
 
 
+
+config-toggle-dark-mode: config-toggle-dark-mode-$(OS_NAME) ## Toggle Dark mode
+config-toggle-dark-mode-linux:
+	@echo "No config!"
+config-toggle-dark-mode-darwin:
+	@osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
+config-wallpaper: .esoc0932a.jpg config-wallpaper-$(OS_NAME) ## Download and set up wallpaper
+config-wallpaper-darwin:
+	@osascript -e 'tell application "System Events" to tell every desktop to set picture to ((path to home folder as text) & ".esoc0932a.jpg")'
+
+.esoc0932a.jpg:
+	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O .esoc0932a.jpg
+
+
 .PHONY: config-darwin-coteditor
 config-darwin-coteditor:
 	defaults write com.coteditor.CotEditor showNavigationBar 0
@@ -221,6 +243,14 @@ sync-maya: ## Syncs stuff from maya ❤️
 	@$(call rsync-folder,~/data/,maya:~/data/)
 
 	@if ssh maya "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; $(call rsync-folder,maya:~/data/,~/data/); fi
+
+
+fix-reset-iterm-permissions: ## Resets iTerm2 privacy settings
+	@tccutil reset Accessibility com.googlecode.iterm2
+	@tccutil reset AddressBook com.googlecode.iterm2
+	@tccutil reset AppleEvents com.googlecode.iterm2
+	@tccutil reset Calendar com.googlecode.iterm2
+	@killall iTerm2
 
 
 .PHONY: fix-add-ssh-key-passphrase 

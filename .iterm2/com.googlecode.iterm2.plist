@@ -288,13 +288,6 @@
 		<key>0xd-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>29</integer>
-			<key>Text</key>
-			<string>0324C206-6900-428C-94B7-00DF10736B52</string>
-		</dict>
-		<key>0xd-0x120000</key>
-		<dict>
-			<key>Action</key>
 			<integer>28</integer>
 			<key>Text</key>
 			<string>0324C206-6900-428C-94B7-00DF10736B52</string>
@@ -531,7 +524,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 10 1599 554 0 0 2048 1129 </string>
+	<string>845 10 1200 762 0 0 2048 1129 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2298,8 +2291,8 @@
 		<string>3.3.7</string>
 		<string>3.3.9</string>
 		<string>3.2.9</string>
-		<string>3.3.0</string>
 		<string>3.3.2</string>
+		<string>3.3.0</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
@@ -2333,7 +2326,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>527858587.26560998</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>118</integer>
+	<integer>120</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3201,7 +3194,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-05-01T18:28:56Z</date>
+	<date>2020-05-24T19:31:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>

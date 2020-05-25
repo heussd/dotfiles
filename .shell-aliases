@@ -106,6 +106,7 @@ alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias p="cd ~/projects"
 
+function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 
 # Load OS specific bash settings
 source-if-exist() { [[ -e $1 ]] && source "$1"; }
