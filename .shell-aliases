@@ -15,12 +15,11 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 
 # Use BuildKit in Docker
-_hasCmd docker && (
-    alias docker-compose="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
-    docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
+alias docker-compose="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
+docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
 
-    alias protoc='docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
-)
+alias protoc='docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
+
 
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
