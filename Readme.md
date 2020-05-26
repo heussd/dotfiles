@@ -20,7 +20,7 @@ In the great tradition of sharing dotfiles, this repository contains various con
 - On demand git repository URL override
 - Replacement of MotD spam with something useful
 - Ready to go configs for Bash and ZSH
-
+- Transparent encryption of [stuff](.gitattributes) using [transcript](https://github.com/elasticdog/transcrypt)
 
 
 ## Credits
