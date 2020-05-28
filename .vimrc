@@ -140,3 +140,5 @@ nnoremap gO :!open '%:p'<CR>
 :set linebreak
 " :set nolist In vim versions prior to 7.4.353 list disabled linebreak
 
+
+let mapleader=","
