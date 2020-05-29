@@ -268,3 +268,7 @@ fix-brew-cleanup-warning: ## Fixes brew cleanup warnings about not having instal
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help: ## Displays this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-40s\033[0m %s\n", $$1, $$2}'
+
+.PHONY: slideshow
+slideshow:
+	docker run --rm -p 1948:1948 -v $$(pwd)/:/slides webpronl/reveal-md:latest /slides/ --theme serif --separator "^\n\n\n" --vertical-separator "^\n\n"
