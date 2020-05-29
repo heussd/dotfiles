@@ -225,6 +225,11 @@ config-git-over-ssh: ## Tells git to use SSH connections for GitHub / GitLab / B
 	@ln -s $(HOME)/.git-over-ssh $(HOME)/.git-over-ssh-enabled
 
 
+.PHONY: config-transcrypt
+config-transcrypt: ## Prompt for a password to setup transcrypt
+	@cd $(DOTFILES_BARE_REPO) && transcrypt -c aes-256-cbc -p '$(shell stty -echo; read -p "Password: " pwd; stty echo; echo $$pwd)'
+	
+
 install-linux-docker: ## Installs Docker and docker-compose on Linux hosts
 ifeq ("$(OS_NAME)","linux")
 	@curl -fsSL https://get.docker.com/ -o - | sh
