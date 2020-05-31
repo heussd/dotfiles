@@ -94,3 +94,7 @@ bindkey '^[[A'  up-line-or-beginning-search    # Arrow up
 bindkey '^[OA'  up-line-or-beginning-search
 bindkey '^[[B'  down-line-or-beginning-search  # Arrow down
 bindkey '^[OB'  down-line-or-beginning-search
+
+
+# Suffix aliases
+alias -s {sh,css,js,ts,html,md,txt}=code
