@@ -19,6 +19,7 @@ alias docker-compose="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compos
 docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
 
 alias protoc='docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
+alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest /slides/ --separator "^\n\n\n" --vertical-separator "^\n\n"'
 
 
 export GEM_HOME=$HOME/.gem
@@ -105,6 +106,8 @@ function t() { mkdir -p "$HOME/temp" && cd "$HOME/temp"; }
 alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias p="cd ~/projects"
+
+alias vimwiki="vim -c VimwikiIndex"
 
 function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 
