@@ -99,6 +99,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'honza/writer.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tomasr/molokai'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 
@@ -119,7 +120,7 @@ function VimwikiMode()
 	lcd %:p:h
 	
 	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
-	autocmd BufWritePost * silent exec '!git add "%" && git commit -m "%" > /dev/null'
+	autocmd BufWritePost * silent exec '!git add "%"; git commit -m "% (auto commit)" > /dev/null'
 	
 	" Inspired by https://gist.github.com/jondkinney/2040114
 	" FUZZY FIND
@@ -127,6 +128,7 @@ function VimwikiMode()
 
 	set spell spelllang=de,en
 	set spell
+
 endfunction
 au FileType vimwiki call VimwikiMode()
 
