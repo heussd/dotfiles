@@ -97,4 +97,4 @@ bindkey '^[OB'  down-line-or-beginning-search
 
 
 # Suffix aliases
-alias -s {sh,css,js,ts,html,md,txt}=code
+#alias -s {sh,css,js,ts,html,md,txt}=code
