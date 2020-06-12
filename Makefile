@@ -105,7 +105,7 @@ endif
 	@brew bundle install -v --file=.Brewfile
 	@brew cleanup -s --prune 0
 	@touch .auto-install-darwin
-.auto-install-linux: .apt-packages-base | check-time-last-installed
+.auto-install-linux: .apt-packages-base
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
 	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
 	@touch .auto-install-linux
