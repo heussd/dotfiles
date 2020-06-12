@@ -36,3 +36,5 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	autocorrect = 10
 [merge]
     tool = meld
+[pull]
+	rebase = true
