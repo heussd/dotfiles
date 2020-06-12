@@ -103,7 +103,7 @@ endif
 	@export HOMEBREW_NO_AUTO_UPDATE=1
 	@brew update
 	@brew bundle install -v --file=.Brewfile
-	@brew cleanup -s
+	@brew cleanup -s --prune 0
 	@touch .auto-install-darwin
 .auto-install-linux: .apt-packages-base | check-time-last-installed
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
