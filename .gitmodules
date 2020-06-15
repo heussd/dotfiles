@@ -19,3 +19,6 @@
 [submodule ".dotfiles-externals/howdoi"]
 	path = .dotfiles-externals/howdoi
 	url = https://github.com/san-kumar/howdoi
+[submodule ".dotfiles-externals/osx-config-check"]
+	path = .dotfiles-externals/osx-config-check
+	url = https://github.com/kristovatlas/osx-config-check
