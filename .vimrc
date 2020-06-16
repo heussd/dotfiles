@@ -129,6 +129,8 @@ function VimwikiMode()
 	set spell spelllang=de,en
 	set spell
 
+	set lines=50 columns=130
+
 endfunction
 au FileType vimwiki call VimwikiMode()
 
@@ -145,7 +147,7 @@ nnoremap gO :!open '%:p'<CR>
 
 let mapleader=","
 
-# https://groups.google.com/forum/#!topic/vimwiki/ChSY9b4WBbQ
+" https://groups.google.com/forum/#!topic/vimwiki/ChSY9b4WBbQ
 fun! CompleteLinks(findstart, base)
     if a:findstart
         " locate the start of the word
