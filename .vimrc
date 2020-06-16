@@ -144,3 +144,29 @@ nnoremap gO :!open '%:p'<CR>
 
 
 let mapleader=","
+
+# https://groups.google.com/forum/#!topic/vimwiki/ChSY9b4WBbQ
+fun! CompleteLinks(findstart, base)
+    if a:findstart
+        " locate the start of the word
+        let line = getline('.')
+        let start = col('.') - 1
+        while start > 0 && line[start - 1] =~ '\a'
+            let start -= 1
+        endwhile
+        return start
+    else
+        " find files matching with "a:base"
+        let res = []
+        for m in split(globpath('.', '**/*.md'), '\n')
+            let n = fnamemodify(m, ':t:r')
+            if n =~ '^' . a:base
+                call add(res, n)
+            endif
+        endfor
+        return res
+    endif
+endfun
+set completefunc=CompleteLinks
+let g:vimwiki_table_mappings = 0
+imap <tab> <c-x><c-u>
