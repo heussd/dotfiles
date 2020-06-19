@@ -64,6 +64,7 @@ alias gp='git pull --rebase origin'
 alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
 alias dotfiels='dotfiles'
 alias dotifles='dotfiles'
+alias .f='dotfiles'
 
 alias dotfiles-code='dotfiles ls-files | fzf | xargs code'
 
