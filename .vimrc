@@ -100,6 +100,7 @@ Plug 'honza/writer.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tomasr/molokai'
 Plug 'airblade/vim-gitgutter'
+Plug 'dpc/vim-smarttabs'
 call plug#end()
 
 
