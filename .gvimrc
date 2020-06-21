@@ -10,4 +10,5 @@ set lines=40 columns=110          " Window dimensions.
 set macligatures
 
 
-au FileType vimwiki :set guifont=Source\ Code\ Pro:h15
+au FileType vimwiki :set guifont=Source\ Code\ Pro:h13
+autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
