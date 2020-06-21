@@ -100,7 +100,6 @@ Plug 'honza/writer.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tomasr/molokai'
 Plug 'airblade/vim-gitgutter'
-Plug 'dpc/vim-smarttabs'
 call plug#end()
 
 
@@ -114,6 +113,7 @@ let g:vimwiki_list = [{
 	\ 'diary_rel_path': "/",
 	\ 'diary_index': "index"
 	\ }]
+let g:vimwiki_markdown_link_ext = 1
 
 
 function VimwikiMode()
