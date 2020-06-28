@@ -138,30 +138,10 @@ endif
 config-linux:
 	@echo "No config!"
 config-darwin: config-darwin-coteditor
-	defaults write com.apple.finder QLEnableTextSelection -bool TRUE
-	defaults write com.apple.finder NewWindowTarget -string "PfLo"
-	defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
-	defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-	defaults write com.apple.finder ShowStatusBar -bool true
-	defaults write com.apple.finder ShowPathbar -bool true
-	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
-	defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-	defaults write NSGlobalDomain AppleShowAllExtensions -bool true	
-	defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-	defaults write NSGlobalDomain KeyRepeat -int 1
-	defaults write NSGlobalDomain AppleInterfaceTheme Dark
-	defaults write com.apple.dock autohide-delay -int 0
-	defaults write com.apple.dock autohide-time-modifier -float 0
-	
-	@killall Finder; killall Dock;killall SystemUIServer
-
-	defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
-	
 	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
 	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
-	defaults write io.masscode.app NSNavLastRootDirectory "~/projects/masscode-snippets"
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
 
