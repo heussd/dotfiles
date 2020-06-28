@@ -246,9 +246,9 @@ endif
 .PHONY: sync-maya
 sync-maya: ## Syncs stuff from maya ❤️
 	@echo "Uploading..."
-	@$(call rsync-folder,~/data/,maya:~/data/)
+	@$(call rsync-folder,~/data/,maya.local:~/data/)
 
-	@if ssh maya "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; $(call rsync-folder,maya:~/data/,~/data/); fi
+	@if ssh maya.local "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; $(call rsync-folder,maya.local:~/data/,~/data/); fi
 
 
 fix-reset-iterm-permissions: ## Resets iTerm2 privacy settings
