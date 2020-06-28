@@ -14,14 +14,6 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 
-# Use BuildKit in Docker
-alias docker-compose="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
-docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
-
-alias protoc='docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
-alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest /slides/ --separator "^\n\n\n" --vertical-separator "^\n\n"'
-
-
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
@@ -114,10 +106,22 @@ alias vimwiki="vim -c VimwikiIndex"
 
 function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 
+
+# Use BuildKit in Docker
+alias docker-compose="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
+docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
+
+alias protoc='docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
+alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest /slides/ --separator "^\n\n\n" --vertical-separator "^\n\n"'
+alias graphviz="graphviz/graphviz:ubuntu-20.04"
+# https://github.com/pandoc/dockerfiles/
+alias pandoc='docker run --rm --volume $(pwd):/data --user `id -u`:`id -g` pandoc/latex:latest'
+
+alias mvn='docker run --rm --volume "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven -v "$HOME/.m2":/root/.m2 maven:3-jdk-11 mvn'
+
+
 # Load OS specific bash settings
 source-if-exist() { [[ -e $1 ]] && source "$1"; }
 
-
 # Load Host specific bash settings
-
 source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
