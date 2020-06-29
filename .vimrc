@@ -132,6 +132,9 @@ function VimwikiMode()
 
 	set lines=50 columns=130
 
+	nnoremap <C-q> :execute '!git pull'<CR>
+	nnoremap <S-q> :execute '!git push'<CR>
+
 endfunction
 au FileType vimwiki call VimwikiMode()
 
