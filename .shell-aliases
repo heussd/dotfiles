@@ -80,7 +80,6 @@ _hasCmd screen && alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTR
 _hasCmd thefuck && eval "$(thefuck --alias)"
 _hasCmd newsboat && alias tv="newsboat --config-file=$HOME/.newsboat/config-tv --url-file=$HOME/.newsboat/urls-tv"
 
-osx-config-check() { pushd $HOME/.dotfiles-externals/osx-config-check/; python app.py $*; popd }
 
 # https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html#find-file-and-edit
 fzf_and_copy() {
