@@ -135,6 +135,10 @@ function VimwikiMode()
 	nnoremap <C-q> :execute '!git pull'<CR>
 	nnoremap <S-q> :execute '!git push'<CR>
 
+	set completefunc=CompleteLinks
+	let g:vimwiki_table_mappings = 0
+	"imap <tab> <c-x><c-u>
+
 endfunction
 au FileType vimwiki call VimwikiMode()
 
@@ -173,6 +177,3 @@ fun! CompleteLinks(findstart, base)
         return res
     endif
 endfun
-set completefunc=CompleteLinks
-let g:vimwiki_table_mappings = 0
-imap <tab> <c-x><c-u>
