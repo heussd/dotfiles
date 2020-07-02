@@ -148,6 +148,11 @@ config-darwin: config-darwin-coteditor
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
 
+config-darwin-lockscreen:
+	@sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If you found this device, please contact $$(osascript -e 'tell application "Contacts" to get value of email 1 of my card') / $$(osascript -e 'tell application "Contacts" to get value of phone 1 of my card')"
+	@tccutil reset AddressBook
+
+
 
 .PHONY: config-firefox
 ifeq ("$(OS_NAME)","darwin")
@@ -240,6 +245,16 @@ fix-reset-iterm-permissions: ## Resets iTerm2 privacy settings
 	@tccutil reset AppleEvents com.googlecode.iterm2
 	@tccutil reset Calendar com.googlecode.iterm2
 	@killall iTerm2
+
+fix-reset-privacy-permissions: ## Resets privacy settings
+	@tccutil reset Accessibility
+	@tccutil reset AddressBook
+	@tccutil reset AppleEvents
+	@tccutil reset Calendar
+	@killall SystemUIServer
+	@killall Finder
+	@killall Dock
+
 
 
 .PHONY: fix-add-ssh-key-passphrase 
