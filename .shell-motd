@@ -1,5 +1,5 @@
 # Console prints may be skipped
-if [ "$1" != "silent" ]; then
+if [ "$PWD" = "$HOME" ]; then
 
 	echo
 	_hasCmd figlet && (
