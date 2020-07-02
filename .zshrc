@@ -98,3 +98,16 @@ bindkey '^[OB'  down-line-or-beginning-search
 
 # Suffix aliases
 #alias -s {sh,css,js,ts,html,md,txt}=code
+
+
+# https://dev.to/ecologic/using-keyboard-shortcuts-with-zsh-16b
+
+# Hotkey for git pull (ctrl-p)
+function gitpull() { echo "git pull"; git pull; zle reset-prompt; zle redisplay}
+zle -N gitpull
+bindkey '^p' gitpull
+
+# Hotkey for git push (ctrl-o)
+function gitpush() { echo "git push"; git push; zle reset-prompt; zle redisplay}
+zle -N gitpush
+bindkey '^o' gitpush

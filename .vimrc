@@ -132,8 +132,8 @@ function VimwikiMode()
 
 	set lines=50 columns=130
 
-	nnoremap <C-q> :execute '!git pull'<CR>
-	nnoremap <S-q> :execute '!git push'<CR>
+	nnoremap <C-p> :execute '!git pull'<CR>
+	nnoremap <C-o> :execute '!git push'<CR>
 
 	set completefunc=CompleteLinks
 	let g:vimwiki_table_mappings = 0
