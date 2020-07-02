@@ -239,14 +239,7 @@ sync-maya: ## Syncs stuff from maya ❤️
 	@if ssh maya.local "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; $(call rsync-folder,maya.local:~/data/,~/data/); fi
 
 
-fix-reset-iterm-permissions: ## Resets iTerm2 privacy settings
-	@tccutil reset Accessibility com.googlecode.iterm2
-	@tccutil reset AddressBook com.googlecode.iterm2
-	@tccutil reset AppleEvents com.googlecode.iterm2
-	@tccutil reset Calendar com.googlecode.iterm2
-	@killall iTerm2
-
-fix-reset-privacy-permissions: ## Resets privacy settings
+config-reset-privacy-permissions: ## Resets privacy settings
 	@tccutil reset Accessibility
 	@tccutil reset AddressBook
 	@tccutil reset AppleEvents
@@ -271,6 +264,14 @@ fix-brew-cleanup-warning: ## Fixes brew cleanup warnings about not having instal
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help: ## Displays this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-40s\033[0m %s\n", $$1, $$2}'
+
+
+
+lock: lock-$(OS_NAME)	## Lock screen
+lock-darwin: 
+	@/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
+.PHONY: lock lock-darwin
+
 
 .PHONY: slideshow
 slideshow:
