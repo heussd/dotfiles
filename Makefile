@@ -138,6 +138,9 @@ endif
 config-linux:
 	@echo "No config!"
 config-darwin: config-darwin-coteditor
+	# Native window drag and drop with Ctrl+Cmd
+	defaults write -g NSWindowShouldDragOnGesture -bool true
+
 	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
 	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
