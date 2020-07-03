@@ -44,6 +44,19 @@
       "Cryptomining": true,
       "Fingerprinting": true
     },
+    "Homepage": {
+      "Locked": true,
+      "StartPage": "homepage-locked"
+    },
+    "NewTabPage": true,
+    "FirefoxHome": {
+      "Search": false,
+      "TopSites": false,
+      "Highlights": false,
+      "Pocket": false,
+      "Snippets": false,
+      "Locked": true
+    },
     "NoDefaultBookmarks": true,
     "DisableSetDesktopBackground": true,
     "SearchEngines": {
