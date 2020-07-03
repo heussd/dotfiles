@@ -205,3 +205,7 @@ user_pref("browser.newtabpage.enabled", true);
 
 // Enable userChrome.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+
+// Disable urlbar topsites suggestion
+user_pref("browser.urlbar.suggest.topsites", false);
