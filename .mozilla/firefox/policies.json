@@ -2,7 +2,6 @@
   "policies": {
     "Extensions": {
       "Install": [
-        //"https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/bloody-vikings/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/bookmarklets-context-menu/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi",
@@ -40,7 +39,11 @@
     },
     "DisableFirefoxStudies": true,
     "DisableTelemetry": true,
-    "EnableTrackingProtection": true,
+    "EnableTrackingProtection": {
+      "Value": true,
+      "Cryptomining": true,
+      "Fingerprinting": true
+    },
     "NoDefaultBookmarks": true,
     "DisableSetDesktopBackground": true,
     "SearchEngines": {
