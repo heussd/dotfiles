@@ -209,3 +209,6 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Disable urlbar topsites suggestion
 user_pref("browser.urlbar.suggest.topsites", false);
+
+// Enable support for client certificates stored on macOS and Windows
+user_pref("security.osclientcerts.autoload", true);
