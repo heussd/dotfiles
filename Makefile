@@ -90,7 +90,7 @@ auto-install-really:
 	@rm .auto-install-$(OS_NAME)
 	@$(MAKE) auto-install
 
-auto-install: $(DOTFILES_BARE_REPO)/ update-dotfiles .auto-install-$(OS_NAME)
+auto-install: $(DOTFILES_BARE_REPO)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 
 .PHONY: check-time-last-installed
 check-time-last-installed:
@@ -167,6 +167,17 @@ config-firefox: ## Symlinks Firefox user config files to all Firefox profiles
 		mkdir -p "$$profile/chrome"; \
 		ln -sFf $$HOME/.mozilla/firefox/chrome/userChrome.css "$$profile/chrome/"; \
 	done
+
+
+firefox-policies: firefox-policies-$(OS_NAME)
+	@echo > /dev/null
+firefox-policies-darwin: /Applications/Firefox.app/Contents/Resources/distribution/policies.json
+
+/Applications/Firefox.app/Contents/Resources/distribution/policies.json: $(HOME)/.mozilla/firefox/policies.json                                                                           
+	@echo "Updating Firefox policies..."
+	@mkdir -p /Applications/Firefox.app/Contents/Resources/distribution/
+	@cp $$HOME/.mozilla/firefox/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json
+
 
 config-set-zsh-as-default:
 	@chsh -s $(which zsh) $(whoami)
