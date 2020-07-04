@@ -175,10 +175,11 @@ firefox-policies-darwin: /Applications/Firefox.app/Contents/Resources/distributi
 firefox-policies-linux:  /etc/firefox/policies/policies.json
 
 /Applications/Firefox.app/Contents/Resources/distribution/policies.json: $(HOME)/.mozilla/firefox/policies.json
-	@echo "Updating Firefox policies..."
+	@echo "Installing Firefox policies to $@"
 	@mkdir -p /Applications/Firefox.app/Contents/Resources/distribution/
 	@cp $$HOME/.mozilla/firefox/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json
 /etc/firefox/policies/policies.json: $(HOME)/.mozilla/firefox/policies.json
+	@echo "Installing Firefox policies to $@"
 	@sudo mkdir -p /etc/firefox/policies/
 	@sudo cp $$HOME/.mozilla/firefox/policies.json /etc/firefox/policies/policies.json
 
