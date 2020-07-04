@@ -180,7 +180,7 @@ firefox-policies-linux:  /etc/firefox/policies/policies.json
 	@cp $$HOME/.mozilla/firefox/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json
 /etc/firefox/policies/policies.json: $(HOME)/.mozilla/firefox/policies.json
 	@mkdir -p /etc/firefox/policies/
-	@cp $$HOME/.mozilla/firefox/policies.json /etc/firefox/policies/policies.json
+	@sudo $$HOME/.mozilla/firefox/policies.json /etc/firefox/policies/policies.json
 
 .PHONY: firefox-policies firefox-policies-darwin firefox-policies-linux
 
