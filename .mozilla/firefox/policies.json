@@ -17,7 +17,6 @@
         "https://addons.mozilla.org/firefox/downloads/latest/make-medium-readable-again/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/neat-url/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/rewrite-content-disposition/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/right-links/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/save-page-we/latest.xpi",
@@ -29,12 +28,14 @@
         "https://addons.mozilla.org/firefox/downloads/latest/want-my-rss/latest.xpi"
       ],
       "Uninstall": [
-				"amazon@search.mozilla.org",
+        "amazon@search.mozilla.org",
+        "amazondotcom@search.mozilla.org",
 				"wikipedia@search.mozilla.org",
 				"bing@search.mozilla.org",
 				"ebay@search.mozilla.org",
 				"google@search.mozilla.org",
-				"twitter@search.mozilla.org"
+        "twitter@search.mozilla.org",
+        "screenshots@mozilla.org"
 			]
     },
     "DisableFirefoxStudies": true,
@@ -46,7 +47,7 @@
     },
     "Homepage": {
       "Locked": true,
-      "StartPage": "homepage-locked"
+      "StartPage": "none"
     },
     "NewTabPage": true,
     "FirefoxHome": {
@@ -68,6 +69,14 @@
           "Twitter",
           "Wikipedia (en)"
         ]       
+    },
+    "SearchSuggestEnabled": false,
+    "Preferences": {
+      "security.osclientcerts.autoload": true,
+      "browser.safebrowsing.phishing.enabled": false,
+      "browser.safebrowsing.malware.enabled": false,
+      "DISABLED-extensions.blocklist.enabled": false,
+      "browser.slowStartup.notificationDisabled": true
     }
   }
 }
