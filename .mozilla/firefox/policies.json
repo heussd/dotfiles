@@ -28,14 +28,19 @@
         "https://addons.mozilla.org/firefox/downloads/latest/want-my-rss/latest.xpi"
       ],
       "Uninstall": [
-        "amazon@search.mozilla.org",
-        "amazondotcom@search.mozilla.org",
-				"wikipedia@search.mozilla.org",
 				"bing@search.mozilla.org",
 				"ebay@search.mozilla.org",
 				"google@search.mozilla.org",
+				"wikipedia@search.mozilla.org",
+        "amazon@search.mozilla.org",
+        "amazondotcom@search.mozilla.org",
+        "bing@search.mozilla.org",
+        "ddg@search.mozilla.org",
+        "ebay@search.mozilla.org",
+        "google@search.mozilla.org",
+        "screenshots@mozilla.org",
         "twitter@search.mozilla.org",
-        "screenshots@mozilla.org"
+        "wikipedia@search.mozilla.org"
 			]
     },
     "DisableFirefoxStudies": true,
@@ -77,6 +82,10 @@
       "browser.safebrowsing.malware.enabled": false,
       "DISABLED-extensions.blocklist.enabled": false,
       "browser.slowStartup.notificationDisabled": true
+    },
+    "SupportMenu": {
+      "Title": "✅ Timm's modifications enabled",
+      "URL": "https://github.com/heussd/dotfiles"
     }
   }
 }
