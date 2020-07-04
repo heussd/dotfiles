@@ -169,14 +169,20 @@ config-firefox: ## Symlinks Firefox user config files to all Firefox profiles
 	done
 
 
-firefox-policies: firefox-policies-$(OS_NAME)
-	@echo > /dev/null
+firefox-policies: firefox-policies-$(OS_NAME) ## Install Firefox policies
+	@:
 firefox-policies-darwin: /Applications/Firefox.app/Contents/Resources/distribution/policies.json
+firefox-policies-linux:  /etc/firefox/policies/policies.json
 
-/Applications/Firefox.app/Contents/Resources/distribution/policies.json: $(HOME)/.mozilla/firefox/policies.json                                                                           
+/Applications/Firefox.app/Contents/Resources/distribution/policies.json: $(HOME)/.mozilla/firefox/policies.json
 	@echo "Updating Firefox policies..."
 	@mkdir -p /Applications/Firefox.app/Contents/Resources/distribution/
 	@cp $$HOME/.mozilla/firefox/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json
+/etc/firefox/policies/policies.json: $(HOME)/.mozilla/firefox/policies.json
+	@mkdir -p /etc/firefox/policies/
+	@cp $$HOME/.mozilla/firefox/policies.json /etc/firefox/policies/policies.json
+
+.PHONY: firefox-policies firefox-policies-darwin firefox-policies-linux
 
 
 config-set-zsh-as-default:
