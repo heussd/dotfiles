@@ -49,24 +49,6 @@ user_pref("app.shield.optoutstudies.enabled", false);
 ## Disable "Savant" Shield study (FF61+) 
 user_pref("shield.savant.enabled", false);
 
-## Disable "Snippets" (Mozilla content shown on about:home screen)
-user_pref("browser.aboutHomeSnippets.updateUrl", "");
-
-## Disable Activity Stream (AS)
-# Disable AS Telemetry
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
-# Disable AS Snippets
-user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
-user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
-## Disable AS in new Tabs
-user_pref("browser.library.activity-stream.enabled", false);
-user_pref("browser.newtabpage.activity-stream.prerender", false);
-user_pref("browser.newtabpage.activity-stream.enabled", false);
-user_pref("browser.newtabpage.enabled", false);
-user_pref("browser.newtab.preload ", false);
-
 ## Disable PingCentre Telemetry
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.ping-centre.production.endpoint", "");
