@@ -16,7 +16,6 @@ SHELL   := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-SHORTHOSTNAME=$(shell hostname | cut -d"." -f 1)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
 DOTFILES_WORK_DIR  := $(HOME)/
