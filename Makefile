@@ -26,7 +26,7 @@ define rsync-folder
 endef
 
 .PHONY: default
-default:	$(DOTFILES_BARE)/ auto-tasks
+default:	$(DOTFILES_BARE)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 
 
 $(DOTFILES_BARE)/: 
@@ -79,9 +79,6 @@ update-darwin:
 	@brew cask upgrade --greedy
 .PHONY: update update-linux update-darwin
 
-
-.PHONY: auto-tasks
-auto-tasks: $(DOTFILES_BARE)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 
 
 update-dotfiles:

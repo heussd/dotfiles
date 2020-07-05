@@ -26,7 +26,7 @@ if [ "$PWD" = "$HOME" ]; then
 		gita ll && echo
 	)
 
-	make auto-tasks
+	make
 fi
 
 # Try to resume screen session
