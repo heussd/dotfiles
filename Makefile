@@ -9,46 +9,46 @@
 #                | |  | | (_| |   <  __/  _| | |  __/
 #                |_|  |_|\__,_|_|\_\___|_| |_|_|\___|
 #
-# xcode-select --install 
 
 SHELL   := bash
 .SHELLFLAGS := -eu -o pipefail -c  
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
+DOTFILES_REPO := https://github.com/heussd/dotfiles.git
+DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
+
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
-DOTFILES_WORK_DIR  := $(HOME)/
-DOTFILES_BARE_REPO := $(HOME)/.dotfiles-bare-repo/
 
 define rsync-folder
 	rsync -auip --progress --safe-links --exclude=.DS_Store $(1) $(2)
 endef
 
 .PHONY: default
-default:	$(DOTFILES_BARE_REPO)/ auto-tasks
+default:	$(DOTFILES_BARE)/ auto-tasks
 
 
-$(DOTFILES_BARE_REPO)/: 
-	@git clone --bare https://github.com/heussd/dotfiles.git $(DOTFILES_BARE_REPO)/
-	@git --git-dir=$(DOTFILES_BARE_REPO) config --local status.showUntrackedFiles no
-	@git --git-dir=$(DOTFILES_BARE_REPO) config --local core.sparseCheckout true
+$(DOTFILES_BARE)/: 
+	@git clone --bare $(DOTFILES_REPO) $(DOTFILES_BARE)/
+	@git --git-dir=$(DOTFILES_BARE) config --local status.showUntrackedFiles no
+	@git --git-dir=$(DOTFILES_BARE) config --local core.sparseCheckout true
 # Include everything
-	@echo "/*" > $(DOTFILES_BARE_REPO)/info/sparse-checkout
+	@echo "/*" > $(DOTFILES_BARE)/info/sparse-checkout
 # Exclude readme
-	@echo "!Readme.md" >> $(DOTFILES_BARE_REPO)/info/sparse-checkout
+	@echo "!Readme.md" >> $(DOTFILES_BARE)/info/sparse-checkout
 # Ignore Library folder on Linux
 ifeq ("$(OS_NAME)","linux")
-	@echo "!Library" >> $(DOTFILES_BARE_REPO)/info/sparse-checkout
+	@echo "!Library" >> $(DOTFILES_BARE)/info/sparse-checkout
 endif	
-	@cd $(DOTFILES_WORK_DIR)/
+	@cd $(HOME)/
 # recursive-submodules is limited to git >= 2.13
 # We are doing it the old way here to increase compatibility
-#@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
-	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f
-	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ submodule update --init --recursive
+#@git --git-dir=$(DOTFILES_BARE) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
+	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ checkout -f
+	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ submodule update --init --recursive
 # Manual pull to create FETCH_HEAD
-	@git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull
+	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull
 
 
 clean:	## Cleans various places
@@ -81,11 +81,11 @@ update-darwin:
 
 
 .PHONY: auto-tasks
-auto-tasks: $(DOTFILES_BARE_REPO)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
+auto-tasks: $(DOTFILES_BARE)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 
 
 update-dotfiles:
-	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull --recurse-submodules --quiet' \;
+	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet' \;
 .PHONY: update-dotfiles
 
 
@@ -233,7 +233,7 @@ config-git-over-ssh: ## Tells git to use SSH connections for GitHub / GitLab / B
 
 .PHONY: config-transcrypt
 config-transcrypt: ## Prompt for a password to setup transcrypt
-	@cd $(DOTFILES_BARE_REPO) && transcrypt -c aes-256-cbc -p '$(shell stty -echo; read -p "Password: " pwd; stty echo; echo $$pwd)'
+	@cd $(DOTFILES_BARE) && transcrypt -c aes-256-cbc -p '$(shell stty -echo; read -p "Password: " pwd; stty echo; echo $$pwd)'
 	
 
 install-linux-docker: ## Installs Docker and docker-compose on Linux hosts
@@ -295,3 +295,5 @@ lock-darwin:
 slideshow:
 	docker run --rm -p 1948:1948 -v $$(pwd)/:/slides webpronl/reveal-md:latest /slides/ --theme serif --separator "^\n\n\n" --vertical-separator "^\n\n"
 
+test:
+	echo $(DOTFILES_REPO)
