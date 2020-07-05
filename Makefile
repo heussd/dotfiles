@@ -81,16 +81,14 @@ update-darwin:
 .PHONY: update update-linux update-darwin
 
 
+.PHONY: auto-tasks
+auto-tasks: $(DOTFILES_BARE_REPO)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
+
+
 update-dotfiles:
-	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull --recurse-submodules \;
+	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles (in background)...\n"; git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull --recurse-submodules --quiet &' \;
 .PHONY: update-dotfiles
 
-auto-install-really:
-	@touch .auto-install-$(OS_NAME)
-	@rm .auto-install-$(OS_NAME)
-	@$(MAKE) auto-install
-
-auto-install: $(DOTFILES_BARE_REPO)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 
 .PHONY: check-time-last-installed
 check-time-last-installed:
@@ -149,7 +147,19 @@ config-darwin: config-darwin-coteditor
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
 
-config-darwin-lockscreen:
+
+.PHONY: config-darwin-coteditor
+config-darwin-coteditor:
+	defaults write com.coteditor.CotEditor showNavigationBar 0
+	defaults write com.coteditor.CotEditor lineHeight 1.1
+	defaults write com.coteditor.CotEditor fontName SauceCodePowerline-Regular
+	defaults write com.coteditor.CotEditor fontSize 13
+	defaults write com.coteditor.CotEditor highlightCurrentLine 1
+	defaults write com.coteditor.CotEditor enablesAutosaveInPlace 0
+	defaults write com.coteditor.CotEditor documentConflictOption 1
+	@ln -vfs /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/cot
+
+config-darwin-lockscreen: ## Set a lost and found message and contact info on the lockscreen
 	@sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If you found this device, please contact $$(osascript -e 'tell application "Contacts" to get value of email 1 of my card') / $$(osascript -e 'tell application "Contacts" to get value of phone 1 of my card')"
 	@tccutil reset AddressBook
 
@@ -212,16 +222,6 @@ config-wallpaper-darwin:
 	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O .esoc0932a.jpg
 
 
-.PHONY: config-darwin-coteditor
-config-darwin-coteditor:
-	defaults write com.coteditor.CotEditor showNavigationBar 0
-	defaults write com.coteditor.CotEditor lineHeight 1.1
-	defaults write com.coteditor.CotEditor fontName SauceCodePowerline-Regular
-	defaults write com.coteditor.CotEditor fontSize 13
-	defaults write com.coteditor.CotEditor highlightCurrentLine 1
-	defaults write com.coteditor.CotEditor enablesAutosaveInPlace 0
-	defaults write com.coteditor.CotEditor documentConflictOption 1
-	@ln -vfs /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/cot
 
 
 $(HOME)/.ssh/id_rsa.pub:

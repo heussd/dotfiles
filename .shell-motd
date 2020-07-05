@@ -23,10 +23,10 @@ if [ "$PWD" = "$HOME" ]; then
 	)
 		
 	_hasCmd gita && (
-		gita ll
+		gita ll && echo
 	)
 
-	make auto-install
+	make auto-tasks
 fi
 
 # Try to resume screen session
