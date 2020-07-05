@@ -21,10 +21,6 @@ DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
 
-define rsync-folder
-	rsync -auip --progress --safe-links --exclude=.DS_Store $(1) $(2)
-endef
-
 .PHONY: default
 default:	$(DOTFILES_BARE)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 
@@ -249,9 +245,9 @@ endif
 .PHONY: sync-maya
 sync-maya: ## Syncs stuff from maya ❤️
 	@printf "\e[1;34m[Home Makefile]\e[0m Uploading...\n"
-	@$(call rsync-folder,~/data/,maya.local:~/data/)
+	@rsync -auip --progress --safe-links --exclude=.DS_Store ~/data/ maya.local:~/data/
 
-	@if ssh maya.local "test ! -e ~/data/news-retrieval/news.db.lock"; then printf "\e[1;34m[Home Makefile]\e[0m Downloading...\n"; $(call rsync-folder,maya.local:~/data/,~/data/); fi
+	@if ssh maya.local "test ! -e ~/data/news-retrieval/news.db.lock"; then printf "\e[1;34m[Home Makefile]\e[0m Downloading...\n"; rsync -auip --progress --safe-links --exclude=.DS_Store maya.local:~/data/ ~/data/; fi
 
 
 config-reset-privacy-permissions: ## Resets privacy settings
