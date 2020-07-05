@@ -94,13 +94,14 @@ auto-install: $(DOTFILES_BARE_REPO)/ update-dotfiles .auto-install-$(OS_NAME) fi
 
 .PHONY: check-time-last-installed
 check-time-last-installed:
-	@if [ -e .auto-install-$(OS_NAME) ]; then find .auto-install-$(OS_NAME) -mmin +$$((7*24*60)) -exec bash -c 'rm -f "{}"; echo "Timestamp too old, triggering install"; $(MAKE) .auto-install-$(OS_NAME)' \; ; fi
+	@if [ -e .auto-install-$(OS_NAME) ]; then find .auto-install-$(OS_NAME) -mmin +$$((7*24*60)) -exec bash -c 'rm -f "{}"; printf "\e[1;34m[Home Makefile]\e[0m Last installation too old, triggering auto install...\n"; $(MAKE) .auto-install-$(OS_NAME)' \; ; fi
 .auto-install-darwin: .Brewfile | check-time-last-installed
 ifeq (, $(shell which brew))
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
 	@export HOMEBREW_NO_AUTO_UPDATE=1
+	@printf "\e[1;34m[Home Makefile]\e[0m Installing brew bundle...\n"
 	@brew update
 	@brew bundle install -v --file=.Brewfile
 	@brew cleanup -s --prune 0
@@ -175,11 +176,11 @@ firefox-policies-darwin: /Applications/Firefox.app/Contents/Resources/distributi
 firefox-policies-linux:  /etc/firefox/policies/policies.json
 
 /Applications/Firefox.app/Contents/Resources/distribution/policies.json: $(HOME)/.mozilla/firefox/policies.json
-	@echo "Installing Firefox policies to $@"
+	@printf "\e[1;34m[Home Makefile]\e[0m Installing Firefox policies to $@...\n"
 	@mkdir -p /Applications/Firefox.app/Contents/Resources/distribution/
 	@cp $$HOME/.mozilla/firefox/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json
 /etc/firefox/policies/policies.json: $(HOME)/.mozilla/firefox/policies.json
-	@echo "Installing Firefox policies to $@"
+	@printf "\e[1;34m[Home Makefile]\e[0m Installing Firefox policies to $@...\n"
 	@sudo mkdir -p /etc/firefox/policies/
 	@sudo cp $$HOME/.mozilla/firefox/policies.json /etc/firefox/policies/policies.json
 
@@ -251,10 +252,10 @@ endif
 
 .PHONY: sync-maya
 sync-maya: ## Syncs stuff from maya ❤️
-	@echo "Uploading..."
+	@printf "\e[1;34m[Home Makefile]\e[0m Uploading...\n"
 	@$(call rsync-folder,~/data/,maya.local:~/data/)
 
-	@if ssh maya.local "test ! -e ~/data/news-retrieval/news.db.lock"; then echo "Downloading..."; $(call rsync-folder,maya.local:~/data/,~/data/); fi
+	@if ssh maya.local "test ! -e ~/data/news-retrieval/news.db.lock"; then printf "\e[1;34m[Home Makefile]\e[0m Downloading...\n"; $(call rsync-folder,maya.local:~/data/,~/data/); fi
 
 
 config-reset-privacy-permissions: ## Resets privacy settings
@@ -294,3 +295,4 @@ lock-darwin:
 .PHONY: slideshow
 slideshow:
 	docker run --rm -p 1948:1948 -v $$(pwd)/:/slides webpronl/reveal-md:latest /slides/ --theme serif --separator "^\n\n\n" --vertical-separator "^\n\n"
+
