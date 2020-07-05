@@ -27,7 +27,7 @@ define rsync-folder
 endef
 
 .PHONY: default
-default:	$(DOTFILES_BARE_REPO)/ auto-install
+default:	$(DOTFILES_BARE_REPO)/ auto-tasks
 
 
 $(DOTFILES_BARE_REPO)/: 
@@ -86,7 +86,7 @@ auto-tasks: $(DOTFILES_BARE_REPO)/ update-dotfiles .auto-install-$(OS_NAME) fire
 
 
 update-dotfiles:
-	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles (in background)...\n"; git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull --recurse-submodules --quiet &' \;
+	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE_REPO) --work-tree=$(DOTFILES_WORK_DIR)/ pull --recurse-submodules --quiet' \;
 .PHONY: update-dotfiles
 
 
