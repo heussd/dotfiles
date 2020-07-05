@@ -51,6 +51,32 @@ endif
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull
 
 
+update-dotfiles:
+	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet' \;
+.PHONY: update-dotfiles
+
+
+.PHONY: check-time-last-installed
+check-time-last-installed:
+	@if [ -e .auto-install-$(OS_NAME) ]; then find .auto-install-$(OS_NAME) -mmin +$$((7*24*60)) -exec bash -c 'rm -f "{}"; printf "\e[1;34m[Home Makefile]\e[0m Last installation too old, triggering auto install...\n"; $(MAKE) .auto-install-$(OS_NAME)' \; ; fi
+.auto-install-darwin: .Brewfile | check-time-last-installed
+ifeq (, $(shell which brew))
+	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+endif
+	@export HOMEBREW_CASK_OPTS="--no-quarantine"
+	@export HOMEBREW_NO_AUTO_UPDATE=1
+	@printf "\e[1;34m[Home Makefile]\e[0m Installing brew bundle...\n"
+	@brew update
+	@brew bundle install -v --file=.Brewfile
+	@brew cleanup -s --prune 0
+	@touch .auto-install-darwin
+.auto-install-linux: .apt-packages-base
+# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
+	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
+	@touch .auto-install-linux
+
+
+
 clean:	## Cleans various places
 	@-rm -rf ~/.tmp/*
 	@-rm -rf ~/.Trash/*
@@ -78,32 +104,6 @@ update-darwin:
 	@brew upgrade
 	@brew cask upgrade --greedy
 .PHONY: update update-linux update-darwin
-
-
-
-update-dotfiles:
-	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet' \;
-.PHONY: update-dotfiles
-
-
-.PHONY: check-time-last-installed
-check-time-last-installed:
-	@if [ -e .auto-install-$(OS_NAME) ]; then find .auto-install-$(OS_NAME) -mmin +$$((7*24*60)) -exec bash -c 'rm -f "{}"; printf "\e[1;34m[Home Makefile]\e[0m Last installation too old, triggering auto install...\n"; $(MAKE) .auto-install-$(OS_NAME)' \; ; fi
-.auto-install-darwin: .Brewfile | check-time-last-installed
-ifeq (, $(shell which brew))
-	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-endif
-	@export HOMEBREW_CASK_OPTS="--no-quarantine"
-	@export HOMEBREW_NO_AUTO_UPDATE=1
-	@printf "\e[1;34m[Home Makefile]\e[0m Installing brew bundle...\n"
-	@brew update
-	@brew bundle install -v --file=.Brewfile
-	@brew cleanup -s --prune 0
-	@touch .auto-install-darwin
-.auto-install-linux: .apt-packages-base
-# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
-	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
-	@touch .auto-install-linux
 
 
 .PHONY: install-veracrypt
