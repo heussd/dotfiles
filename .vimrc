@@ -135,6 +135,11 @@ function VimwikiMode()
 	nnoremap <C-p> :execute '!git pull'<CR>
 	nnoremap <C-o> :execute '!git push'<CR>
 
+	map <Leader>wp  :VimwikiDiaryPrevDay<CR>
+	map <Leader>wn  :VimwikiDiaryNextDay<CR>
+	set shiftwidth=2
+	set expandtab
+
 	set completefunc=CompleteLinks
 	let g:vimwiki_table_mappings = 0
 	"imap <tab> <c-x><c-u>
