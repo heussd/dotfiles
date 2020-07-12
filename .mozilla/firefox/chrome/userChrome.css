@@ -5,3 +5,8 @@
 	--identity-tab-color: #808080 !important;
 	--identity-icon-color: #808080 !important;
 }
+
+
+toolbarbutton#back-button, toolbarbutton#forward-button {
+	display: none;
+}
