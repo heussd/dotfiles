@@ -10,6 +10,7 @@ brew "fzf"
 brew "htop"
 brew "mas"
 brew "p7zip"
+brew "taskell"
 brew "terminal-notifier"
 brew "thefuck"
 brew "unrar"
@@ -28,8 +29,8 @@ cask "easy-move-plus-resize"
 cask "firefox"
 cask "font-fontawesome"
 cask "font-jetbrains-mono"
-cask "font-source-code-pro-for-powerline"
 cask "font-source-code-pro"
+cask "font-source-code-pro-for-powerline"
 cask "gimp"
 cask "handbrake"
 cask "hex-fiend"
@@ -59,8 +60,8 @@ mas "LibreOffice Vanilla", id: 921923693
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
 mas "OTP Manager", id: 928941247
-mas "Pages", id: 409201541
 mas "PDFify", id: 1435055351
+mas "Pages", id: 409201541
 mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
 mas "Xcode", id: 497799835
