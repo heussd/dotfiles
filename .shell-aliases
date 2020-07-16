@@ -124,3 +124,11 @@ source-if-exist() { [[ -e $1 ]] && source "$1"; }
 
 # Load Host specific bash settings
 source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
+
+function inc-install() { 
+  npx google-artifactregistry-auth ~/.npmrc
+  npm install $@
+}
+
+# Sadly, taskells argument is relative to CWD
+alias timmstasks='pushd ~; taskell projects/timmstasks/readme.md; popd'
