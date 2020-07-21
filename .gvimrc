@@ -11,4 +11,4 @@ set macligatures
 
 
 au FileType vimwiki :set guifont=Source\ Code\ Pro:h13
-autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
+"autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
