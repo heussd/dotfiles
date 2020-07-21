@@ -65,7 +65,7 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 zstyle ':filter-select:highlight' matched fg=red
 zstyle ':filter-select' max-lines 1000
 zstyle ':filter-select' rotate-list yes
-zstyle ':filter-select' case-insensitive yes # enable case-insensitive search
+zstyle ':filter-select' case-insensitive yes # enable case-insensitive searchhttps://github.com/tideflow-io/tideflow
 
 
 
@@ -103,11 +103,31 @@ bindkey '^[OB'  down-line-or-beginning-search
 # https://dev.to/ecologic/using-keyboard-shortcuts-with-zsh-16b
 
 # Hotkey for git pull (ctrl-p)
-function gitpull() { echo "git pull"; git pull; zle reset-prompt; zle redisplay}
+function gitpull() {
+  gitcmd="git"
+  if [ "$PWD" = "$HOME" ]; then
+    gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
+  fi
+  gitcmd="$gitcmd pull --recurse-submodules"
+  echo $gitcmd
+  eval ${gitcmd}
+  zle reset-prompt;
+  zle redisplay
+}
 zle -N gitpull
 bindkey '^p' gitpull
 
 # Hotkey for git push (ctrl-o)
-function gitpush() { echo "git push"; git push; zle reset-prompt; zle redisplay}
+function gitpush() {
+  gitcmd="git"
+  if [ "$PWD" = "$HOME" ]; then
+    gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
+  fi
+  gitcmd="$gitcmd push"
+  echo $gitcmd
+  eval ${gitcmd}
+  zle reset-prompt;
+  zle redisplay
+}
 zle -N gitpush
 bindkey '^o' gitpush
