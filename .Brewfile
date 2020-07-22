@@ -57,7 +57,6 @@ mas "Flycut", id: 442160987
 mas "Glance", id: 1513574319
 mas "Keynote", id: 409183694
 mas "LibreOffice Vanilla", id: 921923693
-mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
 mas "OTP Manager", id: 928941247
 mas "PDFify", id: 1435055351
