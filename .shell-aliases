@@ -129,6 +129,3 @@ function inc-install() {
   npx google-artifactregistry-auth ~/.npmrc
   npm install $@
 }
-
-# Sadly, taskells argument is relative to CWD
-alias timmstasks='pushd ~; taskell projects/timmstasks/readme.md; popd'
