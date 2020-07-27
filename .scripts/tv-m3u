@@ -1,0 +1,2 @@
+#!/bin/sh
+sqlite3 -readonly ~/.newsboat/cache-tv.db "select coalesce(NULLIF(enclosure_url, ''), url) from rss_item where unread=1 order by pubDate desc" > tv.m3u
