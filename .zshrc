@@ -131,3 +131,6 @@ function gitpush() {
 }
 zle -N gitpush
 bindkey '^o' gitpush
+
+export NVM_DIR="/usr/local/opt/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
