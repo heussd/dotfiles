@@ -50,6 +50,7 @@
       "Cryptomining": true,
       "Fingerprinting": true
     },
+    "PrimaryPassword": true,
     "Homepage": {
       "Locked": true,
       "StartPage": "none"
