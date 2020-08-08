@@ -22,7 +22,7 @@ function openExposedPorts {
   done
 }
 function buildImages {
-	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
+	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose $ymlfiles build 
 }
 function openMultitail {
   multitailcmd="multitail -M 10000"
@@ -33,9 +33,14 @@ function openMultitail {
 }
 function runImages {
 	docker-compose $ymlfiles up -d --remove-orphans --timeout 2
-	#if [ $? -gt 0 ]; then exit 1; fi
 }
 
+# Add all parameters as compose-files
+for var in "$@"
+do
+  ymlfiles="$ymlfiles -f $var/docker-compose.yml"
+  echo $var
+done
 
 checkIfInstalled multitail "brew install multitail"
 checkIfInstalled shyaml "pip install shyaml"
@@ -47,6 +52,5 @@ openExposedPorts &
 openMultitail
 
 docker-compose $ymlfiles down --remove-orphans --timeout 2
-#if [ $? -gt 0 ]; then exit 1; fi
 
 exit 0
