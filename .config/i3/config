@@ -222,6 +222,8 @@ bindsym $mod+o exec --no-startup-id "xdg-open `find ~/* -printf '%T@ %p\n' | sor
 #exec xargs -a urlsautostart firefox -new-tab "$line"
 exec --no-startup-id if [ -f .deinit ]; then source .deinit; fi
 
+exec --no-startup-id bash ~/goodnight
+
 # Disable Laptop screen if external monitor is connected
 exec --no-startup-id xrandr | grep "VGA-1 connected" && xrandr --output LVDS-1 --off
 exec --no-startup-id glipper 
