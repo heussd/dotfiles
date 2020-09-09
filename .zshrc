@@ -141,6 +141,13 @@ zle -N openThis
 bindkey '^f' openThis
 
 
+function openCode() {
+	code .
+	zle reset-prompt
+	zle redisplay
+}
+zle -N openCode
+bindkey '^k' openCode
 
 export NVM_DIR="/usr/local/opt/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
