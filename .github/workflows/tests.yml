@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: bewuethr/shellcheck-action@v2
       - name: lala
-      - uses: docker://zshusers/zsh:latest
+        uses: docker://zshusers/zsh:latest
       - name: init zsh
         run: |
           cd $GITHUB_WORKSPACE/
