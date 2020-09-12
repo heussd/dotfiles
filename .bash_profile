@@ -67,7 +67,7 @@ fi
 
 export PATH=$PATH:~/.scripts
 
-source $HOME/.shell-aliases
+source ./.shell-aliases
 _hasFile ~/.fzf.bash && source ~/.fzf.bash
 source-if-exist ".bash_profile."`uname -s`
 
