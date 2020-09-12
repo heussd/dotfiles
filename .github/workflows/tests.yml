@@ -22,4 +22,5 @@ jobs:
       - name: init bash
         run: |
           cd $GITHUB_WORKSPACE/
+          ls
           bash ./.bash_profile
