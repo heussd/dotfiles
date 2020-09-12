@@ -17,7 +17,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: bewuethr/shellcheck-action@v2
       - name: lala
         uses: docker://zshusers/zsh:latest
       - name: init zsh
@@ -32,3 +31,4 @@ jobs:
           cd $GITHUB_WORKSPACE/
           ls -la
           bash ./.bash_profile
+      - uses: bewuethr/shellcheck-action@v2
