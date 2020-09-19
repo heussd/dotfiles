@@ -1,6 +1,7 @@
 cache-file     "~/.newsboat/cache-tv.db" 
 
 auto-reload		yes
+auto-reload		no
 browser			open
 download-path		~/Downloads/
 max-downloads		2
@@ -13,7 +14,7 @@ show-read-articles	no
 show-read-feeds		no
 
 datetime-format "%Y-%m-%d"
-articlelist-format  "%f %D %?T?%-20T ?%t"
+articlelist-format  "%?T?%-25T ?%t %> %f %D"
 
 #feed-sort-order 	lastupdated
 
