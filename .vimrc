@@ -100,6 +100,7 @@ Plug 'honza/writer.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tomasr/molokai'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
@@ -114,51 +115,6 @@ let g:vimwiki_list = [{
 	\ 'diary_index': "index"
 	\ }]
 let g:vimwiki_markdown_link_ext = 1
-
-
-function VimwikiMode()
-	" Change working copy (for rg, fzf) when entering vimwiki
-	lcd %:p:h
-	
-	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
-	autocmd BufWritePost * silent exec '!git add "%"; git commit -m "% (auto commit)" > /dev/null'
-	
-	" Inspired by https://gist.github.com/jondkinney/2040114
-	" FUZZY FIND
-	nnoremap <C-f> :Rg<CR>
-
-	set spell spelllang=de,en
-	set spell
-
-	set lines=50 columns=130
-
-	nnoremap <C-p> :execute '!git pull'<CR>
-	nnoremap <C-o> :execute '!git push'<CR>
-
-	map <Leader>wp  :VimwikiDiaryPrevDay<CR>
-	map <Leader>wn  :VimwikiDiaryNextDay<CR>
-	set shiftwidth=2
-	set expandtab
-
-	set completefunc=CompleteLinks
-	let g:vimwiki_table_mappings = 0
-	"imap <tab> <c-x><c-u>
-
-endfunction
-au FileType vimwiki call VimwikiMode()
-
-
-" Open current editor file externally
-nnoremap gO :!open '%:p'<CR>
-
-
-" https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
-:set wrap
-:set linebreak
-" :set nolist In vim versions prior to 7.4.353 list disabled linebreak
-
-
-let mapleader=","
 
 " https://groups.google.com/forum/#!topic/vimwiki/ChSY9b4WBbQ
 fun! CompleteLinks(findstart, base)
@@ -182,3 +138,48 @@ fun! CompleteLinks(findstart, base)
         return res
     endif
 endfun
+
+function VimwikiMode()
+	" Change working copy (for rg, fzf) when entering vimwiki
+	lcd %:p:h
+	
+	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
+	autocmd BufWritePost * silent exec '!git add "%"; git commit -m "% (auto commit)" > /dev/null'
+	
+	" Inspired by https://gist.github.com/jondkinney/2040114
+	" FUZZY FIND
+	nnoremap <C-f> :Rg<CR>
+
+	set spell spelllang=de,en
+	set spell
+
+	set lines=50 columns=130
+
+	nnoremap <C-p> :Git pull<CR>
+	nnoremap <C-o> :Git push<CR>
+
+	map <Leader>wp  :VimwikiDiaryPrevDay<CR>
+	map <Leader>wn  :VimwikiDiaryNextDay<CR>
+	set shiftwidth=2
+	set expandtab
+
+	set completefunc=CompleteLinks
+	let g:vimwiki_table_mappings = 0
+	imap <tab> <c-x><c-u>
+
+endfunction
+au FileType vimwiki call VimwikiMode()
+
+
+" Open current editor file externally
+nnoremap gO :!open '%:p'<CR>
+
+
+" https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
+:set wrap
+:set linebreak
+" :set nolist In vim versions prior to 7.4.353 list disabled linebreak
+
+
+let mapleader=","
+
