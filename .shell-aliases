@@ -129,3 +129,6 @@ function inc-install() {
   npx google-artifactregistry-auth ~/.npmrc
   npm install $@
 }
+function b64D() {
+  echo $1 | base64 --decode
+}
