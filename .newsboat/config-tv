@@ -1,7 +1,6 @@
 cache-file     "~/.newsboat/cache-tv.db" 
 
 auto-reload		yes
-auto-reload		no
 browser			open
 download-path		~/Downloads/
 max-downloads		2
