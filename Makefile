@@ -20,9 +20,8 @@ DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
 
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
-
-default:	$(DOTFILES_BARE)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 .PHONY: default
+default:	$(DOTFILES_BARE)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 
 
 $(DOTFILES_BARE)/: 
@@ -210,7 +209,6 @@ config-wallpaper-darwin:
 
 
 
-
 $(HOME)/.ssh/id_rsa.pub:
 	ssh-keygen -f $(HOME)/.ssh/id_rsa -P "" -v
 
@@ -237,13 +235,6 @@ endif
 .PHONY: install-linux-docker
 
 
-.PHONY: sync-maya
-sync-maya: ## Syncs stuff from maya ❤️
-	@rsync -auip --progress --safe-links --exclude=.DS_Store ~/data/ maya.local:~/data/
-
-	@if ssh maya.local "test ! -e ~/data/news-retrieval/news.db.lock"; then rsync -auip --progress --safe-links --exclude=.DS_Store maya.local:~/data/ ~/data/; fi
-
-
 config-reset-privacy-permissions: ## Resets privacy settings
 	@tccutil reset Accessibility
 	@tccutil reset AddressBook
@@ -252,7 +243,6 @@ config-reset-privacy-permissions: ## Resets privacy settings
 	@killall SystemUIServer
 	@killall Finder
 	@killall Dock
-
 
 
 .PHONY: fix-add-ssh-key-passphrase 
@@ -276,11 +266,3 @@ lock: lock-$(OS_NAME)	## Lock screen
 lock-darwin: 
 	@/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
 .PHONY: lock lock-darwin
-
-
-.PHONY: slideshow
-slideshow:
-	docker run --rm -p 1948:1948 -v $$(pwd)/:/slides webpronl/reveal-md:latest /slides/ --theme serif --separator "^\n\n\n" --vertical-separator "^\n\n"
-
-test:
-	echo $(DOTFILES_REPO)
