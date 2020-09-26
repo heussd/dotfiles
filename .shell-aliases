@@ -11,7 +11,6 @@ function _isLinux() { uname -s | grep "Linux" > /dev/null; }
 
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 
 export GEM_HOME=$HOME/.gem
