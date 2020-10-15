@@ -13,7 +13,7 @@ show-read-articles	no
 show-read-feeds		no
 
 datetime-format "%Y-%m-%d"
-articlelist-format  "%?T?%-25T ?%t %> %f %D"
+articlelist-format  "%f %?T?%-25T ?%t %> %D"
 
 #feed-sort-order 	lastupdated
 
