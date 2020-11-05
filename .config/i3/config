@@ -184,6 +184,7 @@ bar {
 # Window decoration properties
 for_window [class="Firefox"] border none
 for_window [class="kitty"] border none
+for_window [class="Chromium"] border none
 #for_window [class="vlc"] floating enable sticky enable border none
 # pop-ups
 # https://faq.i3wm.org/question/61/forcing-windows-as-always-floating.1.html
