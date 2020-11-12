@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+cd ~/projects
+sel=$(ls | fzf)
+
+cd $sel
+pwd
+
+kitty @ launch --type=tab --tab-title "$sel" --cwd "~/projects/$sel"
+
+[ -d .git ] && stree .
+
+[ -f docker-compose.yml ] && code .
+[ -f Dockerfile ] && code .
+[ -f build.gradle* ] && "/Users/th/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.7660.26/IntelliJ IDEA.app/Contents/MacOS/idea" . &> /dev/null &
