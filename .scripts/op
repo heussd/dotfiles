@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+cd ~/projects
+sel=$(ls -t | fzf)
+
+cd $sel
+pwd
+
+kitty @ launch --type=tab --tab-title "$sel" --cwd "~/projects/$sel"
+
+[ -d .git ] && stree .
+[ -f docker-compose.yml ] && code .
+[ -f Dockerfile ] && code .
+[ -f *.html ] && code .
+[ -f build.gradle* ] && "/Users/th/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.7660.26/IntelliJ IDEA.app/Contents/MacOS/idea" . &> /dev/null &
+[ -f requirements.txt ] && "/Users/th/Library/Application Support/JetBrains/Toolbox/apps/PyCharm-P/ch-0/192.5728.105/PyCharm.app/Contents/MacOS/pycharm" . &> /dev/null &
