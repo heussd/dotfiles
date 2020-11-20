@@ -1,6 +1,6 @@
 # Inspired by https://mattorb.com/ci-your-dotfiles-with-github-actions/ 
 #
-name: Smoke Test
+name: Smoke Tests
 
 on: [push]
 
