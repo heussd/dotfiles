@@ -15,10 +15,6 @@ jobs:
         # Overwrite Brewfile, we do not need to stress download servers
         echo "brew \"fzf\"" > .Brewfile
         make
-    - name: init bash
-      run: |
-        ls -la
-        bash ./.bash_profile
   ubuntu-linux-20-04:
     runs-on: ubuntu-20.04
     steps:
@@ -26,7 +22,3 @@ jobs:
     - name: Execute make
       run:   |
         make
-    - name: init bash
-      run: |
-        ls -la
-        bash ./.bash_profile
