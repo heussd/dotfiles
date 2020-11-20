@@ -13,3 +13,4 @@ jobs:
         uses: luizm/action-sh-checker@v0.1.8
         with:
           sh_checker_comment: true
+          sh_checker_exclude: "* ^*/*"
