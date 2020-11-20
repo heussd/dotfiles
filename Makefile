@@ -45,6 +45,7 @@ endif
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ submodule update --init --recursive
 # Manual pull to create FETCH_HEAD
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull
+	@touch "$(DOTFILES_BARE)/FETCH_HEAD"
 
 
 update-dotfiles:
