@@ -11,4 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Execute full install
-      run:   make
+      run:   |
+        # Overwrite Brewfile, we do not need to stress download servers
+        echo "brew \"fzf\"" > .Brewfile
+        make
