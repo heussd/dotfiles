@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Execute full install
-      run:  curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+      run:   make
