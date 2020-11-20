@@ -15,10 +15,6 @@ jobs:
         # Overwrite Brewfile, we do not need to stress download servers
         echo "brew \"fzf\"" > .Brewfile
         make
-    - name: init zsh
-      run: |
-        ls -la
-        zsh ./.zshrc
     - name: init bash
       run: |
         ls -la
@@ -30,10 +26,6 @@ jobs:
     - name: Execute make
       run:   |
         make
-    - name: init zsh
-      run: |
-        ls -la
-        zsh ./.zshrc
     - name: init bash
       run: |
         ls -la
