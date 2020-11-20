@@ -1,17 +1,22 @@
 # https://mattorb.com/ci-your-dotfiles-with-github-actions/ 
-name: Smoke Test CI
+name: Smoke Test
 
 on: [push]
 
 jobs:
-  build:
-
+  smoke-test-macos:
     runs-on: macOS-latest
-    
     steps:
     - uses: actions/checkout@v1
-    - name: Execute full install
+    - name: Execute make
       run:   |
         # Overwrite Brewfile, we do not need to stress download servers
         echo "brew \"fzf\"" > .Brewfile
+        make
+  smoke-test-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Execute make
+      run:   |
         make
