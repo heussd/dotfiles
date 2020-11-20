@@ -46,15 +46,9 @@ endif
 # Manual pull to create FETCH_HEAD
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull
 	@touch "$(DOTFILES_BARE)/FETCH_HEAD"
-	echo $(DOTFILES_BARE)
-	echo $(HOME)
-	ls
 
 
 update-dotfiles:
-	echo $(DOTFILES_BARE)
-	echo $(HOME)
-	ls
 	@find "$(DOTFILES_BARE)/FETCH_HEAD" -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet' \;
 .PHONY: update-dotfiles
 
