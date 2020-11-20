@@ -1,0 +1,14 @@
+# https://mattorb.com/ci-your-dotfiles-with-github-actions/ 
+name: Smoke Test CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Execute full install
+      run:  curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
