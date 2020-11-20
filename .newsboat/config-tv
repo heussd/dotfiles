@@ -30,7 +30,7 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article cyan default
 
-highlight-article "tags =~ \"P\"" red default bold
+highlight-article "tags # \"P\"" red default bold
 
 browser "mpv %u &> /dev/null &"
 
