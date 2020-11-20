@@ -4,7 +4,7 @@ name: Smoke Test
 on: [push]
 
 jobs:
-  macOS:
+  "macOS":
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
@@ -13,7 +13,7 @@ jobs:
         # Overwrite Brewfile, we do not need to stress download servers
         echo "brew \"fzf\"" > .Brewfile
         make
-  Ubuntu Linux 20.04:
+  "Ubuntu Linux 20.04":
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v1
