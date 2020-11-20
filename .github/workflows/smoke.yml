@@ -1,11 +1,13 @@
-# https://mattorb.com/ci-your-dotfiles-with-github-actions/ 
+# Inspired by https://mattorb.com/ci-your-dotfiles-with-github-actions/ 
+#
 name: Smoke Test
 
 on: [push]
 
+# https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 jobs:
-  "macOS":
-    runs-on: macOS-latest
+  macos-11.0:
+    runs-on: macOS-11.0
     steps:
     - uses: actions/checkout@v1
     - name: Execute make
@@ -13,7 +15,7 @@ jobs:
         # Overwrite Brewfile, we do not need to stress download servers
         echo "brew \"fzf\"" > .Brewfile
         make
-  "Ubuntu Linux 20.04":
+  ubuntu-linux-20.04:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v1
