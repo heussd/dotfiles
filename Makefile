@@ -20,6 +20,7 @@ DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
 
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
+
 .PHONY: default
 default:	$(DOTFILES_BARE)/ update-dotfiles .auto-install-$(OS_NAME) firefox-policies
 
@@ -47,18 +48,23 @@ endif
 
 
 update-dotfiles:
-	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet' \;
+	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet' \;
 .PHONY: update-dotfiles
 
 
-
-.auto-install-darwin: .Brewfile
+.PHONY: check-time-last-installed
+check-time-last-installed:
+	@if [ -e .auto-install-$(OS_NAME) ]; then find .auto-install-$(OS_NAME) -mmin +$$((7*24*60)) -exec bash -c 'rm -f "{}"; printf "\e[1;34m[Home Makefile]\e[0m Last installation too old, triggering auto install...\n"; $(MAKE) .auto-install-$(OS_NAME)' \; ; fi
+.auto-install-darwin: .Brewfile | check-time-last-installed
 ifeq (, $(shell which brew))
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
+	@export HOMEBREW_NO_AUTO_UPDATE=1
+	@printf "\e[1;34m[Home Makefile]\e[0m Installing brew bundle...\n"
 	@brew update
 	@brew bundle install -v --file=.Brewfile
+	@brew cleanup -s --prune 0
 	@touch .auto-install-darwin
 .auto-install-linux: .apt-packages-base
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
@@ -93,8 +99,6 @@ update-darwin:
 	@-sudo softwareupdate -i -a
 	@brew upgrade
 	@brew cask upgrade --greedy
-	@brew cleanup -s --prune 0
-	
 .PHONY: update update-linux update-darwin
 
 
@@ -174,9 +178,11 @@ firefox-policies-darwin: /Applications/Firefox.app/Contents/Resources/distributi
 firefox-policies-linux:  /etc/firefox/policies/policies.json
 
 /Applications/Firefox.app/Contents/Resources/distribution/policies.json: $(HOME)/.mozilla/firefox/policies.json
+	@printf "\e[1;34m[Home Makefile]\e[0m Installing Firefox policies to $@...\n"
 	@mkdir -p /Applications/Firefox.app/Contents/Resources/distribution/
 	@cp $$HOME/.mozilla/firefox/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json
 /etc/firefox/policies/policies.json: $(HOME)/.mozilla/firefox/policies.json
+	@printf "\e[1;34m[Home Makefile]\e[0m Installing Firefox policies to $@...\n"
 	@sudo mkdir -p /etc/firefox/policies/
 	@sudo cp $$HOME/.mozilla/firefox/policies.json /etc/firefox/policies/policies.json
 
@@ -206,6 +212,7 @@ config-wallpaper-darwin:
 
 .esoc0932a.jpg:
 	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O .esoc0932a.jpg
+
 
 
 
@@ -245,6 +252,7 @@ config-reset-privacy-permissions: ## Resets privacy settings
 	@killall Dock
 
 
+
 .PHONY: fix-add-ssh-key-passphrase 
 fix-add-ssh-key-passphrase: $(HOME)/.ssh/id_rsa.pub ## Adds a passphrase to local ssh keys
 	@ssh-keygen -p -f ~/.ssh/id_rsa
@@ -266,3 +274,4 @@ lock: lock-$(OS_NAME)	## Lock screen
 lock-darwin: 
 	@/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
 .PHONY: lock lock-darwin
+
