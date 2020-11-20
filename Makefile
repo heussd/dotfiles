@@ -71,7 +71,6 @@ endif
 	@printf "\e[1;34m[Home Makefile]\e[0m Installing brew bundle...\n"
 	@brew update
 	@brew bundle install -v --file=.Brewfile
-	@brew cleanup -s --prune 0
 	@touch .auto-install-darwin
 .auto-install-linux: .apt-packages-base
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
