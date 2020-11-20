@@ -1,5 +1,7 @@
 # Timm's dotfiles
 
+![Smoke Tests](https://github.com/heussd/dotfiles/workflows/Smoke%20Tests/badge.svg)
+
 In the great tradition of sharing dotfiles, this repository contains various configuration files for Unix and Linux software.
 
 
