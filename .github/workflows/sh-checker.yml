@@ -1,0 +1,15 @@
+# Inspired by https://mattorb.com/ci-your-dotfiles-with-github-actions/ 
+#
+name: ShellCheck & shfml 
+
+on: [push]
+
+jobs:
+  sh-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run the sh-checker
+        uses: luizm/action-sh-checker
+        with:
+          sh_checker_comment: true
