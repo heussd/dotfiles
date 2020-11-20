@@ -45,10 +45,11 @@ endif
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ submodule update --init --recursive
 # Manual pull to create FETCH_HEAD
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull
+	@touch "$(DOTFILES_BARE)/FETCH_HEAD"
 
 
 update-dotfiles:
-	@find .dotfiles-bare-repo/FETCH_HEAD -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet' \;
+	@find "$(DOTFILES_BARE)/FETCH_HEAD" -mmin +$$((7*24*60)) -exec bash -c 'printf "\e[1;34m[Home Makefile]\e[0m Pulling dotfiles...\n"; git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet' \;
 .PHONY: update-dotfiles
 
 
@@ -64,7 +65,6 @@ endif
 	@printf "\e[1;34m[Home Makefile]\e[0m Installing brew bundle...\n"
 	@brew update
 	@brew bundle install -v --file=.Brewfile
-	@brew cleanup -s --prune 0
 	@touch .auto-install-darwin
 .auto-install-linux: .apt-packages-base
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
