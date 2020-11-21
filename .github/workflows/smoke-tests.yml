@@ -23,7 +23,7 @@ jobs:
     - name: Execute make
       run:   |
         make
-        bash --init-file .bashrc
+        bash .bash_profile
   new-tag:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
