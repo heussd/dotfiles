@@ -32,7 +32,7 @@ jobs:
       id: build
       run: |
         CURRENT_TAG=$(git ls-remote --tags origin |awk -F \/ '{print $NF}'|sort -Vr|head -1)
-        NEXT_TAG=$(docker run --rm alpine/semver:latest semver -c -i patch ${CURRENT_TAG})
+        NEXT_TAG=$(docker run --rm alpine/semver:latest semver -c -i minor ${CURRENT_TAG})
         echo "::set-output name=tag::$NEXT_TAG"
     - name: Create Release
       uses: actions/create-release@v1
