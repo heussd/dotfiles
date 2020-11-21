@@ -24,6 +24,7 @@ jobs:
         make
   new-tag:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     needs: [ubuntu-linux-20-04, macos-11-0]
     steps:
     - name: checkout code
