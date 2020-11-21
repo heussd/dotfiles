@@ -108,7 +108,7 @@ function gitpull() {
   if [ "$PWD" = "$HOME" ]; then
     gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
   fi
-  gitcmd="$gitcmd pull --recurse-submodules"
+  gitcmd="$gitcmd pull --tags --recurse-submodules"
   echo $gitcmd
   eval ${gitcmd}
   zle reset-prompt;
