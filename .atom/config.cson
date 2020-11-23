@@ -9,7 +9,6 @@
     titleBar: "custom"
   editor:
     fontFamily: "Source Code Pro, Menlo, Consolas, DejaVu Sans Mono, monospace"
-    fontSize: 18
   "exception-reporting":
     userId: "d1f3a2c4-3b94-4016-aca4-db87fb6a4a87"
   "file-icons":
