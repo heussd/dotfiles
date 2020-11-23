@@ -11,7 +11,7 @@ if [ "$PWD" = "$HOME" ]; then
 		lsb_release --short --description
 	) || echo $(sw_vers -productName) $(sw_vers -productVersion) $(sw_vers -buildVersion)
 	
-	echo "dotfiles $(dotfiles describe --tags) $(dotfiles log --oneline | head -n 1)"
+	echo "dotfiles @ $(dotfiles log --oneline | head -n 1)"
 	echo -e "\033[31m$(dotfiles status --porcelain)\033[0m"
 
 	_hasCmd zpool && (
