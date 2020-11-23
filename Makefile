@@ -214,6 +214,9 @@ config-wallpaper-darwin:
 	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O .esoc0932a.jpg
 
 
+config-atom: 
+	@for p in $(shell cat .atom/apm-packages.txt); do apm install $$p; done
+
 
 
 $(HOME)/.ssh/id_rsa.pub:
