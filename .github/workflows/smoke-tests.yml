@@ -22,25 +22,26 @@ jobs:
     - name: Execute make
       run:   |
         make
-  new-tag:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    needs: [ubuntu-linux-20-04, macos-11-0]
-    steps:
-    - name: checkout code
-      uses: actions/checkout@v2
-    - name: Generate new tag
-      id: build
-      run: |
-        CURRENT_TAG=$(git ls-remote --tags origin |awk -F \/ '{print $NF}'|sort -Vr|head -1)
-        NEXT_TAG=$(docker run --rm alpine/semver:latest semver -c -i patch ${CURRENT_TAG})
-        echo "::set-output name=tag::$NEXT_TAG"
-    - name: Create Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: "${{steps.build.outputs.tag}}"
-        release_name: "Release ${{steps.build.outputs.tag}}"
-        draft: false
-        prerelease: false
+
+        #  new-tag:
+        #    runs-on: ubuntu-latest
+        #    if: github.ref == 'refs/heads/master'
+        #    needs: [ubuntu-linux-20-04, macos-11-0]
+        #    steps:
+        #    - name: checkout code
+        #      uses: actions/checkout@v2
+        #    - name: Generate new tag
+        #      id: build
+        #      run: |
+        #        CURRENT_TAG=$(git ls-remote --tags origin |awk -F \/ '{print $NF}'|sort -Vr|head -1)
+        #        NEXT_TAG=$(docker run --rm alpine/semver:latest semver -c -i patch ${CURRENT_TAG})
+        #        echo "::set-output name=tag::$NEXT_TAG"
+        #    - name: Create Release
+        #      uses: actions/create-release@v1
+        #      env:
+        #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #      with:
+        #        tag_name: "${{steps.build.outputs.tag}}"
+        #        release_name: "Release ${{steps.build.outputs.tag}}"
+        #        draft: false
+        #        prerelease: false
