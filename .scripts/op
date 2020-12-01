@@ -27,7 +27,7 @@ kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
 
 [ -f "*.html" ] && code "$(pwd)"
 
-[ -f "build.gradle*" ] && open -na "IntelliJ IDEA.app" --args "$(pwd)"
+[ -f "build.gradle*" ] || [ -f "build.gradle" ] && open -na "IntelliJ IDEA.app" --args "$(pwd)"
 
 [ -f "requirements.txt" ] && open -na "PyCharm.app" --args "$(pwd)"
 
