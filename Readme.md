@@ -1,6 +1,7 @@
 # Timm's dotfiles
 
-![Smoke Tests](https://github.com/heussd/dotfiles/workflows/Smoke%20Tests/badge.svg)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/heussd/dotfiles/Smoke%20Tests?label=Smoke%20Tests)](https://github.com/heussd/dotfiles/actions?query=workflow%3A%22Smoke+Tests%22)
+
 
 In the great tradition of sharing dotfiles, this repository contains various configuration files for Unix and Linux software.
 
