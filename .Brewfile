@@ -1,7 +1,3 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
 
 brew "azure-cli"
 brew "dive"
@@ -29,11 +25,11 @@ cask "easy-move-plus-resize"
 cask "firefox"
 cask "font-fontawesome"
 cask "font-jetbrains-mono"
-cask "font-source-code-pro"
 cask "font-source-code-pro-for-powerline"
+cask "font-source-code-pro"
 cask "gimp"
-cask "handbrake"
 cask "hammerspoon"
+cask "handbrake"
 cask "hex-fiend"
 cask "imageoptim"
 cask "iterm2"
@@ -44,6 +40,11 @@ cask "macdown"
 cask "macvim"
 cask "meld"
 cask "mpv"
+cask "qlcolorcode"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "webpquicklook"
 cask "retinizer"
 cask "sourcetree"
 cask "tiles"
@@ -56,7 +57,6 @@ cask "zazu"
 mas "CotEditor", id: 1024640650
 mas "Disk Graph", id: 697942581
 mas "Flycut", id: 442160987
-mas "Glance", id: 1513574319
 mas "Keynote", id: 409183694
 mas "LibreOffice Vanilla", id: 921923693
 mas "Next Meeting", id: 1017470484
@@ -67,3 +67,7 @@ mas "PDFify", id: 1435055351
 mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
 mas "Xcode", id: 497799835
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask"
+tap "homebrew/core"
