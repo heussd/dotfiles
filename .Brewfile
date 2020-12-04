@@ -1,3 +1,7 @@
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask"
+tap "homebrew/core"
 
 brew "azure-cli"
 brew "dive"
@@ -32,7 +36,6 @@ cask "hammerspoon"
 cask "handbrake"
 cask "hex-fiend"
 cask "imageoptim"
-cask "iterm2"
 cask "jetbrains-toolbox"
 cask "keka"
 cask "knockknock"
@@ -67,7 +70,3 @@ mas "PDFify", id: 1435055351
 mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
 mas "Xcode", id: 497799835
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask"
-tap "homebrew/core"
