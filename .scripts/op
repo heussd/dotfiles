@@ -6,7 +6,6 @@ if [ "$PWD" = "$HOME" ]; then
 fi
 sel=$(ls -t | fzf)
 
-echo $sel
 if [[ "$sel" = *"-made" ]]; then
 	op "$sel"
 fi
@@ -16,19 +15,16 @@ pwd
 
 kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
 
+function openApp() {
+	echo "Opening App $1..."
+	open -na "$1" --args "$(pwd)"
+}
 
 [ -d .git ] && stree .
 
-[ -f docker-compose.yml ] && code "$(pwd)"
+[ -f package.json ] && openApp "WebStorm"
 
-[ -f Dockerfile ] && code "$(pwd)"
+[ -f "build.gradle*" ] || [ -f "build.gradle" ] && openApp "IntelliJ IDEA"
 
-[ -f package.json ] && open -na "WebStorm.app" --args "$(pwd)"
-
-[ -f "*.html" ] && code "$(pwd)"
-
-[ -f "build.gradle*" ] || [ -f "build.gradle" ] && open -na "IntelliJ IDEA.app" --args "$(pwd)"
-
-[ -f "requirements.txt" ] && open -na "PyCharm.app" --args "$(pwd)"
-
+[ -f "requirements.txt" ] && openApp "PyCharm"
 
