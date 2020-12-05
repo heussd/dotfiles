@@ -72,6 +72,8 @@ zstyle ':filter-select' case-insensitive yes # enable case-insensitive searchhtt
 export PATH=$PATH:~/.scripts
 
 source ~/.shell-aliases
+source ~/.docker-aliases
+
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
 
 source ~/.shell-motd
