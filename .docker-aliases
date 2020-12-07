@@ -1,0 +1,16 @@
+alias protoc='docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
+alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest /slides/ --separator "^\n\n\n" --vertical-separator "^\n\n"'
+# https://github.com/pandoc/dockerfiles/
+alias pandoc='docker run --rm --volume $(pwd):/data --user `id -u`:`id -g` pandoc/latex:latest'
+alias mvn='docker run --rm --volume "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven -v "$HOME/.m2":/root/.m2 maven:3-jdk-11 mvn'
+alias graphviz="graphviz/graphviz:ubuntu-20.04"
+
+
+alias az='docker run --rm -it -v ${HOME}/.azure/:/root/.azure -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli az'
+
+# Untested
+alias kubectl='docker run --rm -it -v ${HOME}/.kube/:/.kube bitnami/kubectl:latesti kubectl'
+alias gcloud='docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud'
+
+# Taken from https://github.com/AustinMaddox/dotfiles/blob/e5156767a569f8def04a213ddb892755eed86e0e/.bash_profile
+alias aws='docker run --rm --interactive --tty --name="aws-cli-v2-container" --volume ~/.aws:/root/.aws --volume $(pwd):/aws amazon/aws-cli'
