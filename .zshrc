@@ -1,10 +1,6 @@
 [[ ! -d "$HOME/.antigen" ]] && git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen"
 source "$HOME/.antigen/antigen.zsh"
 
-[[ ! -d "$HOME/.zsh-git-prompt" ]] && git clone https://github.com/olivierverdier/zsh-git-prompt "$HOME/.zsh-git-prompt"
-source "$HOME/.zsh-git-prompt/zshrc.sh"
-PROMPT='%B%m%~%b$(git_super_status) '
-
 # Set the default plugin repo to be zsh-utils
 antigen use belak/zsh-utils
 
@@ -14,7 +10,6 @@ antigen bundle zsh-users/zsh-completions
 # Specify plugins we want
 antigen bundle editor
 antigen bundle history
-antigen bundle prompt
 antigen bundle utility
 antigen bundle completion
 antigen bundle git
@@ -30,6 +25,9 @@ antigen bundle zsh-users/zsh-autosuggestions
 #antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+export SPACESHIP_KUBECTL_SHOW=false
+export SPACESHIP_KUBECTL_VERSION_SHOW=false
+export SPACESHIP_KUBECONTEXT_SHOW=false
 
 # Load everything
 antigen apply
