@@ -9,7 +9,7 @@ alias graphviz="graphviz/graphviz:ubuntu-20.04"
 alias az='docker run --rm -it -v ${HOME}/.azure/:/root/.azure -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli az'
 
 # Untested
-alias kubectl='docker run --rm -it -v ${HOME}/.kube/:/.kube bitnami/kubectl:latesti kubectl'
+alias kubectl='docker run --rm -it -v ${HOME}/.kube/:/.kube bitnami/kubectl:latest'
 alias gcloud='docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud'
 
 # Taken from https://github.com/AustinMaddox/dotfiles/blob/e5156767a569f8def04a213ddb892755eed86e0e/.bash_profile
