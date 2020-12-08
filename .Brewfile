@@ -29,6 +29,7 @@ brew "mackup", link: false
 brew "macvim", link: false
 brew "mas"
 brew "multitail"
+brew "nektos/tap/act"
 brew "neofetch"
 brew "newsboat"
 brew "node"
@@ -50,7 +51,6 @@ brew "yarn"
 brew "youtube-dl"
 brew "z"
 brew "zsh-completions"
-brew "nektos/tap/act"
 cask "appcleaner"
 cask "balenaetcher"
 cask "betterzip"
@@ -65,6 +65,7 @@ cask "dozer"
 cask "dropbox"
 cask "dupeguru"
 cask "easy-move-plus-resize"
+cask "eloston-chromium"
 cask "firefox"
 cask "flycut"
 cask "font-fira-code"
@@ -127,18 +128,18 @@ mas "Developer", id: 640199958
 mas "Disk Graph", id: 697942581
 mas "Flycut", id: 442160987
 mas "GIPHY CAPTURE", id: 668208984
-mas "iMovie", id: 408981434
 mas "Ka-Block!", id: 1335413823
 mas "Keynote", id: 409183694
 mas "LibreOffice Vanilla", id: 921923693
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
-mas "OneDrive", id: 823766827
 mas "OTP Manager", id: 928941247
+mas "OneDrive", id: 823766827
 mas "OwlOCR", id: 1499181666
-mas "Pages", id: 409201541
 mas "PDFify", id: 1435055351
+mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
 mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
 mas "Xcode", id: 497799835
+mas "iMovie", id: 408981434
