@@ -61,11 +61,8 @@ ifeq (, $(shell which brew))
 	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 endif
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
-	@export HOMEBREW_NO_AUTO_UPDATE=1
-	@printf "\e[1;34m[Home Makefile]\e[0m Installing brew bundle...\n"
-	@brew update
-	@brew bundle install -v --file=.Brewfile
-	@brew bundle cleanup --force -v --file=.Brewfile
+	@printf "\e[1;34m[Home Makefile]\e[0m Brew bundle install...\n"
+	@brew bundle install -v --cleanup --force --file=.Brewfile
 	@touch .auto-install-darwin
 .auto-install-linux: .apt-packages-base
 # https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
