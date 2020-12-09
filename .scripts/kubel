@@ -1,5 +1,5 @@
 #!/bin/bash
-selection=$(docker run --rm -it -v ${HOME}/.kube/:/.kube bitnami/kubectl:latest get pod -A | fzf)
+selection=$(kubectl get pod -A | fzf)
 
 namespace=$(echo $selection | awk '{print $1}')
 pod=$(echo $selection | awk '{print $2}')
