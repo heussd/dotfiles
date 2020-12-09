@@ -129,6 +129,7 @@ config-linux:
 config-darwin: config-darwin-coteditor
 	# Native window drag and drop with Ctrl+Cmd
 	defaults write -g NSWindowShouldDragOnGesture -bool true
+	defaults write com.apple.screencapture location $(HOME)/Downloads; killall SystemUIServer 
 
 	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
 	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
