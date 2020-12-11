@@ -1,12 +1,6 @@
-tap "beeftornado/rmtree"
-tap "buo/cask-upgrade"
-tap "crisidev/chunkwm"
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "nektos/tap"
 
 brew "bash-completion"
 brew "brew-cask-completion"
@@ -28,7 +22,6 @@ brew "lazydocker"
 brew "m-cli"
 brew "mas"
 brew "multitail"
-brew "nektos/tap/act"
 brew "neofetch"
 brew "newsboat"
 brew "node"
@@ -65,11 +58,6 @@ cask "easy-move-plus-resize"
 cask "eloston-chromium"
 cask "finicky"
 cask "firefox"
-cask "font-fira-code"
-cask "font-fontawesome"
-cask "font-jetbrains-mono"
-cask "font-source-code-pro"
-cask "font-source-code-pro-for-powerline"
 cask "gimp"
 cask "gitup"
 cask "google-chrome"
@@ -148,9 +136,19 @@ mas "Xcode", id: 497799835
 mas "iMovie", id: 408981434
 
 
+tap "homebrew/cask-fonts"
 brew "svn"
+cask "font-fira-code"
+cask "font-fontawesome"
+cask "font-jetbrains-mono"
 cask "font-open-sans"
+cask "font-source-code-pro"
+cask "font-source-code-pro-for-powerline"
 
 
 tap "tnk-studio/tools"
 brew "lazykube"
+
+
+tap "nektos/tap"
+brew "act"
