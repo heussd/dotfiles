@@ -123,3 +123,10 @@ function inc-install() {
 function b64D() {
   echo $1 | base64 --decode
 }
+
+
+# Change directory to current Finder window
+# https://stackoverflow.com/questions/420456/open-terminal-here-in-mac-os-finder#answer-7098442
+cf() {
+  cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
+}
