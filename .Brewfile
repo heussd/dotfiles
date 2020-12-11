@@ -12,7 +12,6 @@ cask "firefox"
 cask "macvim"
 
 
-brew "bash-completion"
 brew "brew-cask-completion"
 brew "coreutils"
 brew "ctop"
@@ -26,13 +25,11 @@ brew "htop"
 brew "imagemagick"
 brew "kubectx"
 brew "lazydocker"
-brew "m-cli"
 brew "mas"
 brew "multitail"
 brew "neofetch"
 brew "newsboat"
 brew "node"
-brew "offlineimap"
 brew "p7zip"
 brew "ripgrep"
 brew "sqlite"
@@ -46,7 +43,6 @@ brew "unrar"
 brew "wget"
 brew "yarn"
 brew "youtube-dl"
-brew "z"
 brew "zsh-completions"
 cask "appcleaner"
 cask "balenaetcher"
@@ -96,7 +92,6 @@ cask "qlstephen"
 cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
-cask "r"
 cask "retinizer"
 cask "slack"
 cask "steam"
@@ -117,7 +112,6 @@ cask "xquartz"
 cask "yed"
 cask "zazu"
 mas "CotEditor", id: 1024640650
-mas "Developer", id: 640199958
 mas "Disk Graph", id: 697942581
 mas "Flycut", id: 442160987
 mas "GIPHY CAPTURE", id: 668208984
@@ -135,7 +129,6 @@ mas "Pocket", id: 568494494
 mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
 mas "Xcode", id: 497799835
-mas "iMovie", id: 408981434
 
 
 tap "homebrew/cask-fonts"
