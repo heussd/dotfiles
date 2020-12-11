@@ -7,6 +7,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "nektos/tap"
+
 brew "bash-completion"
 brew "brew-cask-completion"
 brew "coreutils"
@@ -46,7 +47,6 @@ brew "wget"
 brew "yarn"
 brew "youtube-dl"
 brew "z"
-brew "tnk-studio/tools/lazykube"
 brew "zsh-completions"
 cask "appcleaner"
 cask "balenaetcher"
@@ -72,10 +72,9 @@ cask "font-source-code-pro"
 cask "font-source-code-pro-for-powerline"
 cask "gimp"
 cask "gitup"
-cask "gog-galaxy"
 cask "google-chrome"
-cask "google-drive-file-stream"
 cask "google-cloud-sdk"
+cask "google-drive-file-stream"
 cask "hammerspoon"
 cask "handbrake"
 cask "hex-fiend"
@@ -147,3 +146,11 @@ mas "SleepTime", id: 465772885
 mas "Theine", id: 955848755
 mas "Xcode", id: 497799835
 mas "iMovie", id: 408981434
+
+
+brew "svn"
+cask "font-open-sans"
+
+
+tap "tnk-studio/tools"
+brew "lazykube"
