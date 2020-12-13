@@ -13,7 +13,7 @@ hs.hotkey.bind({"ctrl", "alt"}, "return", function()
     end
 end)
 
-hs.hotkey.bind({"ctrl", "alt"}, "f", function()
+hs.hotkey.bind({"command", "shift"}, "f", function()
     local app = hs.application.get("Firefox")
     if app then
         if not app:mainWindow() then
