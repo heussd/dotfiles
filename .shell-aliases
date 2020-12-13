@@ -80,19 +80,6 @@ _hasCmd thefuck && eval "$(thefuck --alias)"
 _hasCmd newsboat && alias tv="newsboat --config-file=$HOME/.newsboat/config-tv --url-file=$HOME/.newsboat/urls-tv"
 
 
-# https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html#find-file-and-edit
-fzf_and_copy() {
-    local file=$(
-      fzf --query="$1" --no-multi --select-1 --exit-0 \
-          --preview 'bat --color=always --line-range :500 {}'
-      )
-    if [[ -n $file ]]; then
-        cat "$file" | pbcopy 
-    fi
-}
-alias snippets='pushd ~/projects/snippets; fzf_and_copy; popd'
-
-
 # Shortcuts
 function take() { mkdir -p "$1" && cd "$1"; }
 function t() { mkdir -p "$HOME/temp" && cd "$HOME/temp"; }

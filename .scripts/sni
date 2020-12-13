@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ "$PWD" != "$HOME/projects/snippets" ]; then
+	pushd $HOME/projects/snippets
+fi
+
+
+# https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html#find-file-and-edit
+file=$(
+  fzf --print-query \
+      --preview 'bat --color=always --line-range :500 {}'
+  )
+
+code=$?
+if [ $code -eq 130 ]; then
+	popd
+	exit 1;
+fi
+
+if [ $code -eq 0 ]; then 
+	file=$(echo "$file" | tail -n1)
+	cat "$file" | pbcopy
+
+	popd
+	exit 0
+fi
+
+searchterm=$(echo $file | sed -e 's/\ /+/g')
+open "https://www.google.com/search?q=$searchterm"
+
+popd
