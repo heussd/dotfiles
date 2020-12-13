@@ -6,7 +6,7 @@ download-path		~/Downloads/
 max-downloads		2
 prepopulate-query-feeds	yes
 
-reload-threads		3
+reload-threads		6
 reload-time		120
 
 show-read-articles	no
@@ -18,9 +18,6 @@ articlelist-format  "%f %?T?%-25T ?%t %> %D"
 #feed-sort-order 	lastupdated
 
 user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
-
-unbind-key C
-unbind-key A
 
 # Taken from https://github.com/tallguyjenks/dotfilez/blob/master/.config/newsboat/config
 color listnormal cyan default
@@ -36,3 +33,9 @@ browser "mpv %u &> /dev/null &"
 
 # use "u" to open podcasts
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
+
+
+unbind-key C
+unbind-key A
+
+bind-key SPACE toggle-article-read
