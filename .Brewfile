@@ -135,6 +135,11 @@ tap "nektos/tap"
 brew "act"
 
 
+## MS Azure
+cask "azure-data-studio"
+cask "microsoft-azure-storage-explorer"
+
+
 
 ## Office
 mas "Keynote", id: 409183694
