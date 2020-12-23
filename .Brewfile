@@ -150,6 +150,10 @@ mas "Pages", id: 409201541
 cask "mactex"
 
 
+## Voice / Com
+cask "discord"
+
+
 
 ## Image
 cask "toinane-colorpicker"
