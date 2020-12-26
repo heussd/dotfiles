@@ -13,6 +13,3 @@
 [submodule "_externals/zim-plugin-append"]
 	path = _externals/zim-plugin-append
 	url = https://github.com/Osndok/zim-plugin-append
-[submodule ".dotfiles-externals/howdoi"]
-	path = .dotfiles-externals/howdoi
-	url = https://github.com/san-kumar/howdoi
