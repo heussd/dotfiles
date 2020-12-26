@@ -276,6 +276,11 @@ fix-xcode-installation:
 	@sudo xcode-select --install
 
 
+.PHONY: config-disable-timemachine-throttling-temporarily
+config-disable-timemachine-throttling-temporarily:
+	@sudo sysctl debug.lowpri_throttle_enabled=0
+
+
 lock: lock-$(OS_NAME)	## Lock screen
 lock-darwin: 
 	@/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
