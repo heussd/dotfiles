@@ -1,0 +1,1 @@
+pbpaste > "$HOME/projects/snippets/$1"
