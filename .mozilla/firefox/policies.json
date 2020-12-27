@@ -43,11 +43,6 @@
     },
     "DisableFirefoxStudies": true,
     "DisableTelemetry": true,
-    "EnableTrackingProtection": {
-      "Value": true,
-      "Cryptomining": true,
-      "Fingerprinting": true
-    },
     "PrimaryPassword": true,
     "Homepage": {
       "Locked": true,
