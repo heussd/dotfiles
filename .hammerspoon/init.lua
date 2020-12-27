@@ -13,7 +13,7 @@ hs.hotkey.bind({}, "f20", function()
 end)
 
 hs.hotkey.bind({"alt"}, "space", function()
-    hs.execute("snippets-choose", true)
+    hs.execute("~/.scripts/snippets-choose", false)
 end)
 
 
