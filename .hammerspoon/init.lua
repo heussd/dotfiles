@@ -12,8 +12,21 @@ hs.hotkey.bind({}, "f20", function()
     hs.application.launchOrFocus("kitty")
 end)
 
+hs.hotkey.bind({"shift"}, "f20", function()
+    hs.application.launchOrFocus("Firefox")
+end)
+
+hs.hotkey.bind({"command"}, "f20", function()
+    hs.application.launchOrFocus("Firefox")
+    hs.eventtap.keyStroke({"cmd"}, "t")
+end)
+
 hs.hotkey.bind({"alt"}, "space", function()
     hs.execute("~/.scripts/snippets-choose", false)
+end)
+
+hs.hotkey.bind({"command", "shift"}, "g", function()
+    hs.execute("open https://www.google.de", false)
 end)
 
 
