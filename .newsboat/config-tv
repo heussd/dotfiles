@@ -11,6 +11,7 @@ reload-time		120
 
 show-read-articles	no
 show-read-feeds		no
+max-items 1000
 
 datetime-format "%Y-%m-%d"
 articlelist-format  "%f %?T?%-25T ?%t %> %D"
