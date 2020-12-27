@@ -4,9 +4,6 @@
 [submodule "_externals/mpcscripts"]
 	path = .dotfiles-externals/mpcscripts
 	url = https://github.com/heussd/mpcscripts.git
-[submodule "_externals/latexcommons"]
-	path = .dotfiles-externals/latexcommons
-	url = https://github.com/heussd/latexcommons.git
 [submodule "_externals/674099"]
 	path = .dotfiles-externals/674099
 	url = https://gist.github.com/mathiasbynens/674099
