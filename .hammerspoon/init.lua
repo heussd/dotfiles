@@ -12,6 +12,11 @@ hs.hotkey.bind({}, "f20", function()
     hs.application.launchOrFocus("kitty")
 end)
 
+hs.hotkey.bind({"alt"}, "space", function()
+    hs.execute("snippets-choose", true)
+end)
+
+
 hs.hotkey.bind({"ctrl", "alt"}, "return", function()
     local app = hs.application.get("kitty")
     if app then
