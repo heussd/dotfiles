@@ -22,6 +22,7 @@ cask "visual-studio-code"
 ## Command line tools
 brew "bat"
 brew "brew-cask-completion"
+brew "choose-gui"
 brew "coreutils"
 brew "ctop"
 brew "curl"
