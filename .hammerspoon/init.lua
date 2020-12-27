@@ -1,22 +1,21 @@
-function say(text) --a helper function to speak something with either VoiceOver or speech synthesis if it's not running
-	if hs.application.get("VoiceOver") ~=nil then
-		
-	hs.osascript.applescript("tell application \"VoiceOver\" to output \"" ..text .."\"")
-	else --VoiceOver is not running, use speech synthesis
-		synth:speak(text)
-		end --VoiceOver running check
-        end --function
-        
+local hyper     = "f20" -- <--- NOTICE: hyper is NOT a modifer key
 
-hs.hotkey.bind({}, "f20", function()
+
+-- https://gist.github.com/thadk/fbebe610d2df1c71609fe139d75d42cd
+local mash      = {"cmd", "ctrl"}
+local mashshift = {"cmd", "alt", "shift"}
+
+
+
+hs.hotkey.bind({}, hyper, function() 
     hs.application.launchOrFocus("kitty")
 end)
 
-hs.hotkey.bind({"shift"}, "f20", function()
+hs.hotkey.bind({"shift"}, hyper, function()
     hs.application.launchOrFocus("Firefox")
 end)
 
-hs.hotkey.bind({"command"}, "f20", function()
+hs.hotkey.bind({"command"}, hyper, function()
     hs.application.launchOrFocus("Firefox")
     hs.eventtap.keyStroke({"cmd"}, "t")
 end)
