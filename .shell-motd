@@ -26,6 +26,11 @@ if [ "$PWD" = "$HOME" ]; then
 		gita ll && echo
 	)
 
+	# Updates on macOS might require reinstallation of developer tools
+	_hasCmd make || (
+		_isMacOS && xcode-select --install
+	)
+
 	make
 fi
 
