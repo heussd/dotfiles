@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$PWD" != "$HOME/projects/snippets" ]; then
+	pushd $HOME/projects/snippets
+fi
+
+file=$(ls | choose -m -u -n 20 -w 20 -s 20)
+
+if [ -e "$file" ]; then
+	cat "$file" | pbcopy
+else
+	searchterm=$(echo $file | sed -e 's/\ /+/g')
+	open "https://www.google.com/search?q=$searchterm"
+fi
+
+popd
