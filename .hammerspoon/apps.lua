@@ -3,7 +3,15 @@ hs.hotkey.bind(hyper, "c", function()
     hs.application.launchOrFocus("kitty")
 end)
 
+hs.hotkey.bind(hyper, "return", function() 
+    hs.application.launchOrFocus("kitty")
+end)
+
 hs.hotkey.bind(hyper, "f", function()
+    hs.application.launchOrFocus("Firefox")
+end)
+
+hs.hotkey.bind(hyper, "g", function()
     hs.application.launchOrFocus("Firefox")
     hs.eventtap.keyStroke({"cmd"}, "t")
 end)
@@ -33,7 +41,7 @@ hs.hotkey.bind({"ctrl", "alt"}, "return", function()
 end)
 
 hs.hotkey.bind({"command", "shift"}, "f", function()
-    local app = hs.application.get("Firefox")
+   local app = hs.application.get("Firefox")
     if app then
         if not app:mainWindow() then
             app:selectMenuItem({"Firefox", "New Tab"})
