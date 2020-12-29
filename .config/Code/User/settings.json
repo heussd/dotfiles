@@ -13,5 +13,7 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Default Dark+",
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "sync.autoDownload": true,
+    "sync.autoUpload": true
 }
