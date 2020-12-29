@@ -1,21 +1,12 @@
-local hyper     = "f20" -- <--- NOTICE: hyper is NOT a modifer key
-
-
--- https://gist.github.com/thadk/fbebe610d2df1c71609fe139d75d42cd
-local mash      = {"cmd", "ctrl"}
-local mashshift = {"cmd", "alt", "shift"}
+local hyper = {"cmd", "alt", "control", "shift"}
 
 
 
-hs.hotkey.bind({}, hyper, function() 
+hs.hotkey.bind(hyper, "c", function() 
     hs.application.launchOrFocus("kitty")
 end)
 
-hs.hotkey.bind({"shift"}, hyper, function()
-    hs.application.launchOrFocus("Firefox")
-end)
-
-hs.hotkey.bind({"command"}, hyper, function()
+hs.hotkey.bind(hyper, "f", function()
     hs.application.launchOrFocus("Firefox")
     hs.eventtap.keyStroke({"cmd"}, "t")
 end)
