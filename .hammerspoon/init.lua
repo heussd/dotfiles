@@ -20,7 +20,7 @@ hs.dockIcon(false)
 hs.menuIcon(false)
 hs.consoleOnTop(false)
 
-
 require('apps')
+require('window-move-resize')
 require('window-management')
 require('spoon-install')
