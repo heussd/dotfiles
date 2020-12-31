@@ -11,5 +11,16 @@ hs.hotkey.bind(hyper, "E", function()
 end)
 
 
+
+hs.autoLaunch(true)
+hs.automaticallyCheckForUpdates(true)
+hs.preferencesDarkMode(true)
+hs.accessibilityState(true) -- show System Preferences if Accessibility is not enabled for Hammerspoon
+hs.dockIcon(false)
+hs.menuIcon(false)
+hs.consoleOnTop(false)
+
+
 require('apps')
 require('window-management')
+require('spoon-install')

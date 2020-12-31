@@ -1,16 +1,17 @@
-auto-reload		no
+auto-reload		yes
 browser			open
 download-path		~/Downloads/
 max-downloads		2
 prepopulate-query-feeds	yes
 
-reload-threads		1
+reload-threads		4
 reload-time		120
 
 show-read-articles	no
 show-read-feeds		no
+mark-as-read-on-hover yes
 
-feed-sort-order 	lastupdated
+#feed-sort-order 	lastupdated
 
 user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
 
@@ -18,26 +19,24 @@ user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
 unbind-key C
 unbind-key A
 
+bind-key SPACE toggle-article-read
 
-# Taken from https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
-# Dark solarized color scheme for newsbeuter, based on
-# Ethan Schoonover's Solarized.
-#
-# In order to use this color scheme, you must first configure
-# your terminal emulator to use the Solarized palette.
-# See <http://ethanschoonover.com/solarized/> for more information.
 
-color background         default   default
-color listnormal         default   default
-color listnormal_unread  default   default
-color listfocus          black     yellow
-color listfocus_unread   black     yellow
-color info               default   black
-color article            default   default
+datetime-format "%Y-%m-%d"
+articlelist-format  "%f %?T?%-25T ?%t %> %D"
 
-# highlights
-highlight article "^(Title):.*$" blue default
-highlight article "https?://[^ ]+" red default
-highlight article "\\[image\\ [0-9]+\\]" green default
+#feed-sort-order 	lastupdated
 
-#browser "/Applications/VLC.app/Contents/MacOS/VLC -q --play-and-exit %u &> /dev/null &"
+user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
+
+# Taken from https://github.com/tallguyjenks/dotfilez/blob/master/.config/newsboat/config
+color listnormal cyan default
+color listfocus black yellow standout bold
+color listnormal_unread blue default
+color listfocus_unread yellow default bold
+color info red black bold
+color article cyan default
+
+
+
+highlight-article "tags # \"P\"" red default bold
