@@ -14,6 +14,7 @@ end)
 hs.hotkey.bind(hyper, "g", function()
     hs.application.launchOrFocus("Firefox")
     hs.eventtap.keyStroke({"cmd"}, "t")
+    hs.eventtap.keyStroke({"cmd"}, "v")
 end)
 
 hs.hotkey.bind({"alt"}, "space", function()
