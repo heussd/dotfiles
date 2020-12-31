@@ -6,9 +6,9 @@ hs.hotkey.bind(hyper, "r", function()
   hs.alert.show("Config loaded")
 end)
 
-hs.hotkey.bind(hyper, "E", function()
-    hs.toggleConsole()
-end)
+--hs.hotkey.bind(hyper, "E", function()
+--    hs.toggleConsole()
+--end)
 
 
 
