@@ -141,9 +141,12 @@ function VimwikiMode()
     set shiftwidth=2
     set expandtab
 
-    set completefunc=CompleteLinks
-    let g:vimwiki_table_mappings = 0
 
+	set completefunc=CompleteLinks
+	let g:vimwiki_table_mappings = 0
+	nnoremap <C-Space> i
+	inoremap <C-Space> <c-x><c-u>
+	
 endfunction
 au FileType vimwiki call VimwikiMode()
 
@@ -182,6 +185,4 @@ fun! CompleteLinks(findstart, base)
         return res
     endif
 endfun
-set completefunc=CompleteLinks
-let g:vimwiki_table_mappings = 0
-imap <tab> <c-x><c-u>
+
