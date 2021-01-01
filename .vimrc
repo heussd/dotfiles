@@ -186,3 +186,4 @@ fun! CompleteLinks(findstart, base)
     endif
 endfun
 
+:autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
