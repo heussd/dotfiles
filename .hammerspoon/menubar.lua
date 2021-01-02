@@ -13,12 +13,30 @@ function toggle_caffeine()
     generate_menu()
 end
 
+function goodnight()
+    hs.execute("~/goodnight.sh", true)
+end
+
+function download_autosort()
+    hs.execute("~/.scripts/autosort_downloads", true)
+end
+
 
 function generate_menu()
     bar:setMenu({
-        {title = "TEST", fn = test},
-        {title = hs.caffeinate.get("displayIdle") and "Display stays AWAKE" or "Display will sleep", fn = toggle_caffeine},
-        {title = 'Hammerspoon Console', fn = hs.toggleConsole}
+        {title = "TEST", fn = test,},
+        {title = "-" },
+        {title = "Good Night", fn = goodnight},
+        {title = "Download Auto Sort", fn = download_autosort},
+        {title = "-" },
+        {
+            title = hs.caffeinate.get("displayIdle") and "Display stays AWAKE" or "Display will sleep",
+            checked = hs.caffeinate.get("displayIdle"),
+            fn = toggle_caffeine
+        },
+        {title = "-" },
+        {title = 'Hammerspoon Console', fn = hs.toggleConsole},
+        {title = 'Reload Hammerspoon Configuration', fn = hs.reload}
     })
 end
 
