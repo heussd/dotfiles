@@ -30,10 +30,6 @@ Install:andUse("DeepLTranslate", {
   }
 })
 
-Install:andUse("Caffeine", {
-  start = true
-})
-
 Install:andUse("FadeLogo", {
   config = {
     run_time = 3.0,
