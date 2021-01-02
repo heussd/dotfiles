@@ -21,6 +21,10 @@ function download_autosort()
     hs.execute("~/.scripts/autosort_downloads", true)
 end
 
+function open_config()
+    hs.execute("code ~/.hammerspoon", true)
+end
+
 
 function generate_menu()
     bar:setMenu({
@@ -36,6 +40,8 @@ function generate_menu()
         },
         {title = "-" },
         {title = 'Hammerspoon Console', fn = hs.toggleConsole},
+        {title = "-" },
+        {title = 'Open Hammerspoon Configuration', fn = open_config},
         {title = 'Reload Hammerspoon Configuration', fn = hs.reload}
     })
 end
