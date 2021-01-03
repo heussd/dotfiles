@@ -7,3 +7,6 @@
 [submodule "_externals/674099"]
 	path = .dotfiles-externals/674099
 	url = https://gist.github.com/mathiasbynens/674099
+[submodule ".dotfiles-externals/pocket-sh-add"]
+	path = .dotfiles-externals/pocket-sh-add
+	url = https://github.com/riichard/pocket-sh-add
