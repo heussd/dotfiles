@@ -42,3 +42,8 @@ color article cyan default
 highlight-article "tags # \"P\"" red default bold
 
 error-log ~/.newsboat/errors.log
+
+
+
+bookmark-cmd "~/.newsboat/add-to-pocket.sh"
+bookmark-autopilot yes
