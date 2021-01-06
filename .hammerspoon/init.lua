@@ -1,14 +1,19 @@
-hyper = {"cmd", "alt", "control", "shift"}
+hyper = hs.hotkey.modal.new({}, nil)
+
+hyper.pressed = function()
+  hyper:enter()
+end
+
+hyper.released = function()
+  hyper:exit()
+end
+
+hs.hotkey.bind({}, 'F18', hyper.pressed, hyper.released)
 
 
-hs.hotkey.bind(hyper, "r", function()
+hyper:bind({}, 'r', nil, function()
   hs.reload()
-  hs.alert.show("Config loaded")
 end)
-
---hs.hotkey.bind(hyper, "E", function()
---    hs.toggleConsole()
---end)
 
 
 
@@ -24,4 +29,5 @@ require('apps')
 require('window-move-resize')
 require('window-management')
 require('menubar')
+require('playground')
 require('spoons')

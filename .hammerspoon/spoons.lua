@@ -19,16 +19,16 @@ Install:andUse("TextClipboardHistory", {
   start = true,
 })
 
-Install:andUse("KSheet", {
-  hotkeys = {
-    toggle = { hyper, "k" }
-}})
+--Install:andUse("KSheet", {
+--  hotkeys = {
+--    toggle = { hyper, "k" }
+--}})
 
-Install:andUse("DeepLTranslate", {
-  hotkeys = {
-    translate = { hyper, "t" },
-  }
-})
+-- Install:andUse("DeepLTranslate", {
+--  hotkeys = {
+--    translate = { hyper, "t" },
+--  }
+--})
 
 Install:andUse("FadeLogo", {
   config = {

@@ -154,6 +154,9 @@ config-darwin-lockscreen: ## Set a lost and found message and contact info on th
 	@sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If you found this device, please contact $$(osascript -e 'tell application "Contacts" to get value of email 1 of my card') / $$(osascript -e 'tell application "Contacts" to get value of phone 1 of my card')"
 	@tccutil reset AddressBook
 
+config-darwin-caps-to-hyper-key: ## Map CAPSLOCK to F18 (Hyper) used by Hammerspoon
+# https://www.naseer.dev/post/hidutil/
+	@hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006D}]}'
 
 
 .PHONY: config-firefox

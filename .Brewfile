@@ -64,7 +64,6 @@ cask "dozer"
 cask "dupeguru"
 cask "hammerspoon"
 cask "knockknock"
-cask "karabiner-elements"
 cask "mendeley"
 cask "qlimagesize"
 cask "qlmarkdown"
@@ -140,7 +139,6 @@ cask "microsoft-azure-storage-explorer"
 
 
 ## Office
-cask "muzzle"
 mas "Keynote", id: 409183694
 mas "LibreOffice Vanilla", id: 921923693
 mas "Next Meeting", id: 1017470484

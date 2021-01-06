@@ -12,15 +12,18 @@ winMT.__index = function(self, key)
 end
 
 
-hs.hotkey.bind(hyper, "Up", function()
+hyper:bind({}, "Up", nil, function()
 	hs.window.focusWindowNorth()
 end)
-hs.hotkey.bind(hyper, "Right", function()
+
+hyper:bind({}, "Right", nil, function()
 	hs.window.focusWindowEast()
 end)
-hs.hotkey.bind(hyper, "Down", function()
+
+hyper:bind({}, "Down", nil, function()
 	hs.window.focusWindowSouth()
 end)
-hs.hotkey.bind(hyper, "Left", function()
+
+hyper:bind({}, "Left", nil, function()
 	hs.window.focusWindowWest()
 end)
