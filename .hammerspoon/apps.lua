@@ -10,6 +10,10 @@ hyper:bind({}, "f", nil, function()
     hs.application.launchOrFocus("Firefox")
 end)
 
+hyper:bind({}, "m", nil, function()
+    hs.application.launchOrFocus("MacVim")
+end)
+
 hyper:bind({}, "s", nil, function()
     hs.application.launchOrFocus("Firefox")
     hs.eventtap.keyStroke({"cmd"}, "t")

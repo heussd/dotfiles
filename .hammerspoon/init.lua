@@ -19,6 +19,20 @@ hyper:bind({}, 'r', nil, function()
 end)
 
 
+function file_exists(name)
+  local f=io.open(name,"r")
+  if f~=nil then io.close(f) return true else return false end
+end
+
+function play(word)
+  local file = os.getenv("HOME") .. "/projects/hl2/sound/npc/combine_soldier/vo/" .. word .. ".wav"
+  if file_exists(file) then
+    local sound = hs.sound.getByFile(file)
+    sound:play()
+  end
+end
+
+
 
 hs.autoLaunch(true)
 hs.automaticallyCheckForUpdates(true)
@@ -40,8 +54,16 @@ globalmute:bindHotkeys({
 })
 globalmute:init()
 
+hyper:bind({}, 'ö', nil, function()
+  hs.alert("HAI")
+  globalmute:toggle()
+  play("off1")
+end)
+
+
 
 require('apps')
+require('vim')
 require('window-move-resize')
 require('window-management')
 require('menubar')

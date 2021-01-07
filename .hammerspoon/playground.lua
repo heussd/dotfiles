@@ -3,9 +3,6 @@ function hlspeak(word)
     print (file)
     local sound = hs.sound.getByFile(file)
     sound:play()
-
-
-    hs.sound.getByFile("https://www.myinstants.com/media/sounds/joke_drum_effect.mp3"):play()
 end
 
 function system()
