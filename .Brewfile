@@ -149,7 +149,7 @@ cask "mactex"
 
 ## Voice / Com
 cask "discord"
-
+cask "signal"
 
 
 ## Image
