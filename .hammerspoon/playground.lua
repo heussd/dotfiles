@@ -13,6 +13,10 @@ function activated()
     hlspeak('activated')
 end
 
+hyper:bind({"command"}, "p", nil, function() 
+    hs.alert("Playground :-)")
+end)
+
 hyper:bind({}, "p", nil, function() 
     hs.alert("Playground")
 
