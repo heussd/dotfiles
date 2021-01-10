@@ -47,17 +47,19 @@ hs.consoleOnTop(false)
 --hs.loadSpoon("global-mute-spoon/GlobalMute")
 globalmute = require('global-mute-spoon/GlobalMute')
 
-globalmute:bindHotkeys({
-  unmute = {{'ctrl-command-option'}, "u"},
-  mute   = {{'ctrl-command-option'}, "m"},
-  toggle = {{'ctrl-command-option'}, "space"}
-})
 globalmute:init()
+globalmute:configure({
+  enforce_desired_state = true
+})
+
+globalmute:mute()
 
 hyper:bind({}, 'ö', nil, function()
-  hs.alert("HAI")
   globalmute:toggle()
-  play("off1")
+  
+  if (globalmute.muted) then
+    play("off1")
+  end
 end)
 
 
