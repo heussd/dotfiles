@@ -1,5 +1,5 @@
 local bar = hs.menubar.new()
-bar:setTitle("™")
+bar:setTitle(hs.host:localizedName())
 
 
 function test()
@@ -28,7 +28,7 @@ end
 
 function generate_menu()
     bar:setMenu({
-        {title = "TEST", fn = test,},
+        {title = "Test", fn = test,},
         {title = "-" },
         {title = "Good Night", fn = goodnight},
         {title = "Download Auto Sort", fn = download_autosort},
