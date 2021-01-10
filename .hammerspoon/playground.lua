@@ -24,7 +24,7 @@ hyper:bind({}, "p", nil, function()
         hs.alert("EMPTY")
     else
         hlspeak('dadeda')
-        hs.timer:doAfter(0.7, system)
-        hs.timer:doAfter(1.4, activated)
+        hs.timer.doAfter(0.7, system)
+        hs.timer.doAfter(1.4, activated)
     end
 end)
