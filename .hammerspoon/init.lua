@@ -30,8 +30,9 @@ require('apps')
 require('vim')
 require('window-move-resize')
 require('window-management')
-require("global-mute")
 
+require("global-mute")
 require('menubar')
+
 require('playground')
 require('spoons')

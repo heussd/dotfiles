@@ -28,11 +28,11 @@ end
 
 function generate_menu()
     bar:setMenu({
-        {title = "Test", fn = test,},
         {title = "-" },
         {title = "Good Night", fn = goodnight},
         {title = "Download Auto Sort", fn = download_autosort},
         {title = "-" },
+        {title = globalmute.muted and "Microphone is MUTED" or "Microphone is OPEN", fn = toggleMic,},
         {
             title = hs.caffeinate.get("displayIdle") and "Display stays AWAKE" or "Display will sleep",
             checked = hs.caffeinate.get("displayIdle"),

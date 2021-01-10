@@ -8,13 +8,18 @@ globalmute:configure({
 })
 
 globalmute:mute()
+globalmute.mb:removeFromMenuBar()
 
-hyper:bind({}, 'ö', nil, function()
+
+function toggleMic()
   globalmute:toggle()
-  
+
   if (globalmute.muted) then
     hl2play("off1")
   else
     hl2play("on1")
   end
-end)
+  generate_menu()
+end
+
+hyper:bind({}, 'ö', nil, toggleMic)
