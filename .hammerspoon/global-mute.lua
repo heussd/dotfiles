@@ -14,5 +14,7 @@ hyper:bind({}, 'ö', nil, function()
   
   if (globalmute.muted) then
     hl2play("off1")
+  else
+    hl2play("on1")
   end
 end)
