@@ -178,8 +178,3 @@ cask "google-chrome"
 cask "google-cloud-sdk"
 cask "google-drive-file-stream"
 
-
-
-## Games
-cask "playonmac"
-cask "steam"
