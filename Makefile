@@ -283,6 +283,10 @@ fix-xcode-installation:
 config-disable-timemachine-throttling-temporarily:
 	@sudo sysctl debug.lowpri_throttle_enabled=0
 
+.PHONY: config-macos-reset-dock
+config-macos-reset-dock:
+	@defaults write com.apple.dock persistent-apps -array
+	@killall Dock
 
 lock: lock-$(OS_NAME)	## Lock screen
 lock-darwin: 
