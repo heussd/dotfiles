@@ -39,7 +39,6 @@ brew "the_silver_searcher"
 brew "thefuck"
 brew "tldr"
 brew "transcrypt"
-brew "unrar"
 brew "wget"
 
 
