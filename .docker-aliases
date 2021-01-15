@@ -8,9 +8,8 @@ alias graphviz="graphviz/graphviz:ubuntu-20.04"
 
 alias az='docker run --rm -it -v ${HOME}/.azure/:/root/.azure -v ${HOME}/.kube/:/root/.kube/ -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli az'
 
-# Untested
-alias kubectl='docker run --rm -it -v ${HOME}/.kube/:/.kube bitnami/kubectl:latest'
-alias gcloud='docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud'
+#alias kubectl='docker run --rm -it -v ${HOME}/.kube/:/.kube bitnami/kubectl:latest'
+#alias gcloud='docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud'
 
 # Taken from https://github.com/AustinMaddox/dotfiles/blob/e5156767a569f8def04a213ddb892755eed86e0e/.bash_profile
 alias aws='docker run --rm --interactive --tty --name="aws-cli-v2-container" --volume ~/.aws:/root/.aws --volume $(pwd):/aws amazon/aws-cli'
@@ -18,9 +17,9 @@ alias aws='docker run --rm --interactive --tty --name="aws-cli-v2-container" --v
 
 
 # Taken from https://github.com/JanGalek/dockerized/tree/master/applications/node
-alias node='docker run --rm --interactive --tty --volume $PWD:/app -w /app --user $(id -u):$(id -g) node node '
-alias npm='docker run --rm --interactive --tty --volume $PWD:/usr/src/app -w /usr/src/app --user $(id -u):$(id -g) node npm --loglevel=warn '
-alias npx='docker run --rm --interactive --tty --volume $PWD:/app -w /app --user $(id -u):$(id -g) node npx --loglevel=warn '
+#alias node='docker run --rm --interactive --tty --volume $PWD:/app -w /app --user $(id -u):$(id -g) node node '
+#alias npm='docker run --rm --interactive --tty --volume $PWD:/usr/src/app -w /usr/src/app --user $(id -u):$(id -g) node npm --loglevel=warn '
+#alias npx='docker run --rm --interactive --tty --volume $PWD:/app -w /app --user $(id -u):$(id -g) node npx --loglevel=warn '
 alias node10='docker run --rm --interactive --tty --volume $PWD:/app -w /app --user $(id -u):$(id -g) node:10 node '
 alias npm10='docker run --rm --interactive --tty --volume $PWD:/usr/src/app -w /usr/src/app --user $(id -u):$(id -g) node:10 npm --loglevel=warn '
 alias npx10='docker run --rm --interactive --tty --volume $PWD:/usr/src/app -w /usr/src/app --user $(id -u):$(id -g) node:10 npx --loglevel=warn '
