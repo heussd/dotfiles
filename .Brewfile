@@ -171,6 +171,7 @@ cask "sweet-home3d"
 
 
 ## Temporary
+brew "sops"
 cask "eloston-chromium"
 cask "finicky"
 cask "google-chrome"
