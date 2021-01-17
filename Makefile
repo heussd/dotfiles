@@ -106,6 +106,11 @@ install-linux-veracrypt: ## Installs Veracrypt from a PPA
 	sudo apt update
 	sudo apt-get install veracrypt 
 
+.PHONY: install-veracrypt
+install-linux-cryptomator: ## Installs Cryptomator from a PPA
+	sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
+	sudo apt update
+	sudo apt-get install cryptomator
 
 .PHONY: config config-darwin config-linux
 config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub config-firefox ## Configures host
