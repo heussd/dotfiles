@@ -28,8 +28,8 @@ archive() {
 	[ -e "$newarchive" ] && echo "$newarchive already exists" && return 0
 	echo "Archiving $1..."
 	7z a -mx9 -t7z -xr!.DS_Store "$newarchive" "$1" || return -1
-	SetFile -a L "$newarchive"
-    	shasum -p "$newarchive" >> $SHASUMS
+	#SetFile -a L "$newarchive"
+    shasum "$newarchive" >> $SHASUMS
 }
 possiblydelete() {
 	[ -z "$1" ] && return 0
@@ -47,6 +47,6 @@ fi
 
 
 #szverify || die "WARNING: 7Z Verification failed."
-shaverify || die "WARNING: SHA verification failed."
+#shaverify || die "WARNING: SHA verification failed."
 archive "$1" || die "WARNING: Archiving $1 failed."
 possiblydelete "$1"
