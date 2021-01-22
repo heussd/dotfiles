@@ -4,7 +4,9 @@
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
   darwin*)
-    xcode-select --install;; 
+    xcode-select --install
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ;; 
   linux*)
     sudo apt install -y curl make git;;
   bsd*)     echo "BSD" ;;
