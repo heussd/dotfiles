@@ -8,9 +8,6 @@
         "https://addons.mozilla.org/firefox/downloads/latest/cliget/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/close-unused-blank-tabs/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/cookie-quick-manager/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/decentraleyes/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/dns-over-wikipedia/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/dont-touch-my-tabs/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/make-medium-readable-again/latest.xpi",
@@ -55,7 +52,7 @@
       "Highlights": false,
       "Pocket": false,
       "Snippets": false,
-      "Locked": true
+      "Locked": false 
     },
     "NoDefaultBookmarks": true,
     "DisableSetDesktopBackground": true,
