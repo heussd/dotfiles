@@ -1,5 +1,8 @@
+user-agent		"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0"
+
+
 auto-reload		yes
-browser			open
+
 download-path		~/Downloads/
 max-downloads		2
 prepopulate-query-feeds	yes
@@ -13,9 +16,6 @@ mark-as-read-on-hover yes
 
 #feed-sort-order 	lastupdated
 
-user-agent		"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0"
-
-
 unbind-key C
 
 bind-key SPACE toggle-article-read
@@ -26,7 +26,6 @@ articlelist-format  "%f %?T?%-25T ?%t %> %D"
 
 #feed-sort-order 	lastupdated
 
-user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
 
 # Taken from https://github.com/tallguyjenks/dotfilez/blob/master/.config/newsboat/config
 color listnormal cyan default
@@ -43,7 +42,28 @@ highlight-article "tags # \"P\"" red default bold
 error-log ~/.newsboat/errors.log
 
 
+browser			open
+macro b set browser "open --background %u"; open-in-browser ; set browser "open %u"
+
+
 
 bookmark-cmd "~/.newsboat/add-to-pocket.sh"
 bookmark-autopilot yes
 
+
+
+# Vim keybindings
+# taken from https://forums.freebsd.org/threads/newsboat-rss-reader-enable-vim-key-bindings.69448/
+
+# unbind keys
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
