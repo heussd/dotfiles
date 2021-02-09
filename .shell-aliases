@@ -52,6 +52,8 @@ alias gb='git branch -v && git remote show origin'
 alias gru='git remote update'
 alias gp='git pull --rebase origin'
 
+alias gita="python3 -m gita"
+
 alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
 alias dotfiels='dotfiles'
 alias dotifles='dotfiles'
