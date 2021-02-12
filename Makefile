@@ -111,21 +111,6 @@ install-linux-cryptomator: ## Installs Cryptomator from a PPA
 
 .PHONY: config config-darwin config-linux
 config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub config-firefox ## Configures host
-ifneq (, $(shell which code))
-	@for extension in {\
-	dakara.transformer,\
-	eamodio.gitlens,\
-	esbenp.prettier-vscode,\
-	formulahendry.auto-close-tag,\
-	formulahendry.auto-rename-tag,\
-	LinusU.auto-dark-mode,\
-	ms-azuretools.vscode-docker,\
-	ms-python.python,\
-	streetsidesoftware.code-spell-checker,\
-	VisualStudioExptTeam.vscodeintellicode,\
-	Zignd.html-css-class-completion,\
-	}; do code --install-extension $$extension --force; done
-endif
 config-linux:
 	@echo "No config!"
 config-darwin: config-darwin-coteditor
