@@ -177,5 +177,5 @@ cask "eloston-chromium"
 cask "finicky"
 cask "google-chrome"
 cask "google-cloud-sdk"
-cask "google-drive-file-stream"
+cask "google-drive"
 
