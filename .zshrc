@@ -174,3 +174,10 @@ function set-title-preexec() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd set-title-precmd
 add-zsh-hook preexec set-title-preexec
+
+
+# Alt Arrow to move by word
+# https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh#16411270
+bindkey -e
+bindkey '[C' forward-word
+bindkey '[D' backward-word
