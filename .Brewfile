@@ -41,6 +41,7 @@ brew "thefuck"
 brew "tldr"
 brew "transcrypt"
 brew "wget"
+brew "tmux"
 
 
 
