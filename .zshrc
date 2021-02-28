@@ -1,3 +1,9 @@
+#if [ -z $TMUX ]; then;
+#	tmux -u;
+#	exit
+#fi
+
+
 [[ ! -d "$HOME/.antigen" ]] && git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen"
 source "$HOME/.antigen/antigen.zsh"
 
@@ -73,8 +79,6 @@ source ~/.shell-aliases
 source ~/.docker-aliases
 
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
-
-source ~/.shell-motd
 
 # https://gist.github.com/phette23/5270658#gistcomment-1265682
 precmd() {
@@ -181,3 +185,12 @@ add-zsh-hook preexec set-title-preexec
 bindkey -e
 bindkey '[C' forward-word
 bindkey '[D' backward-word
+
+
+
+
+source ~/.shell-motd
+# Avoid recursive calls by checking the pane number
+#if (( $(tmux list-panes | wc -l) == 1)); then
+#	tmux split-window -p 30 \; send-keys 'source ~/.shell-motd; sleep 3; exit' C-m \; last-pane;
+#fi
