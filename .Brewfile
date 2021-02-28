@@ -29,6 +29,7 @@ brew "ctop"
 brew "curl"
 brew "figlet"
 brew "fzf"
+brew "gh"			# GitHub-cli
 brew "gnupg"
 brew "htop"
 brew "howdoi"
