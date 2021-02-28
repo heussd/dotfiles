@@ -18,11 +18,11 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
 
-
 # Specify additional external plugins we want
 antigen bundle smallhadroncollider/antigen-git-rebase
 antigen bundle zsh-users/zsh-autosuggestions
 #antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle hchbaw/auto-fu.zsh
 
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 export SPACESHIP_KUBECTL_SHOW=false
