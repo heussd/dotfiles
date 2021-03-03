@@ -1,6 +1,6 @@
 export SHORTHOSTNAME=`hostname | cut -d"." -f 1`
 export OS=`uname -s | tr A-Z a-z`
-
+export OS_DARK_MODE=$(2>/dev/null defaults read -g AppleInterfaceStyle > /dev/null && echo "true" || echo "false" )
 
 function _hasFile() { if [ -e "$1" ]; then return 0; fi; return 1; }
 function _hasNotFile() { if [ -e "$1" ]; then return 1; fi; return 0; }
@@ -8,6 +8,7 @@ function _hasFolder() { if [ -d "$1" ]; then return 0; fi; return 1; }
 function _hasCmd() { which "$1" &>/dev/null; }
 function _isMacOS() { uname -s | grep "Darwin" > /dev/null; }
 function _isLinux() { uname -s | grep "Linux" > /dev/null; }
+
 
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
