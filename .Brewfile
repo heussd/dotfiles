@@ -41,6 +41,7 @@ brew "the_silver_searcher"
 brew "thefuck"
 brew "tldr"
 brew "transcrypt"
+brew "tree"
 brew "wget"
 brew "tmux"
 
