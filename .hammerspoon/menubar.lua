@@ -1,11 +1,26 @@
 local bar = hs.menubar.new()
-bar:setTitle(hs.host:localizedName())
+-- bar:setTitle(hs.host:localizedName())
+bar:setTitle("™")
 
 
 function test()
     hs.alert("OMG")
     hs.caffeinate.lockScreen()
     generate_menu()
+end
+
+-- https://www.ohmyrss.com/post/1590808168248
+-- function: read applescript content. copy content to data
+function applescript_reader(string)
+    local path = string
+    local file = io.open(path, "r")
+    local data = file:read("*a")
+    file:close()
+    return data
+end
+
+function toggle_dark_mode()
+    hs.osascript.applescriptFromFile(os.getenv("HOME") .. "/.scripts/toggle-dark-mode.applescript")
 end
 
 function toggle_caffeine()
@@ -51,6 +66,8 @@ end
 
 function generate_menu()
     bar:setMenu({
+        {title = "-" },
+        {title = "Toggle Dark Mode", fn = toggle_dark_mode },
         {title = "-" },
         {title = "Good Night", fn = goodnight},
         {title = "Download Auto Sort", fn = download_autosort},
