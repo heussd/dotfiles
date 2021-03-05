@@ -118,6 +118,10 @@ config-darwin: config-darwin-coteditor
 	defaults write -g NSWindowShouldDragOnGesture -bool true
 	defaults write com.apple.screencapture location $(HOME)/Downloads; killall SystemUIServer 
 
+	defaults write com.apple.Dock autohide-delay -float 0.0001
+	defaults write com.apple.dock autohide-time-modifier -float 0.25
+	killall Dock
+
 	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
 	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
