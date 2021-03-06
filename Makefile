@@ -200,6 +200,8 @@ config-toggle-dark-mode-darwin:
 	@osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 
 config-wallpaper: .esoc0932a.jpg config-wallpaper-$(OS_NAME) ## Download and set up wallpaper
+config-wallpaper-linux:
+	feh --bg-scale .esoc0932a.jpg
 config-wallpaper-darwin:
 	@osascript -e 'tell application "System Events" to tell every desktop to set picture to ((path to home folder as text) & ".esoc0932a.jpg")'
 
