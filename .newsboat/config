@@ -12,7 +12,7 @@ reload-time		60
 
 show-read-articles	no
 show-read-feeds		no
-mark-as-read-on-hover yes
+#mark-as-read-on-hover yes
 
 #feed-sort-order 	lastupdated
 
