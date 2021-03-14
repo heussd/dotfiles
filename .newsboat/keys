@@ -1,0 +1,4 @@
+unbind-key C
+
+bind-key SPACE  toggle-article-read
+

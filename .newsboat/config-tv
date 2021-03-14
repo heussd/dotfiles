@@ -1,42 +1,8 @@
+include ~/.newsboat/common-config
+
 cache-file     "~/.newsboat/cache-tv.db" 
-
-auto-reload		yes
-browser			open
-download-path		~/Downloads/
-max-downloads		2
-prepopulate-query-feeds	yes
-
-reload-threads		6
-reload-time		120
-
-show-read-articles	no
-show-read-feeds		no
-max-items 1000
-
-datetime-format "%Y-%m-%d"
-articlelist-format  "%f %?T?%-25T ?%t %> %D"
-
-#feed-sort-order 	lastupdated
-
-user-agent		"Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
-
-# Taken from https://github.com/tallguyjenks/dotfilez/blob/master/.config/newsboat/config
-color listnormal cyan default
-color listfocus black yellow standout bold
-color listnormal_unread blue default
-color listfocus_unread yellow default bold
-color info red black bold
-color article cyan default
-
-highlight-article "tags # \"P\"" red default bold
 
 browser "mpv %u &> /dev/null &"
 
 # use "u" to open podcasts
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
-
-
-unbind-key C
-unbind-key A
-
-bind-key SPACE toggle-article-read

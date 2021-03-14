@@ -1,0 +1,31 @@
+auto-reload		yes
+user-agent		"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:87.0) Gecko/20100101 Firefox/87.0"
+
+download-path		~/Downloads/
+max-downloads		2
+prepopulate-query-feeds yes
+
+reload-threads		6
+reload-time 		60
+
+show-read-articles	no
+show-read-feeds		no
+
+datetime-format     "%Y-%m-%d"
+articlelist-format  "%f %?T?%-25T ?%t %> %D"
+
+
+#mark-as-read-on-hover yes
+#feed-sort-order 	lastupdated
+
+bookmark-cmd "~/.newsboat/add-to-pocket.sh"
+bookmark-autopilot yes
+
+
+browser			open
+macro b set browser "open --background %u"; open-in-browser ; set browser "open %u"
+
+
+include ~/.newsboat/keys
+include ~/.newsboat/theme
+include ~/.newsboat/highlights

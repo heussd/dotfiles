@@ -1,3 +1,4 @@
 #pattern  filter=crypt diff=crypt
-.newsboat/urls-tv  filter=crypt diff=crypt merge=crypt
-.newsboat/urls 	   filter=crypt diff=crypt merge=crypt
+.newsboat/urls-tv  	filter=crypt diff=crypt merge=crypt
+.newsboat/urls 	   	filter=crypt diff=crypt merge=crypt
+.newsboat/highlights	filter=crypt diff=crypt merge=crypt
