@@ -29,3 +29,4 @@ macro b set browser "open --background %u"; open-in-browser ; set browser "open 
 include ~/.newsboat/keys
 include ~/.newsboat/theme
 include ~/.newsboat/highlights
+include ~/.newsboat/highlights-autogen
