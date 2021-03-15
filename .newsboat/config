@@ -1,3 +1,6 @@
 include ~/.newsboat/common-config
 
 error-log ~/.newsboat/errors.log
+
+
+mark-as-read-on-hover yes

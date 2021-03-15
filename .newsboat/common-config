@@ -15,7 +15,7 @@ datetime-format     "%Y-%m-%d"
 articlelist-format  "%f %?T?%-25T ?%t %> %D"
 
 
-#mark-as-read-on-hover yes
+#toggleitemread-jumps-to-next-unread	no
 #feed-sort-order 	lastupdated
 
 bookmark-cmd "~/.newsboat/add-to-pocket.sh"

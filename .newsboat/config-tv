@@ -6,3 +6,5 @@ browser "mpv %u &> /dev/null &"
 
 # use "u" to open podcasts
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
+
+

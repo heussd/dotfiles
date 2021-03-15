@@ -1,4 +1,8 @@
+# Keys, as used in the bind-key configuration command, use a special syntax. Lowercase keys, uppercase keys and special characters are written literally. The "Enter" key is written as ENTER, "Tab" key as TAB, and the "Esc" key is written as ESC. The function keys "F1" to "F12" are written as F1 to F12. The "Space" key is written as SPACE. Key combinations with the "Ctrl" key, such as "Ctrl-R", are written as ^R.
+# https://newsboat.org/releases/2.22.1/docs/newsboat.html#_example_configuration
+
 unbind-key C
 
 bind-key SPACE  toggle-article-read
+#bind-key SPACE	mark-all-above-as-read
 
