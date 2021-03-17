@@ -8,3 +8,4 @@ browser "mpv %u &> /dev/null &"
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
 
 
+max-items 1000
