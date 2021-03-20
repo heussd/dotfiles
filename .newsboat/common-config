@@ -23,6 +23,7 @@ bookmark-autopilot yes
 
 
 browser			open
+browser			"~/.newsboat/newsboat-browser.sh"
 macro b set browser "open --background %u"; open-in-browser ; set browser "open %u"
 
 
