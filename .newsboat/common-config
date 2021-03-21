@@ -18,12 +18,10 @@ articlelist-format  "%f %?T?%-25T ?%t %> %D"
 #toggleitemread-jumps-to-next-unread	no
 #feed-sort-order 	lastupdated
 
-bookmark-cmd "~/.newsboat/add-to-pocket.sh"
-bookmark-autopilot yes
+bookmark-cmd        "~/.newsboat/newsboat-bookmark.sh"
+bookmark-autopilot  yes
 
-
-browser			open
-browser			"~/.newsboat/newsboat-browser.sh"
+browser			    "~/.newsboat/newsboat-browser.sh"
 macro b set browser "open --background %u"; open-in-browser ; set browser "open %u"
 
 
