@@ -13,3 +13,6 @@
 [submodule ".hammerspoon/Spoons/global-mute-spoon"]
 	path = .hammerspoon/Spoons/global-mute-spoon
 	url = https://github.com/cmaahs/global-mute-spoon
+[submodule ".dotfiles-externals/transcrypt"]
+	path = .dotfiles-externals/transcrypt
+	url = https://github.com/elasticdog/transcrypt.git
