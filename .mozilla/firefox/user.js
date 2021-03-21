@@ -13,8 +13,8 @@ user_pref("privacy.donottrackheader.enabled",  false);
 
 // Disable checking of downloads
 // https://wiki.mozilla.org/Security/Features/Application_Reputation_Design_Doc
-user_pref("browser.safebrowsing.downloads.enabled", false)
-user_pref("browser.safebrowsing.downloads.remote.enabled", false)
+user_pref("browser.safebrowsing.downloads.enabled", false);
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 
 // Display more hits in the Awesome Bar
