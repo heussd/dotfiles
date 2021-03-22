@@ -55,6 +55,7 @@ mas "OneDrive", id: 823766827
 
 
 ## Power Tools
+brew "croc"                         # croc is a tool that allows any two computers to simply and securely transfer files and folders.
 brew "neofetch"
 brew "taskell"
 brew "zsh-completions"
@@ -65,8 +66,10 @@ cask "bibdesk"
 cask "calibre"
 cask "dozer"
 cask "dupeguru"
+cask "easy-move-plus-resize"
 cask "hammerspoon"
 cask "knockknock"
+cask "maccy"
 cask "mendeley"
 cask "qlimagesize"
 cask "qlmarkdown"
@@ -91,7 +94,6 @@ mas "OwlOCR", id: 1499181666
 mas "PDFify", id: 1435055351
 mas "Pocket", id: 568494494
 mas "SleepTime", id: 465772885
-brew "croc"                         # croc is a tool that allows any two computers to simply and securely transfer files and folders.
 
 
 ## Fonts
