@@ -2,6 +2,5 @@ include ~/.newsboat/common-config
 
 error-log ~/.newsboat/errors.log
 
-download-full-page		yes
 delete-read-articles-on-quit	yes
 mark-as-read-on-hover		yes
