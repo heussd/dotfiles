@@ -36,3 +36,5 @@ user_pref("media.videocontrols.picture-in-picture.enabled", "true");
 
 user_pref("browser.altClickSave", true);
 
+// Backspace to "Go back"
+user_pref("browser.backspace_action", 0);
