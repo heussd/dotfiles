@@ -29,6 +29,7 @@
     },
     "DisableFirefoxStudies": true,
     "DisableTelemetry": true,
+    "DisablePocket": true,
     "PrimaryPassword": true,
     "Homepage": {
       "Locked": true,
