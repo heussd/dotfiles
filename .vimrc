@@ -187,3 +187,7 @@ fun! CompleteLinks(findstart, base)
 endfun
 
 :autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
+
+" Map C-Y C-N to Control Space
+" https://vi.stackexchange.com/questions/21457/how-to-remap-autocomplete-on-controln-to-controlspace#answer-21469
+inoremap <c-@> <c-n>
