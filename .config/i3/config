@@ -23,7 +23,13 @@ font pango:Source Code Pro 10px
 floating_modifier $mod
 
 
-set $workspace1 1 - Firefox
+set $workspace1 1
+
+
+set $wpFirefox Firefox
+
+for_window [class="Firefox"] move to workspace $wpFirefox
+bindsym $mod+Shift+f workspace $wpFirefox
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
@@ -213,10 +219,6 @@ bindsym $mod+Shift+p exec --no-startup-id "xrandr --output VGA1 --off"
 
 bindsym Ctrl+Shift+l exec i3lock -c 000000 && sleep 1 && xset s activate
 
-
-# Netflix on workspace 2
-bindsym $mod+n workspace 2; exec "firefox --new-window netflix.com"
-bindsym $mod+Shift+f exec "firefox"
 
 # A dmenu-based quick file opener - find-command taken from
 # https://superuser.com/questions/294161/unix-linux-find-and-sort-by-date-modified/294164#294164
