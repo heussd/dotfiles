@@ -5,7 +5,7 @@
 set $mod Mod4
 
 # Fixme: No suitable solution yet to use CAPS here
-set $caps Mod4+Shift
+set $caps Mod4
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -86,7 +86,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -233,6 +233,8 @@ bindsym $mod+o exec --no-startup-id "xdg-open `find ~/* -printf '%T@ %p\n' | sor
 # Autostart
 # Start a number of tabs automatically https://askubuntu.com/a/618003
 #exec xargs -a urlsautostart firefox -new-tab "$line"
+
+exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id if [ -f .deinit ]; then source .deinit; fi
 
 exec --no-startup-id bash ~/goodnight
