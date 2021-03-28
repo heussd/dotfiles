@@ -10,3 +10,11 @@
 /*toolbarbutton#back-button, toolbarbutton#forward-button {
 	display: none;
 }*/
+
+
+/* Hide sidebar header
+ * https://medium.com/@Aenon/firefox-hide-native-tabs-and-titlebar-f0b00bdbb88b
+ */
+#sidebar-header {
+  visibility: collapse !important;
+}
