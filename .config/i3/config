@@ -33,8 +33,16 @@ set $workspace1 1
 set $wpFirefox Firefox
 
 for_window [class="Firefox"] move to workspace $wpFirefox
+for_window [class="Firefox"] border none
 bindsym $caps+f workspace $wpFirefox
 bindsym --release $caps+s workspace $wpFirefox; exec --no-startup-id xdotool key --clearmodifiers ctrl+t
+
+
+set $wpSignal Signal
+for_window [class="Signal"] move to workspace $wpSignal
+for_window [class="Signal"] border none
+bindsym $caps+i workspace $wpSignal
+
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
@@ -196,7 +204,6 @@ bar {
 
 
 # Window decoration properties
-for_window [class="Firefox"] border none
 for_window [class="kitty"] border none
 for_window [class="Chromium"] border none
 #for_window [class="vlc"] floating enable sticky enable border none
