@@ -1,4 +1,7 @@
-alias protoc='docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
+DOCKER_RUN='docker run --rm --interactive --tty --user="$(id -u):$(id -g)" --pull always '
+
+
+alias protoc=$DOCKER_RUN'-v $(pwd):$(pwd) -w $(pwd) znly/protoc'
 alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest /slides/ --separator "^\n\n\n" --vertical-separator "^\n\n"'
 # https://github.com/pandoc/dockerfiles/
 alias pandoc='docker run --rm --volume $(pwd):/data --user `id -u`:`id -g` pandoc/latex:latest'
@@ -16,7 +19,7 @@ alias az='docker run --rm -it -v ${HOME}/.azure/:/root/.azure -v ${HOME}/.kube/:
 #alias gcloud='docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud'
 
 # Taken from https://github.com/AustinMaddox/dotfiles/blob/e5156767a569f8def04a213ddb892755eed86e0e/.bash_profile
-alias aws='docker run --rm --interactive --tty --name="aws-cli-v2-container" --volume ~/.aws:/root/.aws --volume $(pwd):/aws amazon/aws-cli'
+alias aws=$DOCKER_RUN'--volume ~/.aws:/root/.aws --volume $(pwd):/aws amazon/aws-cli'
 
 
 
