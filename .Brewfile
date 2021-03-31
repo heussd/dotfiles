@@ -128,6 +128,7 @@ cask "kitematic"
 cask "meld"
 cask "postman"
 cask "yed"
+cask "gephi"
 mas "CotEditor", id: 1024640650
 mas "Xcode", id: 497799835
 
