@@ -147,10 +147,10 @@ cask "microsoft-azure-storage-explorer"
 
 ## Office
 mas "Keynote", id: 409183694
-mas "LibreOffice Vanilla", id: 921923693
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+cask "libreoffice"
 cask "mactex"
 
 
