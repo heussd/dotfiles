@@ -116,7 +116,7 @@ config-toggle-dark-mode-darwin:
 	@osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 
 
-sync:
+sync: ## Synchronize files with maya ❤️
 	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-maya" --exclude=/* maya:~/ ~/
 	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-maya" --exclude=/* ~/ maya:~/
 
