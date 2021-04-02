@@ -117,8 +117,8 @@ config-toggle-dark-mode-darwin:
 
 
 sync:
-	@rsync -auip --progress --safe-links --exclude=.DS_Store --exclude=*.lock maya:~/.newsboat/cache* ~/.newsboat/
-	@rsync -auip --progress --safe-links --exclude=.DS_Store --exclude=*.lock ~/.newsboat/cache* maya:~/.newsboat/
+	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-maya" --exclude=/* maya:~/ ~/
+	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-maya" --exclude=/* ~/ maya:~/
 
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html

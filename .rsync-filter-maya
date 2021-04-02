@@ -1,0 +1,6 @@
++ .newsboat/
++ .newsboat/cache.db
++ .newsboat/cache-tv.db
+- .newsboat/*
+
+- */
