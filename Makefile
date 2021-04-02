@@ -116,6 +116,10 @@ config-toggle-dark-mode-darwin:
 	@osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 
 
+sync:
+	@rsync -auip --progress --safe-links --exclude=.DS_Store --exclude=*.lock maya:~/.newsboat/cache* ~/.newsboat/
+	@rsync -auip --progress --safe-links --exclude=.DS_Store --exclude=*.lock ~/.newsboat/cache* maya:~/.newsboat/
+
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help:
