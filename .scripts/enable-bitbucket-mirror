@@ -1,0 +1,18 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+git pull
+
+secret=$(security find-internet-password -ws bitbucket.org)
+gh secret set BITBUCKET_PASSWORD -b"${secret}"
+
+mkdir -p .github/workflows/
+wget https://raw.githubusercontent.com/heussd/mirror-to-bitbucket-github-action/main/.github/workflows/mirror-to-bitbucket.yml \
+    --output-document=".github/workflows/mirror-to-bitbucket.yml"
+
+
+git add ".github/workflows/mirror-to-bitbucket.yml" -f
+git commit -m "Enable automatic mirroring to BitBucket"
+git push
