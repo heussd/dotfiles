@@ -32,6 +32,11 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
     whatadded = log --diff-filter=A
 	amend = commit --all --amend --no-edit
 
+	# Override commit date, accepts various forms:
+	# git commit-predate "2020-10-10"
+	# git commit-predate "2020-10-10T10:10:10"
+	commit-predate= "!f() { GIT_COMMITTER_DATE=\"$1\" git commit --date=\"$1\"; }; f"
+
 [include]
 	path = ~/.git-over-ssh-enabled
 [help]
