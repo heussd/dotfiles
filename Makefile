@@ -120,13 +120,28 @@ config-toggle-dark-mode-darwin:
 	@osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 
 
-sync: ## Synchronize files with maya ❤️
-	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-maya" --exclude=/* maya:~/ ~/
-	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-maya" --exclude=/* ~/ maya:~/
+# rsyncs a remote location with this user's home
+# $1 - Remote Location
+# $2 - Filter name to apply (.rsync-filter-$2)
+# $3 - Additional options
+define rsync
+	@echo "⬇️ from $1..."
+	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* $(1):~/ ~/ $(3)
+	@echo "⬆️ to $1..."
+	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* ~/ $(1):~/ $(3)
+endef
 
+sync: ## Synchronize files with maya ❤️
+	$(call rsync,maya,maya,)
+
+full-sync: ## Synchronize completely with maya
+	@if ssh maya "test -e ~/data/newsboat/news.db.lock"; then echo "maya is busy, cannot sync now. STOP."; exit 1; fi
+	$(call rsync,maya,maya-full,)
+	
 sync-dry: ## Like sync, but as dry-run
-	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-maya" --exclude=/* maya:~/ ~/ --dry-run
-	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-maya" --exclude=/* ~/ maya:~/ --dry-run
+	$(call rsync,maya,maya,--dry-run)
+
+
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help:
