@@ -14,7 +14,11 @@ default:	$(DOTFILES_BARE)/ auto-pull .auto-install-$(OS_NAME) firefox-policies
 ifneq ("$(wildcard .Makefile.$(OS_NAME).mk)","")
 include .Makefile.$(OS_NAME).mk
 endif
+
+ifneq ("$(wildcard .Makefile.firefox.mk)","")
 include .Makefile.firefox.mk
+endif
+
 
 initial-setup:
 	@echo $(DOTFILES_REPO)
