@@ -1,3 +1,16 @@
+# Reminder: rsync is stricly hierarchical
+
++ data/
++ data/keyword-matcher/
++ data/keyword-matcher/keywords.txt
+- data/keyword-matcher/*
++ data/newsboat/
++ data/newsboat/news.db
++ data/newsboat/urls
+- data/newsboat/*
++ data/pocket-archiver/
+
+
 + .newsboat/
 + .newsboat/cache.db
 + .newsboat/cache-tv.db
