@@ -28,3 +28,8 @@
 - .newsboat/*
 
 - */
+
+
+# Ignore every file on every level
+- .DS_Store
+
