@@ -14,7 +14,7 @@
     "extensions.ignoreRecommendations": true,
     "sync.autoDownload": true,
     "sync.autoUpload": true,
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Default Dark+",
     "explorer.confirmDragAndDrop": false,
     "window.zoomLevel": -1
 }
