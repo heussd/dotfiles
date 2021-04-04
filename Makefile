@@ -132,6 +132,8 @@ define rsync
 endef
 
 sync: ## Synchronize files with maya ❤️
+	gita pull
+	gita push
 	$(call rsync,maya,maya,)
 
 full-sync: ## Synchronize completely with maya
