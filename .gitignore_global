@@ -14,6 +14,8 @@ log/
 /.classpath
 /.project
 /.settings
+/bin/
+/target/
 
 
 .ipynb_checkpoints/
