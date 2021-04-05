@@ -35,10 +35,10 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	# Override commit date, accepts various forms:
 	# git commit-predate "2020-10-10"
 	# git commit-predate "2020-10-10T10:10:10"
-	commit-predate= "!f() { GIT_COMMITTER_DATE=\"$1\" git commit --date=\"$1\"; }; f"
+	commit-predate= "!f() { REFDATE=$1; shift; GIT_COMMITTER_DATE=\"$REFDATE\" git commit --date=\"$REFDATE\" $*; }; f"
 
 	# State a reference file to take last-modified date from
-	commit-refdate= "!f() { REFDATE=$(stat -f \"%Sm\" -t \"%Y-%m-%dT%H:%M:%S\" \"$1\"); git commit-predate \"$REFDATE\"; }; f"
+	commit-refdate= "!f() { REFDATE=$(stat -f \"%Sm\" -t \"%Y-%m-%dT%H:%M:%S\" \"$1\"); shift; git commit-predate \"$REFDATE\" $*; }; f"
 
 
 [include]
