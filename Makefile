@@ -125,18 +125,26 @@ config-toggle-dark-mode-darwin:
 # $2 - Filter name to apply (.rsync-filter-$2)
 # $3 - Additional options
 define rsync
-	@echo "⬇️ from $1..."
+	@echo "⬇️ $1..."
 	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* $(1):~/ ~/ $(3)
-	@echo "⬆️ to $1..."
+	@echo "⬆️ $1..."
 	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* ~/ $(1):~/ $(3)
 endef
 
+define gita
+	@echo "⬇️ gita..."
+	@gita pull
+	@echo "⬆️ gita..."
+	@gita push
+endef
+	
+
 sync: ## Synchronize files with maya ❤️
-	gita pull
-	gita push
+	$(call gita)
 	$(call rsync,maya,maya,)
 
 full-sync: ## Synchronize completely with maya
+	$(call gita)
 	@if ssh maya "test -e ~/data/newsboat/news.db.lock"; then echo "maya is busy, cannot sync now. STOP."; exit 1; fi
 	$(call rsync,maya,maya-full,)
 	
