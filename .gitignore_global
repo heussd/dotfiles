@@ -24,6 +24,9 @@ log/
 __pycache__/
 
 
+.svn/
+
+
 # Compiled class file
 *.class
 
