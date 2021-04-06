@@ -19,8 +19,26 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
+
+# Taken from https://yousseb.github.io/meld/
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	trustExitCode = true
+	cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = meld
+[mergetool]
+	prompt = false
+[mergetool "meld"]
+	trustExitCode = true
+	cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+
+
 [alias]
-    ac = !git add -u && git commit -m 
+	ac = !git add -u && git commit -m 
 	cosh = !git commit && git push
 	co = checkout
 	s = status --ignored
@@ -45,8 +63,6 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	path = ~/.git-over-ssh-enabled
 [help]
 	autocorrect = 10
-[merge]
-    tool = meld
 [pull]
 	rebase = false
 
