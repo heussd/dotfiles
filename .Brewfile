@@ -55,8 +55,10 @@ mas "OneDrive", id: 823766827
 
 
 ## Power Tools
-brew "croc"                         # croc is a tool that allows any two computers to simply and securely transfer files and folders.
+brew "borgbackup"
+brew "croc" # croc is a tool that allows any two computers to simply and securely transfer files and folders.
 brew "neofetch"
+brew "sops"
 brew "taskell"
 brew "zsh-completions"
 cask "appcleaner"
@@ -108,10 +110,10 @@ cask "font-source-code-pro-for-powerline"
 
 ## Development 
 brew "dive"
+brew "k9s"
 brew "kubectx"
 brew "lazydocker"
 brew "node"
-brew "k9s"
 brew "p7zip"
 brew "sqlite"
 brew "terminal-notifier"
@@ -120,16 +122,16 @@ cask "clockify"
 cask "cyberduck"
 cask "db-browser-for-sqlite"
 cask "docker"
+cask "gephi"
+cask "google-cloud-sdk"
 cask "hex-fiend"
 cask "jetbrains-toolbox"
 cask "kitematic"
 cask "meld"
 cask "postman"
 cask "yed"
-cask "gephi"
 mas "CotEditor", id: 1024640650
 mas "Xcode", id: 497799835
-
 tap "tnk-studio/tools"
 brew "lazykube"
 
@@ -176,11 +178,9 @@ cask "sweet-home3d"
 
 
 
-## Temporary
-brew "sops"
-cask "eloston-chromium"
-cask "finicky"
-cask "google-chrome"
-cask "google-cloud-sdk"
-cask "google-drive"
+## Only on host coffeelake
+cask "eloston-chromium" unless system 'hostname | grep --invert-match "coffeelake" > /dev/null'
+cask "finicky" unless system 'hostname | grep --invert-match "coffeelake" > /dev/null'
+cask "google-chrome" unless system 'hostname | grep --invert-match "coffeelake" > /dev/null'
+cask "google-drive" unless system 'hostname | grep --invert-match "coffeelake" > /dev/null'
 
