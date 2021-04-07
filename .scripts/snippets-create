@@ -1,1 +1,1 @@
-pbpaste > "$HOME/projects/snippets/$1"
+pbpaste > "$TH_PROJECTS_FOLDER/snippets/$1"

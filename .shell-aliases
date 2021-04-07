@@ -10,6 +10,8 @@ function _isMacOS() { uname -s | grep "Darwin" > /dev/null; }
 function _isLinux() { uname -s | grep "Linux" > /dev/null; }
 
 
+export TH_PROJECTS_FOLDER="$HOME/Developer"
+
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_CASK_OPTS="--no-quarantine"
@@ -90,7 +92,7 @@ function take() { mkdir -p "$1" && cd "$1"; }
 function t() { mkdir -p "$HOME/temp" && cd "$HOME/temp"; }
 alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
-alias p="cd ~/projects"
+alias p="cd $TH_PROJECTS_FOLDER"
 
 alias vimwiki="vim -c VimwikiIndex"
 

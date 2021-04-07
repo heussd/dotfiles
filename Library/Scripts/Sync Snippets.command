@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/projects/snippets
+cd "$TH_PROJECTS_FOLDER/snippets" || exit 1
 git pull
 
 git add *

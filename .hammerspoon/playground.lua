@@ -1,5 +1,5 @@
 function hlspeak(word)
-    local file = os.getenv("HOME") .. "/projects/hl_text2speech/snd/male/" .. word .. ".wav"
+    local file = os.getenv("TH_PROJECTS_FOLDER") .. "/hl_text2speech/snd/male/" .. word .. ".wav"
     print (file)
     local sound = hs.sound.getByFile(file)
     sound:play()
@@ -20,7 +20,7 @@ end)
 hyper:bind({}, "p", nil, function() 
     hs.alert("Playground")
 
-    if (hs.fs.chdir(os.getenv("HOME") .. "/projects/hl_text2speech/snd/male/") == nil) then
+    if (hs.fs.chdir(os.getenv("TH_PROJECTS_FOLDER") .. "/hl_text2speech/snd/male/") == nil) then
         hs.alert("EMPTY")
     else
         hlspeak('dadeda')

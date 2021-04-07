@@ -2,7 +2,7 @@
 
 [ -e "$1" ] && cd "$1"
 if [ "$PWD" = "$HOME" ]; then
-	cd ~/projects
+	cd "$TH_PROJECTS_FOLDER" || exit 1
 fi
 sel=$(ls -t | fzf)
 
