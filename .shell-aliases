@@ -66,6 +66,7 @@ alias dotifles='dotfiles'
 alias .f='dotfiles'
 
 alias dotfiles-code='dotfiles ls-files | fzf | xargs code'
+alias home='make --makefile="$HOME/.Makefile" --directory="$HOME/"'
 
 alias motd="source $HOME/.shell-motd"
 

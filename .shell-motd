@@ -31,7 +31,7 @@ if [ "$PWD" = "$HOME" ]; then
 		_isMacOS && xcode-select --install
 	)
 
-	make
+	home
 
 	# Allow Kitty to switch theme based on OS Dark Mode setting
 	# Inspired by https://github.com/evantravers/dotfiles/compare/084d4737b4dcdd0877520dcc1ba4e02224e4bdd0...2f5a3d18274499970922752d39fc917e4bf0d39b
