@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "$PWD" != "$HOME/projects/snippets" ]; then
-	pushd $HOME/projects/snippets
+if [ "$PWD" != "$TH_PROJECTS_FOLDER/snippets" ]; then
+	pushd "$TH_PROJECTS_FOLDER/snippets" || exit 1
 fi
 
 

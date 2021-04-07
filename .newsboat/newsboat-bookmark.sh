@@ -8,7 +8,7 @@ feed="$4"
 
 file=$(date '+%Y-%m-%d')
 
-cd "$HOME/projects/vimwiki" || exit 1
+cd "$TH_PROJECTS_FOLDER/vimwiki" || exit 1
 
 echo "\n## $title \n
 <$url>" >> ./$file.md
