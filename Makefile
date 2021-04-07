@@ -152,6 +152,12 @@ sync-dry: ## Like sync, but as dry-run
 	$(call rsync,maya,maya,--dry-run)
 
 
+backup:
+	@rsync --archive --delete --delete-excluded --progress --human-readable \
+		-F --filter=". $$HOME/.rsync-filter-backup" --exclude=/*	   \
+		"$$HOME/" /Volumes/VeraCrypt/rsync-backup/
+
+
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help:

@@ -1,0 +1,16 @@
++ /Dropbox/
++ /Documents/
++ /data/
++ /OneDrive/
++ /Pictures/
+
++ /Library/
++ /Library/Thunderbird/
++ /Library/Application Support/
++ /Library/Application Support/Firefox/
++ /Library/Application Support/Firefox/Profiles/
++ /Library/Application Support/Firefox/Profiles/*/
++ /Library/Application Support/Firefox/Profiles/*/places.sqlite
++ /Library/Application Support/Firefox/Profiles/*/key4.db
++ /Library/Application Support/Firefox/Profiles/*/logins.json
+- /Library/**
