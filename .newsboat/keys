@@ -4,5 +4,5 @@
 unbind-key C
 
 bind-key SPACE  toggle-article-read
-#bind-key SPACE	mark-all-above-as-read
+bind-key a	mark-all-above-as-read
 
