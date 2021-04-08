@@ -8,7 +8,7 @@ DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
 
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
-default:	$(DOTFILES_BARE)/ auto-pull .auto-install-$(OS_NAME) firefox-policies
+default: auto-pull .auto-install-$(OS_NAME) firefox-policies
 .PHONY: default
 
 ifneq ("$(wildcard .Makefile.$(OS_NAME).mk)","")
@@ -20,10 +20,9 @@ include .Makefile.firefox.mk
 endif
 
 
-initial-setup:
-	@echo $(DOTFILES_REPO)
+onboard: ## Onboards the dotfiles repository on this machine
+	@echo -e "\033[0;34m[Home Makefile]\033[0mOnboarding $(DOTFILES_REPO)..."
 
-$(DOTFILES_BARE)/: 
 	@git clone --bare $(DOTFILES_REPO) $(DOTFILES_BARE)/
 	@git --git-dir=$(DOTFILES_BARE) config --local status.showUntrackedFiles no
 	@git --git-dir=$(DOTFILES_BARE) config --local core.sparseCheckout true
@@ -44,6 +43,8 @@ endif
 # Manual pull to create FETCH_HEAD
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull
 	@touch "$(DOTFILES_BARE)/FETCH_HEAD"
+
+	@echo -e "\033[0;34m[Home Makefile]\033[0mOnboarding complete!"
 
 
 # Do things if $1 is too old
