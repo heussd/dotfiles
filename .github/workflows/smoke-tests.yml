@@ -7,29 +7,35 @@ on: [push]
 # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 jobs:
   macos-11-0:
+    name: macOS
     runs-on: macOS-11.0
     steps:
     -
-      name: Onboard macOS
+      name: Onboard
       run:   |
         cd $HOME
         pwd
 
         curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+
+        # It seems that there are many preinstalled brew packages by default
+        # Gather these packages so that they are not uninstalled with the next step
+        brew bundle dump --file .Brewfile --force
        
-        # Overwrite Brewfile, no need to stress download servers
-        echo "brew \"fzf\"" > .Brewfile
-        
+        # Add one package to test auto install
+        echo "brew \"fzf\"" >> .Brewfile
+
         ls -la
 
         # Simulate first shell init
         make -f .Makefile
 
   ubuntu-linux-20-04:
+    name: Ubuntu
     runs-on: ubuntu-latest
     steps:
     -
-      name: Onboard Ubuntu
+      name: Onboard
       run:   |
         cd $HOME
         pwd

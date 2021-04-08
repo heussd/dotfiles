@@ -44,7 +44,7 @@ endif
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull
 	@touch "$(DOTFILES_BARE)/FETCH_HEAD"
 
-	@echo -e "\033[0;34m[Home Makefile]\033[0mOnboarding complete!"
+	@echo -e "\033[0;34m[Home Makefile]\033[0m Onboarding complete!"
 
 
 # Do things if $1 is too old
