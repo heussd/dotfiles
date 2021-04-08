@@ -15,4 +15,5 @@ case "$OSTYPE" in
 esac
 
 
+cd $HOME
 curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.Makefile | make -f - onboard

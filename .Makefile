@@ -21,7 +21,7 @@ endif
 
 
 onboard: ## Onboards the dotfiles repository on this machine
-	@echo -e "\033[0;34m[Home Makefile]\033[0mOnboarding $(DOTFILES_REPO)..."
+	@echo -e "\033[0;34m[Home Makefile]\033[0m Onboarding $(DOTFILES_REPO)..."
 
 	@git clone --bare $(DOTFILES_REPO) $(DOTFILES_BARE)/
 	@git --git-dir=$(DOTFILES_BARE) config --local status.showUntrackedFiles no

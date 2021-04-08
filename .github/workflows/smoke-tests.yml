@@ -9,41 +9,38 @@ jobs:
   macos-11-0:
     runs-on: macOS-11.0
     steps:
-      #- uses: actions/checkout@v1
-    - name: Execute make
+    -
+      name: Onboard macOS
       run:   |
-        curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
-        # Overwrite Brewfile, we do not need to stress download servers
-        #echo "brew \"fzf\"" > .Brewfile
-        #make
-  ubuntu-linux-20-04:
-    runs-on: ubuntu-20.04
-    steps:
-      #- uses: actions/checkout@v1
-    - name: Execute make
-      run:   |
-        wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
-        #make
+        cd $HOME
+        pwd
 
-        #  new-tag:
-        #    runs-on: ubuntu-latest
-        #    if: github.ref == 'refs/heads/master'
-        #    needs: [ubuntu-linux-20-04, macos-11-0]
-        #    steps:
-        #    - name: checkout code
-        #      uses: actions/checkout@v2
-        #    - name: Generate new tag
-        #      id: build
-        #      run: |
-        #        CURRENT_TAG=$(git ls-remote --tags origin |awk -F \/ '{print $NF}'|sort -Vr|head -1)
-        #        NEXT_TAG=$(docker run --rm alpine/semver:latest semver -c -i patch ${CURRENT_TAG})
-        #        echo "::set-output name=tag::$NEXT_TAG"
-        #    - name: Create Release
-        #      uses: actions/create-release@v1
-        #      env:
-        #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #      with:
-        #        tag_name: "${{steps.build.outputs.tag}}"
-        #        release_name: "Release ${{steps.build.outputs.tag}}"
-        #        draft: false
-        #        prerelease: false
+        curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+       
+        # Overwrite Brewfile, no need to stress download servers
+        echo "brew \"fzf\"" > .Brewfile
+        
+        ls -la
+
+        # Simulate first shell init
+        make -f .Makefile
+
+  ubuntu-linux-20-04:
+    runs-on: ubuntu-latest
+    steps:
+    -
+      name: Onboard Ubuntu
+      run:   |
+        cd $HOME
+        pwd
+
+        wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+        
+        # Overwrite apt packages file, no need to stress download servers
+        echo "fzf" > .apt-packages-base
+
+        ls -la
+        
+        # Simulate first shell init
+        make -f .Makefile
+
