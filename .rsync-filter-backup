@@ -7,6 +7,7 @@
 
 + /Library/
 + /Library/Thunderbird/
++ /Library/Thunderbird/**
 + /Library/Application Support/
 + /Library/Application Support/Firefox/
 + /Library/Application Support/Firefox/Profiles/
