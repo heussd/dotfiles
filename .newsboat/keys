@@ -6,3 +6,6 @@ unbind-key C
 bind-key SPACE  toggle-article-read
 bind-key a	mark-all-above-as-read
 
+# Swap these two keys
+bind-key o	open-in-browser-and-mark-read
+bind-key O	open-in-browser
