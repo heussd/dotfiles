@@ -5,11 +5,18 @@ endif
 FIREFOX_PROFILES_LOCATION=$$HOME/.mozilla/firefox/
 
 
-.auto-install-linux: .apt-packages-base
-# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
-	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
+
+.auto-install-linux: .auto-install-apt .Brewfile.linux | check-time-last-installed
+	@export HOMEBREW_CASK_OPTS="--no-quarantine"
+	@printf "\e[1;34m[Home Makefile]\e[0m Brew bundle install...\n"
+	@brew bundle install -v --cleanup --force --file=.Brewfile.linux
 	@touch .auto-install-linux
 
+
+.auto-install-apt: .apt-packages-base
+# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
+	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
+	@touch .auto-install-apt
 
 config-linux:
 	@echo "No config!"
