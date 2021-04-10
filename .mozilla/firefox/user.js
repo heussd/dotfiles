@@ -38,3 +38,6 @@ user_pref("browser.altClickSave", true);
 
 // Backspace to "Go back"
 user_pref("browser.backspace_action", 0);
+
+
+user_pref("browser.tabs.closeWindowWithLastTab", false);
