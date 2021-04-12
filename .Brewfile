@@ -151,6 +151,7 @@ mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 cask "libreoffice"
+brew "aspell"
 cask "mactex"
 
 
