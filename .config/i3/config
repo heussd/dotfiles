@@ -212,7 +212,7 @@ for_window [class="Chromium"] border none
 for_window [window_role="pop-up"] floating enable
 for_window [class="zazu"] floating enable
 
-for_window [class="mpv"] move to workspace mpv
+#for_window [class="mpv"] move to workspace mpv
 
 bindsym XF86AudioRaiseVolume exec amixer set Master 2dB+
 bindsym XF86AudioLowerVolume exec amixer set Master 2dB-

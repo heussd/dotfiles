@@ -66,7 +66,7 @@ alias dotifles='dotfiles'
 alias .f='dotfiles'
 
 alias dotfiles-code='dotfiles ls-files | fzf | xargs code'
-alias home='make --makefile="$HOME/.Makefile" --directory="$HOME/"'
+alias home='make --makefile="$HOME/.Makefile" --directory="$HOME/" --no-print-directory'
 
 alias motd="source $HOME/.shell-motd"
 
@@ -137,3 +137,7 @@ fif() {
   fi
   rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
 }
+
+
+# Linux: add Homebrew to the PATH
+_hasFile /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
