@@ -20,6 +20,7 @@ export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
 export BROWSER="firefox"
+_isMacOS && export BROWSER="open"
 export TERM=xterm-color
 export EDITOR='vim'
 export LC_ALL='en_US.UTF-8'
