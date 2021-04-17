@@ -134,6 +134,7 @@ mas "CotEditor", id: 1024640650
 mas "Xcode", id: 497799835
 tap "tnk-studio/tools"
 brew "lazykube"
+brew "glab"
 
 tap "nektos/tap"
 brew "act"
