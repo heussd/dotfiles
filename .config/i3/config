@@ -247,9 +247,9 @@ exec --no-startup-id if [ -f .deinit ]; then source .deinit; fi
 exec --no-startup-id bash ~/goodnight
 
 # Disable Laptop screen if external monitor is connected
-exec --no-startup-id xrandr | grep "VGA-1 connected" && xrandr --output LVDS-1 --off
+#exec --no-startup-id xrandr | grep "VGA-1 connected" && xrandr --output LVDS-1 --off
 exec --no-startup-id glipper 
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Disable screen standy
 exec --no-startup-id xset s off
@@ -261,4 +261,3 @@ exec --no-startup-id redshift -t 6500:2500
 
 exec --no-startup-id eval ~/.fehbg
 
-exec --no-startup-id zazu
