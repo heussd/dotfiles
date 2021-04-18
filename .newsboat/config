@@ -1,6 +1,0 @@
-include ~/.newsboat/common-config
-
-error-log ~/.newsboat/errors.log
-
-delete-read-articles-on-quit	yes
-mark-as-read-on-hover		no

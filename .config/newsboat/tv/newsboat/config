@@ -1,6 +1,5 @@
-include ~/.newsboat/common-config
+include "~/.config/newsboat/config"
 
-cache-file     "~/.newsboat/cache-tv.db" 
 
 browser "mpv %u &> /dev/null &"
 
