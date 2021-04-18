@@ -1,3 +1,9 @@
+/* Hide main tabs toolbar */
+#TabsToolbar {
+	visibility: collapse;
+}
+
+
 /*
 * Overwrite Container tab colors with pastel colors
 */
