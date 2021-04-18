@@ -1,0 +1,7 @@
+include "~/.config/newsboat/config"
+
+
+mark-as-read-on-hover		no
+
+delete-read-articles-on-quit	yes
+cleanup-on-quit                 yes
