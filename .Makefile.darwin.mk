@@ -13,6 +13,9 @@ FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
 
 
 config-darwin: config-darwin-coteditor
+	# Set key-repeat to "quite fast"
+	defaults write NSGlobalDomain InitialKeyRepeat -int 2
+
 	# Native window drag and drop with Ctrl+Cmd
 	defaults write -g NSWindowShouldDragOnGesture -bool true
 
