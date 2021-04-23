@@ -59,3 +59,7 @@ disable-unattended-updates: ## Disable unattended updates on Linux hosts
 apt-no-sudo-passwd: ## Allow using apt without a sudo password
 	echo "%sudo   ALL=(ALL:ALL) NOPASSWD:/usr/bin/apt" | sudo tee /etc/sudoers.d/010_apt-nopasswd
 
+
+.PHONY: lock-keyring
+lock-keyring:
+	@kill -9 $$(pgrep gnome-keyring-d)
