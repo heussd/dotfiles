@@ -6,6 +6,7 @@ MAKEFLAGS += --no-builtin-rules
 DOTFILES_REPO := https://github.com/heussd/dotfiles.git
 DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
 
+HOST = $$(hostname | cut -d"." -f 1)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
 default: auto-pull .auto-install-$(OS_NAME) firefox-policies
@@ -140,7 +141,6 @@ define gita
 endef
 	
 
-HOST=`hostname`
 sync: ## Synchronize files with maya ❤️
 	$(call gita)
 	$(call rsync,maya,$(HOST),)
