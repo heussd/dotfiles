@@ -140,12 +140,12 @@ define gita
 endef
 	
 
+HOST=`hostname`
 sync: ## Synchronize files with maya ❤️
 	$(call gita)
-	$(call rsync,maya,maya,)
+	$(call rsync,maya,$(HOST),)
 
 full-sync: ## Synchronize completely with maya
-	$(call gita)
 	@if ssh maya "test -e ~/data/newsboat/news.db.lock"; then echo "maya is busy, cannot sync now. STOP."; exit 1; fi
 	$(call rsync,maya,maya-full,)
 	
