@@ -12,29 +12,27 @@ FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
 	@touch .auto-install-darwin
 
 
-config-darwin: config-darwin-coteditor
-	# Set key-repeat to "quite fast"
-	defaults write NSGlobalDomain InitialKeyRepeat -int 2
-
+config-darwin: config-darwin-apps
 	# Native window drag and drop with Ctrl+Cmd
 	defaults write -g NSWindowShouldDragOnGesture -bool true
-
 	defaults write com.apple.screencapture location $(HOME)/Downloads; killall SystemUIServer 
-
 	defaults write com.apple.Dock autohide-delay -float 0.0001
 	defaults write com.apple.dock autohide-time-modifier -float 0.25
 	killall Dock
+	defaults write NSGlobalDomain InitialKeyRepeat -int 10
+	defaults write NSGlobalDomain KeyRepeat -int 3
+	# Required to apply keyboard settings
+	osascript -e 'tell application "System Events" to log out'
 
+
+.PHONY: config-darwin-apps
+config-darwin-apps:
 	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
 	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
 	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
 	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
-
-
-.PHONY: config-darwin-coteditor
-config-darwin-coteditor:
 	defaults write com.coteditor.CotEditor showNavigationBar 0
 	defaults write com.coteditor.CotEditor lineHeight 1.1
 	defaults write com.coteditor.CotEditor fontName SauceCodePowerline-Regular
