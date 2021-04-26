@@ -19,8 +19,8 @@ config-darwin: config-darwin-apps
 	defaults write com.apple.Dock autohide-delay -float 0.0001
 	defaults write com.apple.dock autohide-time-modifier -float 0.25
 	killall Dock
-	defaults write NSGlobalDomain InitialKeyRepeat -int 10
-	defaults write NSGlobalDomain KeyRepeat -int 3
+	defaults write NSGlobalDomain InitialKeyRepeat -int 12
+	defaults write NSGlobalDomain KeyRepeat -int 4
 	# Required to apply keyboard settings
 	osascript -e 'tell application "System Events" to log out'
 
