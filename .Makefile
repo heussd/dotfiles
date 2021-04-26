@@ -9,7 +9,7 @@ DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
 HOST = $$(hostname | cut -d"." -f 1)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
-default: auto-pull .auto-install-$(OS_NAME) firefox-policies
+default: auto-pull auto-install
 .PHONY: default
 
 ifneq ("$(wildcard .Makefile.$(OS_NAME).mk)","")
@@ -19,6 +19,10 @@ endif
 ifneq ("$(wildcard .Makefile.firefox.mk)","")
 include .Makefile.firefox.mk
 endif
+
+
+auto-install: .auto-install-$(OS_NAME) firefox-policies
+.PHONY: auto-install
 
 
 onboard: ## Onboards the dotfiles repository on this machine
