@@ -180,10 +180,13 @@ cask "handbrake"
 cask "sweet-home3d"
 
 
+## kabylake
+cask "steam" if system 'hostname | grep "kabylake" > /dev/null'
 
-## Only on host coffeelake
-cask "eloston-chromium" unless system 'hostname | grep --invert-match "coffeelake" > /dev/null'
-cask "finicky" unless system 'hostname | grep --invert-match "coffeelake" > /dev/null'
-cask "google-chrome" unless system 'hostname | grep --invert-match "coffeelake" > /dev/null'
-cask "google-drive" unless system 'hostname | grep --invert-match "coffeelake" > /dev/null'
+
+## coffeelake
+cask "eloston-chromium" if system 'hostname | grep "coffeelake" > /dev/null'
+cask "finicky" if system 'hostname | grep "coffeelake" > /dev/null'
+cask "google-chrome" if system 'hostname | grep "coffeelake" > /dev/null'
+cask "google-drive" if system 'hostname | grep "coffeelake" > /dev/null'
 
