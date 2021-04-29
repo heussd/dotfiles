@@ -83,7 +83,7 @@ function generate_menu()
         {title = "-" },
         {title = 'Hammerspoon Console', fn = hs.toggleConsole},
         {title = "-" },
-        {title = 'Open Hammerspoon Configuration', fn = open_config},
+        {title = 'Edit Hammerspoon Configuration', fn = open_config},
         {title = 'Reload Hammerspoon Configuration', fn = hs.reload}
     })
 end
