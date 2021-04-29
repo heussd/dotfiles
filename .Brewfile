@@ -19,7 +19,6 @@ cask "keka"
 cask "visual-studio-code"
 
 
-
 ## Command line tools
 brew "bat"
 brew "brew-cask-completion"
@@ -46,7 +45,6 @@ brew "wget"
 brew "tmux"
 
 
-
 ## Cloud File Sync
 cask "dropbox"
 cask "cryptomator"
@@ -55,11 +53,9 @@ mas "OneDrive", id: 823766827
 
 
 ## Power Tools
-brew "borgbackup"
 brew "croc" # croc is a tool that allows any two computers to simply and securely transfer files and folders.
 brew "neofetch"
 brew "sops"
-brew "taskell"
 brew "zsh-completions"
 cask "appcleaner"
 cask "balenaetcher"
@@ -72,22 +68,12 @@ cask "hammerspoon"
 cask "knockknock"
 cask "maccy"
 cask "mendeley"
-cask "qlimagesize"
-cask "qlmarkdown"
-cask "qlprettypatch"
-cask "qlstephen"
-cask "qlvideo"
-cask "quicklook-csv"
-cask "quicklook-json"
-cask "suspicious-package"
-cask "syntax-highlight"
 cask "tabula"
 cask "thunderbird"
 cask "tiles"
 cask "tor-browser"
 cask "transmission"
 cask "veracrypt"
-cask "webpquicklook"
 mas "Disk Graph", id: 697942581
 mas "Flycut", id: 442160987
 mas "Ka-Block!", id: 1335413823
@@ -171,19 +157,31 @@ cask "inkscape"
 mas "GIPHY CAPTURE", id: 668208984
 
 
-
 ## Audio / Video
 cask "mpv"
 brew "youtube-dl" # Dependency of mpv
 cask "mediathekview"
 cask "vlc"
 cask "handbrake"
-cask "sweet-home3d"
+
+
+## QuickLook
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlprettypatch"
+cask "qlstephen"
+cask "qlvideo"
+cask "quicklook-csv"
+cask "quicklook-json"
+cask "suspicious-package"
+cask "syntax-highlight"
+cask "webpquicklook"
 
 
 ## kabylake
 cask "steam" if system 'hostname | grep "kabylake" > /dev/null'
 cask "epic-games" if system 'hostname | grep "kabylake" > /dev/null'
+cask "sweet-home3d" if system 'hostname | grep "kabylake" > /dev/null'
 
 
 ## coffeelake
