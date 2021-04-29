@@ -4,7 +4,8 @@
     "window.restoreWindows": "none",
     "git.confirmSync": false,
     "git.autofetch": true,
-    "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+    // https://github.com/microsoft/vscode/issues/100840
+    //"editor.fontFamily": "'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -15,5 +16,6 @@
     "sync.autoDownload": true,
     "sync.autoUpload": true,
     "workbench.colorTheme": "Default Dark+",
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 1
 }
