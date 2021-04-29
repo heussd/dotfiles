@@ -183,6 +183,7 @@ cask "sweet-home3d"
 
 ## kabylake
 cask "steam" if system 'hostname | grep "kabylake" > /dev/null'
+cask "epic-games" if system 'hostname | grep "kabylake" > /dev/null'
 
 
 ## coffeelake
