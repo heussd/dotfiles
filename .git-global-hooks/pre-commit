@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+CERR='\033[0;31m'
+COK='\033[0;32m'
+NC='\033[0m'
+
+function fail {
+    echo -e "\n\n${CERR}Sorry, but a pre-commit-hock has prevented this commit.${NC}"
+    echo -e "You may ignore the hock via\n"
+    echo -e "\t git commit -n \t\t"
+    exit 1
+}
+trap fail ERR
+
+function all {
+    git ls-files --full-name "$1" | tr "\n" "\0" | xargs -I {} -0 bash -c "printf '%s' \"Checking {}...\"; $2 '{}' && printf '${COK}[OK]${NC}\n'" || fail
+}
+
+all "*.yml" yamllint
+all "*.yaml" yamllint
+
+
+function json_check_and_format {
+    # Try to parse the json
+    jq . "$1" > /dev/null || exit 1
+
+    # Parse ok, reformat
+    reformatted=$(jq . "$1" -S)
+    printf "%s" "$reformatted" > "lala.json"
+}
+export -f json_check_and_format
+
+all "*.json" json_check_and_format
+
+
+PYSPELLING_CONFIG=".pyspelling.yml"
+if test -f "$PYSPELLING_CONFIG"; then
+    pyspelling -c "$PYSPELLING_CONFIG"
+fi
+
+echo "All checks passed 😍"

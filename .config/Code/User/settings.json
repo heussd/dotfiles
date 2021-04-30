@@ -16,6 +16,5 @@
     "sync.autoDownload": true,
     "sync.autoUpload": true,
     "workbench.colorTheme": "Default Dark+",
-    "explorer.confirmDragAndDrop": false,
-    "window.zoomLevel": 1
+    "explorer.confirmDragAndDrop": false
 }
