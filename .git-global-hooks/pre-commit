@@ -29,7 +29,7 @@ function json_check_and_format {
 
     # Parse ok, reformat
     reformatted=$(jq . "$1" -S)
-    printf "%s" "$reformatted" > "lala.json"
+    printf "%s" "$reformatted" > "$1"
 }
 export -f json_check_and_format
 
