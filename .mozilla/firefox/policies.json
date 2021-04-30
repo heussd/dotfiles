@@ -1,5 +1,9 @@
 {
   "policies": {
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableSetDesktopBackground": true,
+    "DisableTelemetry": true,
     "Extensions": {
       "Install": [
         "https://addons.mozilla.org/firefox/downloads/latest/cookie-quick-manager/latest.xpi",
@@ -12,10 +16,10 @@
         "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi"
       ],
       "Uninstall": [
-				"bing@search.mozilla.org",
-				"ebay@search.mozilla.org",
-				"google@search.mozilla.org",
-				"wikipedia@search.mozilla.org",
+        "bing@search.mozilla.org",
+        "ebay@search.mozilla.org",
+        "google@search.mozilla.org",
+        "wikipedia@search.mozilla.org",
         "amazon@search.mozilla.org",
         "amazondotcom@search.mozilla.org",
         "bing@search.mozilla.org",
@@ -25,45 +29,41 @@
         "screenshots@mozilla.org",
         "twitter@search.mozilla.org",
         "wikipedia@search.mozilla.org"
-			]
+      ]
     },
-    "DisableFirefoxStudies": true,
-    "DisableTelemetry": true,
-    "DisablePocket": true,
-    "PrimaryPassword": true,
+    "FirefoxHome": {
+      "Highlights": false,
+      "Locked": false,
+      "Pocket": false,
+      "Search": false,
+      "Snippets": false,
+      "TopSites": false
+    },
     "Homepage": {
       "Locked": true,
       "StartPage": "none"
     },
     "NewTabPage": true,
-    "FirefoxHome": {
-      "Search": false,
-      "TopSites": false,
-      "Highlights": false,
-      "Pocket": false,
-      "Snippets": false,
-      "Locked": false 
-    },
     "NoDefaultBookmarks": true,
-    "DisableSetDesktopBackground": true,
+    "Preferences": {
+      "DISABLED-extensions.blocklist.enabled": false,
+      "browser.safebrowsing.malware.enabled": false,
+      "browser.safebrowsing.phishing.enabled": false,
+      "browser.slowStartup.notificationDisabled": true,
+      "security.osclientcerts.autoload": true
+    },
+    "PrimaryPassword": true,
     "SearchEngines": {
-        "Remove": [
-          "Amazon.com",
-          "Bing",
-          "eBay",
-          "Google",
-          "Twitter",
-          "Wikipedia (en)"
-        ]       
+      "Remove": [
+        "Amazon.com",
+        "Bing",
+        "eBay",
+        "Google",
+        "Twitter",
+        "Wikipedia (en)"
+      ]
     },
     "SearchSuggestEnabled": false,
-    "Preferences": {
-      "security.osclientcerts.autoload": true,
-      "browser.safebrowsing.phishing.enabled": false,
-      "browser.safebrowsing.malware.enabled": false,
-      "DISABLED-extensions.blocklist.enabled": false,
-      "browser.slowStartup.notificationDisabled": true
-    },
     "SupportMenu": {
       "Title": "✅ Timm's modifications enabled",
       "URL": "https://github.com/heussd/dotfiles"

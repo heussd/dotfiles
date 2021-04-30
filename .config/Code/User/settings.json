@@ -1,18 +1,18 @@
 {
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "window.restoreWindows": "none",
-    "git.confirmSync": false,
-    "git.autofetch": true,
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.startupEditor": "newUntitledFile",
-    "extensions.ignoreRecommendations": true,
-    "sync.autoDownload": true,
-    "sync.autoUpload": true,
-    "workbench.colorTheme": "Default Dark+",
-    "explorer.confirmDragAndDrop": false
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.suggestSelection": "first",
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "sync.autoDownload": true,
+  "sync.autoUpload": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "window.restoreWindows": "none",
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.startupEditor": "newUntitledFile"
 }

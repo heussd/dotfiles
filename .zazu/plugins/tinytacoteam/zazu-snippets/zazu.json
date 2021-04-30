@@ -1,69 +1,71 @@
 {
-  "name": "Zazu Snippets",
-  "icon": "snip.svg",
-  "stylesheet": "css/preview.css",
   "blocks": {
+    "external": [
+      {
+        "connections": [
+          "Write"
+        ],
+        "hotkey": "CmdOrCtrl+Alt+Space",
+        "id": "Direct",
+        "type": "Hotkey"
+      }
+    ],
     "input": [
       {
-        "id": "Read",
-        "type": "PrefixScript",
-        "prefix": "",
-        "space": false,
         "args": "Required",
-        "script": "src/read.js",
         "connections": [
           "Copy"
-        ]
+        ],
+        "id": "Read",
+        "prefix": "",
+        "script": "src/read.js",
+        "space": false,
+        "type": "PrefixScript"
       },
       {
-        "id": "Write",
-        "type": "PrefixScript",
-        "prefix": "snipc",
-        "space": true,
         "args": "Required",
-        "script": "src/write.js",
         "connections": [
           "WriteSnippet"
-        ]
+        ],
+        "id": "Write",
+        "prefix": "snipc",
+        "script": "src/write.js",
+        "space": true,
+        "type": "PrefixScript"
       },
       {
-        "id": "Delete",
-        "type": "PrefixScript",
-        "prefix": "snipd",
-        "space": true,
         "args": "Required",
-        "script": "src/delete.js",
         "connections": [
           "DeleteSnippet"
-        ]
+        ],
+        "id": "Delete",
+        "prefix": "snipd",
+        "script": "src/delete.js",
+        "space": true,
+        "type": "PrefixScript"
       }
     ],
     "output": [
       {
         "id": "Copy",
-        "type": "CopyToClipboard",
-        "text": "{value}"
+        "text": "{value}",
+        "type": "CopyToClipboard"
       },
       {
         "id": "WriteSnippet",
-        "type": "UserScript",
         "script": "src/writeSnippet.js",
+        "type": "UserScript",
         "value": "{value}"
       },
       {
         "id": "DeleteSnippet",
-        "type": "UserScript",
         "script": "src/deleteSnippet.js",
+        "type": "UserScript",
         "value": "{value}"
       }
-    ],
-    "external": [
-      {
-        "id": "Direct",
-        "type": "Hotkey",
-        "hotkey": "CmdOrCtrl+Alt+Space",
-        "connections": [ "Write" ]
-      }
     ]
-  }
+  },
+  "icon": "snip.svg",
+  "name": "Zazu Snippets",
+  "stylesheet": "css/preview.css"
 }
