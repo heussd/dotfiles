@@ -4,8 +4,6 @@
     "window.restoreWindows": "none",
     "git.confirmSync": false,
     "git.autofetch": true,
-    // https://github.com/microsoft/vscode/issues/100840
-    //"editor.fontFamily": "'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
