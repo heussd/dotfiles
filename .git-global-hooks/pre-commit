@@ -17,10 +17,13 @@ trap fail ERR
 
 
 function babellint {
-    printf '%s' "Checking $1..."
+    COK='\033[0;32m'
+    NC='\033[0m'
+
+    printf '%s' "[babellint] Checking $1..."
     eval /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest '"$1"' || exit 1;
 
-    printf "${COK}[OK]${NC}\n";
+    echo -e "${COK}[OK]${NC}"
 }
 export -f babellint
 
@@ -32,6 +35,7 @@ lintall "*.yml"
 lintall "*.yaml"
 lintall "*.json"
 
+lintall "*.md"
 
 PYSPELLING_CONFIG=".pyspelling.yml"
 if test -f "$PYSPELLING_CONFIG"; then
