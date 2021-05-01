@@ -10,6 +10,7 @@
 [core]
 	pager = delta
 	excludesfile = ~/.gitignore_global
+	hooksPath = ~/.git-global-hooks
 
 change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
 [difftool "sourcetree"]

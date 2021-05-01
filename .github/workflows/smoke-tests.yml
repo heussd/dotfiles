@@ -1,4 +1,4 @@
-# Inspired by https://mattorb.com/ci-your-dotfiles-with-github-actions/ 
+# Inspired by https://mattorb.com/ci-your-dotfiles-with-github-actions/
 #
 name: Smoke Tests
 
@@ -12,7 +12,7 @@ jobs:
     steps:
     -
       name: Onboard
-      run:   |
+      run: |
         cd $HOME
         pwd
 
@@ -21,7 +21,7 @@ jobs:
         # It seems that there are many preinstalled brew packages by default
         # Gather these packages so that they are not uninstalled with the next step
         brew bundle dump --file .Brewfile --force
-       
+
         # Add one package to test auto install
         echo "brew \"fzf\"" >> .Brewfile
 
@@ -36,17 +36,17 @@ jobs:
     steps:
     -
       name: Onboard
-      run:   |
+      run: |
         cd $HOME
         pwd
 
         wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
-        
+
         # Overwrite apt packages file, no need to stress download servers
         echo "fzf" > .apt-packages-base
 
         ls -la
-        
+
         # Simulate first shell init
         make -f .Makefile
 
