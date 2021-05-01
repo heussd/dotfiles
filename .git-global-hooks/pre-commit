@@ -15,25 +15,22 @@ function fail {
 }
 trap fail ERR
 
-function all {
-    git ls-files --full-name "$1" | tr "\n" "\0" | xargs -I {} -0 bash -c "printf '%s' \"Checking {}...\"; $2 '{}' && printf '${COK}[OK]${NC}\n'" || fail
+
+function babellint {
+    printf '%s' "Checking $1..."
+    eval /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest '"$1"' || exit 1;
+
+    printf "${COK}[OK]${NC}\n";
+}
+export -f babellint
+
+function lintall {
+    git ls-files --full-name "$1" | tr "\n" "\0" | xargs -I {} -0 bash -c "babellint \"{}\"" || fail
 }
 
-all "*.yml" yamllint
-all "*.yaml" yamllint
-
-
-function json_check_and_format {
-    # Try to parse the json
-    jq . "$1" > /dev/null || exit 1
-
-    # Parse ok, reformat
-    reformatted=$(jq . "$1" -S)
-    printf "%s" "$reformatted" > "$1"
-}
-export -f json_check_and_format
-
-all "*.json" json_check_and_format
+lintall "*.yml"
+lintall "*.yaml"
+lintall "*.json"
 
 
 PYSPELLING_CONFIG=".pyspelling.yml"
@@ -41,4 +38,4 @@ if test -f "$PYSPELLING_CONFIG"; then
     pyspelling -c "$PYSPELLING_CONFIG"
 fi
 
-echo "All checks passed 😍"
+printf "${COK}[babellint] All lints passed${NC} 😍\n"

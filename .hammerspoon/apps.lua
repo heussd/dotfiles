@@ -27,6 +27,6 @@ end)
 
 
 hs.hotkey.bind({"alt"}, "space", function()
-    hs.execute("~/.scripts/snippets-choose", false)
+    hs.execute("~/.scripts/snippets-choose", true)
 end)
 
