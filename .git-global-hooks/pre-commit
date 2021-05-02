@@ -16,30 +16,6 @@ function fail {
 trap fail ERR
 
 
-function babellint {
-    COK='\033[0;32m'
-    NC='\033[0m'
-
-    printf '%s' "[babellint] Checking $1..."
-    eval /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest '"$1"' || exit 1;
-
-    echo -e "${COK}[OK]${NC}"
-}
-export -f babellint
-
-function lintall {
-    git ls-files --full-name "$1" | tr "\n" "\0" | xargs -I {} -0 bash -c "babellint \"{}\"" || fail
-}
-
-lintall "*.yml"
-lintall "*.yaml"
-lintall "*.json"
-
-lintall "*.md"
-
-PYSPELLING_CONFIG=".pyspelling.yml"
-if test -f "$PYSPELLING_CONFIG"; then
-    pyspelling -c "$PYSPELLING_CONFIG"
-fi
+/usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
 
 printf "${COK}[babellint] All lints passed${NC} 😍\n"
