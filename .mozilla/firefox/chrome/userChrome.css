@@ -24,3 +24,32 @@
 #sidebar-header {
   visibility: collapse !important;
 }
+
+
+
+/* Basic Sidebar Auto Hiding, inspired by
+ * https://github.com/Timvde/UserChrome-Tweaks/pull/101/files
+ */
+#sidebar {
+  max-width: none!important;
+  min-width: 0!important;
+}
+
+#sidebar-box+#sidebar-splitter {
+  display: none!important;
+}
+
+#sidebar-box {
+  overflow: hidden!important;
+  position: relative!important;
+  transition: all 100ms!important;
+  min-width: 100px !important;
+  max-width: 100px !important;
+}
+
+#sidebar-box #sidebar,#sidebar-box:hover {
+  transition: all 100ms!important;
+  min-width: 200px !important;
+  max-width: 600px !important;
+}
+
