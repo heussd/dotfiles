@@ -49,4 +49,3 @@ jobs:
 
         # Simulate first shell init
         make -f .Makefile
-
