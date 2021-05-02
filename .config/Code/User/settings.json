@@ -3,7 +3,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.suggestSelection": "first",
-"explorer.confirmDragAndDrop": false,
+  "explorer.confirmDragAndDrop": false,
   "extensions.ignoreRecommendations": true,
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -13,6 +13,7 @@
   "telemetry.enableTelemetry": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.restoreWindows": "none",
+  "window.zoomLevel": -1,
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "newUntitledFile"
 }
