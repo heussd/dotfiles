@@ -6,7 +6,7 @@ brew update
 brew upgrade
 brew cu -y --cleanup
 brew cleanup -s
-rm -rf $(brew --cache)
+rm -rf "$(brew --cache)"
 
 npm install npm -g
 npm update -g

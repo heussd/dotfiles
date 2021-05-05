@@ -1,0 +1,14 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+if [ ! -d ".git" ]; then
+    git init
+fi
+
+open -a SourceTree -W --args "$PWD"
+
+gh repo create -y
+
+git push --set-upstream origin main

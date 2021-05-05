@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd ~/downloads
-wget $* -O podcast0r.tmp
-vlc podcast0r.tmp -f
-rm podcast0r.tmp
