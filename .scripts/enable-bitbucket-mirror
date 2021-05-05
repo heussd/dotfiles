@@ -5,7 +5,7 @@ set -o nounset
 
 git pull
 
-secret=$(keepassxc-cli show $(find ~/Documents -name "*.kdbx") Bitbucket --attributes Password --show-protected)
+secret=$(keepassxc-cli show "$(find "$HOME/Documents" -name "*.kdbx")" Bitbucket --attributes Password --show-protected)
 gh secret set BITBUCKET_PASSWORD -b"${secret}"
 
 mkdir -p .github/workflows/

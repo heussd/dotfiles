@@ -22,5 +22,5 @@ case $(uname | tr '[:upper:]' '[:lower:]') in
 esac
 
 
-cd $HOME
+cd "$HOME" || exit 1
 curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.Makefile | make -f - onboard

@@ -4,15 +4,15 @@
 sourcetag=$1
 targettag=$2
 
-[ -z $ymlFile ] && ymlFile="docker-compose.yml"
-[ -z $sourcetag ] && echo "Please provide a source tag" && exit 1
-[ -z $targettag ] && echo "Please provide a target tag" && exit 1
+[ -z "$ymlFile" ] && ymlFile="docker-compose.yml"
+[ -z "$sourcetag" ] && echo "Please provide a source tag" && exit 1
+[ -z "$targettag" ] && echo "Please provide a target tag" && exit 1
 
 # Extracting all 'image:' statements
-images=`sed -n 's/\s*image: //p' $ymlFile | sed 's/"//g' | grep $sourcetag`
+images=$(sed -n 's/\s*image: //p' "$ymlFile" | sed 's/"//g' | grep "$sourcetag")
 
 while read -r sourceimage; do
-	targetimage=`echo $sourceimage | sed "s/:$sourcetag/:$targettag/g"`
-	docker tag $sourceimage $targetimage
+	targetimage=$(echo "$sourceimage" | sed "s/:$sourcetag/:$targettag/g")
+	docker tag "$sourceimage" "$targetimage"
 done <<< "$images"
 

@@ -12,4 +12,4 @@ if [ "$mountpoint" = "" ]
 then	mountpoint="/mnt/ssh"
 fi
 
-sshfs $1 $mountpoint -o nonempty,allow_other
+sshfs "$1" $mountpoint -o nonempty,allow_other

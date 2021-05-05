@@ -5,15 +5,15 @@
 
 onlineHosts=0
 
-for host in $*; do
+for host in "$@"; do
 	echo -n "Host $host..."
-	ping -c 1 $host &> /dev/null && let onlineHosts=onlineHosts+1 && echo " is online" && continue
+	ping -c 1 "$host" &> /dev/null && (( onlineHosts=onlineHosts+1 )) && echo " is online" && continue
 	echo " is offline"
 done
 
 echo "$onlineHosts/$# hosts were online"
 
-if [ $onlineHosts -gt 0 ]; then
+if [ "$onlineHosts" -gt 0 ]; then
 	exit 1
 else
 	exit 0

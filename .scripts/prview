@@ -6,10 +6,10 @@ playerparam="--no-fs"
 
 for i in *; do
 	if [[ ! -d $i ]]; then
-		echo $i
+		echo "$i"
 		$playercmd $playerparam "$i" &> /dev/null &
 		echo "Preview selection: "
-		read -n 1 selection
+		read -r -n 1 selection
 		if [[ $selection == "" ]]; then
 			selection="_"
 		fi

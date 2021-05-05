@@ -1,8 +1,8 @@
 #!/bin/bash
 selection=$(kubectl get pod -A | fzf)
 
-namespace=$(echo $selection | awk '{print $1}')
-pod=$(echo $selection | awk '{print $2}')
+namespace=$(echo "$selection" | awk '{print $1}')
+pod=$(echo "$selection" | awk '{print $2}')
 
-kubectl config set-context --current --namespace=$namespace
-kubectl logs $pod -f 
+kubectl config set-context --current --namespace="$namespace"
+kubectl logs "$pod" -f 

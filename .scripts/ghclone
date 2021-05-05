@@ -4,9 +4,9 @@ set -o pipefail
 set -o nounset
 
 selection=$(gh repo list --limit 1000 | fzf)
-repository=$(echo $selection | awk '{print $1}')
+repository=$(echo "$selection" | awk '{print $1}')
 
-gh repo clone $repository
+gh repo clone "$repository"
 
 cd "${repository#*/}"
 

@@ -2,7 +2,7 @@
 # Does what "docker-compose push" is supposed to do but doesn't
 
 function checkIfInstalled {
-  if [ ! -x "$(command -v $1)" ]; then
+  if [ ! -x "$(command -v "$1")" ]; then
       echo -e "$1 is required to launch this script. Install it via: \n\t$2"
       exit 1
   fi
@@ -10,10 +10,10 @@ function checkIfInstalled {
 
 function buildImages {
   echo "Pushing all images..."
-  for service in $(docker-compose $ymlfiles config | shyaml keys services); do
-    image=$(docker-compose $ymlfiles config | shyaml get-value services.$service.image)
-    if [ ! -z $image ]; then
-    	DOCKER_BUILDKIT=1 docker push $image
+  for service in $(docker-compose "$ymlfiles" config | shyaml keys services); do
+    image=$(docker-compose "$ymlfiles" config | shyaml get-value "services.$service.image")
+    if [ -n "$image" ]; then
+    	DOCKER_BUILDKIT=1 docker push "$image"
     fi
   done
 }

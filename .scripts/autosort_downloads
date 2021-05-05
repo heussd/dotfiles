@@ -1,7 +1,5 @@
 #!/bin/bash
-source ~/.bash_profile
-
-filename=$(basename $*)
+filename=$(basename "$*")
 
 function notify() {
 	/usr/local/bin/terminal-notifier -sound default -title "Download Autosort" -message "$*"
@@ -17,19 +15,19 @@ case "$filename" in
 	Linux_Magazin*.zip )
 		tempdir="temp$RANDOM"
 		notify "Detected Linux Magazin abo download."
-		cd ~/Downloads
+		cd ~/Downloads || exit 1
 		mkdir $tempdir 
-		mv $filename $tempdir
-		cd $tempdir
-		unzip $filename
+		mv "$filename" $tempdir
+		cd "$tempdir" || exit 1
+		unzip "$filename"
 		mv */*.pdf "$HOME/Dropbox/Lesestapel/"
 		cd ..
 		rm -Rf $tempdir
 		;;
 	*onto*Kontoauszug*.pdf)
 		notify "Detected Kontoauszug"
-		cd ~/Downloads
-		mv $filename ~/Documents/Bürokratie/
+		cd ~/Downloads  || exit 1
+		mv "$filename" ~/Documents/Bürokratie/
 		;;
 	*.txt)
 		# Detect ZIM wiki pages

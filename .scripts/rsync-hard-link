@@ -6,7 +6,7 @@ target=$2
 mkdir -p "$target"
 
 linkLatest() {
-	rm $target/latest 2> /dev/null
+	rm "$target/latest" 2> /dev/null
 	latest=$(ls -t "$target/*" | sort -r | head -1)
 	latest=${latest##*/}
 	ln -s "$latest" "$target/latest"

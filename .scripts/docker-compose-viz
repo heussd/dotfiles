@@ -1,2 +1,2 @@
 #!/bin/sh
-docker run --rm -it --name dcv -v ${PWD}/:/input pmsipilot/docker-compose-viz render -m image --force docker-compose.yml
+docker run --rm -it --name dcv -v "${PWD}"/:/input pmsipilot/docker-compose-viz render -m image --force docker-compose.yml

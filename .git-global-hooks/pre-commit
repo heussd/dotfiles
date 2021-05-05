@@ -18,4 +18,4 @@ trap fail ERR
 
 /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
 
-printf "${COK}[babellint] All lints passed${NC} 😍\n"
+echo -e "${COK}[babellint] All lints passed${NC} 😍\n"

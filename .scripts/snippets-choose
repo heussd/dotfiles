@@ -9,8 +9,9 @@ file=$(ls | /usr/local/bin/choose -m -u -n 20 -w 50 -s 20)
 if [ -e "$file" ]; then
 	cat "$file" | pbcopy
 else
-	searchterm=$(echo $file | sed -e 's/\ /+/g')
+	echo "$file not found"
+	#searchterm=$(echo $file | sed -e 's/\ /+/g')
 	#open "https://www.google.com/search?q=$searchterm"
 fi
 
-popd
+popd || exit 1

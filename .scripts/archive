@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Archives a given file or folder and verifies existing archives
 
 SHASUMS="shasums.txt"
@@ -7,35 +7,35 @@ die() {
 	echo "\033[0;31m" # <-- Red
 	echo "$1"
 	echo "Cannot continue, terminating..."
-	exit -1
+	exit 1
 }
 shaverify() {
 	[ ! -e $SHASUMS ] && return 0
 	echo "Verifying using shasums..."
-	shasum --check $SHASUMS || return -1
+	shasum --check $SHASUMS || return 1
 }
 szverify() {
 	for i in *.7z; do
 		[ ! -e "$i" ] && break;
-		7z t "$i" || return -1;
+		7z t "$i" || return 1;
 	done
 }
 archive() {
 	[ -z "$1" ] && return 0
-	[ ! -e "$1" ] && return -1
+	[ ! -e "$1" ] && return 1
 	newarchive=${1%%/}
 	newarchive="${newarchive%%/)}.7z"
 	#newarchive="`date +%Y` ${newarchive%%/)}.7z"
 	[ -e "$newarchive" ] && echo "$newarchive already exists" && return 0
 	echo "Archiving $1..."
-	7z a -mx9 -t7z -xr!.DS_Store "$newarchive" "$1" || return -1
+	7z a -mx9 -t7z -xr!.DS_Store "$newarchive" "$1" || return 1
 	#SetFile -a L "$newarchive"
     shasum "$newarchive" >> $SHASUMS
 }
 possiblydelete() {
 	[ -z "$1" ] && return 0
 	echo "Delete $1? (y/*)"
-	read -n 1 selection
+	read -r -n 1 selection
 	if [ "$selection" == "y" ]; then
 		rm -Rf "$1"
 	fi
