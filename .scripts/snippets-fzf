@@ -19,7 +19,7 @@ fi
 
 if [ $code -eq 0 ]; then 
 	file=$(echo "$file" | tail -n1)
-	cat "$file" | pbcopy
+	pbcopy < "$file"
 
 	popd || exit 1
 	exit 0

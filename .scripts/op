@@ -1,6 +1,8 @@
 #!/bin/bash
 
-[ -e "$1" ] && cd "$1" || exit 1
+if [[ -e "$1" ]]; then
+	cd "$1" || return
+fi
 if [ "$PWD" = "$HOME" ]; then
 	cd "$TH_PROJECTS_FOLDER" || exit 1
 fi
@@ -20,7 +22,9 @@ function openApp() {
 	open -na "$1" --args "$(pwd)"
 }
 
-[ -d .git ] && stree .
+[ -d .git ] && (
+	stree .
+)
 
 [ -f package.json ] && openApp "WebStorm"
 

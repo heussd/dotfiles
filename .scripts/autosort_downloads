@@ -6,8 +6,8 @@ function notify() {
 }
 
 
-if [ ! -e $* ]; then
-	notify "File not found $*"
+if [ ! -e "$filename" ]; then
+	notify "File not found $filename"
 	exit
 fi
 
@@ -20,7 +20,7 @@ case "$filename" in
 		mv "$filename" $tempdir
 		cd "$tempdir" || exit 1
 		unzip "$filename"
-		mv */*.pdf "$HOME/Dropbox/Lesestapel/"
+		mv ./*/*.pdf "$HOME/Dropbox/Lesestapel/"
 		cd ..
 		rm -Rf $tempdir
 		;;
@@ -31,7 +31,7 @@ case "$filename" in
 		;;
 	*.txt)
 		# Detect ZIM wiki pages
-		cat "$1" | grep "x-zim-wiki" && mv "$1" "$ZIM_LOCATION/" && notify "ZIM page imported"
+		grep "x-zim-wiki" < "$1" && mv "$1" "$ZIM_LOCATION/" && notify "ZIM page imported"
 		;;
 	"" )
 		notify "Nothing provided";;

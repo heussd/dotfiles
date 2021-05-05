@@ -1,17 +1,14 @@
 #!/bin/bash
 
-if [ "$PWD" != "$TH_PROJECTS_FOLDER/snippets" ]; then
-	pushd "$TH_PROJECTS_FOLDER/snippets" || exit 1
-fi
+file=$(cd "$TH_PROJECTS_FOLDER/snippets" && find . \
+	 | tail -n +2 | cut -c 3- \
+	 | /usr/local/bin/choose -m -u -n 20 -w 50 -s 20)
 
-file=$(ls | /usr/local/bin/choose -m -u -n 20 -w 50 -s 20)
-
+file="$TH_PROJECTS_FOLDER/snippets/$file"
 if [ -e "$file" ]; then
-	cat "$file" | pbcopy
+	pbcopy < "$file"
 else
 	echo "$file not found"
 	#searchterm=$(echo $file | sed -e 's/\ /+/g')
 	#open "https://www.google.com/search?q=$searchterm"
 fi
-
-popd || exit 1

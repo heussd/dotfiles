@@ -12,7 +12,7 @@ targettag=$2
 images=$(sed -n 's/\s*image: //p' "$ymlFile" | sed 's/"//g' | grep "$sourcetag")
 
 while read -r sourceimage; do
-	targetimage=$(echo "$sourceimage" | sed "s/:$sourcetag/:$targettag/g")
+	targetimage=${sourceimage//$sourcetag/$targettag}
 	docker tag "$sourceimage" "$targetimage"
 done <<< "$images"
 
