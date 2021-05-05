@@ -7,11 +7,11 @@ mkdir -p "$target"
 
 linkLatest() {
 	rm $target/latest 2> /dev/null
-	latest=`ls -d $target/* | sort -r | head -1`
+	latest=$(ls -t "$target/*" | sort -r | head -1)
 	latest=${latest##*/}
-	ln -s $latest $target/latest
+	ln -s "$latest" "$target/latest"
 }
 
 linkLatest
-rsync -avHF --stats --link-dest="/$target/latest/" "$source/" "$target/`date +%Y-%m-%d-%H-%M-%S`/"
+rsync -avHF --stats --link-dest="/$target/latest/" "$source/" "$target/$(date +%Y-%m-%d-%H-%M-%S)/"
 linkLatest

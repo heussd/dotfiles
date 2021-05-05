@@ -8,7 +8,7 @@ if [[ ! -d $pathToWavs ]]; then
 	exit 1
 fi
 
-for i in $*; do
+for i in "$@"; do
 	if [[ -d $pathToWavs/$i ]]; then
 		voice=$i
 	else

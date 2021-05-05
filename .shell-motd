@@ -20,6 +20,17 @@ if [ "$PWD" = "$HOME" ]; then
 
 	_hasCmd docker && (
 		docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
+
+		export images='heussd/babellint'
+		export DOCKER_PULL_INDEX=".docker-pull-index"
+
+		[[ ! -e "$DOCKER_PULL_INDEX" ]] && touch -t 200001010101 "$DOCKER_PULL_INDEX"
+
+		find "$DOCKER_PULL_INDEX" -mmin +$((7*60*60)) -exec bash -c \
+			'for i in $images ; do echo "Pulling $i..."; docker pull -q $i > /dev/null; done; touch "$DOCKER_PULL_INDEX"' \;
+
+		unset images
+		unset DOCKER_PULL_INDEX
 	)
 		
 	_hasFile "$HOME/.config/gita/repo_path" && (

@@ -5,4 +5,4 @@ RSYNC_OPTS="--archive --delete --delete-excluded --progress --human-readable -F 
 # create a timestamp
 touch "$HOME/.rsync-timestamp"
 
-rsync $RSYNC_OPTS "$HOME/" $*
+rsync "$RSYNC_OPTS" "$HOME/" "$*"

@@ -13,7 +13,7 @@ file=$(
 
 code=$?
 if [ $code -eq 130 ]; then
-	popd
+	popd || exit 1
 	exit 1;
 fi
 
@@ -21,11 +21,11 @@ if [ $code -eq 0 ]; then
 	file=$(echo "$file" | tail -n1)
 	cat "$file" | pbcopy
 
-	popd
+	popd || exit 1
 	exit 0
 fi
 
-searchterm=$(echo $file | sed -e 's/\ /+/g')
-open "https://www.google.com/search?q=$searchterm"
+#searchterm=$(echo "$file" | sed -e 's/\ /+/g')
+#open "https://www.google.com/search?q=$searchterm"
 
-popd
+popd || exit 1
