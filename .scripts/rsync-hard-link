@@ -7,7 +7,7 @@ mkdir -p "$target"
 
 linkLatest() {
 	rm "$target/latest" 2> /dev/null
-	latest=$(ls -t "$target/*" | sort -r | head -1)
+	latest=$(find . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 gstat --format '%Y :%y %n' | sort -nr | cut -d: -f2- | head -n 1 | cut -d' ' -f 4)
 	latest=${latest##*/}
 	ln -s "$latest" "$target/latest"
 }
