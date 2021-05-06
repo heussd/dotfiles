@@ -4,8 +4,8 @@ set -o pipefail
 set -o nounset
 
 CERR='\033[0;31m'
-COK='\033[0;32m'
 NC='\033[0m'
+
 
 function fail {
     echo -e "\n\n${CERR}Sorry, but a pre-commit-hock has prevented this commit.${NC}"
@@ -18,4 +18,3 @@ trap fail ERR
 
 /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
 
-echo -e "${COK}[babellint] All lints passed${NC} 😍\n"
