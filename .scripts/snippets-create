@@ -1,1 +1,6 @@
 pbpaste > "$TH_PROJECTS_FOLDER/snippets/$1"
+
+cd "$TH_PROJECTS_FOLDER/snippets" || exit 1
+git add -A
+git commit -m "Auto-commit" -n
+
