@@ -189,4 +189,5 @@ cask "eloston-chromium" if system 'hostname | grep "coffeelake" > /dev/null'
 cask "finicky" if system 'hostname | grep "coffeelake" > /dev/null'
 cask "google-chrome" if system 'hostname | grep "coffeelake" > /dev/null'
 cask "google-drive" if system 'hostname | grep "coffeelake" > /dev/null'
+cask "lens" if system 'hostname | grep "coffeelake" > /dev/null'
 
