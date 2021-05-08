@@ -28,7 +28,7 @@ jobs:
           ls -la
 
           # Simulate first shell init
-          make -f .Makefile
+          make -f Makefile
 
   ubuntu-linux-20-04:
     name: Ubuntu
@@ -48,4 +48,4 @@ jobs:
           ls -la
 
           # Simulate first shell init
-          make -f .Makefile
+          make -f Makefile
