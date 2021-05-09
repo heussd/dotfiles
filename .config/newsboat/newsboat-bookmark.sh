@@ -16,6 +16,6 @@ echo "
 
 
 git add "$file.md"
-git commit -m "$file.md (auto commit)" > /dev/null
+git commit -m "$file.md (auto commit)" -n > /dev/null
 
 exit 0
