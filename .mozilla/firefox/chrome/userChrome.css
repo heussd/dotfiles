@@ -49,7 +49,7 @@
 
 #sidebar-box #sidebar,#sidebar-box:hover {
   transition: all 100ms!important;
-  min-width: 200px !important;
-  max-width: 600px !important;
+  min-width: 400px !important;
+  max-width: 400px !important;
 }
 
