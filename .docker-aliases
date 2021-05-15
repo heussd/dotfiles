@@ -3,7 +3,7 @@
 dockerrun() { eval docker run --rm --interactive --tty --pull always "$*"; }
 dockerrunu() { eval dockerrun --user="$(id -u):$(id -g)" "$*"; }
 
-alias babellint='docker run --rm --interactive --tty -v $(pwd):$(pwd) -w $(pwd) heussd/babellint:latest'
+alias babellint='docker run --rm --interactive --tty -v $(pwd):$(pwd) -w $(pwd) --user="$(id -u):$(id -g)" heussd/babellint:latest'
 
 # Cloud
 alias az='dockerrun -v ${HOME}/.azure/:/root/.azure -v ${HOME}/.kube/:/root/.kube/ -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli az'
