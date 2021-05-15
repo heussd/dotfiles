@@ -13,7 +13,6 @@
   "telemetry.enableTelemetry": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.restoreWindows": "none",
-  "window.zoomLevel": -1,
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "newUntitledFile"
 }
