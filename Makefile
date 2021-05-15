@@ -9,7 +9,8 @@ DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
 HOST = $$(hostname | cut -d"." -f 1)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
-default: auto-pull auto-install
+
+default: auto-pull-dotfiles auto-install auto-pull-docker-images
 .PHONY: default
 
 
@@ -52,12 +53,16 @@ define if-old
 endef
 
 
-auto-pull: ## Pulls from dotfiles remote repository, if last pull is old enough
+auto-pull-dotfiles: ## Pulls from dotfiles remote repository, if last pull is old enough
 	$(call if-old,$(DOTFILES_BARE)/FETCH_HEAD, \
 		Pulling dotfiles...,\
 		git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet)
-.PHONY: auto-pull
+.PHONY: auto-pull-dotfiles
 
+
+auto-pull-docker-images: ## Pulls CLI Docker images
+	$(call if-old,$(HOME)/.docker-cli-images.yml, Pulling Docker CLI images..., docker-compose -f .docker-cli-images.yml pull)
+.PHONY: auto-pull-docker-images
 
 
 check-time-last-installed:

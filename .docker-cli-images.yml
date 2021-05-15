@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  babellint:
+    image: heussd/babellint
+  azure-cli:
+    image: mcr.microsoft.com/azure-cli
