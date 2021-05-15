@@ -245,7 +245,7 @@ sync: ## Synchronize files with maya ❤️
 
 full-sync: ## Synchronize completely with maya
 	@if ssh maya "test -e ~/data/newsboat/news.db.lock"; then echo "maya is busy, cannot sync now. STOP."; exit 1; fi
-	$(call rsync,maya,maya-full,)
+	$(call rsync,maya,$(HOST)-full,)
 	
 sync-dry: ## Like sync, but as dry-run
 	$(call rsync,maya,maya,--dry-run)
