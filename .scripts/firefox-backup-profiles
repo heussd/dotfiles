@@ -1,35 +1,41 @@
-#!/bin/sh
-# Backup essential Firefox profile files
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
 
+# Backup essential Firefox profile files
 # Source for filenames: https://support.mozilla.org/de/kb/benutzerprofile-mit-ihren-persoenlichen-daten
 
-TARGET=$1
-[ -z "$TARGET" ] && TARGET="firefox-backup-profiles.7z"
+if (( $# == 0 )); then
+    TARGET="firefox-backup-profiles.7z"
+else
+    TARGET=$1
+fi
 
-FF_PROFILE="$HOME/Library/Application\ Support/Firefox/"
+FF_PROFILE="$HOME/Library/Application\\ Support/Firefox/"
 
 INCLUDED_FILES=""
 
 # Bookmarks + History
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/places.sqlite"
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/favicons.sqlite"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/places.sqlite"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/favicons.sqlite"
 
 # Passwords
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/key*.db"
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/logins.json"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/key*.db"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/logins.json"
 
 # Site-specific permissions
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/permissions.sqlite"
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/content-prefs.sqlite"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/permissions.sqlite"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/content-prefs.sqlite"
 
 # Search engines
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/search.json.mozlz4"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/search.json.mozlz4"
 
 # Personal dictionary
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/persdict.dat"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/persdict.dat"
 
 # Form history
-INCLUDED_FILES="$INCLUDED_FILES -ir\!$FF_PROFILE/formhistory.sqlite"
+INCLUDED_FILES="$INCLUDED_FILES -ir\\!$FF_PROFILE/formhistory.sqlite"
 
 
 eval "7z u -mx9 -ms=off $TARGET $INCLUDED_FILES"

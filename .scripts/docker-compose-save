@@ -22,7 +22,7 @@ done
 [ -z "$tar" ] && echo "Please provide a tar file using -o" && exit 1
 
 # Extracting all 'image:' statements
-images=$(sed -n 's/\s*image: //p' $ymlFile | sed 's/"//g' | tr "\n" " ")
+images=$(sed -n 's/\s*image: //p' $ymlFile | sed 's/"//g' | tr "\\n" " ")
 
 echo "Storing images $images in $tar..."
 docker save "$images" -o "$tar"

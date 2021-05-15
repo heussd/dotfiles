@@ -4,7 +4,6 @@
 SHASUMS="shasums.txt"
 
 die() {
-	echo "\033[0;31m" # <-- Red
 	echo "$1"
 	echo "Cannot continue, terminating..."
 	exit 1

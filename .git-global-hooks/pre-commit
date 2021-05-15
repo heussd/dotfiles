@@ -8,9 +8,9 @@ NC='\033[0m'
 
 
 function fail {
-    echo -e "\n\n${CERR}Sorry, but a pre-commit-hock has prevented this commit.${NC}"
-    echo -e "You may ignore the hock via\n"
-    echo -e "\t git commit -n \t\t"
+    echo -e "\\n\\n${CERR}Sorry, but a pre-commit-hock has prevented this commit.${NC}"
+    echo -e "You may ignore the hock via\\n"
+    echo -e "\\t git commit -n \\t\\t"
     exit 1
 }
 trap fail ERR
