@@ -25,10 +25,8 @@ brew "brew-cask-completion"
 brew "choose-gui"
 brew "coreutils"
 brew "ctop"
-brew "curl"
 brew "figlet"
 brew "fzf"
-brew "gh"			# GitHub-cli
 brew "gnupg"
 brew "htop"
 brew "howdoi"
@@ -43,6 +41,39 @@ brew "transcrypt"
 brew "tree"
 brew "wget"
 brew "tmux"
+
+
+## Development 
+brew "dive"
+brew "k9s"
+brew "kubectx"
+brew "lazydocker"
+brew "node"
+brew "p7zip"
+brew "sqlite"
+brew "terminal-notifier"
+brew "yarn"
+cask "clockify"
+cask "cyberduck"
+cask "db-browser-for-sqlite"
+cask "docker"
+cask "gephi"
+cask "google-cloud-sdk"
+cask "hex-fiend"
+cask "jetbrains-toolbox"
+cask "kitematic"
+cask "meld"
+cask "postman"
+cask "yed"
+mas "CotEditor", id: 1024640650
+mas "Xcode", id: 497799835
+tap "tnk-studio/tools"
+brew "lazykube"
+brew "glab"
+brew "gh"			# GitHub-cli
+
+tap "nektos/tap"
+brew "act"
 
 
 ## Cloud File Sync
@@ -92,39 +123,6 @@ cask "font-jetbrains-mono"
 cask "font-open-sans"
 cask "font-source-code-pro"
 cask "font-source-code-pro-for-powerline"
-
-
-
-## Development 
-brew "dive"
-brew "k9s"
-brew "kubectx"
-brew "lazydocker"
-brew "node"
-brew "p7zip"
-brew "sqlite"
-brew "terminal-notifier"
-brew "yarn"
-cask "clockify"
-cask "cyberduck"
-cask "db-browser-for-sqlite"
-cask "docker"
-cask "gephi"
-cask "google-cloud-sdk"
-cask "hex-fiend"
-cask "jetbrains-toolbox"
-cask "kitematic"
-cask "meld"
-cask "postman"
-cask "yed"
-mas "CotEditor", id: 1024640650
-mas "Xcode", id: 497799835
-tap "tnk-studio/tools"
-brew "lazykube"
-brew "glab"
-
-tap "nektos/tap"
-brew "act"
 
 
 ## MS Azure
