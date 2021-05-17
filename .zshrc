@@ -187,6 +187,11 @@ bindkey '[C' forward-word
 bindkey '[D' backward-word
 
 
+function homesync() {
+  home sync
+}
+zle -N homesync
+bindkey "^s" homesync
 
 
 source ~/.shell-motd
