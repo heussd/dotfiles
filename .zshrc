@@ -18,7 +18,6 @@ antigen bundle editor
 antigen bundle history
 antigen bundle utility
 antigen bundle completion
-antigen bundle git
 antigen bundle heroku
 antigen bundle pip
 antigen bundle lein
@@ -29,6 +28,8 @@ antigen bundle smallhadroncollider/antigen-git-rebase
 antigen bundle zsh-users/zsh-autosuggestions
 #antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle hchbaw/auto-fu.zsh
+antigen bundle desyncr/auto-ls
+antigen bundle Cloudstek/zsh-plugin-appup
 
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 export SPACESHIP_KUBECTL_SHOW=false
