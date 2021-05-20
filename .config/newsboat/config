@@ -22,7 +22,7 @@ bookmark-cmd        "~/.config/newsboat/newsboat-bookmark.sh"
 bookmark-autopilot  yes
 
 browser			    "~/.config/newsboat/newsboat-browser.sh"
-macro b set browser "open --background %u"; open-in-browser ; set browser "open %u"
+macro b set browser "lynx -cookies" ; open-in-browser ; set browser "~/.config/newsboat/newsboat-browser.sh"
 
 
 include ~/.config/newsboat/keys
