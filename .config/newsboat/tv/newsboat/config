@@ -1,7 +1,8 @@
 include "~/.config/newsboat/config"
 
 
-browser "mpv %u &> /dev/null &"
+browser "~/.config/newsboat/newsboat-media.sh"
+#macro o set browser "echo %u | less" ; open-in-browser ; set browser "mpv %u &> /dev/null &"
 
 # use "u" to open podcasts
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
