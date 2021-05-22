@@ -27,6 +27,12 @@ antigen bundle command-not-found
 antigen bundle smallhadroncollider/antigen-git-rebase
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle hchbaw/auto-fu.zsh
+
+auto-ls-ls-extended() {
+  ls -ltr
+}
+
+AUTO_LS_COMMANDS=(ls-extended)
 antigen bundle desyncr/auto-ls
 antigen bundle Cloudstek/zsh-plugin-appup
 antigen bundle unixorn/autoupdate-antigen.zshplugin
