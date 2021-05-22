@@ -1,5 +1,6 @@
 include "~/.config/newsboat/config"
 
+articlelist-format  "%f%?T?%-1T ?%t %> %T %D"
 
 browser "~/.config/newsboat/newsboat-media.sh"
 #macro o set browser "echo %u | less" ; open-in-browser ; set browser "mpv %u &> /dev/null &"
