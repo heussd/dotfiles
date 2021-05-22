@@ -1,0 +1,15 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+keepassDb="$(find "$HOME/Documents" -name "*.kdbx")"
+
+entry=$(keepassxc-cli ls --recursive --flatten $keepassDb)
+entry=$(echo "$entry" | fzf)
+
+secret=$(keepassxc-cli show "$keepassDb" "$entry" --attributes Password --show-protected)
+
+echo $secret
+exit 0
