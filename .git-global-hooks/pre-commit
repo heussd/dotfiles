@@ -7,6 +7,16 @@ CERR='\033[0;31m'
 NC='\033[0m'
 
 
+# Try to ask for linting. If tty cannot be opened the git command might be issued from a GUI. In this case, ignore the hook.
+read -n1 -p "babellint this? [b/*]: " c < /dev/tty || exit 0
+echo
+
+c=${c:-n}
+if [[ "$c" != "b" ]]; then
+	exit 0
+fi
+
+
 function fail {
     echo -e "\\n\\n${CERR}Sorry, but a pre-commit-hock has prevented this commit.${NC}"
     echo -e "You may ignore the hock via\\n"
