@@ -26,7 +26,7 @@ hs.consoleOnTop(false)
 
 require('utils')
 
-require('apps')
+require('keys')
 -- require('vim') -- Not used
 -- require('window-move-resize') -- Not stable enough, replaced by Easy Move+Resize app
 -- require('window-management') -- Not working properly, disabled

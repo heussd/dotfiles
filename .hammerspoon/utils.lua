@@ -5,7 +5,15 @@ function file_exists(name)
   end
   
 function hl2play(word)
-    local file = os.getenv("TH_PROJECTS_FOLDER") .. "/hl2/sound/npc/combine_soldier/vo/" .. word .. ".wav"
+    local file = os.getenv("HOME") .. "/Developer/hl2/sound/npc/combine_soldier/vo/" .. word .. ".wav"
+    if file_exists(file) then
+        local sound = hs.sound.getByFile(file)
+        sound:play()
+    end
+end
+
+function hlspeak(word)
+    local file = os.getenv("HOME") .. "/Developer/hl_text2speech/snd/male/" .. word .. ".wav"
     if file_exists(file) then
         local sound = hs.sound.getByFile(file)
         sound:play()

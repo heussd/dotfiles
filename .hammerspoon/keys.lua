@@ -1,3 +1,5 @@
+require('utils')
+
 hyper:bind({}, "c", nil, function() 
     hs.application.launchOrFocus("kitty")
 end)
@@ -30,3 +32,14 @@ hs.hotkey.bind({"alt"}, "space", function()
     hs.execute("~/.scripts/snippets-choose", true)
 end)
 
+
+function lockAndSleep()
+    hs.caffeinate.lockScreen()
+    hs.caffeinate.systemSleep()
+end
+
+hyper:bind({}, "ä", nil, function()
+    hs.alert.show("Good bye!", 2)
+    hlspeak('doop')
+    hs.timer.doAfter(2, lockAndSleep)
+end)
