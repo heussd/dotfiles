@@ -10,6 +10,10 @@ hyper:bind({"command"}, "p", nil, function()
     hs.alert("Playground :-)")
 end)
 
+function omg(test)
+    hs.alert(test)
+end
+
 hyper:bind({}, "p", nil, function() 
     hs.alert("Playground")
 

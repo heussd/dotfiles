@@ -33,13 +33,23 @@ hs.hotkey.bind({"alt"}, "space", function()
 end)
 
 
-function lockAndSleep()
-    hs.caffeinate.lockScreen()
-    hs.caffeinate.systemSleep()
-end
-
 hyper:bind({}, "ä", nil, function()
-    hs.alert.show("Good bye!", 2)
+    local message = "Going down for sleep..."
+    hs.alert.show(message, 2)
     hlspeak('doop')
-    hs.timer.doAfter(2, lockAndSleep)
+
+    local duration = 2.5
+    hs.timer.doAfter(duration, function()
+        hs.alert(message .. " 3")
+    end)
+    hs.timer.doAfter(2*duration, function()
+        hs.alert(message .. " 2")
+    end)
+    hs.timer.doAfter(3*duration, function()
+        hs.alert(message .. " 1")
+    end)
+    hs.timer.doAfter(4*duration, function()
+        hs.caffeinate.lockScreen()
+        hs.caffeinate.systemSleep()
+    end)
 end)
