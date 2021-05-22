@@ -34,5 +34,3 @@ alias node10='dockerrunu --volume "$(pwd):/app" -w /app node:10'
 alias npm10='node10 npm --loglevel=warn '
 alias npx10='node10 npx --loglevel=warn '
 
-
-alias newsboat='dockerrunuw heussd/newsboat:latest newsboat'
