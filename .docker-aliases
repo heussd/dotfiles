@@ -24,6 +24,7 @@ alias protoc='dockerrunu -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
 
 alias mvn='dockerrunuw --volume "$HOME/.m2":/root/.m2 maven:3-jdk-11 mvn'
 alias gradle='dockerrunuw gradle gradle'
+alias ruby='dockerrunuw ruby:latest ruby'
 
 # Taken from https://github.com/JanGalek/dockerized/tree/master/applications/node
 #alias node='docker run --rm --interactive --tty --volume $PWD:/app -w /app --user $(id -u):$(id -g) node node '
