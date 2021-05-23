@@ -10,4 +10,6 @@ if [ -e /usr/bin/firefox ]; then
     exit 0
 fi
 
-exit 1
+# Fallback: might be a headless system
+echo "$@" | less 
+exit 0
