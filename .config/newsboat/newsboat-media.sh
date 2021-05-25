@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if type "mpv" > /dev/null; then
-	mpv "%$" &> /dev/null &
+	mpv "$@" &> /dev/null &
 else
 	echo "$@" | less 
 fi
