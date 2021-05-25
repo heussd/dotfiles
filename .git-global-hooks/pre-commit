@@ -8,7 +8,7 @@ NC='\033[0m'
 
 
 # Try to ask for linting. If tty cannot be opened the git command might be issued from a GUI. In this case, ignore the hook.
-read -n1 -p "babellint this? [b/*]: " c < /dev/tty || exit 0
+read -n1 -t 3 -p "babellint this? [b/*]: " c < /dev/tty || exit 0
 echo
 
 c=${c:-n}
