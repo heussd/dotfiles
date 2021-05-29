@@ -3,9 +3,22 @@
 
 unbind-key C
 
-bind-key SPACE  toggle-article-read
+bind-key SPACE  toggle-show-read-feeds
+bind-key m	toggle-article-read
 bind-key a	mark-all-above-as-read
 
 # Swap these two keys
 bind-key o	open-in-browser-and-mark-read
 bind-key O	open-in-browser
+
+
+# Vim bindings
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+bind-key j	next
+bind-key k	prev
+bind-key l	open
+bind-key h	quit
