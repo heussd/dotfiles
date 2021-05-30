@@ -3,8 +3,8 @@
 
 unbind-key C
 
-bind-key SPACE  toggle-show-read-feeds
-bind-key m	toggle-article-read
+bind-key m	toggle-show-read-feeds
+bind-key SPACE	toggle-article-read
 bind-key a	mark-all-above-as-read
 
 # Swap these two keys
