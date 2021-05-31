@@ -33,7 +33,10 @@ hs.hotkey.bind({"alt"}, "space", function()
 end)
 
 
-hyper:bind({}, "ä", nil, function()
+hyper:bind({}, "q", nil, function()
+    hlspeak('bell')
+    hs.execute("make -f $HOME/Makefile sync", true)
+
     local message = "Going down for sleep..."
     hs.alert.show(message, 2)
     hlspeak('doop')
