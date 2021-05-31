@@ -31,6 +31,7 @@ function openApp() {
 [ -f "pom.xml" ] && openApp "IntelliJ IDEA"
 [ -f "build.gradle.kts" ] && openApp "IntelliJ IDEA"
 [ -f "build.gradle" ] && openApp "IntelliJ IDEA"
+[ -f "settings.gradle" ] && openApp "IntelliJ IDEA"
 
 [ -f "requirements.txt" ] && openApp "PyCharm"
 
