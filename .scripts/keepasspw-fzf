@@ -6,10 +6,10 @@ set -o nounset
 
 keepassDb="$(find "$HOME/Documents" -name "*.kdbx")"
 
-entry=$(keepassxc-cli ls --recursive --flatten $keepassDb)
+entry=$(keepassxc-cli ls --recursive --flatten "$keepassDb")
 entry=$(echo "$entry" | fzf)
 
 secret=$(keepassxc-cli show "$keepassDb" "$entry" --attributes Password --show-protected)
 
-echo $secret
+echo "$secret"
 exit 0
