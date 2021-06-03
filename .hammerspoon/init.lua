@@ -34,5 +34,6 @@ require('keys')
 require("global-mute")
 require('menubar')
 
+require('sleepwatcher')
 require('playground')
 require('spoons')
