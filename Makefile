@@ -231,6 +231,23 @@ define rsync
 	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* ~/ $(1):~/ $(3)
 endef
 
+# rsyncs a remote location with this user's home
+# $1 - Remote Location
+# $2 - Filter name to apply (.rsync-filter-$2)
+# $3 - Additional options
+define rsync-pull
+	@echo "⬇️ $1..."
+	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* $(1):~/ ~/ $(3)
+endef
+# rsyncs a remote location with this user's home
+# $1 - Remote Location
+# $2 - Filter name to apply (.rsync-filter-$2)
+# $3 - Additional options
+define rsync-push
+	@echo "⬆️ $1..."
+	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* ~/ $(1):~/ $(3)
+endef
+
 define gita
 	@echo "⬇️ gita..."
 	@gita pull
@@ -250,7 +267,13 @@ full-sync: ## Synchronize completely with maya
 sync-dry: ## Like sync, but as dry-run
 	$(call rsync,maya,maya,--dry-run)
 
+push:
+	@gita push
+	$(call rsync-push,maya,$(HOST),)
 
+pull:
+	@gita pull
+	$(call rsync-pull,maya,$(HOST),)
 backup:
 	@rsync --archive --delete --delete-excluded --progress --human-readable \
 		-F --filter=". $$HOME/.rsync-filter-backup" --exclude=/*	   \
