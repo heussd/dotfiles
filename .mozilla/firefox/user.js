@@ -41,3 +41,6 @@ user_pref("browser.backspace_action", 0);
 
 
 user_pref("browser.tabs.closeWindowWithLastTab", false);
+
+
+user_pref("dom.security.https_only_mode", true);
