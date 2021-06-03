@@ -35,6 +35,7 @@ end)
 
 hyper:bind({}, "q", nil, function()
     hlspeak('bell')
+    hs.execute("killall newsboat", true)
     hs.execute("make -f $HOME/Makefile sync", true)
 
     local message = "Going down for sleep..."
