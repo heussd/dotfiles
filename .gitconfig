@@ -65,7 +65,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 [help]
 	autocorrect = 10
 [pull]
-	rebase = false
+	rebase = true
 
 [delta]
     features = side-by-side line-numbers 
