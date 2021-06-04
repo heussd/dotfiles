@@ -27,6 +27,10 @@ hyper:bind({}, "s", nil, function()
     hs.eventtap.keyStroke({"cmd"}, "v")
 end)
 
+hyper:bind({}, "k", nil, function()
+    hs.application.launchOrFocus("KeePassXC")
+end)
+
 
 hs.hotkey.bind({"alt"}, "space", function()
     hs.execute("~/.scripts/snippets-choose", true)
