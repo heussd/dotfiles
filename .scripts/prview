@@ -5,14 +5,19 @@ playercmd="mpv"
 playerparam="--no-fs"
 
 for i in *; do
+	if [[ ! -e "$i" ]]; then
+		continue
+	fi
+
 	if [[ ! -d $i ]]; then
 		echo "$i"
 		$playercmd $playerparam "$i" &> /dev/null &
-		echo "Preview selection: "
-		read -r -n 1 selection
-		if [[ $selection == "" ]]; then
-			selection="_"
-		fi
+
+		while :; do
+			read -r -n 1 -p "Preview selection: " selection
+			echo
+			echo "$selection" | grep '[a-z0-9]' > /dev/null && break
+		done
 
 		if [[ ! -e $selection ]]; then mkdir $selection; fi
 		mv -v "$i" "$selection"
