@@ -19,6 +19,9 @@
 + data/newsboat/
 + data/newsboat/urls
 - data/newsboat/*
++ data/porsche-crawler/
++ data/porsche-crawler/porsches.db
+- data/porsche-crawler/*
 + data/pocket-archiver/
 
 
