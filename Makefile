@@ -271,6 +271,11 @@ push:
 	@gita push
 	$(call rsync-push,maya,$(HOST),)
 
+force-push:
+	@gita push
+	$(call rsync-push,maya,$(HOST),--delete)
+
+
 pull:
 	@gita pull
 	$(call rsync-pull,maya,$(HOST),)
