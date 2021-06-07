@@ -27,7 +27,7 @@ hyper:bind({}, "s", nil, function()
     hs.eventtap.keyStroke({"cmd"}, "v")
 end)
 
-hyper:bind({}, "k", nil, function()
+hyper:bind({}, "b", nil, function()
     hs.application.launchOrFocus("KeePassXC")
 end)
 
