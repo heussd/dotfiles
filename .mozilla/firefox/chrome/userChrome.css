@@ -1,3 +1,9 @@
+:root {
+  --transition: 450ms;
+  --sidebar-wide: 400px;
+  --sidebar-small: 50px;
+}
+
 /* Hide main tabs toolbar */
 #TabsToolbar {
 	visibility: collapse;
@@ -12,10 +18,6 @@
 	--identity-icon-color: #808080 !important;
 }
 
-
-/*toolbarbutton#back-button, toolbarbutton#forward-button {
-	display: none;
-}*/
 
 
 /* Hide sidebar header
@@ -42,14 +44,13 @@
 #sidebar-box {
   overflow: hidden!important;
   position: relative!important;
-  transition: all 100ms!important;
-  min-width: 50px !important;
-  max-width: 50px !important;
+  transition: all var(--transition) !important;
+  min-width: var(--sidebar-small) !important;
 }
 
 #sidebar-box #sidebar,#sidebar-box:hover {
-  transition: all 100ms!important;
-  min-width: 400px !important;
-  max-width: 400px !important;
+  transition: all var(--transition) !important;
+  min-width: var(--sidebar-wide) !important;
 }
+
 
