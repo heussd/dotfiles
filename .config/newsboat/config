@@ -12,7 +12,7 @@ show-read-articles	no
 show-read-feeds		no
 
 datetime-format     "%Y-%m-%d"
-articlelist-format  "%f %?T?%-10T  ?%t %> %D"
+articlelist-format  "%f %t%> %20T  %D"
 
 
 #toggleitemread-jumps-to-next-unread	no
