@@ -10,11 +10,11 @@ Thumbs.db
 log/
 *.log
 
-/.idea
-/.classpath
-/.project
-/.settings
-/.metadata/
+.idea
+.classpath
+.project
+.settings
+.metadata/
 
 /bin/
 /target/
@@ -65,3 +65,4 @@ buildNumber.properties
 
 /.venv/
 /venv/
+
