@@ -1,11 +1,15 @@
 require('utils')
 
+local function pull()
+    hs.execute("make -f $HOME/Makefile pull", true)
+    hlspeak('hello')
+end
+
 function sleepWatch(eventType)
     if (eventType == hs.caffeinate.watcher.screensDidUnlock) then
         print("Wake-up detected")
 		hlspeak('bell')
-        hs.execute("make -f $HOME/Makefile pull", true)
-        hlspeak('hello')
+        hs.timer.doAfter(1, pull)
     end
 end
 
