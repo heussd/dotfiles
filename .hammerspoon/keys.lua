@@ -1,3 +1,4 @@
+require('steps')
 require('utils')
 
 hyper:bind({}, "c", nil, function() 
@@ -38,14 +39,11 @@ end)
 
 
 hyper:bind({}, "q", nil, function()
-    hlspeak('bell')
-    hs.execute("killall newsboat", true)
-    hs.execute("make -f $HOME/Makefile push", true)
-
+    pre_lock()
+    
     local message = "Going down for sleep..."
     hs.alert.show(message, 2)
-    hlspeak('doop')
-
+    
     local duration = 2.5
     hs.timer.doAfter(duration, function()
         hs.alert(message .. " 3")

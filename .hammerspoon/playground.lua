@@ -14,6 +14,9 @@ function omg(test)
     hs.alert(test)
 end
 
+function do_sth()
+end
+
 hyper:bind({}, "p", nil, function() 
     hs.alert("Playground")
 
