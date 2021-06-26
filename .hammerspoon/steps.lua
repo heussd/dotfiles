@@ -16,8 +16,8 @@ function post_lock()
 
     print("Current WIFI is "..hs.wifi.currentNetwork())
     if (not hs.wifi.currentNetwork()) then
-        do_pull()
-    else
         hs.timer.doAfter(3, do_pull)
+    else
+        do_pull()
     end
 end
