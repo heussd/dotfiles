@@ -12,6 +12,9 @@ function do_pull()
 end
 
 function post_lock()
+    device = hs.audiodevice.defaultOutputDevice()
+    device:setOutputVolume(20)
+
     hlspeak('bell')
 
     print("Current WIFI is "..hs.wifi.currentNetwork())

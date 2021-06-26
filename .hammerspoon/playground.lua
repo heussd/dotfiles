@@ -20,6 +20,10 @@ end
 hyper:bind({}, "p", nil, function() 
     hs.alert("Playground")
 
+    device = hs.audiodevice.defaultOutputDevice()
+    device:setOutputVolume(20)
+
+    hlspeak('dadeda')
     if (hs.fs.chdir(os.getenv("HOME") .. "/Developer/hl_text2speech/snd/male/") == nil) then
         hs.alert("EMPTY")
     else
