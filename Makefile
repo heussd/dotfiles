@@ -134,10 +134,13 @@ config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub firefox ## Configures user acc
 config-darwin: config-darwin-apps
 	# Native window drag and drop with Ctrl+Cmd
 	defaults write -g NSWindowShouldDragOnGesture -bool true
-	defaults write com.apple.screencapture location $(HOME)/Downloads; killall SystemUIServer 
+	defaults write com.apple.screencapture location $(HOME)/Downloads
+	killall SystemUIServer 
 	defaults write com.apple.Dock autohide-delay -float 0.0001
 	defaults write com.apple.dock autohide-time-modifier -float 0.25
 	killall Dock
+	defaults write NSGlobalDomain _HIHideMenuBar -bool true
+	killall Finder
 	defaults write NSGlobalDomain InitialKeyRepeat -int 12
 	defaults write NSGlobalDomain KeyRepeat -int 4
 	# Required to apply keyboard settings
