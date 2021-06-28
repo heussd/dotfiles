@@ -16,11 +16,11 @@ handlers: [
         browser: "Google Chrome"
     },
     {
-        // Open Google Meet in a new window
+        // Open Google Meet in app mode
         match: finicky.matchHostnames(["meet.google.com"]),
         browser: (options) => ({
             name: "Google Chrome",
-            args: [ "--new-window", options.urlString ]
+            args: [ "--app=" + options.urlString ]
         })
     }
 ]
