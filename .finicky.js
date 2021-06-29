@@ -22,6 +22,10 @@ handlers: [
             name: "Google Chrome",
             args: [ "--app=" + options.urlString ]
         })
-    }
+    },
+    {
+        match: finicky.matchHostnames(["teams.microsoft.com"]),
+        browser: "Google Chrome"
+    },
 ]
 };
