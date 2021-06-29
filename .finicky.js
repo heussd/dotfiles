@@ -12,7 +12,7 @@ rewrite: [
   ],
 handlers: [
     {
-        match: finicky.matchHostnames(["pwc.com", "mail.google.com", "drive.google.com", "calendar.google.com", "chat.google.com", "docs.google.com"]),
+        match: finicky.matchHostnames(["pwc.com", "accounts.google.com", "www.google.com", "stream.meet.google.com", "mail.google.com", "drive.google.com", "calendar.google.com", "chat.google.com", "docs.google.com"]),
         browser: "Google Chrome"
     },
     {
