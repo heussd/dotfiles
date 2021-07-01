@@ -37,6 +37,7 @@ hs.hotkey.bind({"alt"}, "space", function()
     hs.execute("~/.scripts/snippets-choose", true)
 end)
 
+hyper:bind({}, "-", call_setup)
 
 hyper:bind({}, "q", nil, function()
     pre_lock()
