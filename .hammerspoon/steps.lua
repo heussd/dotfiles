@@ -33,22 +33,9 @@ function call_setup()
 	local screen = win:screen()
     local max = screen:frame()
 
-	f.x = max.x + (max.w*0.75)
+	f.x = max.x + (max.w*0.7)
 	f.y = max.y + (max.h*0)
-	f.w = max.w*0.25
-	f.h = max.h*1
-	win:setFrame(f)
-
-    hs.osascript.applescript("tell application \"Google Chrome\" to make new window")
-
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-	local screen = win:screen()
-    local max = screen:frame()
-
-	f.x = max.x + (max.w*0)
-	f.y = max.y + (max.h*0)
-	f.w = max.w*0.75
+	f.w = max.w*0.30
 	f.h = max.h*1
 	win:setFrame(f)
 
