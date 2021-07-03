@@ -1,3 +1,11 @@
+-- Fast key stroke, taken from
+-- https://github.com/Hammerspoon/hammerspoon/issues/1011#issuecomment-261114434
+function fastKeyStroke(modifiers, character)
+    local event = require("hs.eventtap").event
+    event.newKeyEvent(modifiers, string.lower(character), true):post()
+    event.newKeyEvent(modifiers, string.lower(character), false):post()
+end
+
 
 function file_exists(name)
     local f=io.open(name,"r")
