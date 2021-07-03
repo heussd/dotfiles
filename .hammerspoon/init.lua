@@ -34,6 +34,6 @@ require('window-management')
 require("global-mute")
 require('menubar')
 
-require('sleepwatcher')
+require('sleep-hooks')
 require('playground')
 require('spoons')
