@@ -1,4 +1,3 @@
-require('steps')
 require('utils')
 
 function narrow_right()
