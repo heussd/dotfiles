@@ -39,6 +39,7 @@ end)
 
 hyper:bind({}, "-", narrow_right)
 hyper:bind({}, ".", wide_left)
+hyper:bind({}, "Up", maximize_current_window)
 
 hyper:bind({}, "q", nil, function()
     pre_lock()
