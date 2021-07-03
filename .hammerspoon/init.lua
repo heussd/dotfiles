@@ -29,7 +29,7 @@ require('utils')
 require('keys')
 require('vim')
 -- require('window-move-resize') -- Not stable enough, replaced by Easy Move+Resize app
--- require('window-management') -- Not working properly, disabled
+require('window-management')
 
 require("global-mute")
 require('menubar')

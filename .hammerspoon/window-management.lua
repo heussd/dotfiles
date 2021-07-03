@@ -1,29 +1,80 @@
--- https://github.com/Hammerspoon/hammerspoon/issues/2566
-local window = require("hs.window") -- make sure this is loaded
-local winMT  = getmetatable(window)
-local original_index = winMT.__index
-winMT.__index = function(self, key)
-    local answer = original_index(self, key)
-    if answer then
-        return answer
-    else
-        return hs.getObjectMetatable("hs.window")[key]
-    end
+require('steps')
+require('utils')
+
+function narrow_right()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+	local screen = win:screen()
+    local max = screen:frame()
+
+	f.x = max.x + (max.w*0.7)
+	f.y = max.y + (max.h*0)
+	f.w = max.w*0.30
+	f.h = max.h*1
+	win:setFrame(f)
+end
+
+function wide_left()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+	local screen = win:screen()
+    local max = screen:frame()
+
+	f.x = max.x + (max.w*0)
+	f.y = max.y + (max.h*0)
+	f.w = max.w*0.70
+	f.h = max.h*1
+	win:setFrame(f)
 end
 
 
-hyper:bind({}, "Up", nil, function()
-	hs.window.focusWindowNorth()
-end)
+function maximize_current_window()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+	local screen = win:screen()
+    local max = screen:frame()
 
-hyper:bind({}, "Right", nil, function()
-	hs.window.focusWindowEast()
-end)
+	f.x = max.x
+	f.y = max.y
+	f.w = max.w
+	f.h = max.h
+	win:setFrame(f)
+end
 
-hyper:bind({}, "Down", nil, function()
-	hs.window.focusWindowSouth()
-end)
 
-hyper:bind({}, "Left", nil, function()
-	hs.window.focusWindowWest()
-end)
+function left_half()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+	local screen = win:screen()
+    local max = screen:frame()
+
+	f.x = max.x
+	f.y = max.y
+	f.w = max.w*0.5
+	f.h = max.h
+	win:setFrame(f)
+end
+
+
+function right_half()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+	local screen = win:screen()
+    local max = screen:frame()
+
+	f.x = max.x + (max.w*0.5)
+	f.y = max.y
+	f.w = max.w*0.5
+	f.h = max.h
+	win:setFrame(f)
+end
+
+
+hyper:bind({}, "-", narrow_right)
+hyper:bind({}, ".", wide_left)
+hyper:bind({}, "Up", maximize_current_window)
+hyper:bind({}, "Left", left_half)
+hyper:bind({"Option"}, "Left", wide_left)
+hyper:bind({}, "Right", right_half)
+hyper:bind({"Option"}, "Right", narrow_right)
+
