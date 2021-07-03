@@ -25,9 +25,7 @@ function post_lock()
     end
 end
 
-function call_setup()
-    hs.alert("CALL SETUP")
-
+function narrow_right()
     local win = hs.window.focusedWindow()
     local f = win:frame()
 	local screen = win:screen()
@@ -38,5 +36,17 @@ function call_setup()
 	f.w = max.w*0.30
 	f.h = max.h*1
 	win:setFrame(f)
+end
 
+function wide_left()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+	local screen = win:screen()
+    local max = screen:frame()
+
+	f.x = max.x + (max.w*0)
+	f.y = max.y + (max.h*0)
+	f.w = max.w*0.70
+	f.h = max.h*1
+	win:setFrame(f)
 end
