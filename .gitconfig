@@ -51,6 +51,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	mru = for-each-ref --sort=-committerdate --count=10 refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
     whatadded = log --diff-filter=A
 	amend = commit --all --amend --no-edit
+	maintenance = "!git fsck; !git gc --aggressive; !git remote update --prune; !git stash list;"
 
 	# Override commit date, accepts various forms:
 	# git commit-predate "2020-10-10"
