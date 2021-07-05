@@ -8,7 +8,7 @@ alias babellint='docker run --rm --interactive --tty -v $(pwd):$(pwd) -w $(pwd) 
 
 # Cloud
 alias az='dockerrun -v ${HOME}/.azure/:/root/.azure -v ${HOME}/.kube/:/root/.kube/ -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli az'
-alias aws='dockerrunuw --volume ~/.aws:/root/.aws amazon/aws-cli'
+#alias aws='dockerrunuw --volume ~/.aws:/root/.aws amazon/aws-cli'
 #alias kubectl='dockerrunu -v ${HOME}/.kube/:/.kube bitnami/kubectl:latest'
 #alias gcloud='docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud'
 
