@@ -29,7 +29,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle hchbaw/auto-fu.zsh
 
 auto-ls-ls-extended() {
-  ls -ltr
+  ls -lhGtr
 }
 
 AUTO_LS_COMMANDS=(ls-extended)
