@@ -9,4 +9,4 @@ browser "~/.config/newsboat/newsboat-media.sh"
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
 
 
-#max-items 500000
+max-items 100
