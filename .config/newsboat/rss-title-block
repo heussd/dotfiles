@@ -48,7 +48,7 @@ end
 
 # filter out all items matching the cmd-line args
 rss.channel.items.reject! do |item|
-  item.title.downcase.match?(ARGV.join("|"))
+  item.title.downcase.match?(ARGV.join("|").downcase)
 end
 
 # write the modified rss
