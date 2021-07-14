@@ -8,5 +8,7 @@ browser "~/.config/newsboat/newsboat-media.sh"
 # use "u" to open podcasts
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
 
+bookmark-cmd        "~/.config/newsboat/newsboat-mpv-append.sh"                                                                                                   
+bookmark-autopilot  yes
 
 max-items 100
