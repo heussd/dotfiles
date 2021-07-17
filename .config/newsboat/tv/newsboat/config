@@ -12,3 +12,4 @@ bookmark-cmd        "~/.config/newsboat/newsboat-mpv-append.sh"
 bookmark-autopilot  yes
 
 max-items 100
+
