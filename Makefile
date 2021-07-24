@@ -85,9 +85,7 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies
 .auto-install-linux: .auto-install-apt .Brewfile.linux | check-time-last-installed
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
 	@printf "\e[1;34m[Home Makefile]\e[0m Brew bundle install...\n"
-ifneq ($(ARCH),armv7l)
-	@brew bundle install -v --cleanup --force --file=.Brewfile.linux
-endif
+	#@brew bundle install -v --cleanup --force --file=.Brewfile.linux
 	@touch .auto-install-linux
 
 .auto-install-apt: .apt-packages-base
