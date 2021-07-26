@@ -1,14 +1,26 @@
-# Dark solarized color scheme for newsbeuter, based on
-# Ethan Schoonover's Solarized.
-#
-# In order to use this color scheme, you must first configure
-# your terminal emulator to use the Solarized palette.
-# See <http://ethanschoonover.com/solarized/> for more information.
+# https://newsboat.org/releases/2.24/docs/newsboat.html#_configuring_colors
+# color <element> <foreground color> <background color> [<attribute> ...]
 
+# a normal list item
+color listnormal            default default
 
-color listnormal color244 color234
-color listfocus  color166 color235
-color info       color136 color235
-color background color244 color234
-color article    color244 color234
+# the currently selected list item
+color listfocus             yellow default
 
+# an unread list item
+color listnormal_unread     default default
+
+# the currently selected and unread list item
+color listfocus_unread       yellow default
+
+# the info bars on top and bottom
+color info                  default default
+
+# the application background
+color background            default default
+
+# the article text
+color article               default default
+
+# filler lines (~) below blocks of text
+color end-of-text-marker    default red
