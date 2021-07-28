@@ -10,6 +10,7 @@ cask "kitty"
 brew "git"
 brew "git-delta"
 brew "git-lfs"
+brew "git-gui"		# gitk
 cask "macdown"
 cask "sourcetree"
 cask "firefox"
