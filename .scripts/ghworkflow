@@ -1,0 +1,9 @@
+#!/bin/bash
+
+WORKFLOWS=$TH_PROJECTS_FOLDER/awesome-github-workflows
+
+workflow=$(ls "$WORKFLOWS" | fzf)
+
+
+mkdir -p .github/workflows > /dev/null
+cp "$WORKFLOWS/$workflow" .github/workflows/
