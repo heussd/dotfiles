@@ -1,1 +1,3 @@
+define-filter "Unread" "unread = \"yes\""
 define-filter "🚗" "tags # \"Cars\""
+
