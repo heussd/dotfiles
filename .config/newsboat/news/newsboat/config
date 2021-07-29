@@ -5,3 +5,6 @@ mark-as-read-on-hover		no
 
 delete-read-articles-on-quit	yes
 cleanup-on-quit                 yes
+
+
+reset-unread-on-update "https://blog.fefe.de/rss.xml?html"
