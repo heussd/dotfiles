@@ -4,12 +4,6 @@
   --sidebar-small: 50px;
 }
 
-/* Hide main tabs toolbar */
-#TabsToolbar {
-	visibility: collapse;
-}
-
-
 /*
 * Overwrite Container tab colors with pastel colors
 */
@@ -19,19 +13,27 @@
 }
 
 
+/* Hide main tabs toolbar */
+/*#TabsToolbar {
+	visibility: collapse;
+}
+*/
+
 
 /* Hide sidebar header
  * https://medium.com/@Aenon/firefox-hide-native-tabs-and-titlebar-f0b00bdbb88b
  */
+/*
 #sidebar-header {
   visibility: collapse !important;
 }
-
+*/
 
 
 /* Basic Sidebar Auto Hiding, inspired by
  * https://github.com/Timvde/UserChrome-Tweaks/pull/101/files
  */
+/*
 #sidebar {
   max-width: none!important;
   min-width: 0!important;
@@ -53,4 +55,4 @@
   min-width: var(--sidebar-wide) !important;
 }
 
-
+*/
