@@ -25,6 +25,16 @@
 + data/pocket-archiver/
 
 
++ .config/
++ .config/newsboat/
++ .config/newsboat/news/
++ .config/newsboat/news/newsboat/
++ .config/newsboat/news/newsboat/urls
++ .config/newsboat/tv/
++ .config/newsboat/tv/newsboat/
++ .config/newsboat/tv/newsboat/urls
+- .config/**
+
 + .local/
 + .local/share/
 + .local/share/newsboat/
