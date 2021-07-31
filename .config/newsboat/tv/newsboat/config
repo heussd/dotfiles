@@ -18,3 +18,6 @@ ignore-article "*" "title =~ \"(mit Gebärdensprache)\""
 ignore-article "*" "title =~ \"(mit Untertitel)\""
 ignore-article "*" "title =~ \"(Audiodeskription)\"
 ignore-article "*" "title =~ \"- Audiodeskription\"
+
+
+run-on-startup		"open"
