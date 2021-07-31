@@ -1,7 +1,7 @@
 :root {
   --transition: 450ms;
   --sidebar-wide: 400px;
-  --sidebar-small: 50px;
+  --sidebar-small: 10px;
 }
 
 /*
@@ -14,45 +14,69 @@
 
 
 /* Hide main tabs toolbar */
-/*#TabsToolbar {
+#TabsToolbar {
 	visibility: collapse;
 }
-*/
+
 
 
 /* Hide sidebar header
  * https://medium.com/@Aenon/firefox-hide-native-tabs-and-titlebar-f0b00bdbb88b
  */
-/*
+
 #sidebar-header {
   visibility: collapse !important;
 }
-*/
 
 
-/* Basic Sidebar Auto Hiding, inspired by
- * https://github.com/Timvde/UserChrome-Tweaks/pull/101/files
- */
 /*
+ * Full Auto-show/hide Theme
+ * https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#full-auto-showhide-theme
+ */
+
+/* Hide main tabs toolbar */
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+    opacity: 0;
+    pointer-events: none;
+}
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+
+/* Sidebar min and max width removal */
 #sidebar {
-  max-width: none!important;
-  min-width: 0!important;
+    max-width: none !important;
+    min-width: 0px !important;
+}
+/* Hide splitter, when using Tree Style Tab. */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
+    display: none !important;
+}
+/* Hide sidebar header, when using Tree Style Tab. */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    visibility: collapse;
 }
 
-#sidebar-box+#sidebar-splitter {
-  display: none!important;
+/* Shrink sidebar until hovered, when using Tree Style Tab. */
+:root {
+    --thin-tab-width: 40px;
+    --wide-tab-width: 500px;
+}
+#sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
+    min-width: var(--wide-tab-width) !important;
+    max-width: none !important;
+}
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+    position: relative !important;
+    transition: all 100ms !important;
+    min-width: var(--thin-tab-width) !important;
+    max-width: var(--thin-tab-width) !important;
+}
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
+    transition: all 200ms !important;
+    min-width: var(--wide-tab-width) !important;
+    max-width: var(--wide-tab-width) !important;
+    margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
+    z-index: 1;
 }
 
-#sidebar-box {
-  overflow: hidden!important;
-  position: relative!important;
-  transition: all var(--transition) !important;
-  min-width: var(--sidebar-small) !important;
-}
-
-#sidebar-box #sidebar,#sidebar-box:hover {
-  transition: all var(--transition) !important;
-  min-width: var(--sidebar-wide) !important;
-}
-
-*/
