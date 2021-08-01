@@ -52,6 +52,7 @@ brew "lazydocker"
 brew "node"
 brew "p7zip"
 brew "sqlite"
+brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
 brew "terminal-notifier"
 brew "yarn"
 cask "clockify"
