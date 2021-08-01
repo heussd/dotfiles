@@ -59,7 +59,7 @@
 
 /* Shrink sidebar until hovered, when using Tree Style Tab. */
 :root {
-    --thin-tab-width: 40px;
+    --thin-tab-width: 35px;
     --wide-tab-width: 500px;
 }
 #sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
@@ -80,3 +80,9 @@
     z-index: 1;
 }
 
+
+
+
+#sidebar {
+  margin-left: -5px !important;
+}
