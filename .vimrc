@@ -101,6 +101,7 @@ Plug 'honza/writer.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tomasr/molokai'
 Plug 'airblade/vim-gitgutter'
+Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
@@ -194,3 +195,6 @@ endfun
 " Map C-Y C-N to Control Space
 " https://vi.stackexchange.com/questions/21457/how-to-remap-autocomplete-on-controln-to-controlspace#answer-21469
 inoremap <c-@> <c-n>
+
+
+:let g:blamer_enabled = 1
