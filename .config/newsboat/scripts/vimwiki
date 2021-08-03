@@ -4,6 +4,9 @@ url="$1"
 title="$2"
 title=$(echo "$title" | sed -e 's/ (matches.*$//') 
 
+if [ -e $title ]; then
+	title=$(curl --fail --silent "http://maya.local:8080/extract.php?url=$url" | jq -r ".title" )
+fi
 
 description=$(curl --fail --silent "http://maya.local:8080/extract.php?url=$url" | jq -r ".excerpt")
 # feed="$4"

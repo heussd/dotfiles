@@ -101,6 +101,7 @@ alias dl="cd ~/Downloads"
 alias p="cd $TH_PROJECTS_FOLDER"
 
 alias vimwiki="vim -c VimwikiIndex"
+alias add-url-to-diary="~/.config/newsboat/scripts/vimwiki"
 
 function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 
