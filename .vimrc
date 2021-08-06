@@ -103,6 +103,7 @@ Plug 'tomasr/molokai'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'stsewd/gx-extended.vim'
 call plug#end()
 
 
@@ -198,3 +199,5 @@ inoremap <c-@> <c-n>
 
 
 :let g:blamer_enabled = 1
+
+
