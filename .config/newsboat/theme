@@ -23,4 +23,4 @@ color background            default default
 color article               default default
 
 # filler lines (~) below blocks of text
-color end-of-text-marker    default red
+color end-of-text-marker    default default
