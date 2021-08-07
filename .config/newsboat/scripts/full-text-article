@@ -1,0 +1,7 @@
+#!/bin/sh
+
+url="$1"
+
+curl --fail --silent "http://maya.local:8080/extract.php?url=$url" | jq -r ".content" | w3m -v -F -T text/html
+
+exit 0

@@ -25,6 +25,7 @@ bookmark-autopilot  yes
 
 browser			    "~/.config/newsboat/scripts/browser"
 macro b set browser "lynx -cookies" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
+macro f set browser "~/.config/newsboat/scripts/full-text-article" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
 
 
 include ~/.config/newsboat/keys
