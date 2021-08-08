@@ -11,6 +11,9 @@ reload-time 		60
 show-read-articles	no
 show-read-feeds		no
 
+delete-read-articles-on-quit	yes
+cleanup-on-quit                 yes
+
 datetime-format     "%Y-%m-%d"
 articlelist-format  "%f%t%> %T %D"
 

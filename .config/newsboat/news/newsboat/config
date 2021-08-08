@@ -6,8 +6,5 @@ mark-as-read-on-hover		no
 bind-key	O	open-in-browser
 bind-key	o	open-in-browser-and-mark-read
 
-delete-read-articles-on-quit	yes
-cleanup-on-quit                 yes
-
 
 reset-unread-on-update "https://blog.fefe.de/rss.xml?html"
