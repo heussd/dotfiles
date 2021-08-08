@@ -119,6 +119,9 @@ let g:vimwiki_list = [{
 	\ }]
 let g:vimwiki_markdown_link_ext = 1
 
+" Allow other markdown files to be non-vimwiki files
+let g:vimwiki_global_ext = 0
+
 
 function VimwikiMode()
 	" Change working copy (for rg, fzf) when entering vimwiki
