@@ -26,6 +26,18 @@ function wide_left()
 	win:setFrame(f)
 end
 
+function wide_left_below()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+	local screen = win:screen()
+    local max = screen:frame()
+
+	f.x = max.x + (max.w*0)
+	f.y = max.y + (max.h*0.55)
+	f.w = max.w*0.70
+	f.h = max.h*0.45
+	win:setFrame(f)
+end
 
 function maximize_current_window()
     local win = hs.window.focusedWindow()
@@ -49,7 +61,7 @@ function left_half()
 
 	f.x = max.x
 	f.y = max.y
-	f.w = max.w*0.5
+	f.w = max.w*5.5
 	f.h = max.h
 	win:setFrame(f)
 end
@@ -76,4 +88,4 @@ hyper:bind({"Option"}, "Left", left_half)
 hyper:bind({}, "Left", wide_left)
 hyper:bind({"Option"}, "Right", right_half)
 hyper:bind({}, "Right", narrow_right)
-
+hyper:bind({}, "Down", wide_left_below)
