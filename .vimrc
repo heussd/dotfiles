@@ -127,8 +127,10 @@ function VimwikiMode()
 	" Change working copy (for rg, fzf) when entering vimwiki
 	lcd %:p:h
 	
+	set autoread " Auto update on external file changes
+
 	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
-	autocmd BufWritePost * silent exec '!git add "%"; git commit -n -m "% (auto commit)" > /dev/null'
+	autocmd BufWritePost * silent exec '!markdownlint --config markdownlint.yml --fix "%"; git add "%"; git commit -n -m "% (auto commit)" > /dev/null'
 	
 	" Inspired by https://gist.github.com/jondkinney/2040114
 	" FUZZY FIND
