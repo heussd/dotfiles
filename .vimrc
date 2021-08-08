@@ -203,3 +203,5 @@ inoremap <c-@> <c-n>
 
 let g:vimwiki_folding = 'custom'
 
+nnoremap <space> za
+vnoremap <space> za
