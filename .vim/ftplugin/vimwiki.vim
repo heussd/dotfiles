@@ -11,10 +11,5 @@ function! Fold(lnum)
   if (fold_level)
     return '>' . fold_level  " start a fold level
   endif
-  if getline(a:lnum) =~? '\v^\s*$'
-    if (strlen(matchstr(getline(a:lnum + 1), '^#\+')) > 0 )
-      return '-1' " don't fold last blank line before header
-    endif
-  endif
   return '=' " return previous fold level
 endfunction
