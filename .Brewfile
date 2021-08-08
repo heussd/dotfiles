@@ -74,6 +74,7 @@ tap "tnk-studio/tools"
 brew "lazykube"
 brew "glab"
 brew "gh"			# GitHub-cli
+brew "markdownlint-cli"
 
 tap "nektos/tap"
 brew "act"
