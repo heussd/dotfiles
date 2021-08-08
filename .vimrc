@@ -201,3 +201,5 @@ inoremap <c-@> <c-n>
 :let g:blamer_enabled = 1
 
 
+let g:vimwiki_folding = 'custom'
+
