@@ -1,83 +1,43 @@
-require('utils')
-
-function narrow_right()
-    local win = hs.window.focusedWindow()
+-- Taken from https://gist.github.com/lucifr/b0780e38045235027ef11746041dc120
+-- Resize window for chunk of screen.
+-- For x and y: use 0 to expand fully in that dimension, 0.5 to expand halfway
+-- For w and h: use 1 for full, 0.5 for half
+function move_window(x, y, w, h)
+	local win = hs.window.focusedWindow()
     local f = win:frame()
 	local screen = win:screen()
-    local max = screen:frame()
+	local max = screen:frame()
 
-	f.x = max.x + (max.w*0.7)
-	f.y = max.y + (max.h*0)
-	f.w = max.w*0.30
-	f.h = max.h*1
+	f.x = max.x + (max.w*x)
+	f.y = max.y + (max.h*y)
+	f.w = max.w*w
+	f.h = max.h*h
 	win:setFrame(f)
+end
+
+
+function narrow_right()
+	move_window(0.7,0,0.3,1)
 end
 
 function wide_left()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-	local screen = win:screen()
-    local max = screen:frame()
-
-	f.x = max.x + (max.w*0)
-	f.y = max.y + (max.h*0)
-	f.w = max.w*0.70
-	f.h = max.h*1
-	win:setFrame(f)
+	move_window(0,0,0.7,1)
 end
 
 function wide_left_below()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-	local screen = win:screen()
-    local max = screen:frame()
-
-	f.x = max.x + (max.w*0)
-	f.y = max.y + (max.h*0.55)
-	f.w = max.w*0.70
-	f.h = max.h*0.45
-	win:setFrame(f)
+	move_window(0,0.5,0.7,0.5)
 end
 
 function maximize_current_window()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-	local screen = win:screen()
-    local max = screen:frame()
-
-	f.x = max.x
-	f.y = max.y
-	f.w = max.w
-	f.h = max.h
-	win:setFrame(f)
+	move_window(0,0,1,1)
 end
-
 
 function left_half()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-	local screen = win:screen()
-    local max = screen:frame()
-
-	f.x = max.x
-	f.y = max.y
-	f.w = max.w*5.5
-	f.h = max.h
-	win:setFrame(f)
+    move_window(0,0,0.5,1)
 end
 
-
 function right_half()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-	local screen = win:screen()
-    local max = screen:frame()
-
-	f.x = max.x + (max.w*0.5)
-	f.y = max.y
-	f.w = max.w*0.5
-	f.h = max.h
-	win:setFrame(f)
+	move_window(0.5,0,0.5,1)
 end
 
 
