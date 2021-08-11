@@ -16,6 +16,10 @@ function move_window(x, y, w, h)
 end
 
 
+function narrow_left()
+	move_window(0,0,0.3,1)
+end
+
 function narrow_right()
 	move_window(0.7,0,0.3,1)
 end
@@ -24,8 +28,16 @@ function wide_left()
 	move_window(0,0,0.7,1)
 end
 
+function wide_right()
+	move_window(0.3,0,0.7,1)
+end
+
 function wide_left_below()
 	move_window(0,0.5,0.7,0.5)
+end
+
+function wide_right_below()
+	move_window(0.3,0.5,0.7,0.5)
 end
 
 function maximize_current_window()
@@ -41,11 +53,11 @@ function right_half()
 end
 
 
-hyper:bind({}, "-", narrow_right)
-hyper:bind({}, ".", wide_left)
 hyper:bind({}, "Up", maximize_current_window)
+hyper:bind({}, "Down", wide_right_below)
+
+hyper:bind({}, "Left", narrow_left)
+hyper:bind({}, "Right", wide_right)
+
 hyper:bind({"Option"}, "Left", left_half)
-hyper:bind({}, "Left", wide_left)
 hyper:bind({"Option"}, "Right", right_half)
-hyper:bind({}, "Right", narrow_right)
-hyper:bind({}, "Down", wide_left_below)
