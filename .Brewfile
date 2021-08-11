@@ -193,4 +193,5 @@ cask "google-chrome" if system 'hostname | grep "coffeelake" > /dev/null'
 cask "google-drive" if system 'hostname | grep "coffeelake" > /dev/null'
 cask "lens" if system 'hostname | grep "coffeelake" > /dev/null'
 cask "microsoft-edge" if system 'hostname | grep "coffeelake" > /dev/null'
+cask "camunda-modeler" if system 'hostname | grep "coffeelake" > /dev/null'
 
