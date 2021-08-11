@@ -7,4 +7,4 @@ bind-key	O	open-in-browser
 bind-key	o	open-in-browser-and-mark-read
 
 
-reset-unread-on-update "https://blog.fefe.de/rss.xml?html"
+include "~/.config/newsboat/news/newsboat/killfile"
