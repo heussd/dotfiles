@@ -42,7 +42,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	ac = !git add -u && git commit -m 
 	cosh = !git commit && git push
 	co = checkout
-	s = status --ignored
+	s = status
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	whatsnew = diff --stat --cached
 	ref-ignore = !sh -c 'curl https://raw.githubusercontent.com/github/gitignore/master/'$1'.gitignore >> .gitignore'
