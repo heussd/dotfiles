@@ -43,6 +43,7 @@ brew "tree"
 brew "wget"
 brew "tmux"
 brew "w3m"
+brew "pandoc"
 
 
 ## Development 
