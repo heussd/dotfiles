@@ -115,7 +115,7 @@ let g:vimwiki_list = [{
 	\ 'ext':'.md',
 	\ 'syntax':'markdown',
 	\ 'diary_rel_path': "/",
-	\ 'diary_index': "index"
+	\ 'diary_index': "diaryindex"
 	\ }]
 let g:vimwiki_markdown_link_ext = 1
 
