@@ -42,6 +42,7 @@ brew "transcrypt"
 brew "tree"
 brew "wget"
 brew "tmux"
+brew "w3m"
 
 
 ## Development 
