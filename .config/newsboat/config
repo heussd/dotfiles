@@ -36,4 +36,3 @@ include ~/.config/newsboat/keys
 include ~/.config/newsboat/filters
 include ~/.config/newsboat/theme
 include ~/.config/newsboat/highlights
-include ~/.config/newsboat/highlights-autogen
