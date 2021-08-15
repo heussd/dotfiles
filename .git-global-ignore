@@ -63,6 +63,9 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 
+## Jupyter
+
 /.venv/
 /venv/
-
+.jupyter/
+.ipython/
