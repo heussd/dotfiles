@@ -77,3 +77,5 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 [branch]
 	# https://stevenharman.net/git-pull-with-automatic-rebase
 	autosetuprebase = always
+[rebase]
+	autoStash = true
