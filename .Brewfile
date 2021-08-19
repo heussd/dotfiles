@@ -18,6 +18,7 @@ cask "macvim"
 cask "keepassxc"
 cask "keka"
 cask "visual-studio-code"
+cask "lulu"
 
 
 ## Command line tools
@@ -60,7 +61,7 @@ brew "yarn"
 cask "clockify"
 cask "cyberduck"
 cask "db-browser-for-sqlite"
-cask "docker"
+cask "docker", greedy: true # Force Docker update, because noisy client update mechanism is blocked from now on
 cask "xbar"
 cask "gephi"
 cask "google-cloud-sdk"
