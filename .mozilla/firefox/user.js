@@ -18,7 +18,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 
 // Display more hits in the Awesome Bar
-user_pref("browser.urlbar.maxRichResults", 25);
+user_pref("browser.urlbar.maxRichResults", 20);
 
 
 // Disable mouse wheel zoom
