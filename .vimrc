@@ -132,7 +132,7 @@ function VimwikiMode()
 
 	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
 	autocmd! BufWritePost * " Clear existing auto-commands
-	autocmd BufWritePost * silent exec '!markdownlint --fix --config markdownlint.yml "%" > /dev/null; slmd "%" -o; git add "%" && git commit -n -m "% (auto commit)" > /dev/null'
+	autocmd BufWritePost * silent exec '!markdownlint --fix --config markdownlint.yml "%" > /dev/null; slmd "%" -o; git add "%" && git commit -n -m "[auto commit]" > /dev/null'
 	
 	" Inspired by https://gist.github.com/jondkinney/2040114
 	" FUZZY FIND
