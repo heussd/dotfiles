@@ -73,7 +73,7 @@ check-time-last-installed:
 
 
 
-auto-install: .auto-install-$(OS_NAME) firefox-policies
+auto-install: .auto-install-$(OS_NAME) firefox-policies .pip-global-install
 .PHONY: auto-install
 
 .auto-install-darwin: .Brewfile | check-time-last-installed
@@ -126,6 +126,10 @@ firefox-policies-linux:  /etc/firefox/policies/policies.json
 
 .PHONY: firefox-policies firefox-policies-darwin firefox-policies-linux
 
+
+.pip-global-install: .pip-global-requirements.txt
+	@pip3 install -r .pip-global-requirements.txt
+	@touch .pip-global-install
 
 
 config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub firefox ## Configures user account and applications

@@ -1,0 +1,6 @@
+bitbucket-cli
+gita
+gitlab
+shyaml
+slmd
+yamllint
