@@ -6,8 +6,6 @@
 	<string>T.H. Apple Device Preferences</string>
 	<key>PayloadIdentifier</key>
 	<string>com.github.heussd.dotfiles</string>
-	<key>PayloadOrganization</key>
-	<string>ProfileCreator</string>
 	<key>PayloadScope</key>
 	<string>User</string>
 	<key>PayloadType</key>
