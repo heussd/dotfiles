@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDisplayName</key>
+	<string>T.H. Apple Device Preferences</string>
+	<key>PayloadIdentifier</key>
+	<string>com.github.heussd.dotfiles</string>
+	<key>PayloadOrganization</key>
+	<string>ProfileCreator</string>
+	<key>PayloadScope</key>
+	<string>User</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>5D987778-4840-4AF7-ADA1-E1BAAB070CA2</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<!-- https://github.com/imlibra/files/blob/6f6e6a650e647b29bbbf54a8bd2396693094183d/iOS_Security.mobileconfig -->
+			<key>PayloadDisplayName</key>
+			<string>Disable iCloud features</string>
+			<key>PayloadIdentifier</key>
+			<string>me.imlibra.ios-security.applicationaccess</string>
+			<key>PayloadType</key>
+			<string>com.apple.applicationaccess</string>
+			<key>PayloadUUID</key>
+			<string>3FD01C24-3D04-4E06-AF1B-FAFBA0F6B866</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>allowCloudBackup</key>
+			<false/>
+			<key>allowCloudKeychainSync</key>
+			<false/>
+			<key>allowCloudDesktopAndDocuments</key>
+			<false/>
+			<key>allowCloudBookmarks</key>
+			<false/>
+			<key>allowCloudPhotoLibrary</key>
+			<false/>
+		</dict>
+		<dict>
+			<!-- https://github.com/rtrouton/profiles/blob/main/SkipiCloudSetup/SkipiCloudSetup.mobileconfig -->
+			<key>PayloadDisplayName</key>
+			<string>Disable cloud setup dialog</string>
+			<key>PayloadType</key>
+			<string>com.apple.SetupAssistant.managed</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadIdentifier</key>
+			<string>com.github.c8d04bb6-91ca-4bc9-a5d7-c636fe132846.alacarte.loginwindow.ac77a0a0-a793-0133-7ea7-000c29fd99e8.managed</string>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadUUID</key>
+			<string>fb3fa053-eb04-623f-6cf1-05a9cbe0b3ff</string>
+			<key>SkipCloudSetup</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Assistant</string>
+			<key>PayloadIdentifier</key>
+			<string>com.github.erikberglund.ProfileCreator.5D987778-4840-4AF7-ADA1-E1BAAB070CA2.com.apple.assistant.support.19ACF603-9DA5-4A87-896B-D3668D55B8E3</string>
+			<key>PayloadOrganization</key>
+			<string></string>
+			<key>PayloadType</key>
+			<string>com.apple.assistant.support</string>
+			<key>PayloadUUID</key>
+			<string>19ACF603-9DA5-4A87-896B-D3668D55B8E3</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>Siri Data Sharing Opt-In Status</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Ad Tracking</string>
+			<key>PayloadIdentifier</key>
+			<string>com.github.erikberglund.ProfileCreator.5D987778-4840-4AF7-ADA1-E1BAAB070CA2.com.apple.AdLib.15717FEF-5103-4C81-AE2C-8ADC1E0468E4</string>
+			<key>PayloadType</key>
+			<string>com.apple.AdLib</string>
+			<key>PayloadUUID</key>
+			<string>15717FEF-5103-4C81-AE2C-8ADC1E0468E4</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>forceLimitAdTracking</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>AppAutoUpdate</key>
+			<true/>
+			<key>EnterprisePoliciesEnabled</key>
+			<true/>
+			<key>PayloadDisplayName</key>
+			<string>Firefox</string>
+			<key>PayloadIdentifier</key>
+			<string>com.github.erikberglund.ProfileCreator.5D987778-4840-4AF7-ADA1-E1BAAB070CA2.org.mozilla.firefox.E0230DD6-2394-45EE-9FCE-22D81A70960B</string>
+			<key>PayloadOrganization</key>
+			<string></string>
+			<key>PayloadType</key>
+			<string>org.mozilla.firefox</string>
+			<key>PayloadUUID</key>
+			<string>E0230DD6-2394-45EE-9FCE-22D81A70960B</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
