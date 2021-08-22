@@ -148,6 +148,7 @@ config-darwin: config-darwin-apps
 	defaults write NSGlobalDomain InitialKeyRepeat -int 12
 	defaults write NSGlobalDomain KeyRepeat -int 4
 	open .apple-os-settings.mobileconfig
+	open -b com.apple.systempreferences /System/Library/PreferencePanes/Profiles.prefPane
 	# Required to apply keyboard settings
 	osascript -e 'tell application "System Events" to log out'
 config-darwin-apps:
