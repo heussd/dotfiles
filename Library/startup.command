@@ -10,3 +10,5 @@ open -a "Hammerspoon.app"
 open -a "Easy Move+Resize.app"
 open -a "Docker.app"
 open -a "Next Meeting.app"
+
+make sync
