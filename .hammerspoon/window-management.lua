@@ -56,8 +56,11 @@ end
 hyper:bind({}, "Up", maximize_current_window)
 hyper:bind({}, "Down", wide_right_below)
 
-hyper:bind({}, "Left", narrow_left)
-hyper:bind({}, "Right", wide_right)
+hyper:bind({}, "Left", left_half)
+hyper:bind({}, "Right", right_half)
 
-hyper:bind({"Option"}, "Left", left_half)
-hyper:bind({"Option"}, "Right", right_half)
+hyper:bind({"Option"}, "Left", wide_left)
+hyper:bind({"Option"}, "Right", wide_right)
+
+hyper:bind({"Shift"}, "Left", narrow_left)
+hyper:bind({"Shift"}, "Right", narrow_right)
