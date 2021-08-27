@@ -83,6 +83,9 @@ function lower_wide()
 end
 
 
+hyper:bind({}, "y", maximize_current_window)
+
+
 hyper:bind({"Shift"}, "Down", lower_narrow)
 hyper:bind({}, "Down", lower_half)
 hyper:bind({"Option"}, "Down", lower_wide)
