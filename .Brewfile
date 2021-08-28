@@ -49,6 +49,7 @@ brew "pandoc"
 
 ## Development 
 brew "dive"
+brew "az"
 brew "k9s"
 brew "kubectx"
 brew "lazydocker"
