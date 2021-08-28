@@ -115,11 +115,9 @@ cask "tor-browser"
 cask "transmission"
 cask "veracrypt"
 mas "Disk Graph", id: 697942581
-mas "Flycut", id: 442160987
 mas "Ka-Block!", id: 1335413823
 mas "OwlOCR", id: 1499181666
 mas "PDFify", id: 1435055351
-mas "Pocket", id: 568494494
 mas "SleepTime", id: 465772885
 
 
