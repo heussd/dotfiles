@@ -42,15 +42,24 @@ endif
 	@echo -e "\033[0;34m[Home Makefile]\033[0m Onboarding complete!"
 
 
+LAUNCH_CMD=""
+ifdef KITTY
+override LAUNCH_CMD=kitty @ launch --keep-focus --type=tab 
+endif
+
 # Do things if $1 is too old
 # $1 - File to check
 # $2 - Message to print
 # $3 - Commands to execute
 define if-old
 	@if [ -e $(1) ]; then find "$(1)" -mmin +$$((7*24*60)) \
-		-exec bash -c 'echo -e "\033[0;34m[Home Makefile]\033[0m$(2)"; $(3); touch $(1)' \; ;\
+		-exec bash -c 'echo -e "\033[0;34m[Home Makefile]\033[0m$(2)"; ${LAUNCH_CMD}$(3); touch $(1)' \; ;\
 	fi
 endef
+
+test:
+	@touch -t 200001010101 lala
+	$(call if-old,lala,DOING SOMETHING,sleep 4)
 
 
 auto-pull-dotfiles: ## Pulls from dotfiles remote repository, if last pull is old enough
@@ -79,7 +88,7 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies .pip-global-install
 .auto-install-darwin: .Brewfile | check-time-last-installed
 	@export HOMEBREW_CASK_OPTS="--no-quarantine"
 	@printf "\e[1;34m[Home Makefile]\e[0m Brew bundle install...\n"
-	@brew bundle install -v --cleanup --force --file=.Brewfile
+	@$(LAUNCH_CMD)brew bundle install -v --cleanup --force --file=.Brewfile
 	@touch .auto-install-darwin
 
 .auto-install-linux: .auto-install-apt .Brewfile.linux | check-time-last-installed
