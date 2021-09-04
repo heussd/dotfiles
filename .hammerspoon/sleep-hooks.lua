@@ -14,7 +14,7 @@ end
 
 function post_lock()
     device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(20)
+    device:setOutputVolume(5)
 
     hlspeak('bell')
 
