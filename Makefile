@@ -276,7 +276,7 @@ endef
 
 sync: ## Synchronize files with maya ❤️
 	$(call gita)
-	$(call rsync,maya,$(HOST),)
+	#$(call rsync,maya,$(HOST),)
 
 full-sync: ## Synchronize completely with maya
 	@if ssh maya "test -e ~/data/newsboat/news.db.lock"; then echo "maya is busy, cannot sync now. STOP."; exit 1; fi
@@ -287,7 +287,7 @@ sync-dry: ## Like sync, but as dry-run
 
 push:
 	@gita push
-	$(call rsync-push,maya,$(HOST),)
+	#$(call rsync-push,maya,$(HOST),)
 
 force-push:
 	@gita push
@@ -296,7 +296,7 @@ force-push:
 
 pull:
 	@gita pull
-	$(call rsync-pull,maya,$(HOST),)
+	#$(call rsync-pull,maya,$(HOST),)
 backup:
 	@rsync --archive --delete --delete-excluded --progress --human-readable \
 		-F --filter=". $$HOME/.rsync-filter-backup" --exclude=/*	   \
