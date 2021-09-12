@@ -13,3 +13,9 @@ function! Fold(lnum)
   endif
   return '=' " return previous fold level
 endfunction
+
+
+autocmd BufWritePost * silent exec '!markdownlint --fix --config $HOME/.markdownlint.yml "%" 2> /dev/null; slmd "%" -o;'
+
+" Reload file after external change
+set autoread

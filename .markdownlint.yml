@@ -1,0 +1,12 @@
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+# https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+
+default: true
+
+MD012: # Consecutive blank lines
+  maximum: 1
+
+MD022: # Headings should be surrounded by blank lines
+  lines_above: 2
+
+MD041: false # First line in a file should be a top-level heading
