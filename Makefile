@@ -44,7 +44,7 @@ endif
 
 LAUNCH_CMD=""
 ifdef KITTY
-override LAUNCH_CMD=kitty @ launch --keep-focus --type=tab 
+override LAUNCH_CMD=kitty @ launch --keep-focus --copy-env --no-response --type=tab # --location=vsplit # --type=tab 
 endif
 
 # Do things if $1 is too old
