@@ -63,6 +63,8 @@ cask "clockify"
 cask "cyberduck"
 cask "db-browser-for-sqlite"
 cask "docker", greedy: true # Force Docker update, because noisy client update mechanism is blocked from now on
+cask "multipass"
+brew "podman"
 cask "xbar"
 cask "gephi"
 cask "google-cloud-sdk"
