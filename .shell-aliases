@@ -20,6 +20,9 @@ function brew-forget() { rm -rfv "/usr/local/Caskroom/$1"; }
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
+
+export PATH="$PATH:~/.local/bin/"
+
 _isLinux && export BROWSER="firefox"
 #_isMacOS && export BROWSER="open"
 export TERM=xterm-color
