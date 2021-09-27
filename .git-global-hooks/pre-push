@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+username="heussd"
+# Set this up via
+# security add-generic-password -a $LOGNAME -s bitbucket -w LALALALA 
+password=$(security find-generic-password -w -a "$LOGNAME" -s bitbucket)
+
+CURL_OPTS=(-u "$username:$password" --silent)
+
+function print {
+    echo -e "${BLUE}[bitbucket-pre-push-hook]${NC} $1"
+}
+
+# Does one of the remotes contain "github" and "heussd"?
+git remote -v | grep "github.com" | grep "heussd" > /dev/null && (
+    repository=$(git remote -v | \
+        grep "github.com" | \
+        grep "heussd" | \
+        head -n 1 | \
+        awk -F'heussd/' '{ print $2 }' | \
+        awk -F'.git' '{ print $1 }' | \
+        tr '[:upper:]' '[:lower:]')
+
+    print "Validating credentials..."
+    curl --fail "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/user" > /dev/null || (
+        echo "... failed. Most likely, the provided credentials are invalid. Terminating..."
+        exit 1
+    )
+
+    print "Checking if repository \"$username/$repository\" exists..."
+    curl "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$username/$repository" | grep "error" > /dev/null && (
+        echo "BitBucket repository \"$username/$repository\" does NOT exist, creating it..."
+        curl -X POST --fail "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$username/$repository" -H "Content-Type: application/json" -d '{"scm": "git", "is_private": "true"}' > /dev/null
+    )
+
+    print "Pushing..."
+    git push https://"$username:$password"@bitbucket.org/$username/$repository.git --all --force --no-verify
+
+    exit 0
+)
+
