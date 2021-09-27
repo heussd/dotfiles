@@ -1,0 +1,13 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+#rm .github/workflows/mirror-to-bitbucket.yml 
+gh secret remove BITBUCKET_PASSWORD
+
+commithash=$(git log --oneline --grep='Enable automatic mirroring to BitBucket' | awk -F' ' '{ print $1 }')
+git rebase -i "$commithash~1"
+
+git push -f
+
