@@ -40,7 +40,7 @@ git remote -v | grep "github.com" | grep "heussd" > /dev/null && (
     )
 
     print "Pushing..."
-    git push https://"$username:$password"@bitbucket.org/$username/$repository.git --all --force --no-verify
+    git push "https://$username:$password@bitbucket.org/$username/$repository.git" --all --force --no-verify
 
     exit 0
 )

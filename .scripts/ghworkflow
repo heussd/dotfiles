@@ -2,7 +2,7 @@
 
 WORKFLOWS=$TH_PROJECTS_FOLDER/awesome-github-workflows
 
-workflow=$(ls "$WORKFLOWS" | fzf)
+workflow=$(find "$WORKFLOWS" -iname "*.yml" | fzf)
 
 
 mkdir -p .github/workflows > /dev/null

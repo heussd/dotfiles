@@ -19,7 +19,7 @@ for i in *; do
 			echo "$selection" | grep '[a-z0-9]' > /dev/null && break
 		done
 
-		if [[ ! -e $selection ]]; then mkdir $selection; fi
+		if [[ ! -e $selection ]]; then mkdir "$selection"; fi
 		mv -v "$i" "$selection"
 		killall -9 $playercmd 2&> /dev/null
 	fi
