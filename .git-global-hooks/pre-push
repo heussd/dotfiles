@@ -45,3 +45,4 @@ git remote -v | grep "github.com" | grep "heussd" > /dev/null && (
     exit 0
 )
 
+exit 0
