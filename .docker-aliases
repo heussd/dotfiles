@@ -8,29 +8,29 @@ alias babellint='docker run --rm --interactive --tty -v $(pwd):$(pwd) -w $(pwd) 
 
 # Cloud
 #alias az='dockerrun -v ${HOME}/.azure/:/root/.azure -v ${HOME}/.kube/:/root/.kube/ -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli az'
-alias aws='docker run --rm -it --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" -v ~/.aws:/root/.aws amazon/aws-cli'
+#alias aws='docker run --rm -it --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" -v ~/.aws:/root/.aws amazon/aws-cli'
 #alias kubectl='dockerrunu -v ${HOME}/.kube/:/.kube bitnami/kubectl:latest'
 #alias gcloud='docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud'
 
 # Office
 alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest /slides/ --separator "^\n\n\n" --vertical-separator "^\n\n"'
 #alias pandoc='dockerrunuw pandoc/latex:latest'
-alias latex='dockerrunu --net=none -v "$PWD":/data "blang/latex:ubuntu"'
-alias latexmk='latex latexmk'
-alias graphviz="graphviz/graphviz:ubuntu-20.04"
+#alias latex='dockerrunu --net=none -v "$PWD":/data "blang/latex:ubuntu"'
+#alias latexmk='latex latexmk'
+#alias graphviz="graphviz/graphviz:ubuntu-20.04"
 
 # Development tools
 alias protoc='dockerrunu -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
 
-alias mvn='dockerrunuw --volume "$HOME/.m2":/root/.m2 maven:3-jdk-11 mvn'
-alias gradle='dockerrunuw gradle gradle'
-alias ruby='dockerrunuw ruby:latest ruby'
+#alias mvn='dockerrunuw --volume "$HOME/.m2":/root/.m2 maven:3-jdk-11 mvn'
+#alias gradle='dockerrunuw gradle gradle'
+#alias ruby='dockerrunuw ruby:latest ruby'
 
 # Taken from https://github.com/JanGalek/dockerized/tree/master/applications/node
 #alias node='docker run --rm --interactive --tty --volume $PWD:/app -w /app --user $(id -u):$(id -g) node node '
 #alias npm='docker run --rm --interactive --tty --volume $PWD:/usr/src/app -w /usr/src/app --user $(id -u):$(id -g) node npm --loglevel=warn '
 #alias npx='docker run --rm --interactive --tty --volume $PWD:/app -w /app --user $(id -u):$(id -g) node npx --loglevel=warn '
-alias node10='dockerrunu --volume "$(pwd):/app" -w /app node:10'
-alias npm10='node10 npm --loglevel=warn '
-alias npx10='node10 npx --loglevel=warn '
+#alias node10='dockerrunu --volume "$(pwd):/app" -w /app node:10'
+#alias npm10='node10 npm --loglevel=warn '
+#alias npx10='node10 npx --loglevel=warn '
 
