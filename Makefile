@@ -47,6 +47,11 @@ ifdef KITTY
 override LAUNCH_CMD=kitty @ launch --keep-focus --copy-env --no-response --type=tab 
 endif
 
+define exec
+	@printf "\e[1;34m[Home Makefile]\e[0m $(1)...\n"
+	@$(LAUNCH_CMD)zsh -c "$(2)"
+endef
+
 # Do things if $1 is too old
 # $1 - File to check
 # $2 - Message to print
@@ -77,7 +82,7 @@ auto-pull-docker-images: ## Pulls CLI Docker images
 check-time-last-installed:
 	$(call if-old,$(HOME)/.auto-install-$(OS_NAME),\
 		Triggering auto install...,\
-		rm -f "{}"; $(MAKE) .auto-install-$(OS_NAME))
+		rm -f "$(HOME)/.auto-install-$(OS_NAME)")
 .PHONY: check-time-last-installed
 
 
@@ -86,9 +91,11 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies .pip-global-install
 .PHONY: auto-install
 
 .auto-install-darwin: .Brewfile | check-time-last-installed
-	@export HOMEBREW_CASK_OPTS="--no-quarantine"
-	@printf "\e[1;34m[Home Makefile]\e[0m Brew bundle install...\n"
-	@$(LAUNCH_CMD)zsh -c "brew bundle install -v --cleanup --force --file=.Brewfile"
+	
+	$(call exec,Brew bundle install,\
+		export HOMEBREW_CASK_OPTS="--no-quarantine"; \
+		brew bundle install -v --cleanup --force --file=.Brewfile)
+
 	@touch .auto-install-darwin
 
 .auto-install-linux: .auto-install-apt .Brewfile.linux | check-time-last-installed
