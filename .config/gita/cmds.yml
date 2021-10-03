@@ -5,5 +5,6 @@ pull:
   allow_all: true
   help: pull remote updates
 push:
+  cmd: "push --no-verify"
   allow_all: true
   help: push the local updates
