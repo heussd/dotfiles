@@ -24,6 +24,7 @@ jobs:
 
           # Add one package to test auto install
           echo "brew \"fzf\"" >> .Brewfile
+          echo "cask \"docker\"" >> .Brewfile
 
           ls -la
 
