@@ -42,14 +42,14 @@ endif
 	@echo -e "\033[0;34m[Home Makefile]\033[0m Onboarding complete!"
 
 
-LAUNCH_CMD=""
+LAUNCH_CMD = bash -c
 ifdef KITTY
-override LAUNCH_CMD=kitty @ launch --keep-focus --copy-env --no-response --type=tab 
+override LAUNCH_CMD=kitty @ launch --keep-focus --copy-env --no-response --type=tab zsh 
 endif
 
 define exec
 	@printf "\e[1;34m[Home Makefile]\e[0m $(1)...\n"
-	@$(LAUNCH_CMD)zsh -c "$(2)"
+	@$(LAUNCH_CMD) "$(2)"
 endef
 
 # Do things if $1 is too old
