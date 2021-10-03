@@ -93,8 +93,8 @@ rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -
 _hasCmd rsync && alias gentlecp='rsync --update --progress --human-readable'
 _hasCmd screen && alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
 _hasCmd thefuck && eval "$(thefuck --alias)"
-_hasCmd newsboat && alias news='XDG_CONFIG_HOME="$HOME/.config/newsboat/news/" XDG_DATA_HOME="$HOME/.local/share/newsboat/news/" newsboat'
-_hasCmd newsboat && alias tv='XDG_CONFIG_HOME="$HOME/.config/newsboat/tv/" XDG_DATA_HOME="$HOME/.local/share/newsboat/tv/" newsboat'
+_hasCmd newsboat && alias news='XDG_CONFIG_HOME="$HOME/.config/newsboat/news/" XDG_DATA_HOME="$HOME/.local/share/newsboat/news/" newsboat; stty sane'
+_hasCmd newsboat && alias tv='XDG_CONFIG_HOME="$HOME/.config/newsboat/tv/" XDG_DATA_HOME="$HOME/.local/share/newsboat/tv/" newsboat; stty sane'
 
 
 # Shortcuts
