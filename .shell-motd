@@ -22,7 +22,7 @@ if [ "$PWD" = "$HOME" ]; then
 		docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
 	)
 		
-	_hasFile "$HOME/.config/gita/repo_path" && (
+	_hasFile "$HOME/.config/gita/repos.csv" && (
 		gita ll && echo
 	)
 

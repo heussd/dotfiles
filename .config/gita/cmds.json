@@ -1,0 +1,7 @@
+{
+    "push": {
+        "cmd": "git push --no-verify",
+        "allow_all": true,
+        "help": "SOMETHING"
+    }
+}
