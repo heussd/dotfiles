@@ -24,11 +24,19 @@ jobs:
 
           # Add one package to test auto install
           echo "brew \"fzf\"" >> .Brewfile
-          echo "cask \"docker\"" >> .Brewfile
+          
+          # We don't want to execute Docker here, so...
+          # Mock docker-compose command and inject it into path
+          mkdir -p ~/localbins/
+          echo '#!/bin/bash' > ~/localbins/docker-compose
+          chmod +x ~/localbins/docker-compose
+          export PATH=~/localbins/:$PATH
 
-          # Overwrite docker-compose to conserve bandwidth
-          echo -e "services:\n  service:\n    image: alpine" > .docker-cli-images.yml
-
+          # Do not install anything but gita
+          # Do particularly NOT install docker-compose, as it
+          # would overwrite the mock
+          echo "gita" > .pip-global-requirements.txt
+          
           ls -la
 
           # Simulate first shell init
