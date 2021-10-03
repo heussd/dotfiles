@@ -26,6 +26,9 @@ jobs:
           echo "brew \"fzf\"" >> .Brewfile
           echo "cask \"docker\"" >> .Brewfile
 
+          # Overwrite docker-compose to conserve bandwidth
+          echo -e "services:\n  service:\n    image: alpine" > .docker-cli-images.yml
+
           ls -la
 
           # Simulate first shell init
@@ -45,6 +48,9 @@ jobs:
 
           # Overwrite apt packages file, no need to stress download servers
           echo "fzf" > .apt-packages-base
+
+          # Overwrite docker-compose to conserve bandwidth
+          echo -e "services:\n  service:\n    image: alpine" > .docker-cli-images.yml
 
           ls -la
 

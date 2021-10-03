@@ -44,7 +44,7 @@ endif
 
 LAUNCH_CMD = bash -c
 ifdef KITTY
-override LAUNCH_CMD=kitty @ launch --keep-focus --copy-env --no-response --type=tab zsh 
+override LAUNCH_CMD=kitty @ launch --keep-focus --copy-env --no-response --type=tab zsh -c
 endif
 
 define exec
