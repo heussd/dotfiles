@@ -10,7 +10,7 @@ HOST = $$(hostname | cut -d"." -f 1)
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
 
-default: auto-pull-dotfiles auto-install auto-pull-docker-images
+default: auto-pull-dotfiles auto-install 
 .PHONY: default
 
 
@@ -62,22 +62,11 @@ define if-old
 	fi
 endef
 
-test:
-	@touch -t 200001010101 lala
-	$(call if-old,lala,DOING SOMETHING,sleep 4)
-
-
 auto-pull-dotfiles: ## Pulls from dotfiles remote repository, if last pull is old enough
 	$(call if-old,$(DOTFILES_BARE)/FETCH_HEAD, \
 		Pulling dotfiles...,\
 		git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet)
 .PHONY: auto-pull-dotfiles
-
-
-auto-pull-docker-images: ## Pulls CLI Docker images
-	$(call if-old,$(HOME)/.docker-cli-images.yml, Pulling Docker CLI images..., docker-compose -f .docker-cli-images.yml pull)
-.PHONY: auto-pull-docker-images
-
 
 check-time-last-installed:
 	$(call if-old,$(HOME)/.auto-install-$(OS_NAME),\
@@ -86,28 +75,36 @@ check-time-last-installed:
 .PHONY: check-time-last-installed
 
 
-
-auto-install: .auto-install-$(OS_NAME) firefox-policies .pip-global-install
+auto-install: .auto-install-$(OS_NAME) firefox-policies
 .PHONY: auto-install
 
-.auto-install-darwin: .Brewfile | check-time-last-installed
+.auto-install-darwin: .Brewfile .pip-global-requirements.txt .docker-cli-images.yml | check-time-last-installed
 	
 	$(call exec,Brew bundle install,\
 		export HOMEBREW_CASK_OPTS="--no-quarantine"; \
 		brew bundle install -v --cleanup --force --file=.Brewfile)
 
+	$(call exec,PIP install,\
+		pip3 install -r .pip-global-requirements.txt)
+
+	$(call exec,Pulling Docker CLI images,\
+		docker-compose -f .docker-cli-images.yml pull)
+
 	@touch .auto-install-darwin
 
-.auto-install-linux: .auto-install-apt .Brewfile.linux | check-time-last-installed
-	@export HOMEBREW_CASK_OPTS="--no-quarantine"
-	@printf "\e[1;34m[Home Makefile]\e[0m Brew bundle install...\n"
-	#@brew bundle install -v --cleanup --force --file=.Brewfile.linux
-	@touch .auto-install-linux
 
-.auto-install-apt: .apt-packages-base
-# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
-	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base
-	@touch .auto-install-apt
+.auto-install-linux: .apt-packages-base .pip-global-requirements.txt .docker-cli-images.yml | check-time-last-installed
+#	# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
+	$(call exec,APT install,\
+		xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base)
+
+	$(call exec,PIP install,\
+		pip3 install -r .pip-global-requirements.txt)
+
+	$(call exec,Pulling Docker CLI images,\
+		docker-compose -f .docker-cli-images.yml pull)
+
+	@touch .auto-install-linux
 
 
 
@@ -142,10 +139,6 @@ firefox-policies-linux:  /etc/firefox/policies/policies.json
 
 .PHONY: firefox-policies firefox-policies-darwin firefox-policies-linux
 
-
-.pip-global-install: .pip-global-requirements.txt
-	@pip3 install -r .pip-global-requirements.txt
-	@touch .pip-global-install
 
 
 config: config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub firefox ## Configures user account and applications
