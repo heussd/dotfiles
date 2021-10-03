@@ -85,7 +85,7 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies
 		brew bundle install -v --cleanup --force --file=.Brewfile)
 
 	$(call exec,PIP install,\
-		pip3 install -r .pip-global-requirements.txt)
+		pip3 install -U -r .pip-global-requirements.txt)
 
 	$(call exec,Pulling Docker CLI images,\
 		docker-compose -f .docker-cli-images.yml pull)
@@ -99,7 +99,7 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies
 		xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base)
 
 	$(call exec,PIP install,\
-		pip3 install -r .pip-global-requirements.txt)
+		pip3 install -U -r .pip-global-requirements.txt)
 
 	$(call exec,Pulling Docker CLI images,\
 		docker-compose -f .docker-cli-images.yml pull)
