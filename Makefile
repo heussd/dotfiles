@@ -21,21 +21,21 @@ onboard: ## Onboards the dotfiles repository on this machine
 	@git clone --bare $(DOTFILES_REPO) $(DOTFILES_BARE)/
 	@git --git-dir=$(DOTFILES_BARE) config --local status.showUntrackedFiles no
 	@git --git-dir=$(DOTFILES_BARE) config --local core.sparseCheckout true
-# Include everything
+# 	# Include everything
 	@echo "/*" > $(DOTFILES_BARE)/info/sparse-checkout
-# Exclude readme
+#	# Exclude readme
 	@echo "!Readme.md" >> $(DOTFILES_BARE)/info/sparse-checkout
-# Ignore Library folder on Linux
+#	# Ignore Library folder on Linux
 ifeq ("$(OS_NAME)","linux")
 	@echo "!Library" >> $(DOTFILES_BARE)/info/sparse-checkout
 endif	
 	@cd $(HOME)/
-# recursive-submodules is limited to git >= 2.13
-# We are doing it the old way here to increase compatibility
-#@git --git-dir=$(DOTFILES_BARE) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
+#	# recursive-submodules is limited to git >= 2.13
+#	# We are doing it the old way here to increase compatibility
+#	# @git --git-dir=$(DOTFILES_BARE) --work-tree=$(DOTFILES_WORK_DIR)/ checkout -f --recurse-submodules
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ checkout -f
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ submodule update --init --recursive
-# Manual pull to create FETCH_HEAD
+#	# Manual pull to create FETCH_HEAD
 	@git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull
 	@touch "$(DOTFILES_BARE)/FETCH_HEAD"
 
