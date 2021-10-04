@@ -49,7 +49,7 @@ endif
 
 define exec
 	@printf "\e[1;34m[Home Makefile]\e[0m $(1)...\n"
-	@$(LAUNCH_CMD) "$(2)"
+	@$(LAUNCH_CMD) "$(2) || read"
 endef
 
 # Do things if $1 is too old
