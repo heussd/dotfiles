@@ -24,7 +24,7 @@ jobs:
 
           # Add one package to test auto install
           echo "brew \"fzf\"" >> .Brewfile
-          
+
           # We don't want to execute Docker here, so...
           # Mock docker-compose command and inject it into path
           mkdir -p ~/localbins/
@@ -36,7 +36,7 @@ jobs:
           # Do particularly NOT install docker-compose, as it
           # would overwrite the mock
           echo "gita" > .pip-global-requirements.txt
-          
+
           ls -la
 
           # Simulate first shell init
