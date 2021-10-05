@@ -297,11 +297,19 @@ force-push:
 pull:
 	@gita pull
 	$(call rsync-pull,maya,$(HOST),)
+
+
 backup:
+	@sudo echo # Request admin rights required for VeraCrypt
+
+	@keepassxc-cli show "$$(find "$$HOME/Documents" -name "*.kdbx")" \
+		"Backup: VeraCrypt / rsync" --attributes Password --show-protected | \
+		/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt \
+			--text --non-interactive --stdin /dev/rdisk2s3 /Volumes/VeraCryptBackup/
+			
 	@rsync --archive --delete --delete-excluded --progress --human-readable \
 		-F --filter=". $$HOME/.rsync-filter-backup" --exclude=/*	   \
-		"$$HOME/" /Volumes/VeraCrypt/rsync-backup/
-
+		"$$HOME/" /Volumes/VeraCryptBackup/
 
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
