@@ -244,65 +244,39 @@ config-toggle-dark-mode-darwin:
 	@osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 
 
+
 # rsyncs a remote location with this user's home
-# $1 - Remote Location
-# $2 - Filter name to apply (.rsync-filter-$2)
-# $3 - Additional options
+# $1 - Source machine
+# $2 - Target machine
+# $3 - Filter name to apply (.rsync-filter-$2)
+# $4 - Additional options
 define rsync
-	@echo "⬇️ $1..."
-	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* $(1):~/ ~/ $(3)
-	@echo "⬆️ $1..."
-	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* ~/ $(1):~/ $(3)
+	@rsync -auip --progress --safe-links \
+		--filter=". $$HOME/.rsync-filter-$(3)" --exclude=/* \
+		$(1) $(2) \
+		$(4)
 endef
 
-# rsyncs a remote location with this user's home
-# $1 - Remote Location
-# $2 - Filter name to apply (.rsync-filter-$2)
-# $3 - Additional options
-define rsync-pull
-	@echo "⬇️ $1..."
-	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* $(1):~/ ~/ $(3)
-endef
-# rsyncs a remote location with this user's home
-# $1 - Remote Location
-# $2 - Filter name to apply (.rsync-filter-$2)
-# $3 - Additional options
-define rsync-push
-	@echo "⬆️ $1..."
-	@rsync -auip --progress --safe-links --filter=". $$HOME/.rsync-filter-$(2)" --exclude=/* ~/ $(1):~/ $(3)
-endef
-
-define gita
-	@echo "⬇️ gita..."
-	@gita pull
-	@echo "⬆️ gita..."
-	@gita push
-endef
-	
-
-sync: ## Synchronize files with maya ❤️
-	$(call gita)
-	$(call rsync,maya,$(HOST),)
-
-full-sync: ## Synchronize completely with maya
-	@if ssh maya "test -e ~/data/newsboat/news.db.lock"; then echo "maya is busy, cannot sync now. STOP."; exit 1; fi
-	$(call rsync,maya,$(HOST)-full,)
-	
-sync-dry: ## Like sync, but as dry-run
-	$(call rsync,maya,maya,--dry-run)
-
-push:
-	@gita push
-	$(call rsync-push,maya,$(HOST),)
-
-force-push:
-	@gita push
-	$(call rsync-push,maya,$(HOST),--delete)
-
+sync: pull push ## Synchronize files with maya ❤️
+.PHONY: sync pull push force-push full-sync
 
 pull:
 	@gita pull
-	$(call rsync-pull,maya,$(HOST),)
+	$(call rsync,maya:~/,~/,$(HOST),)
+
+push:
+	@gita push
+	$(call rsync,~/,maya:~/,$(HOST),)
+
+force-push:
+	@gita push
+	$(call rsync,~/,maya:~/,$(HOST),--delete)
+
+full-sync: ## Synchronize completely with maya
+	@if ssh maya "test -e ~/data/newsboat/news.db.lock"; then echo "maya is busy, cannot sync now. STOP."; exit 1; fi
+	$(call rsync,maya:~/,~/,$(HOST)-full,)
+	$(call rsync,~/,maya:~/,$(HOST)-full,)
+
 
 
 backup:
