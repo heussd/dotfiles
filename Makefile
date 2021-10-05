@@ -156,6 +156,12 @@ config-darwin: config-darwin-apps
 	killall Finder
 	defaults write NSGlobalDomain InitialKeyRepeat -int 12
 	defaults write NSGlobalDomain KeyRepeat -int 4
+	
+	sudo tmutil addexclusion -p /Applications
+	sudo tmutil addexclusion -p ~/data
+	sudo tmutil addexclusion -p ~/Downloads
+	sudo tmutil addexclusion -p "~/Library/Application Support/Steam"
+		
 	open .apple-os-settings.mobileconfig
 	open -b com.apple.systempreferences /System/Library/PreferencePanes/Profiles.prefPane
 	# Required to apply keyboard settings
