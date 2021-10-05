@@ -316,6 +316,8 @@ backup:
 	@rsync --archive --delete --delete-excluded --progress --human-readable \
 		-F --filter=". $$HOME/.rsync-filter-backup" --exclude=/*	   \
 		"$$HOME/" /Volumes/VeraCryptBackup/
+	
+	tmutil startbackup
 
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
