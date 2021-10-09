@@ -1,0 +1,10 @@
++ .local/
++ .local/share/
++ .local/share/newsboat/
++ .local/share/newsboat/tv/
++ .local/share/newsboat/tv/newsboat/
++ .local/share/newsboat/tv/newsboat/cache.db
++ .local/share/newsboat/news/
++ .local/share/newsboat/news/newsboat/
++ .local/share/newsboat/news/newsboat/cache.db
+- .local/**
