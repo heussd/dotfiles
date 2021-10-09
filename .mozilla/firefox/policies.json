@@ -3,6 +3,7 @@
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
     "DisableSetDesktopBackground": true,
+    "SearchSuggestEnabled": false,
     "DisableTelemetry": true,
     "Extensions": {
       "Install": [
