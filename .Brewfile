@@ -85,6 +85,7 @@ brew "glab"
 brew "gh"			# GitHub-cli
 brew "markdownlint-cli"
 brew "gradle"
+brew "lazygit"
 
 tap "nektos/tap"
 brew "act"
