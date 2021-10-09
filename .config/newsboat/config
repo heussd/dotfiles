@@ -28,8 +28,12 @@ goto-next-feed		no
 bookmark-cmd        "~/.config/newsboat/scripts/vimwiki"
 bookmark-autopilot  yes
 
+
 browser			"~/.config/newsboat/scripts/browser"
-macro f set browser 	"~/.config/newsboat/scripts/full-text-article" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
+macro f			set browser "~/.config/newsboat/scripts/full-text-article" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
+
+# Open in default browser
+macro o 		set browser open ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
 
 
 include ~/.config/newsboat/keys
