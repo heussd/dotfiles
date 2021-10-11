@@ -60,7 +60,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	# State a reference file to take last-modified date from
 	commit-refdate= "!f() { REFDATE=$(stat -f \"%Sm\" -t \"%Y-%m-%dT%H:%M:%S\" \"$1\"); shift; git commit-predate \"$REFDATE\" $*; }; f"
 
-	time-machine = "!gitk --follow "
+	time-machine = "!gitk"
 	tm = "time-machine"
 
 
