@@ -25,7 +25,8 @@ git remote -v | grep "github.com" | grep "heussd" > /dev/null && (
         head -n 1 | \
         awk -F'heussd/' '{ print $2 }' | \
         awk -F'.git' '{ print $1 }' | \
-        tr '[:upper:]' '[:lower:]')
+        tr '[:upper:]' '[:lower:]' | \
+        awk -F' ' '{ print $1 }')
 
     print "Validating credentials..."
     curl --fail "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/user" > /dev/null || (
