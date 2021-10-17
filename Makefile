@@ -71,7 +71,7 @@ auto-pull-dotfiles: ## Pulls from dotfiles remote repository, if last pull is ol
 check-time-last-installed:
 	$(call if-old,$(HOME)/.auto-install-$(OS_NAME),\
 		Triggering auto install...,\
-		rm -f "$(HOME)/.auto-install-$(OS_NAME)")
+		rm -f "$(HOME)/.auto-install-$(OS_NAME); $(MAKE) auto-install")
 .PHONY: check-time-last-installed
 
 
