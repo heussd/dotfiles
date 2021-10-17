@@ -36,7 +36,7 @@ set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
 function Date()
-	:r! date "+\%A, \%d. \%B \%Y, \%H:\%M Uhr"
+	:r! date "+\%Y-\%m-\%d \%H:\%M"
 endfunction
 command Date call Date()
 
