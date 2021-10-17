@@ -35,29 +35,6 @@ set incsearch     " show search matches as you type
 set guifont=Source\ Code\ Pro\ Regular\ 11
 
 
-function Fullscreen()
-	silent! set fu
-endfunction
-
-function FocusMode()
-	Goyo
-	set textwidth=0
-	set spell spelllang=de,en
-	if has("gui_running")
-	  WriterToggle
-	  Limelight
-	  set lines=55 columns=120
-	endif
-	let foo = "bar"
-	set wrap
-	set linebreak
-	set textwidth=0
-	set wrapmargin=0
-	" :set nolist In vim versions prior to 7.4.353 list disabled linebreak
-endfunction
-command FocusMode call FocusMode()
-
-
 function Date()
 	:r! date "+\%A, \%d. \%B \%Y, \%H:\%M Uhr"
 endfunction
@@ -231,3 +208,4 @@ endfunction
 
 
 
+au BufRead,BufNewFile reflections setfiletype reflections
