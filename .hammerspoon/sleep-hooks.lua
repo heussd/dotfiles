@@ -4,6 +4,9 @@ require('utils')
 function pre_lock()
     hs.execute("killall newsboat", true)
     hs.execute("make -f $HOME/Makefile push", true)
+    
+    device = hs.audiodevice.defaultOutputDevice()
+    device:setOutputVolume(5)
     hlspeak('doop')
 end
 
