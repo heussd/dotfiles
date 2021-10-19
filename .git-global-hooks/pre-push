@@ -28,6 +28,12 @@ git remote -v | grep "github.com" | grep "heussd" > /dev/null && (
         tr '[:upper:]' '[:lower:]' | \
         awk -F' ' '{ print $1 }')
 
+    # Ignore these repositories
+    case "$repository" in
+    	 "dotfiles" | "vimwiki")
+    	 	exit 0;;
+    esac
+
     print "Validating credentials..."
     curl --fail "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/user" > /dev/null || (
         echo "... failed. Most likely, the provided credentials are invalid. Terminating..."
