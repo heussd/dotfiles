@@ -7,7 +7,7 @@ setlocal foldmethod=expr
 setlocal foldexpr=Fold(v:lnum)
 
 function! Fold(lnum)
-  let fold_level = strlen(matchstr(getline(a:lnum), '^[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-2][0-9] [0-2][0-9]'))
+  let fold_level = strlen(matchstr(getline(a:lnum), '^[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9] [0-2][0-9]'))
   if (fold_level)
     return '>1'  ". fold_level  " start a fold level
   endif
