@@ -97,6 +97,9 @@ _hasCmd newsboat && alias news='XDG_CONFIG_HOME="$HOME/.config/newsboat/news/" X
 _hasCmd newsboat && alias tv='XDG_CONFIG_HOME="$HOME/.config/newsboat/tv/" XDG_DATA_HOME="$HOME/.local/share/newsboat/tv/" newsboat; stty sane'
 
 
+_hasCmd lazydocker && alias lzd='lazydocker'
+
+
 # Shortcuts
 function take() { mkdir -p "$1" && cd "$1"; }
 function t() { mkdir -p "$HOME/temp" && cd "$HOME/temp"; }
