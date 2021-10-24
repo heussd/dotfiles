@@ -58,20 +58,20 @@ endef
 # $3 - Commands to execute
 define if-old
 	@if [ -e $(1) ]; then find "$(1)" -mmin +$$((7*24*60)) \
-		-exec bash -c 'echo -e "\033[0;34m[Home Makefile]\033[0m$(2)"; $(3); touch $(1)' \; ;\
+		-exec bash -c 'echo -e "\033[0;34m[Home Makefile]\033[0m$(2)"; $(3)' \; ;\
 	fi
 endef
 
 auto-pull-dotfiles: ## Pulls from dotfiles remote repository, if last pull is old enough
 	$(call if-old,$(DOTFILES_BARE)/FETCH_HEAD, \
 		Pulling dotfiles...,\
-		git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet)
+		git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules --quiet; touch $(DOTFILES_BARE)/FETCH_HEAD)
 .PHONY: auto-pull-dotfiles
 
 check-time-last-installed:
 	$(call if-old,$(HOME)/.auto-install-$(OS_NAME),\
 		Triggering auto install...,\
-		rm -f "$(HOME)/.auto-install-$(OS_NAME); $(MAKE) auto-install")
+		rm -f "$(HOME)/.auto-install-$(OS_NAME); $(MAKE) auto-install; $(HOME)/.auto-install-$(OS_NAME)")
 .PHONY: check-time-last-installed
 
 
