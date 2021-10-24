@@ -2,8 +2,9 @@ include "~/.config/newsboat/config"
 
 articlelist-format  "%f%?T?%-1T ?%t %> %T %D"
 
-browser "~/.config/newsboat/scripts/media"
-#macro o set browser "echo %u | less" ; open-in-browser ; set browser "mpv %u &> /dev/null &"
+browser             "~/.config/newsboat/scripts/media"
+macro o     		set browser open ; open-in-browser ; set browser "~/.config/newsboat/scripts/media"
+
 
 # use "u" to open podcasts
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
