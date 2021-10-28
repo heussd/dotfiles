@@ -2,9 +2,11 @@ require('utils')
 
 
 function pre_lock()
+    print("Executing pre lock...")
+
     if (hs.wifi.currentNetwork() == "Wachtberg") then
         hs.execute("killall newsboat", true)
-        hs.execute("make -f $HOME/Makefile push", true)
+        hs.execute("make -f $HOME/Makefile push &", true)
     end
 
     device = hs.audiodevice.defaultOutputDevice()
@@ -14,6 +16,8 @@ end
 
 
 function post_lock()
+    print("Executing post lock...")
+
     device = hs.audiodevice.defaultOutputDevice()
     device:setOutputVolume(5)
 
@@ -21,25 +25,25 @@ function post_lock()
 
     print("Current WIFI is "..hs.wifi.currentNetwork())
     if (hs.wifi.currentNetwork() == "Wachtberg") then
-        hs.execute("make -f $HOME/Makefile pull", true)
+        hs.execute("make -f $HOME/Makefile pull &", true)
         hlspeak('hello')
     end
 end
 
 function sleepWatch(eventType)
     if (eventType == hs.caffeinate.watcher.screensDidLock) then
-        print("Screen lock detected")
+        print("Screen was locked")
         pre_lock()
     end
 
     if (eventType == hs.caffeinate.watcher.screensDidUnlock) then
-        print("Wake-up detected")
+        print("Screen was unlocked")
+        --hs.timer.doAfter(3, post_lock
         post_lock()
     end
 end
 
-sleepWatcher = hs.caffeinate.watcher.new(sleepWatch)
-sleepWatcher:start()
+sleepWatcher = hs.caffeinate.watcher.new(sleepWatch):start()
 
 
 
