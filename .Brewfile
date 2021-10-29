@@ -92,7 +92,7 @@ brew "act"
 
 
 ## Cloud File Sync
-cask "dropbox"
+cask "maestral"
 cask "cryptomator", greedy: true
 cask "macfuse", greedy: true
 mas "OneDrive", id: 823766827
