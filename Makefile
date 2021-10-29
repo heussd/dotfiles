@@ -252,7 +252,7 @@ config-toggle-dark-mode-darwin:
 # $4 - Additional options
 define rsync
 	@rsync -auip --progress --safe-links \
-		--filter=". $$HOME/.rsync-filter-$(3)" --exclude=/* \
+		--filter=". $$HOME/.rsync-filters/$(3)" --exclude=/* \
 		$(1) $(2) \
 		$(4)
 endef
@@ -288,7 +288,7 @@ backup:
 			--text --non-interactive --stdin /dev/rdisk2s3 /Volumes/VeraCryptBackup/
 			
 	@rsync --archive --delete --delete-excluded --progress --human-readable \
-		-F --filter=". $$HOME/.rsync-filter-backup" --exclude=/*	   \
+		-F --filter=". $$HOME/.rsync-filters/backup" --exclude=/*	   \
 		"$$HOME/" /Volumes/VeraCryptBackup/
 	
 	tmutil startbackup

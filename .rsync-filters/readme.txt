@@ -10,27 +10,3 @@
 # protect, P specifies a pattern for protecting files from deletion.
 # risk, R files that match the pattern are not protected.
 # clear, ! clears the current include/exclude list (takes no arg)
-
-
-+ data/
-+ data/redshift/
-+ data/redshift/**
-
-
-+ .local/
-+ .local/share/
-+ .local/share/newsboat/
-+ .local/share/newsboat/tv/
-+ .local/share/newsboat/tv/newsboat/
-+ .local/share/newsboat/tv/newsboat/cache.db
-+ .local/share/newsboat/news/
-+ .local/share/newsboat/news/newsboat/
-+ .local/share/newsboat/news/newsboat/cache.db
-- .local/**
-
-- */
-
-
-# Ignore every file on every level
-- .DS_Store
-

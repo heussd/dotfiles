@@ -1,0 +1,10 @@
+- .metadata
+- Thumbs.db
+- *~
+- Cache
+- .*.swp
+- .*.part
+- .*.gch
+
+# Ignore every file on every level
+- .DS_Store

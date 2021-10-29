@@ -1,0 +1,2 @@
+merge .rsync-filters/data
+merge .rsync-filters/global_excludes

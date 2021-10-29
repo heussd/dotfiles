@@ -1,7 +1,8 @@
+
 + data/
 + data/newsboat/
 + data/newsboat/news.db
 - data/newsboat/*
 
-. .rsync-filter-coffeelake
+. kabylake
 

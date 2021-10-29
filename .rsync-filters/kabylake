@@ -1,0 +1,6 @@
+
++ data/redshift/
++ data/redshift/**
+
+merge .rsync-filters/data
+merge .rsync-filters/global_excludes

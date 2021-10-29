@@ -1,9 +1,0 @@
-+ data/
-+ data/newsboat/
-+ data/newsboat/news.db
-+ data/redshift/
-+ data/redshift/**
-- data/newsboat/*
-
-. .rsync-filter-maya
-
