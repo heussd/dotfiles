@@ -8,13 +8,8 @@ NC='\033[0m'
 
 
 # Try to ask for linting. If tty cannot be opened the git command might be issued from a GUI. In this case, ignore the hook.
-read -r -n1 -t 3 -p "babellint this? [b/*]: " c < /dev/tty || exit 0
+read -r -n1 -t 3 -p "babellint this? [b/f/*]: " c < /dev/tty || exit 0
 echo
-
-c=${c:-n}
-if [[ "$c" != "b" ]]; then
-	exit 0
-fi
 
 
 function fail {
@@ -26,5 +21,16 @@ function fail {
 trap fail ERR
 
 
-/usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
 
+
+c=${c:-n}
+case "$c" in
+    "f")
+        /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest "--fix"
+        ;;
+    "b")
+        /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
+        ;;
+    *)
+        exit 0
+esac
