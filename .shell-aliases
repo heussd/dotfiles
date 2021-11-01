@@ -116,6 +116,7 @@ function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 # Use BuildKit in Docker
 restart-docker() { osascript -e 'quit app "Docker"'; open -a Docker; }
 alias docker-compose="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
+alias dc="docker-compose"
 docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
 
 
