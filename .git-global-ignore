@@ -6,6 +6,7 @@ Thumbs.db
 *.iml
 
 /.gradle
+build/
 
 log/
 *.log
