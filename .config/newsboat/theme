@@ -24,3 +24,6 @@ color article               default default
 
 # filler lines (~) below blocks of text
 color end-of-text-marker    default default
+
+
+highlight article "^(Title):.*$" blue default
