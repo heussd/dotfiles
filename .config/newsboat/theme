@@ -26,4 +26,5 @@ color article               default default
 color end-of-text-marker    default default
 
 
-highlight article "^(Title):.*$" blue default
+highlight article "^(Title):.*$"	blue default
+highlight article "(matches .*)$" 	red  default
