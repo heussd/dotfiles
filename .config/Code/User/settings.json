@@ -14,8 +14,8 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.restoreWindows": "none",
   "workbench.colorTheme": "Default Dark+",
-  "workbench.startupEditor": "newUntitledFile",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
-  }
+  },
+  "workbench.startupEditor": "newUntitledFile"
 }
