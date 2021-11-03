@@ -158,6 +158,7 @@ cask "mactex"
 cask "discord"
 cask "signal"
 cask "slack"
+cask "microsoft-teams"
 
 
 ## Image
