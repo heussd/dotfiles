@@ -29,7 +29,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle hchbaw/auto-fu.zsh
 
 auto-ls-ls-extended() {
-  gls -l --hyperlink=auto --color=auto -t --reverse
+  lsd -l -t --reverse
 }
 
 AUTO_LS_COMMANDS=(ls-extended)

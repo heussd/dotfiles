@@ -23,6 +23,7 @@ cask "lulu"
 
 ## Command line tools
 brew "bat"
+brew "lsd"
 brew "brew-cask-completion"
 brew "choose-gui"
 brew "coreutils"
@@ -136,6 +137,7 @@ cask "font-jetbrains-mono"
 cask "font-open-sans"
 cask "font-source-code-pro"
 cask "font-source-code-pro-for-powerline"
+cask "font-sauce-code-pro-nerd-font"
 
 
 ## MS Azure
