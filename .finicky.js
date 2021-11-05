@@ -9,7 +9,7 @@ module.exports = {
             browser: "Google Chrome"
         },
         {
-            match: ["*.azure.com/*"],
+            match: ["*.azure.com/*", "*.microsoft.com/*"],
             browser: "Google Chrome"
         },
         {
