@@ -5,7 +5,11 @@ module.exports = {
     defaultBrowser: "Firefox",
     handlers: [
         {
-            match: ["*.pwc.com", "*.pwc.de"],
+            match: ["*.pwc.com/*", "*.pwc.de/*"],
+            browser: "Google Chrome"
+        },
+        {
+            match: ["*.azure.com/*"],
             browser: "Google Chrome"
         },
         {
