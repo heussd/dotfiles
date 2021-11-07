@@ -41,10 +41,10 @@ alias dud='du -h -d 1'
 alias grep='grep --color'
 alias halt='sudo halt'
 
-alias l='lsd -lh'
+alias l='ls -lh'
+_hasCmd "lsd" && alias l='lsd -lh'
 alias ll='l -ltr'
 alias la='l -A'
-alias ls='lsd -G'
 alias mv='mv -v'
 alias reboot='sudo reboot'
 
