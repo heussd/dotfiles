@@ -18,7 +18,7 @@ datetime-format     "%Y-%m-%d"
 articlelist-format  "%f%t%> %T %D"
 
 scrolloff		50
-
+article-sort-order	date-desc
 
 #toggleitemread-jumps-to-next-unread	no
 #feed-sort-order 	lastupdated
