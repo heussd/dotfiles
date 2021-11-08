@@ -1,6 +1,8 @@
 include "~/.config/newsboat/config"
 
 
+article-sort-order	date-desc
+
 mark-as-read-on-hover		no
 
 bind-key	O	open-in-browser
