@@ -82,8 +82,27 @@ function lower_wide()
 	move_window_v(0.3,0.7)
 end
 
+function move_to_next_screen()
+	-- Taken from https://stackoverflow.com/questions/54151343/how-to-move-an-application-between-monitors-in-hammerspoon#58662204
+
+	local win = hs.window.focusedWindow()
+	-- get the screen where the focused window is displayed, a.k.a. current screen
+	local screen = win:screen()
+	-- compute the unitRect of the focused window relative to the current screen
+	-- and move the window to the next screen setting the same unitRect 
+	win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+
+	-- Also move mouse cursor
+	-- Taken from https://medium.com/@jma/use-hammerspoon-to-move-cursor-between-monitors-1a53b727b147
+	local screen = hs.mouse.getCurrentScreen()
+    local nextScreen = screen:next()
+    local rect = nextScreen:fullFrame()
+    local center = hs.geometry.rectMidPoint(rect)hs.mouse.setAbsolutePosition(center)
+end
+
 
 hyper:bind({}, "y", maximize_current_window)
+hyper:bind({}, "x", move_to_next_screen)
 
 
 hyper:bind({"Shift"}, "Down", lower_narrow)
