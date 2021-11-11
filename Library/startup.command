@@ -3,12 +3,13 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-open -a "Dozer.app"
-open -a "Tiles.app"
-open -a "Maccy.app"
-open -a "Hammerspoon.app"
-open -a "Easy Move+Resize.app"
-open -a "Docker.app"
-open -a "Next Meeting.app"
+open --background -a "Maestral.app"
+open --background -a "Dozer.app"
+open --background -a "Tiles.app"
+open --background -a "Maccy.app"
+open --background -a "Hammerspoon.app"
+open --background -a "Easy Move+Resize.app"
+open --background -a "Docker.app"
+open --background -a "Next Meeting.app"
 
 make sync
