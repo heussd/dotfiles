@@ -1,14 +1,35 @@
 #!/bin/bash
 
-file=$(cd "$TH_PROJECTS_FOLDER/snippets" && find . \
-	 | tail -n +2 | cut -c 3- \
-	 | /usr/local/bin/choose -m -u -n 20 -w 50 -s 20)
 
-file="$TH_PROJECTS_FOLDER/snippets/$file"
+# Taken from https://stackoverflow.com/questions/296536/how-to-urlencode-data-for-curl-command#answer-10660730
+rawurlencode() {
+  local string="${1}"
+  local strlen=${#string}
+  local encoded=""
+  local pos c o
+
+  for (( pos=0 ; pos<strlen ; pos++ )); do
+     c=${string:$pos:1}
+     case "$c" in
+        [-_.~a-zA-Z0-9] ) o="${c}" ;;
+        * )               printf -v o '%%%02x' "'$c"
+     esac
+     encoded+="${o}"
+  done
+  echo "${encoded}"    # You can either set a return variable (FASTER) 
+  REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
+}
+
+selection=$(cd "$TH_PROJECTS_FOLDER/snippets" && \
+	git ls-files | \
+	/usr/local/bin/choose -m -u -n 20 -w 50 -s 20)
+
+file="$TH_PROJECTS_FOLDER/snippets/$selection"
 if [ -e "$file" ]; then
 	pbcopy < "$file"
 else
-	echo "$file not found"
-	#searchterm=$(echo $file | sed -e 's/\ /+/g')
-	#open "https://www.google.com/search?q=$searchterm"
+	echo "$file not found, googling $selection"
+	selection=$(rawurlencode "$selection")
+	open "https://www.google.com/search?q=$selection"
+	open "https://stackoverflow.com/search?q=$selection"
 fi
