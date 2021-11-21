@@ -1,6 +1,6 @@
 module.exports = {
     options: {
-        hideIcon: true,
+        hideIcon: false,
     },
     defaultBrowser: "Firefox",
     handlers: [
@@ -13,7 +13,7 @@ module.exports = {
             browser: "Google Chrome"
         },
         {
-            match: finicky.matchHostnames(["accounts.google.com", "www.google.com", "stream.meet.google.com", "mail.google.com", "drive.google.com", "calendar.google.com", "chat.google.com", "docs.google.com"]),
+            match: finicky.matchHostnames(["accounts.google.com", "stream.meet.google.com", "mail.google.com", "drive.google.com", "calendar.google.com", "chat.google.com", "docs.google.com"]),
             browser: "Google Chrome"
         },
         {
