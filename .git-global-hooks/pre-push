@@ -3,6 +3,9 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+# Linux not supported in this hook right now
+uname -a | grep "Linux" && exit 1
+
 BLUE='\033[0;34m'
 NC='\033[0m'
 
