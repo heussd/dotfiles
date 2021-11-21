@@ -41,6 +41,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 [alias]
 	ac = !git add -u && git commit -m 
 	cosh = !git commit && git push
+	head = log -1
 	co = checkout
 	s = status
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
