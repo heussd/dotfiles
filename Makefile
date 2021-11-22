@@ -71,7 +71,7 @@ auto-pull-dotfiles: ## Pulls from dotfiles remote repository, if last pull is ol
 check-time-last-installed:
 	$(call if-old,$(HOME)/.auto-install-$(OS_NAME),\
 		Triggering auto install...,\
-		rm -f "$(HOME)/.auto-install-$(OS_NAME); $(MAKE) auto-install; $(HOME)/.auto-install-$(OS_NAME)")
+		rm -f "$(HOME)/.auto-install-$(OS_NAME)")
 .PHONY: check-time-last-installed
 
 
@@ -79,6 +79,7 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies
 .PHONY: auto-install
 
 .auto-install-darwin: .Brewfile .pip-global-requirements.txt .docker-cli-images.yml | check-time-last-installed
+	@touch .auto-install-darwin
 	
 	$(call exec,Brew bundle install,\
 		export HOMEBREW_CASK_OPTS="--no-quarantine"; \
@@ -90,10 +91,10 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies
 	$(call exec,Pulling Docker CLI images,\
 		docker-compose -f .docker-cli-images.yml pull)
 
-	@touch .auto-install-darwin
-
 
 .auto-install-linux: .apt-packages-base .pip-global-requirements.txt .docker-cli-images.yml | check-time-last-installed
+	@touch .auto-install-linux
+
 #	# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
 	$(call exec,APT install,\
 		xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base)
@@ -104,7 +105,6 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies
 	$(call exec,Pulling Docker CLI images,\
 		docker-compose -f .docker-cli-images.yml pull)
 
-	@touch .auto-install-linux
 
 
 
