@@ -28,3 +28,8 @@ hs.hotkey.bind({"alt"}, "space", function()
     hs.execute("~/.scripts/snippets-choose", true)
 end)
 
+
+hs.hotkey.bind({"alt", "command"}, "o", function()
+    hs.execute("~/.scripts/op-choose $HOME")
+end)
+
