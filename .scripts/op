@@ -1,4 +1,7 @@
 #!/bin/bash
+set -o errexit
+set -o pipefail
+
 
 if [[ -e "$1" ]]; then
 	cd "$1" || return
@@ -15,11 +18,11 @@ fi
 cd "$sel" || exit 1
 pwd
 
-kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
+#kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
 
 function openApp() {
 	echo "Opening App $1..."
-	open -na "$1" --args "$(pwd)"
+	open -na "$1" --args "$(pwd)" &
 }
 
 [ -d .git ] && (
@@ -35,3 +38,4 @@ function openApp() {
 
 [ -f "requirements.txt" ] && openApp "PyCharm"
 
+op
