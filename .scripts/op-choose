@@ -16,7 +16,7 @@ if [[ "$sel" = *"-made" ]]; then
 fi
 
 if [[ "$sel" = "." ]]; then
-	kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
+	#kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
 	open .
 	exit
 fi

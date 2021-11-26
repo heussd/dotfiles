@@ -30,6 +30,6 @@ end)
 
 
 hs.hotkey.bind({"alt", "command"}, "o", function()
-    hs.execute("~/.scripts/op-choose $HOME")
+    hs.execute("~/.scripts/op-choose $HOME", true)
 end)
 
