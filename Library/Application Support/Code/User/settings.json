@@ -1,5 +1,7 @@
 {
     "telemetry.telemetryLevel": "off",
     "workbench.startupEditor": "none",
-    "editor.fontFamily": "Source Code Pro"
+    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "workbench.editor.restoreViewState": false,
+    "window.restoreWindows": "none"
 }
