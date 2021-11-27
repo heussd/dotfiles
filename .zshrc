@@ -144,22 +144,6 @@ function gitpush() {
 zle -N gitpush
 bindkey '^o' gitpush
 
-function openThis() {
-	open .
-	zle reset-prompt
-	zle redisplay
-}
-zle -N openThis
-bindkey '^f' openThis
-
-
-function openCode() {
-	code .
-	zle reset-prompt
-	zle redisplay
-}
-zle -N openCode
-bindkey '^k' openCode
 
 export NVM_DIR="/usr/local/opt/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -194,12 +178,12 @@ bindkey -e
 bindkey '[C' forward-word
 bindkey '[D' backward-word
 
+bindkey -s "^k" "code .\n"
+bindkey -s "^f" "open .\n"
+bindkey -s "^s" "stree .\n"
+bindkey -s "^g" "lazygit .\n"
+bindkey -s "^d" "lazydocker\n"
 
-function homesync() {
-  home sync
-}
-zle -N homesync
-bindkey "^s" homesync
 
 
 source ~/.shell-motd
