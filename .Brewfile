@@ -136,8 +136,7 @@ cask "font-fontawesome"
 cask "font-jetbrains-mono"
 cask "font-open-sans"
 cask "font-source-code-pro"
-cask "font-source-code-pro-for-powerline"
-cask "font-sauce-code-pro-nerd-font"
+cask "font-sauce-code-pro-nerd-font", greedy: true
 
 
 ## MS Azure
