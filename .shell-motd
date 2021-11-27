@@ -22,10 +22,6 @@ if [ "$PWD" = "$HOME" ]; then
 		docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
 	)
 		
-	_hasFile "$HOME/.config/gita/repos.csv" && (
-		gita ll && echo
-	)
-
 	# Updates on macOS might require reinstallation of developer tools
 	_hasCmd make || (
 		_isMacOS && xcode-select --install
