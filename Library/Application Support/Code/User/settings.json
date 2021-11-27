@@ -3,5 +3,6 @@
     "workbench.startupEditor": "none",
     "editor.fontFamily": "SauceCodePro Nerd Font",
     "workbench.editor.restoreViewState": false,
-    "window.restoreWindows": "none"
+    "window.restoreWindows": "none",
+    "window.autoDetectColorScheme": true
 }
