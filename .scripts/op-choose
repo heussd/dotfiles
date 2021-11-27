@@ -18,6 +18,7 @@ fi
 if [[ "$sel" = "." ]]; then
 	#kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
 	open .
+	code .
 	exit
 fi
 
