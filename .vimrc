@@ -81,10 +81,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'stsewd/gx-extended.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 
 colorscheme molokai
+let g:airline_theme='deus'
 
 " vimwiki settings
 let g:vimwiki_list = [{ 
