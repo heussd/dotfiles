@@ -13,8 +13,10 @@ SIZE  := 13
 CSS	  := Timm's Way to View Things
 
 
+all: vscode $(OS_NAME) $(HOME)/.ssh/id_rsa.pub
 
-$(DOTFILES_BARE): ## Onboards the dotfiles repository on this machine
+
+onboard: ## Onboards the dotfiles repository on this machine
 	@echo -e "\033[0;34m[Home Makefile]\033[0m Onboarding $(DOTFILES_REPO)..."
 
 	@git clone --bare $(DOTFILES_REPO) $(DOTFILES_BARE)/
@@ -41,10 +43,10 @@ endif
 	@echo -e "\033[0;34m[Home Makefile]\033[0m Onboarding complete!"
 
 
-config: vscode config-$(OS_NAME) $(HOME)/.ssh/id_rsa.pub
+linux:
+	@:
 
-
-config-darwin: macdown coteditor sourcetree macvim tiles easy-move-resize
+darwin: macdown coteditor sourcetree macvim tiles easy-move-resize
 	defaults write -g NSWindowShouldDragOnGesture -bool true
 	defaults write com.apple.screencapture location $(HOME)/Downloads
 	killall SystemUIServer 
