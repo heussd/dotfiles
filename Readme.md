@@ -9,10 +9,10 @@ In the great tradition of sharing dotfiles, this repository contains various con
 ## Installation
 
 ### macOS
-	curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+	curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.config/onboard.sh | bash
 
 ### Ubuntu
-	wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+	wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.config/onboard.sh | bash
 
 
 
