@@ -16,9 +16,8 @@ if [[ "$sel" = *"-made" ]]; then
 fi
 
 if [[ "$sel" = "." ]]; then
-	#kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
-	open .
-	code .
+	open "$(pwd)"
+	code "$(pwd)"
 	exit
 fi
 
@@ -43,4 +42,5 @@ function openApp() {
 
 [ -f "requirements.txt" ] && openApp "PyCharm"
 
+open "$(pwd)"
 op-choose
