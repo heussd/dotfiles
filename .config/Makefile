@@ -118,6 +118,8 @@ coteditor:
 sourcetree:
 	$(call openApp,Sourcetree)
 	defaults write com.TorusKnot.SourceTreeNotMAS allowForcePush 1
+	defaults write com.TorusKnot.SourceTreeNotMAS createBookmarksOnOpenRepo 0
+	defaults write com.TorusKnot.SourceTreeNotMAS bookmarksClosedOnStartup 1
 	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
 	defaults write com.TorusKnot.SourceTreeNotMAS DidShowGettingStarted 1
 	defaults write com.TorusKnot.SourceTreeNotMAS AtlassianAccountEmail "me@my.atlassian.com"
