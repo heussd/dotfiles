@@ -16,7 +16,7 @@ jobs:
           cd $HOME
           pwd
 
-          curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+          curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.config/onboard.sh | bash
 
           # It seems that there are many preinstalled brew packages by default
           # Gather these packages so that they are not uninstalled with the next step
@@ -52,7 +52,7 @@ jobs:
           cd $HOME
           pwd
 
-          wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.onboard.sh | bash
+          wget -O- https://raw.githubusercontent.com/heussd/dotfiles/master/.config/onboard.sh | bash
 
           # Overwrite apt packages file, no need to stress download servers
           echo "fzf" > .apt-packages-base
