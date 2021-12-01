@@ -78,11 +78,11 @@ Plug 'honza/writer.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tomasr/molokai'
 Plug 'airblade/vim-gitgutter'
-Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'stsewd/gx-extended.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'godlygeek/tabular'
 call plug#end()
 
 
@@ -212,3 +212,4 @@ endfunction
 
 
 au BufRead,BufNewFile reflections setfiletype reflections
+au BufRead,BufNewFile urls setfiletype urls
