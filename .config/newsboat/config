@@ -15,7 +15,8 @@ delete-read-articles-on-quit	yes
 cleanup-on-quit                 yes
 
 datetime-format     "%Y-%m-%d"
-articlelist-format  "%f%t%> %T %D"
+#articlelist-format  "%f%t%> %T %D"
+articlelist-format	"%f%?T?%-14T ? %t%> %D" 
 
 scrolloff		50
 
