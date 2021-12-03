@@ -1,7 +1,7 @@
 
 + data/
 + data/newsboat/
-+ data/newsboat/news.db
++ data/newsboat/news**.db
 - data/newsboat/*
 
 merge .rsync-filters/kabylake
