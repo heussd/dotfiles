@@ -210,6 +210,6 @@ function! NextClosedFold(dir)
 endfunction
 
 
-
 au BufRead,BufNewFile reflections setfiletype reflections
-au BufRead,BufNewFile urls setfiletype urls
+au BufRead,BufNewFile urls,config setfiletype conf.tabsep
+

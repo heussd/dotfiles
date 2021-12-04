@@ -1,40 +1,35 @@
-auto-reload		yes
-user-agent		"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:87.0) Gecko/20100101 Firefox/87.0"
-
-download-path		~/Downloads/
-max-downloads		2
-prepopulate-query-feeds yes
-
-reload-threads		1
-reload-time 		60
-
-show-read-articles	no
-show-read-feeds		no
-
-delete-read-articles-on-quit	yes
-cleanup-on-quit                 yes
-
-datetime-format     "%Y-%m-%d"
-#articlelist-format  "%f%t%> %T %D"
-articlelist-format	"%f%?T?%-14T ? %t%> %D" 
-
-scrolloff		50
-
-#toggleitemread-jumps-to-next-unread	no
-#feed-sort-order 	lastupdated
-goto-next-feed		no
+auto-reload                           	 yes
+delete-read-articles-on-quit          	 yes
+cleanup-on-quit                       	 yes
 
 
-bookmark-cmd        "~/.config/newsboat/scripts/vimwiki"
-bookmark-autopilot  yes
+user-agent                            	 "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:94.0) Gecko/20100101 Firefox/94.0"
+
+download-path                         	 ~/Downloads/
+max-downloads                         	 2
+prepopulate-query-feeds               	 yes
+reload-threads                        	 4
+reload-time                           	 60
 
 
-browser			"~/.config/newsboat/scripts/browser"
-macro f			set browser "~/.config/newsboat/scripts/full-text-article" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
+show-read-articles                    	 no
+show-read-feeds                       	 no
+datetime-format                       	 "%Y-%m-%d"
+#articlelist-format                   	 "%f%t%> %T %D"
+articlelist-format                    	 "%f%?T?%-14T ? %t%> %D"
+scrolloff                             	 50
+#toggleitemread-jumps-to-next-unread  	 no
+#feed-sort-order                      	 lastupdated
+goto-next-feed                        	 no
 
-# Open in default browser
-macro o 		set browser open ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
-macro i    set pager "~/.config/newsboat/scripts/img-pager"; open; set pager internal
+
+bookmark-cmd                          	 "~/.config/newsboat/scripts/vimwiki"
+bookmark-autopilot                    	 yes
+
+browser                               	 "~/.config/newsboat/scripts/browser"
+macro f                               	 set browser "~/.config/newsboat/scripts/full-text-article" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
+macro o                               	 set browser open ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
+macro i                               	 set pager "~/.config/newsboat/scripts/img-pager"; open; set pager internal
 
 
 include ~/.config/newsboat/keys
@@ -42,5 +37,3 @@ include ~/.config/newsboat/filters
 include ~/.config/newsboat/theme
 include ~/.config/newsboat/highlights
 
-
-pager		~/pager.sh
