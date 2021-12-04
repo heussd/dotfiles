@@ -34,9 +34,13 @@ macro f			set browser "~/.config/newsboat/scripts/full-text-article" ; open-in-b
 
 # Open in default browser
 macro o 		set browser open ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
+macro i    set pager "~/.config/newsboat/scripts/img-pager"; open; set pager internal
 
 
 include ~/.config/newsboat/keys
 include ~/.config/newsboat/filters
 include ~/.config/newsboat/theme
 include ~/.config/newsboat/highlights
+
+
+pager		~/pager.sh

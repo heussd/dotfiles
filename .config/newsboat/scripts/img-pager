@@ -1,0 +1,12 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+image=$(cat "${1:-/dev/stdin}" > "${2:-/dev/stdout}" | egrep -o "https?://.*png")
+
+
+clear
+kitty +kitten icat --hold --scale-up --place "50x50@0x0" "$image"
+clear
