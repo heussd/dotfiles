@@ -1,5 +1,6 @@
 bitbucket-cli
 docker-compose
+podman-compose
 gita
 gitlab
 shyaml

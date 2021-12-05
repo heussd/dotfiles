@@ -1,9 +1,6 @@
-#!vim
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
-
-
 
 ## Essentials
 cask "kitty"
@@ -18,7 +15,6 @@ cask "macvim"
 cask "keepassxc"
 cask "keka"
 cask "visual-studio-code"
-cask "lulu"
 
 
 ## Command line tools
@@ -34,62 +30,29 @@ brew "gnupg"
 brew "htop"
 brew "howdoi"
 brew "mas"
-brew "multitail"
 brew "newsboat"
 brew "ripgrep"
 brew "the_silver_searcher"
 brew "thefuck"
-brew "tldr"
 brew "transcrypt"
-brew "tree"
 brew "wget"
-brew "tmux"
-brew "w3m"
 brew "pandoc"
-
-
-## Development 
-brew "dive"
-brew "az"
-brew "k9s"
-brew "kubectx"
-brew "lazydocker"
-brew "node"
 brew "p7zip"
 brew "sqlite"
 brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
 brew "terminal-notifier"
-brew "yarn"
-cask "clockify"
 cask "cyberduck"
 cask "db-browser-for-sqlite"
-cask "docker", greedy: true # Force Docker update, because noisy client update mechanism is blocked from now on
-cask "multipass"
-brew "podman"
-brew "buildkit"
 cask "xbar"
 cask "gephi"
-brew "gradle"
-brew "maven"
-cask "google-cloud-sdk"
 cask "hex-fiend"
-cask "jetbrains-toolbox"
-cask "kitematic"
 cask "meld"
-cask "postman"
 cask "yed"
 mas "CotEditor", id: 1024640650
-mas "Xcode", id: 497799835
-tap "tnk-studio/tools"
-brew "lazykube"
 brew "glab"
 brew "gh"			# GitHub-cli
 brew "markdownlint-cli"
-brew "gradle"
 brew "lazygit"
-
-tap "nektos/tap"
-brew "act"
 
 
 ## Cloud File Sync
@@ -100,9 +63,7 @@ mas "OneDrive", id: 823766827
 
 
 ## Power Tools
-brew "croc" # croc is a tool that allows any two computers to simply and securely transfer files and folders.
 brew "neofetch"
-brew "sops"
 brew "zsh-completions"
 cask "appcleaner"
 cask "balenaetcher"
@@ -116,8 +77,7 @@ cask "knockknock"
 cask "maccy"
 cask "itsycal"
 cask "mendeley"
-cask "tabula"
-cask "thunderbird"
+cask "tabula" 
 cask "tiles"
 cask "tor-browser"
 cask "transmission"
@@ -125,7 +85,6 @@ cask "veracrypt"
 mas "Disk Graph", id: 697942581
 mas "Ka-Block!", id: 1335413823
 mas "OwlOCR", id: 1499181666
-mas "PDFify", id: 1435055351
 mas "SleepTime", id: 465772885
 
 
@@ -140,27 +99,16 @@ cask "font-source-code-pro"
 cask "font-sauce-code-pro-nerd-font", greedy: true
 
 
-## MS Azure
-cask "azure-data-studio"
-cask "microsoft-azure-storage-explorer"
-
-
-
 ## Office
-mas "Keynote", id: 409183694
-mas "Next Meeting", id: 1017470484
+#mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 cask "libreoffice"
-brew "aspell"
-cask "mactex"
 
 
 ## Voice / Com
 cask "discord"
 cask "signal"
-cask "slack"
-cask "microsoft-teams"
 
 
 ## Image
@@ -174,40 +122,34 @@ mas "GIPHY CAPTURE", id: 668208984
 ## Audio / Video
 cask "mpv"
 brew "youtube-dl" # Dependency of mpv
-cask "mediathekview"
 cask "vlc"
 cask "handbrake"
 
 
 ## QuickLook
-cask "qlimagesize"
-cask "qlmarkdown"
-cask "qlprettypatch"
-cask "qlstephen"
-cask "qlvideo"
-cask "quicklook-csv"
-cask "quicklook-json"
-cask "suspicious-package"
-cask "syntax-highlight"
-cask "webpquicklook"
+cask "syntax-highlight", greedy: true
 
 
-## kabylake
-cask "steam" if system 'hostname | grep "kabylake" > /dev/null'
-cask "epic-games" if system 'hostname | grep "kabylake" > /dev/null'
-cask "sweet-home3d" if system 'hostname | grep "kabylake" > /dev/null'
+if system 'hostname | grep "kabylake" > /dev/null'
+    cask "Thunderbird"
+    cask "steam"
+    cask "epic-games"
+    cask "sweet-home3d"
 
+    cask "multipass"
+    brew "podman"
+    brew "buildkit"
+end
 
-## coffeelake
-cask "eloston-chromium" if system 'hostname | grep "coffeelake" > /dev/null'
-cask "finicky" if system 'hostname | grep "coffeelake" > /dev/null'
-cask "google-chrome" if system 'hostname | grep "coffeelake" > /dev/null'
-cask "google-drive" if system 'hostname | grep "coffeelake" > /dev/null'
-cask "lens" if system 'hostname | grep "coffeelake" > /dev/null'
-cask "microsoft-edge" if system 'hostname | grep "coffeelake" > /dev/null'
-cask "camunda-modeler" if system 'hostname | grep "coffeelake" > /dev/null'
-cask "adobe-acrobat-reader" if system 'hostname | grep "coffeelake" > /dev/null'
+if system 'hostname | grep "coffeelake" > /dev/null'
+    cask "finicky"
+    cask "google-chrome"
+    cask "google-drive"
+    cask "lens"
+    cask "microsoft-edge"
+    cask "adobe-acrobat-reader"
+    cask "mactex"
+    cask "qgis"
 
-
-# 
-cask "qgis"
+    instance_eval(File.read(".Brewfile.Development"))
+end
