@@ -11,31 +11,28 @@ if [ "$PWD" = "$HOME" ]; then
 fi
 sel=$(find . -maxdepth 1 -print0 | xargs -0 gstat --format '%Y :%y %n' | sort -nr | cut -d: -f2- | fzf | cut -d" " -f 4)
 
-if [[ "$sel" = *"-made" ]]; then
-	op "$sel"
+if [ "$sel" = "." ]; then
+	kitty @ launch --type=tab --tab-title "${PWD##*/}" --cwd "$(pwd)"
+	exit
 fi
 
 cd "$sel" || exit 1
-pwd
-
-#kitty @ launch --type=tab --tab-title "$sel" --cwd "$(pwd)"
 
 function openApp() {
-	echo "Opening App $1..."
-	open -na "$1" --args "$(pwd)" &
+	open --background -na "$1" --args "$(pwd)" &
 }
 
 [ -d .git ] && (
-	stree .
+	git pull
+	open --background -a SourceTree "$(pwd)"
 )
 
-[ -f package.json ] && openApp "WebStorm"
-
+[ -f "package.json" ] && openApp "WebStorm"
 [ -f "pom.xml" ] && openApp "IntelliJ IDEA"
 [ -f "build.gradle.kts" ] && openApp "IntelliJ IDEA"
 [ -f "build.gradle" ] && openApp "IntelliJ IDEA"
 [ -f "settings.gradle" ] && openApp "IntelliJ IDEA"
-
 [ -f "requirements.txt" ] && openApp "PyCharm"
+
 
 op
