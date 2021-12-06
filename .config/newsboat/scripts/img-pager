@@ -4,7 +4,7 @@ set -o pipefail
 set -o nounset
 
 
-image=$(cat "${1:-/dev/stdin}" > "${2:-/dev/stdout}" | egrep -o "https?://.*png")
+image=$(cat "${1:-/dev/stdin}" > "${2:-/dev/stdout}" | grep -E -o "https?://.*png")
 
 
 clear

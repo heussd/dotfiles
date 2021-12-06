@@ -3,8 +3,13 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+
 CERR='\033[0;31m'
 NC='\033[0m'
+
+
+container=docker
+command -v "podman" &>/dev/null && container=podman
 
 
 # Try to ask for linting. If tty cannot be opened the git command might be issued from a GUI. In this case, ignore the hook.
@@ -26,10 +31,11 @@ trap fail ERR
 c=${c:-n}
 case "$c" in
     "f")
-        /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest "--fix"
+        /usr/local/bin/$container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest "--fix"
         ;;
     "b")
-        /usr/local/bin/docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
+        /usr/local/bin/$container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
+        babellint
         ;;
     *)
         exit 0
