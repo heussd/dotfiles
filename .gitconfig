@@ -9,7 +9,7 @@
 	process = git-lfs filter-process
 [core]
 	pager = delta
-	excludesfile = /Users/DE105593/.git-global-ignore
+	excludesfile = ~/.git-global-ignore
 	hooksPath = ~/.git-global-hooks
 
 change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
