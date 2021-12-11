@@ -23,7 +23,7 @@ function openApp() {
 }
 
 [ -d .git ] && (
-	git pull
+	git pull &
 	open --background -a SourceTree "$(pwd)"
 )
 
