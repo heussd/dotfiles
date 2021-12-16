@@ -25,10 +25,11 @@ darwin: \
 	coteditor \
 	easy-move-resize \
 	macdown \
-	macos-settings \
 	macvim \
 	sourcetree \
 	tiles \
+	dock \
+	macos-settings \
 
 
 onboard: ## Onboards the dotfiles repository on this machine
@@ -156,3 +157,42 @@ tiles:
 
 easy-move-resize:
 	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
+
+
+
+define make_dock_app
+	if [ -d "$(1).app" ]; then \
+	defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$(1).app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"; fi
+endef
+
+dock:
+	defaults write com.apple.dock persistent-apps -array
+	$(call make_dock_app,/Applications/Safari)
+	$(call make_dock_app,/Applications/Google Chrome)
+	$(call make_dock_app,/Applications/Firefox)
+	$(call make_dock_app,/Applications/Microsoft Edge)
+	$(call make_dock_app,/System/Applications/Mail)
+	$(call make_dock_app,/Applications/Signal)
+	$(call make_dock_app,/System/Applications/Calendar)
+	$(call make_dock_app,/System/Applications/Notes)
+	$(call make_dock_app,/System/Applications/Photos)
+	$(call make_dock_app,/Applications/KeePassXC)
+	$(call make_dock_app,/Applications/Cryptomator)
+	$(call make_dock_app,/Applications/kitty)
+	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}';
+	$(call make_dock_app,/Applications/mpv)
+	$(call make_dock_app,/Applications/MacVim)
+	$(call make_dock_app,/Applications/CotEditor)
+	$(call make_dock_app,/Applications/Visual Studio Code)
+	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}';
+	$(call make_dock_app,/Applications/Meld)
+	$(call make_dock_app,/Applications/Sourcetree)
+	$(call make_dock_app,/Applications/MacDown)
+	$(call make_dock_app,/System/Applications/Preview)
+	$(call make_dock_app,/Applications/LibreOffice)
+	$(call make_dock_app,/Applications/Pages)
+	$(call make_dock_app,/Applications/Numbers)
+	$(call make_dock_app,/Applications/Discord)
+	$(call make_dock_app,/Applications/Steam)
+	$(call make_dock_app,/Applications/Epic Games Launcher)
+	killall Dock
