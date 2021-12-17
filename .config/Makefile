@@ -184,6 +184,8 @@ dock:
 	$(call make_dock_app,/Applications/Cryptomator)
 	$(call make_dock_app,/Applications/kitty)
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}';
+	$(call make_dock_app,/Applications/Keka)
+	$(call make_dock_app,/Applications/VLC)
 	$(call make_dock_app,/Applications/mpv)
 	$(call make_dock_app,/Applications/MacVim)
 	$(call make_dock_app,/Applications/CotEditor)
@@ -192,6 +194,7 @@ dock:
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}';
 	$(call make_dock_app,/Applications/Meld)
 	$(call make_dock_app,/Applications/Sourcetree)
+	$(call make_dock_app,/Applications/Postman)
 	$(call make_dock_app,/Applications/Camunda Modeler)
 	$(call make_dock_app,$(HOME)/Applications/JetBrains Toolbox/IntelliJ IDEA Ultimate)
 	$(call make_dock_app,$(HOME)/Applications/JetBrains Toolbox/PyCharm Professional)
