@@ -64,6 +64,9 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	time-machine = "!gitk"
 	tm = "time-machine"
 
+	# https://devconnected.com/how-to-clean-up-git-branches/
+	housekeeping = "!git branch -r --merged | egrep -v \"(^\\*|master|main|dev)\" | xargs -n 1 git push --delete origin"
+
 
 [include]
 	path = ~/.git-over-ssh-enabled
