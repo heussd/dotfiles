@@ -1,18 +1,14 @@
-SHELL   := bash
-.SHELLFLAGS := -eu -o pipefail -c  
-MAKEFLAGS += --warn-undefined-variables
-MAKEFLAGS += --no-builtin-rules
-
-DOTFILES_BARE := $(HOME)/.dotfiles-bare-repo/
-
-HOST = $$(hostname | cut -d"." -f 1)
-OS_NAME := $(shell uname -s | tr A-Z a-z)
+SHELL         	 := bash
+.SHELLFLAGS   	 := -eu -o pipefail -c
+MAKEFLAGS     	 += --warn-undefined-variables
+MAKEFLAGS     	 += --no-builtin-rules
+DOTFILES_BARE 	 := $(HOME)/.dotfiles-bare-repo/
+HOST          	 := $$(hostname | cut -d"." -f 1)
+OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 
 
 default: auto-pull-dotfiles auto-install 
 .PHONY: default
-
-
 
 
 LAUNCH_CMD = bash -c
@@ -79,8 +75,6 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies
 		docker-compose -f .docker-cli-images.yml pull)
 
 
-
-
 FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
 ifneq ("$(OS_NAME)","linux")
 FIREFOX_PROFILES_LOCATION=$$HOME/.mozilla/firefox/
@@ -115,37 +109,6 @@ firefox-policies-linux:  /etc/firefox/policies/policies.json
 
 
 
-add-ssh-key-pass: $(HOME)/.ssh/id_rsa.pub ## Adds a passphrase to local ssh keys
-	@ssh-keygen -p -f ~/.ssh/id_rsa
-.PHONY: add-ssh-key-pass
-
-
-transcrypt: ## Setup transcrypt for dotfiles
-	@cd $(DOTFILES_BARE) && transcrypt -c aes-256-cbc -p '$(shell stty -echo; read -p "Password: " pwd; stty echo; echo $$pwd)'
-.PHONY: transcrypt
-
-
-
-wallpaper: .esoc0932a.jpg wallpaper-$(OS_NAME) ## Set up wallpaper
-.PHONY: wallpaper wallpaper-linux wallpaper-darwin
-.esoc0932a.jpg:
-	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O .esoc0932a.jpg
-wallpaper-linux:
-	@feh --bg-scale .esoc0932a.jpg
-wallpaper-darwin:
-	@osascript -e 'tell application "System Events" to tell every desktop to set picture to ((path to home folder as text) & ".esoc0932a.jpg")'
-
-
-
-.PHONY: git-over-ssh
-git-over-ssh: ## Tells git to use SSH connections for GitHub / GitLab / BitBucket
-	@ln -s $(HOME)/.git-over-ssh $(HOME)/.git-over-ssh-enabled
-
-
-zsh-default: ## Set ZSH as default
-	@chsh -s $(which zsh) $(whoami)
-.PHONY: zsh-default
-
 
 clean:	## Cleans various places
 	@-rm -rf ~/.tmp/*
@@ -161,13 +124,6 @@ clean:	## Cleans various places
 clean-downloads: ## Cleans old downloads
 	@find ~/Downloads -maxdepth 1 -mtime +30 -exec mv -v {} ~/.Trash/ \;
 .PHONY: clean-downloads
-
-
-config-toggle-dark-mode: config-toggle-dark-mode-$(OS_NAME) ## Toggle Dark mode
-config-toggle-dark-mode-linux:
-	@echo "No config!"
-config-toggle-dark-mode-darwin:
-	@osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 
 
 
@@ -226,45 +182,9 @@ help:
 .PHONY: help
 
 
-
-.PHONY: linux-disable-unattended-updates
-linux-disable-unattended-updates: ## Disable unattended updates on Linux hosts
-	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
-
 .PHONY: linux-lock-keyring
 linux-lock-keyring:
 	@kill -9 $$(pgrep gnome-keyring-d)
-
-.PHONY: linux-install-docker
-linux-install-docker: ## Install Docker and docker-compose
-	@curl -fsSL https://get.docker.com/ -o - | sh
-	@sudo usermod -aG docker $(USER)
-	@sudo apt-get install -y python3-pip python3-dev
-	@sudo pip3 install docker-compose
-	docker-compose --version
-
-.PHONY: linux-install-veracrypt
-linux-install-veracrypt: ## Install Veracrypt from a PPA
-	sudo add-apt-repository ppa:unit193/encryption
-	sudo apt update
-	sudo apt-get install veracrypt 
-
-.PHONY: linux-install-cryptomator
-linux-install-cryptomator: ## Install Cryptomator from a PPA
-	sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
-	sudo apt update
-	sudo apt-get install cryptomator
-
-.PHONY: linux-apt-no-sudo-passwd
-linux-apt-no-sudo-passwd: ## Allow using apt without a sudo password
-	echo "%sudo   ALL=(ALL:ALL) NOPASSWD:/usr/bin/apt" | sudo tee /etc/sudoers.d/010_apt-nopasswd
-
-
-
-.PHONY: macos-lockscreen
-macos-lockscreen: ## Set a lost and found message and contact info on the lockscreen
-	@sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If you found this device, please contact $$(osascript -e 'tell application "Contacts" to get value of email 1 of my card') / $$(osascript -e 'tell application "Contacts" to get value of phone 1 of my card')"
-	@tccutil reset AddressBook
 
 
 .PHONY: macos-xcode
@@ -295,8 +215,3 @@ macos-fix-brew: ## Fixes brew warnings, https://github.com/Homebrew/brew/issues/
 macos-disable-timemachine-throttling-temporarily:
 	@sudo sysctl debug.lowpri_throttle_enabled=0
 
-
-.PHONY: macos-empty-dock
-macos-empty-dock:
-	@defaults write com.apple.dock persistent-apps -array
-	@killall Dock
