@@ -29,16 +29,6 @@ if [ "$PWD" = "$HOME" ]; then
 
 	KITTY=$(echo $TERMINFO | grep kitty > /dev/null && echo "YES")
 	make KITTY=$KITTY
-
-	# Allow Kitty to switch theme based on OS Dark Mode setting
-	# Inspired by https://github.com/evantravers/dotfiles/compare/084d4737b4dcdd0877520dcc1ba4e02224e4bdd0...2f5a3d18274499970922752d39fc917e4bf0d39b
-	echo $TERMINFO | grep kitty > /dev/null && {
-		if [ "$OS_DARK_MODE" = "true" ]; then
-			kitty @ set-colors --reset
-		else
-			kitty @ set-colors --all --configured ~/.config/kitty/white-theme.conf
-		fi
-	}
 fi
 
 # Try to resume screen session
