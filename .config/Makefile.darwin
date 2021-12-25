@@ -1,4 +1,5 @@
 darwin: \
+	reset-firefox-permissions \
 	coteditor \
 	easy-move-resize \
 	macdown \
@@ -148,3 +149,9 @@ dock:
 macos-lockscreen: ## Set a lost and found message and contact info on the lockscreen
 	@sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If you found this device, please contact $$(osascript -e 'tell application "Contacts" to get value of email 1 of my card') / $$(osascript -e 'tell application "Contacts" to get value of phone 1 of my card')"
 	@tccutil reset AddressBook
+
+
+reset-firefox-permissions:
+	tccutil reset Microphone org.mozilla.firefox
+	tccutil reset Camera org.mozilla.firefox
+	
