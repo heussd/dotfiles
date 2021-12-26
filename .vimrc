@@ -85,8 +85,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 call plug#end()
 
-
+colorscheme molokai
 let g:airline_theme='deus'
+
+" Workaround for creating transparent bg
+" https://stackoverflow.com/questions/37712730/set-vim-background-transparent/67569365#answer-67569365
+autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
+        \ |    highlight LineNr     ctermbg=NONE guibg=NONE
+        \ |    highlight SignColumn ctermbg=NONE guibg=NONE
+
 
 " vimwiki settings
 let g:vimwiki_list = [{ 
@@ -211,4 +218,5 @@ endfunction
 
 au BufRead,BufNewFile reflections setfiletype reflections
 au BufRead,BufNewFile urls,config setfiletype conf.tabsep
+
 
