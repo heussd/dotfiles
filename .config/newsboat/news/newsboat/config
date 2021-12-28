@@ -1,12 +1,10 @@
 include "~/.config/newsboat/config"
 
 
-article-sort-order	date-desc
-
-mark-as-read-on-hover		no
-
-bind-key	O	open-in-browser
-bind-key	o	open-in-browser-and-mark-read
+article-sort-order    	 date-asc
+mark-as-read-on-hover 	 no
+bind-key O            	 open-in-browser
+bind-key o            	 open-in-browser-and-mark-read
 
 
 include "~/.config/newsboat/news/newsboat/killfile"
