@@ -1,4 +1,5 @@
 darwin: \
+	login-items \
 	reset-firefox-permissions \
 	coteditor \
 	easy-move-resize \
@@ -155,3 +156,8 @@ reset-firefox-permissions:
 	tccutil reset Microphone org.mozilla.firefox
 	tccutil reset Camera org.mozilla.firefox
 	
+
+login-items:
+	sudo xattr -cr "$$HOME/Library/startup.command"
+	osascript -e "tell application \"System Events\" to make login item at end with properties {path:  POSIX path of (path to home folder) & \"/Library/startup.command\", hidden:false}"
+
