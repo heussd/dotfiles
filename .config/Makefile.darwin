@@ -159,6 +159,11 @@ reset-firefox-permissions:
 	
 
 login-items:
+	osascript -e 'tell application "System Events"' \
+		-e 'repeat with i in (get the name of every login item)' \
+		-e 'delete login item i' \
+		-e 'end repeat' \
+		-e 'end tell'
 	sudo xattr -cr "$$HOME/Library/startup.command"
 	osascript -e "tell application \"System Events\" to make login item at end with properties {path:  POSIX path of (path to home folder) & \"/Library/startup.command\", hidden:false}"
 
