@@ -113,6 +113,7 @@ dock:
 	$(call make_dock_app,/Applications/Discord)
 	$(call make_dock_app,/System/Applications/Calendar)
 	$(call make_dock_app,/System/Applications/Notes)
+	$(call make_dock_app,/System/Applications/Reminders)
 	$(call make_dock_app,/System/Applications/Photos)
 	$(call make_dock_app,/System/Applications/Music)
 	$(call make_dock_app,/Applications/KeePassXC)
