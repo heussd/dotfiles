@@ -161,3 +161,14 @@ login-items:
 	sudo xattr -cr "$$HOME/Library/startup.command"
 	osascript -e "tell application \"System Events\" to make login item at end with properties {path:  POSIX path of (path to home folder) & \"/Library/startup.command\", hidden:false}"
 
+
+openwith:
+	git clone https://github.com/jdek/openwith openwith-git
+	cd openwith-git && make
+	mv openwith-git/openwith .
+	rm -Rfv openwith-git/
+
+filetypes: openwith
+	./openwith io.mpv mkv mov mp4 avi webm m3u
+	./openwith com.coteditor.CotEditor txt
+	./openwith org.libreoffice.script csv xls xlsx
