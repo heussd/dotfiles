@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Bridge for Podman / Docker compose
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+command -v docker && (
+	docker-compose $*
+	exit 0
+)
+
+
+podman-compose $*
