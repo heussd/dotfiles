@@ -67,6 +67,8 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	# https://devconnected.com/how-to-clean-up-git-branches/
 	housekeeping = "!git branch -r --merged | egrep -v \"(^\\*|master|main|dev)\" | xargs -n 1 git push --delete origin"
 
+	f = fuzzy
+
 
 [include]
 	path = ~/.git-over-ssh-enabled
