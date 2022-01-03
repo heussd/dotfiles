@@ -1,6 +1,7 @@
 darwin: \
 	login-items \
 	reset-firefox-permissions \
+	maccy \
 	coteditor \
 	easy-move-resize \
 	macdown \
@@ -43,6 +44,14 @@ define openApp
 	@sleep 3
 	@killall $(1)
 endef
+
+
+maccy:
+	$(call openApp,Maccy)
+	defaults write org.p0deje.Maccy showInStatusBar 0
+	defaults write org.p0deje.Maccy avoidTakingFocus 1
+	# Configure hotkey Command-Shift-V
+	defaults write org.p0deje.Maccy KeyboardShortcuts_popup -string "{\"carbonModifiers\":768,\"carbonKeyCode\":9}"
 
 
 macdown:
