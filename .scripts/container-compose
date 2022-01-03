@@ -8,9 +8,9 @@ set -o nounset
 
 
 command -v docker && (
-	docker-compose $*
+	docker-compose "$@"
 	exit 0
 )
 
 
-podman-compose $*
+podman-compose "$@"
