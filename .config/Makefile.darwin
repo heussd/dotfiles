@@ -28,6 +28,11 @@ macos-settings:
 	sudo tmutil addexclusion -p /Applications
 	sudo tmutil addexclusion -p ~/data
 	sudo tmutil addexclusion -p ~/Downloads
+	# Homebrew folders
+	sudo tmutil addexclusion -p /usr/local/Caskroom
+	sudo tmutil addexclusion -p /usr/local/Cellar
+	sudo tmutil addexclusion -p /usr/local/Homebrew
+
 	sudo tmutil addexclusion -p "~/Library/Application Support/Steam"
 		
 	open "Apple Settings.mobileconfig"
