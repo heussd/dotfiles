@@ -19,7 +19,7 @@ cask "visual-studio-code"
 
 ## Command line tools
 brew "bat"
-brew "lsd"
+brew "exa"
 brew "brew-cask-completion"
 brew "choose-gui"
 brew "coreutils"
@@ -82,6 +82,7 @@ cask "tiles"
 cask "tor-browser"
 cask "transmission"
 cask "veracrypt"
+cask "raspberry-pi-imager"
 mas "Disk Graph", id: 697942581
 mas "Ka-Block!", id: 1335413823
 mas "OwlOCR", id: 1499181666
