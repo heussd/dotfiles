@@ -63,12 +63,24 @@ function spongeTypeClipboard()
     hs.pasteboard.writeObjects(string)
 end
 
+function focus_mode()
+    windowFilter = hs.window.filter.new():setOverrideFilter{
+    visible = true,
+    fullscreen = false,
+    allowScreens = '-1,0',
+    currentSpace = true
+  }
+  hs.alert(hs.window.highlight)
+  hs.window.highlight.start(nil, windowFilter)
+end
+
 
 function generate_menu()
     bar:setMenu({
         {title = "-" },
         {title = "Toggle Dark Mode", fn = toggle_dark_mode },
         {title = "-" },
+        {title = "Focus Mode", fn = focus_mode },
         {title = "Good Night", fn = goodnight},
         {title = "Download Auto Sort", fn = download_autosort},
         {title = "-" },
