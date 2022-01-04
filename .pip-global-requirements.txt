@@ -1,6 +1,6 @@
 bitbucket-cli
 docker-compose
-podman-compose
+podman-compose==0.1.11
 gita
 gitlab
 shyaml
