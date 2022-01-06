@@ -100,8 +100,20 @@ rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -
 _hasCmd rsync && alias gentlecp='rsync --update --progress --human-readable'
 _hasCmd screen && alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
 _hasCmd thefuck && eval "$(thefuck --alias)"
-_hasCmd newsboat && alias news='XDG_CONFIG_HOME="$HOME/.config/newsboat/news/" XDG_DATA_HOME="$HOME/.local/share/newsboat/news/" newsboat; stty sane'
-_hasCmd newsboat && alias tv='XDG_CONFIG_HOME="$HOME/.config/newsboat/tv/" XDG_DATA_HOME="$HOME/.local/share/newsboat/tv/" newsboat; stty sane'
+_hasCmd newsboat && {
+	alias news='XDG_CONFIG_HOME="$HOME/.config/newsboat/news/" XDG_DATA_HOME="$HOME/.local/share/newsboat/news/" \
+		newsboat; \
+		stty sane; \
+		echo -n "Overwriting deleted items..."; \
+		sqlite3 ~/.local/share/newsboat/news/newsboat/cache.db "update rss_item set title = \"\", content = \"\", author = \"\", enclosure_url = \"\",  enclosure_type = \"\", feedurl = \"\" where deleted = 1 and title != \"\"; VACUUM;"; \
+		echo "done."'
+	alias tv='XDG_CONFIG_HOME="$HOME/.config/newsboat/tv/" XDG_DATA_HOME="$HOME/.local/share/newsboat/tv/" \
+		newsboat; \
+		stty sane; \
+		echo -n "Overwriting deleted items..."; \
+		sqlite3 ~/.local/share/newsboat/tv/newsboat/cache.db "update rss_item set title = \"\", content = \"\", author = \"\", enclosure_url = \"\",  enclosure_type = \"\", feedurl = \"\" where deleted = 1 and title != \"\"; VACUUM;"; \
+		echo "done."'
+}
 
 
 _hasCmd lazydocker && alias lzd='lazydocker'
