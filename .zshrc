@@ -42,6 +42,7 @@ antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 export SPACESHIP_KUBECTL_SHOW=false
 export SPACESHIP_KUBECTL_VERSION_SHOW=false
 export SPACESHIP_KUBECONTEXT_SHOW=false
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
 
 # Load everything
 antigen apply
