@@ -220,11 +220,3 @@ macos-fix-brew: ## Fixes brew warnings, https://github.com/Homebrew/brew/issues/
 macos-disable-timemachine-throttling-temporarily:
 	@sudo sysctl debug.lowpri_throttle_enabled=0
 
-
-newsboat-sync:
-	@-killall newsboat
-	@sqlite3 ~/.local/share/newsboat/news/newsboat/cache.db \
-		'update rss_item set title = "", content = "", author = "", enclosure_url = "",  enclosure_type = "", feedurl = "" where deleted = 1; VACUUM;'
-	@sqlite3 ~/.local/share/newsboat/tv/newsboat/cache.db \
-		'update rss_item set title = "", content = "", author = "", enclosure_url = "",  enclosure_type = "", feedurl = "" where deleted = 1; VACUUM;'
-	
