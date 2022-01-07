@@ -29,10 +29,13 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle hchbaw/auto-fu.zsh
 
 auto-ls-ls-extended() {
- exa --icons -l --sort=changed
+ exa --icons -l --sort=changed;
+ echo "" # For some reasons this is needed
+ [[ -d "$PWD/.git" ]] && git status -s;
+ echo "" # For some reasons this is needed
 }
-
 AUTO_LS_COMMANDS=(ls-extended)
+
 antigen bundle desyncr/auto-ls
 antigen bundle Cloudstek/zsh-plugin-appup
 antigen bundle unixorn/autoupdate-antigen.zshplugin
