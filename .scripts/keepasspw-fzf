@@ -5,13 +5,12 @@ set -o nounset
 
 
 read -rsp 'Keepass password: ' passvar
-echo
 
 keepassDb="$(find "$HOME/Documents" -name "*.kdbx")"
 
 entry=$(echo "$passvar" | keepassxc-cli ls -q --recursive --flatten "$keepassDb")
 entry=$(echo "$entry" | fzf)
-secret=$(echo "$passvar" | keepassxc-cli show -q "$keepassDb" "$entry" --attributes Password --show-protected)
+secret=$(echo "$passvar" | keepassxc-cli show -q "$keepassDb" "$entry" --attributes Password --show-protected )
 
-echo "$secret"
+echo -n "$secret"
 exit 0
