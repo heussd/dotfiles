@@ -49,7 +49,7 @@ alias grep='grep --color'
 alias halt='sudo halt'
 
 alias l='ls -lh'
-_hasCmd "lsd" && alias l='exa --icons -l --sort=changed'
+_hasCmd "exa" && alias l='exa --icons -l --sort=changed'
 alias ll='l -ltr'
 alias la='l -A'
 alias mv='mv -v'
