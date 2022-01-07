@@ -15,6 +15,8 @@ cask "macvim"
 cask "keepassxc"
 cask "keka"
 cask "visual-studio-code"
+brew "borgbackup"
+cask "vorta"
 
 
 ## Command line tools
