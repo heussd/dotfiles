@@ -35,7 +35,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	prompt = false
 [mergetool "meld"]
 	trustExitCode = true
-	cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
 
 [alias]
