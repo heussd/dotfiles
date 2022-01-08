@@ -117,6 +117,7 @@ _hasCmd newsboat && {
 
 
 _hasCmd lazydocker && alias lzd='lazydocker'
+_hasCmd docker || alias docker='podman'
 
 
 # Shortcuts
