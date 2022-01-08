@@ -35,7 +35,6 @@ case "$c" in
         ;;
     "b")
         /usr/local/bin/$container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
-        babellint
         ;;
     *)
         exit 0
