@@ -162,24 +162,23 @@ full-sync: ## Synchronize completely with maya
 
 
 backup:
-	@sudo echo # Request admin rights required for VeraCrypt
 	sudo sysctl debug.lowpri_throttle_enabled=0
-
-	@echo "Mounting VeraCrypt volume..."
-	@keepassxc-cli show "$$(find "$$HOME/Documents" -name "*.kdbx")" \
-		"Backup: VeraCrypt / rsync" --attributes Password --show-protected | \
-		/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt \
-			--text --non-interactive --stdin /dev/rdisk2s3 /Volumes/VeraCryptBackup/
-			
-	@rsync --archive --delete --delete-excluded --progress --human-readable --stats \
-		-F --filter=". $$HOME/.rsync-filters/backup" --exclude=/*	   \
-		"$$HOME/" /Volumes/VeraCryptBackup/
-
-	@echo "Dismounting VeraCrypt volume..."
-	@/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --dismount
-	
+	BORG_PASSCOMMAND='keepasspw-fzf' \
+	borg create \
+		--stats \
+		--progress \
+		--compression lz4 \
+		/Volumes/Backup/borg::{hostname}-{user}-{now:%Y-%m-%dT%H:%M:%S} \
+		~/Archive	\
+		~/Documents/	\
+		~/Dropbox/	\
+		~/OneDrive/	\
+		~/Pictures/	\
+		~/data/		\
+		~/Library/Thunderbird/	\
+		~/Library/Application\ Support/Firefox/
+	cd ~/Documents && git bundle create /Volumes/Backup/Documents-git-bundle --all
 	tmutil startbackup --auto
-
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help:
