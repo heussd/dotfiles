@@ -178,7 +178,7 @@ backup:
 		~/Library/Thunderbird/	\
 		~/Library/Application\ Support/Firefox/
 	cd ~/Documents && git bundle create /Volumes/Backup/Documents-git-bundle --all
-	tmutil startbackup --auto
+	tmutil startbackup --rotation
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help:
