@@ -26,6 +26,7 @@ function fail {
 trap fail ERR
 
 
+echo "CCC $c"
 
 
 c=${c:-b}
