@@ -13,7 +13,7 @@ command -v "podman" &>/dev/null && container=podman
 
 
 # Try to ask for linting. If tty cannot be opened the git command might be issued from a GUI. In this case, ignore the hook.
-read -r -n1 -t 3 -p "babellint this? [b/f/*]: " c < /dev/tty || exit 0
+read -r -n1 -t 1 -p "babellint this? [b/f/*]: " c < /dev/tty || exit 0
 echo
 
 
