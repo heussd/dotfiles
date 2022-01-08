@@ -26,18 +26,16 @@ function fail {
 trap fail ERR
 
 
-echo "CCC $c"
-
 
 c=${c:-b}
 case "$c" in
     "f")
         /usr/local/bin/$container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest "--fix"
         ;;
-    "#")
-        exit 0
-	;;
     "b")
         /usr/local/bin/$container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
         ;;
+    *)
+        exit 0
+	;;
 esac
