@@ -65,7 +65,6 @@ mas "OneDrive", id: 823766827
 
 
 ## Power Tools
-brew "neofetch"
 brew "zsh-completions"
 cask "appcleaner"
 cask "balenaetcher"
@@ -83,7 +82,6 @@ cask "tabula"
 cask "tiles"
 cask "tor-browser"
 cask "transmission"
-cask "veracrypt"
 cask "raspberry-pi-imager"
 mas "Disk Graph", id: 697942581
 mas "Ka-Block!", id: 1335413823
@@ -155,6 +153,7 @@ if system 'hostname | grep "coffeelake" > /dev/null'
     cask "adobe-acrobat-reader"
     cask "mactex"
     cask "qgis"
+    cask "docker"
 
     instance_eval(File.read(".Brewfile.Development"))
 end
