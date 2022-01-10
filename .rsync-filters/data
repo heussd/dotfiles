@@ -9,9 +9,8 @@
 + data/newsboat/urls
 - data/newsboat/*
 
-+ data/porsche-crawler/
-+ data/porsche-crawler/**
-
-+ data/pocket-archiver/
++ porsche-crawler.7z
++ pocket-archiver.7z
++ shasums.txt
 
 - data/*
