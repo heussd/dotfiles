@@ -9,6 +9,7 @@
 + data/newsboat/urls
 - data/newsboat/*
 
++ newsboat.7z
 + porsche-crawler.7z
 + pocket-archiver.7z
 + shasums.txt
