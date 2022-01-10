@@ -29,7 +29,9 @@ jobs:
           # Mock docker-compose command and inject it into path
           mkdir -p ~/localbins/
           echo '#!/bin/bash' > ~/localbins/docker-compose
+          echo '#!/bin/bash' > ~/localbins/podman-compose
           chmod +x ~/localbins/docker-compose
+          chmod +x ~/localbins/podman-compose
           export PATH=~/localbins/:$PATH
 
           # Do not install anything but gita
