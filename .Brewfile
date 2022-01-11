@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "homebrew/cask-versions"
 
 ## Essentials
 cask "kitty"
@@ -104,7 +105,7 @@ cask "font-sauce-code-pro-nerd-font", greedy: true
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-cask "libreoffice"
+cask "libreoffice-still"
 
 
 ## Voice / Com
