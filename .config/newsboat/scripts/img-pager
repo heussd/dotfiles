@@ -4,7 +4,7 @@ set -o pipefail
 set -o nounset
 
 
-image=$(grep -E -o "https?://[a-zA-Z0-9./?=_%:-]*png" < /dev/stdin)
+image=$(grep -Eo "https?://[a-zA-Z0-9./?=_%:-]*png" < /dev/stdin)
 
 clear
 kitty +kitten icat --hold --scale-up --place "50x50@0x0" "$image"
