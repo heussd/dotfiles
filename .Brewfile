@@ -155,6 +155,6 @@ if system 'hostname | grep "coffeelake" > /dev/null'
     cask "mactex"
     cask "qgis"
     cask "docker"
-
+    cask "webex-meetings"
     instance_eval(File.read(".Brewfile.Development"))
 end
