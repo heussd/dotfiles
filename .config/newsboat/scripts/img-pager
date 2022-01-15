@@ -4,8 +4,16 @@ set -o pipefail
 set -o nounset
 
 
-image=$(grep -Eo "https?://[a-zA-Z0-9./?=_%:-]*png" < /dev/stdin)
+image=$(cat "${1:-/dev/stdin}" > "${2:-/dev/stdout}" | grep -E -o "https?://[a-zA-Z0-9./?=_%:-]*" | tail -1)
+
+
+# Detect terminal dimensions
+dims="$(tput cols)x$(tput lines)@0x0" 
+echo "$image"
+echo "$dims"
+read
 
 clear
-kitty +kitten icat --hold --scale-up --place "50x50@0x0" "$image"
+kitty +kitten icat --clear
+kitty +kitten icat --hold --scale-up --place "$dims" "$image"
 clear
