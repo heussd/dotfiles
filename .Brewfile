@@ -25,6 +25,7 @@ cask "vorta"
 ## Command line tools
 brew "bat"
 brew "exa"
+brew "w3m"
 brew "brew-cask-completion"
 brew "choose-gui"
 brew "coreutils"
