@@ -4,7 +4,7 @@ dockerrun() { eval docker run --rm --interactive --tty "$*"; }
 dockerrunu() { eval dockerrun --user="$(id -u):$(id -g)" "$*"; }
 dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$*"; }
 
-alias babellint='docker run --rm --interactive --tty -v $(pwd):$(pwd) -w $(pwd) --user="$(id -u):$(id -g)" heussd/babellint:latest'
+alias babellint='docker run --rm --interactive --tty -v $(pwd):$(pwd) -w $(pwd) ghcr.io/heussd/babellint:main'
 
 alias pdflatex='dockerrunu mingc/latex pdflatex'
 alias xelatex='dockerrunu mingc/latex xelatex'
