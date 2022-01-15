@@ -6,4 +6,4 @@ workflow=$(find "$WORKFLOWS" -iname "*.yml" | fzf)
 
 
 mkdir -p .github/workflows > /dev/null
-cp "$WORKFLOWS/$workflow" .github/workflows/
+cp "$workflow" .github/workflows/
