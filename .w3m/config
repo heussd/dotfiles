@@ -1,3 +1,8 @@
-confirm_qq   	 0
-use_cookie   	 0
-show_lnum	1
+confirm_qq          	 0
+use_cookie          	 0
+show_lnum           	 0
+display_link_number 	 1
+display_image       	 1
+imgdisplay          	 kitty
+inline_img_protocol 	 4
+
