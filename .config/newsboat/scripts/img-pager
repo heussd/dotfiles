@@ -9,9 +9,10 @@ image=$(grep -E -o "https?://[a-zA-Z0-9./?=_%:-]*" < "${1}" | tail -1)
 
 # Detect terminal dimensions
 dims="$(tput cols)x$(tput lines)@0x0" 
-echo "$image"
-echo "$dims"
-read -r
+
+#echo "$image"
+#echo "$dims"
+#read -r
 
 clear
 kitty +kitten icat --clear
