@@ -5,6 +5,8 @@ tap "homebrew/cask-versions"
 
 ## Essentials
 cask "kitty"
+brew "imagemagick"
+
 brew "git"
 brew "git-delta"
 brew "git-lfs"
