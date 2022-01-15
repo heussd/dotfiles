@@ -6,6 +6,9 @@ dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$
 
 alias babellint='docker run --rm --interactive --tty -v $(pwd):$(pwd) -w $(pwd) --user="$(id -u):$(id -g)" heussd/babellint:latest'
 
+alias pdflatex='dockerrunu mingc/latex pdflatex'
+alias xelatex='dockerrunu mingc/latex xelatex'
+
 # Cloud
 #alias az='dockerrun -v ${HOME}/.azure/:/root/.azure -v ${HOME}/.kube/:/root/.kube/ -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli az'
 #alias aws='docker run --rm -it --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" -v ~/.aws:/root/.aws amazon/aws-cli'
