@@ -146,6 +146,7 @@ if system 'hostname | grep "kabylake" > /dev/null'
 
     cask "multipass"
     brew "podman"
+    brew "lima"
 end
 
 if system 'hostname | grep "coffeelake" > /dev/null'
