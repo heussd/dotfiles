@@ -117,7 +117,7 @@ cask "signal"
 
 
 ## Image
-cask "toinane-colorpicker"
+cask "pika"
 cask "gimp"
 cask "imageoptim"
 cask "inkscape"
