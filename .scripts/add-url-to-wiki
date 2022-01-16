@@ -10,14 +10,14 @@ title=$(echo "$content" | sed -n 's/<title>\(.*\)<\/title>/\1/Ip' | perl -MHTML:
 file="$HOME/Developer/vimwiki/$(date +"%Y-%m-%d").md"
 
 
-echo "" >> "$file"
-echo "## $title" >> "$file"
+{
+	echo "";
+	echo "## $title";
+	curl --fail --silent "$url" | \
+	    readability "$url" | \
+	    lima nerdctl run --rm --interactive pandoc/latex:latest --from HTML --to Markdown | \
+	    sed 's/^/> /';
+	echo "" >> "$file";
+	echo "<$url>" >> "$file";
+} >> "$file"
 
-curl --fail --silent "$url" | \
-    readability "$url" | \
-    lima nerdctl run --rm --interactive pandoc/latex:latest --from HTML --to Markdown | \
-    sed 's/^/> /' \
-    >> "$file"
-
-echo "" >> "$file"
-echo "<$url>" >> "$file"
