@@ -6,3 +6,6 @@ display_image       	 1
 imgdisplay          	 kitty
 inline_img_protocol 	 4
 
+# https://vitalyparnas.com/guides/w3m/
+# 2O -> extbrowser2
+extbrowser2 	 ~/.scripts/add-url-to-wiki %s &

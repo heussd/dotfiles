@@ -1,0 +1,23 @@
+#!/bin/sh
+
+url="$1"
+
+
+content="$(curl --fail --silent "$url")"
+title=$(echo "$content" | sed -n 's/<title>\(.*\)<\/title>/\1/Ip' | perl -MHTML::Entities -pe 'decode_entities($_);')
+
+# Requires npm install -g mozilla-readability-cli
+file="$HOME/Developer/vimwiki/$(date +"%Y-%m-%d").md"
+
+
+echo "" >> "$file"
+echo "## $title" >> "$file"
+
+curl --fail --silent "$url" | \
+    readability "$url" | \
+    lima nerdctl run --rm --interactive pandoc/latex:latest --from HTML --to Markdown | \
+    sed 's/^/> /' \
+    >> "$file"
+
+echo "" >> "$file"
+echo "<$url>" >> "$file"
