@@ -10,7 +10,7 @@ NC='\033[0m'
 
 container=docker
 command -v "podman" &>/dev/null && container=podman
-command -v "lima" &>/dev/null && container=lima
+command -v "lima" &>/dev/null && container="lima nerdctl"
 
 
 # Try to ask for linting. If tty cannot be opened the git command might be issued from a GUI. In this case, ignore the hook.
@@ -31,10 +31,10 @@ trap fail ERR
 c=${c:-b}
 case "$c" in
     "f")
-        /usr/local/bin/$container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest "--fix"
+        $container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" "ghcr.io/heussd/babellint:main" "--fix"
         ;;
     "b")
-        /usr/local/bin/$container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" heussd/babellint:latest
+        $container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" "ghcr.io/heussd/babellint:main"
         ;;
     *)
         exit 0
