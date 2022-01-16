@@ -10,6 +10,7 @@ NC='\033[0m'
 
 container=docker
 command -v "podman" &>/dev/null && container=podman
+command -v "lima" &>/dev/null && container=lima
 
 
 # Try to ask for linting. If tty cannot be opened the git command might be issued from a GUI. In this case, ignore the hook.
