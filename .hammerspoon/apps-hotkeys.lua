@@ -15,7 +15,10 @@ hyper:bind({}, "m", nil, function()
 end)
 
 hyper:bind({}, "f", nil, function()
-    hs.application.launchOrFocus("Firefox")
+	local win = hs.window.focusedWindow()
+        if win ~= nil then
+            win:setFullScreen(not win:isFullScreen())
+        end
 end)
 
 hyper:bind({}, "s", nil, function()
