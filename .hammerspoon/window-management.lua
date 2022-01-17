@@ -101,8 +101,13 @@ function move_to_next_screen()
 end
 
 
-hyper:bind({}, "y", maximize_current_window)
-hyper:bind({}, "x", move_to_next_screen)
+hyper:bind({}, "y", move_to_next_screen)
+hyper:bind({}, "x", nil, function()
+	local win = hs.window.focusedWindow()
+        if win ~= nil then
+            win:setFullScreen(not win:isFullScreen())
+        end
+end)
 
 
 hyper:bind({"Shift"}, "Down", lower_narrow)
