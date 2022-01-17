@@ -1,10 +1,29 @@
 #!/bin/sh
 
-dockerrun() { eval docker run --rm --interactive --tty "$*"; }
+# Find the right container cli
+command -v "podman" >/dev/null 2>&1 && {
+	alias cc='podman'
+	alias dc='podman-compose'
+}
+command -v "lima" >/dev/null 2>&1 && {
+	alias cc='lima nerdctl'
+	alias dc='cc compose'
+}
+command -v "docker" >/dev/null 2>&1 && {
+	alias cc='docker'
+	alias dc="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
+}
+
+dockerrun() { eval cc run --rm --interactive --tty "$*"; }
 dockerrunu() { eval dockerrun --user="$(id -u):$(id -g)" "$*"; }
 dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$*"; }
 
-alias babellint='docker run --rm --interactive --tty -v $(pwd):$(pwd) -w $(pwd) ghcr.io/heussd/babellint:main'
+cc-logs() { 
+	cc logs -f $(cc ps | fzf | awk '{print $1}')
+}
+
+
+alias babellint='dockerrunuw ghcr.io/heussd/babellint:main'
 
 alias pdflatex='dockerrunu mingc/latex pdflatex'
 alias xelatex='dockerrunu mingc/latex xelatex'

@@ -121,7 +121,6 @@ _hasCmd newsboat && {
 
 
 _hasCmd lazydocker && alias lzd='lazydocker'
-_hasCmd docker || alias docker='podman'
 
 
 # Shortcuts
@@ -137,12 +136,6 @@ alias add-url-to-diary="~/.config/newsboat/scripts/vimwiki"
 function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 
 
-# Use BuildKit in Docker
-restart-docker() { osascript -e 'quit app "Docker"'; open -a Docker; }
-alias docker-compose="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
-alias dc="docker-compose"
-alias cc="container-compose"
-docker-logs() { docker ps | fzf | awk '{print $1}' | xargs docker logs -f; }
 
 
 # Load OS specific bash settings

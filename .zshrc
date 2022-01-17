@@ -87,8 +87,6 @@ zstyle ':filter-select' case-insensitive yes # enable case-insensitive searchhtt
 
 export PATH=$PATH:~/.scripts
 
-source ~/.shell-aliases
-source ~/.docker-aliases
 
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
 
@@ -189,6 +187,8 @@ bindkey -s "^g" "lazygit .\n"
 bindkey -s "^d" "lazydocker\n"
 
 
+source ~/.shell-aliases
+source ~/.container-aliases
 
 source ~/.shell-motd
 # Avoid recursive calls by checking the pane number
