@@ -88,7 +88,6 @@ zstyle ':filter-select' case-insensitive yes # enable case-insensitive searchhtt
 export PATH=$PATH:~/.scripts
 
 
-_hasFile ~/.fzf.zsh && source ~/.fzf.zsh
 
 # https://gist.github.com/phette23/5270658#gistcomment-1265682
 precmd() {
@@ -195,3 +194,6 @@ source ~/.shell-motd
 #if (( $(tmux list-panes | wc -l) == 1)); then
 #	tmux split-window -p 30 \; send-keys 'source ~/.shell-motd; sleep 3; exit' C-m \; last-pane;
 #fi
+
+
+_hasFile ~/.fzf.zsh && source ~/.fzf.zsh
