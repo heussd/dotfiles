@@ -67,6 +67,7 @@ alias gca='git commit --ammend'
 alias gb='git branch -v && git remote show origin'
 alias gru='git remote update'
 alias gp='git pull --rebase origin'
+alias ge='git ls-files | fzf --preview "bat --style=numbers --color=always --line-range :500 {}" | xargs -o vim; git status; unset GIT_DIR; unset GIT_WORK_TREE'
 
 alias pip=pip3
 
