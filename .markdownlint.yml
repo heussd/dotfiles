@@ -4,7 +4,7 @@
 default: true
 
 MD012: # Consecutive blank lines
-  maximum: 2
+  maximum: 1
 
 # MD013/line-length - Line length
 MD013: false
