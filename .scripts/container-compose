@@ -6,11 +6,14 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+# Find the right container cli
+command -v "podman" >/dev/null 2>&1 && {
+	podman-compose "$@"
+}
+command -v "lima" >/dev/null 2>&1 && {
+	cc compose "$@"
+}
+command -v "docker" >/dev/null 2>&1 && {
+	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose
+}
 
-command -v docker && (
-	docker-compose "$@"
-	exit 0
-)
-
-
-podman-compose "$@"
