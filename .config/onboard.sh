@@ -23,4 +23,4 @@ esac
 
 
 cd "$HOME" || exit 1
-curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/master/.config/Makefile | make -f - onboard
+curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/main/.config/Makefile | make -f - onboard
