@@ -18,8 +18,8 @@ dockerrun() { eval cc run --rm --interactive --tty "$*"; }
 dockerrunu() { eval dockerrun --user="$(id -u):$(id -g)" "$*"; }
 dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$*"; }
 
-cc-logs() { 
-	cc logs -f $(cc ps | fzf | awk '{print $1}')
+cclogs() { 
+	cc logs -f "$(cc ps | fzf | awk '{print $1}')"
 }
 
 
