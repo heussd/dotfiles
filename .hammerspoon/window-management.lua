@@ -102,7 +102,10 @@ end
 
 
 hyper:bind({}, "y", move_to_next_screen)
-hyper:bind({}, "x", nil, function()
+
+hyper:bind({}, "x", maximize_current_window)
+
+hyper:bind({"Option"}, "x", nil, function()
 	local win = hs.window.focusedWindow()
         if win ~= nil then
             win:setFullScreen(not win:isFullScreen())
