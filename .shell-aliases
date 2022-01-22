@@ -49,7 +49,6 @@ alias grep='grep --color'
 alias halt='sudo halt'
 
 alias l='ls -lh'
-_hasCmd "exa" && alias l='exa --icons -l --sort=changed'
 alias ll='l -ltr'
 alias la='l -A'
 alias mv='mv -v'
@@ -136,6 +135,22 @@ alias add-url-to-diary="~/.config/newsboat/scripts/vimwiki"
 
 function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 
+
+_hasCmd "exa" && ls-extended() {
+	exa --icons -l --sort=changed;
+
+	echo
+
+	gitcmd="git"
+	if [ "$PWD" = "$HOME" ]; then
+	  gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
+	fi
+	gitcmd="$gitcmd status -s"
+	if [ -d "$PWD/.git" ] || [ "$PWD" = "$HOME" ]; then
+		eval ${gitcmd}
+	fi
+}
+_hasCmd "exa" && alias l='ls-extended'
 
 
 

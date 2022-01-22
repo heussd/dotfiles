@@ -29,10 +29,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle hchbaw/auto-fu.zsh
 
 auto-ls-ls-extended() {
- exa --icons -l --sort=changed;
- echo "" # For some reasons this is needed
- [[ -d "$PWD/.git" ]] && git status -s;
- echo "" # For some reasons this is needed
+	ls-extended;
+	echo ""; # For some reason this is needed to not truncate previous commands output
 }
 AUTO_LS_COMMANDS=(ls-extended)
 
