@@ -126,7 +126,6 @@ mas "GIPHY CAPTURE", id: 668208984
 
 ## Audio / Video
 cask "mpv"
-brew "youtube-dl" # Dependency of mpv
 cask "vlc"
 cask "handbrake"
 

@@ -6,3 +6,4 @@ gitlab
 shyaml
 slmd
 yamllint
+yt-dlp
