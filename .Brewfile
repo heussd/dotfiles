@@ -135,8 +135,8 @@ cask "handbrake"
 cask "syntax-highlight", greedy: true
 
 
-
 brew "buildkit"
+
 
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
@@ -144,8 +144,6 @@ if system 'hostname | grep "kabylake" > /dev/null'
     cask "epic-games"
     cask "sweet-home3d"
 
-    cask "multipass"
-    brew "podman"
     brew "lima"
 end
 
