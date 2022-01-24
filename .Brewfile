@@ -108,6 +108,7 @@ cask "font-sauce-code-pro-nerd-font", greedy: true
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "MeetingBar", id: 1532419400
 cask "libreoffice-still"
 
 
