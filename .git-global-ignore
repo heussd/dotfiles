@@ -70,3 +70,4 @@ buildNumber.properties
 /venv/
 .jupyter/
 .ipython/
+.env
