@@ -11,9 +11,9 @@ command -v "podman" >/dev/null 2>&1 && {
 	podman-compose "$@"
 }
 command -v "lima" >/dev/null 2>&1 && {
-	cc compose "$@"
+	lima nerdctl compose "$@"
 }
 command -v "docker" >/dev/null 2>&1 && {
-	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose
+	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose "$@"
 }
 

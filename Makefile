@@ -58,7 +58,7 @@ auto-install: .auto-install-$(OS_NAME) firefox-policies
 		pip3 install -U -r .pip-global-requirements.txt)
 
 	$(call exec,Pulling Docker CLI images,\
-		~/.scripts/container-compose -f .docker-cli-images.yml pull)
+		.scripts/container-compose -f .docker-cli-images.yml pull)
 
 
 .auto-install-linux: .apt-packages-base .pip-global-requirements.txt .docker-cli-images.yml | check-time-last-installed
