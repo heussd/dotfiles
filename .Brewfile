@@ -137,6 +137,7 @@ cask "syntax-highlight", greedy: true
 
 brew "buildkit"
 
+mas "Boop", id: 1518425043
 
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
