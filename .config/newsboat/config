@@ -32,7 +32,7 @@ browser 	 "~/.config/newsboat/scripts/browser"
 macro f 	 set browser "~/.config/newsboat/scripts/full-text-article" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
 macro o 	 set browser open ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
 macro w 	 set browser w3m ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
-macro i 	 set pager "~/.config/newsboat/scripts/img-pager"; open; set pager internal
+macro i 	 set pager "~/.config/newsboat/scripts/kitty-img-pager"; open; set pager internal
 
 
 include ~/.config/newsboat/keys

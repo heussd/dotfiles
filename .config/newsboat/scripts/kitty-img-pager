@@ -6,7 +6,7 @@
 #
 # Usage:
 # 1) Define a new macro in your config:
-#    macro i set pager "$PATHTOTHIS/img-pager"; open; set pager internal
+#    macro i set pager "$PATHTOTHIS/kitty-img-pager"; open; set pager internal
 # 2) Now you use this pager in articleview using the hotkey <comma>+<i>
 
 set -o errexit
