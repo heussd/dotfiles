@@ -222,5 +222,4 @@ macos-disable-timemachine-throttling-temporarily:
 
 
 auto-config:
-	cd .config; make
-	~/Library/startup.command
+	@cd .config; make

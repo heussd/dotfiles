@@ -19,7 +19,7 @@ auto-config: Makefile
 	$(MAKE) $(HOME)/.ssh/id_rsa.pub
 
 	touch auto-config
-	~/Library/startup.command
+	@-~/Library/startup.command
 
 #ifneq ("$(wildcard Makefile.$(OS_NAME))","")
 #"include Makefile.$(OS_NAME)
@@ -104,6 +104,7 @@ zsh-default: ## Set ZSH as default
 
 
 darwin: \
+	prep-darwin \
 	login-items \
 	reset-firefox-permissions \
 	maccy \
@@ -117,6 +118,11 @@ darwin: \
 	macos-lockscreen \
 	macos-settings \
 
+
+prep-darwin:
+	@-killall "System Preferences" > /dev/null
+	@echo "Requesting sudo password"
+	@sudo echo
 
 macos-settings:
 	defaults write com.apple.universalaccess reduceMotion 1
@@ -146,13 +152,13 @@ macos-settings:
 	open -b com.apple.systempreferences /System/Library/PreferencePanes/Profiles.prefPane
 
 	# Required to apply keyboard settings
-	osascript -e 'tell application "System Events" to log out'
+	#osascript -e 'tell application "System Events" to log out'
 
 
 
 define openApp
 	@echo "We'll open $(1) to create initial config file, then kill it again."
-	@open -a $(1)
+	@open --background -a $(1)
 	@sleep 3
 	@killall $(1)
 endef
