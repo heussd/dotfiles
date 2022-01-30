@@ -1,8 +1,7 @@
-#!/bin/bash
-# Retrieves image URLs, displays images at max. scale via kitty's icat
-# by Timm Heuss - CC-BY 4.0 
-#
-# Designed to display individual images from feeds like xkcd.com.
+#!/usr/bin/env bash
+# Shows images, scaled to terminal dimensions, via kitty's icat.
+# Designed for image-feeds like xkcd.com.
+# by Timm Heuss (https://github.com/heussd/) - CC-BY 4.0 
 #
 # Usage:
 # 1) Define a new macro in your config:
