@@ -20,7 +20,7 @@ launchIfInstalled "Dozer.app"
 launchIfInstalled "Tiles.app"
 launchIfInstalled "Maccy.app"
 launchIfInstalled "Easy Move+Resize.app"
-launchIfInstalled "Next Meeting.app"
+launchIfInstalled "MeetingBar.app"
 
 launchIfInstalled "Multipass.app"
 launchIfInstalled "Docker.app"
