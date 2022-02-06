@@ -108,6 +108,7 @@ let g:vimwiki_markdown_link_ext = 1
 " Allow other markdown files to be non-vimwiki files
 let g:vimwiki_global_ext = 0
 
+let g:vimwiki_listsyms = ' ○◐●✓'
 
 " Attention: Executed multiple times!
 function VimwikiMode()
@@ -185,6 +186,7 @@ fun! CompleteLinks(findstart, base)
 endfun
 
 :autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
+
 
 " Map C-Y C-N to Control Space
 " https://vi.stackexchange.com/questions/21457/how-to-remap-autocomplete-on-controln-to-controlspace#answer-21469
