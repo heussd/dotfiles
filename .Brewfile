@@ -124,7 +124,7 @@ cask "signal"
 
 
 ## Image
-cask "pika"
+mas "ColorSlurp", id: 1287239339
 cask "gimp"
 cask "krita"
 cask "imageoptim"

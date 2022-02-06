@@ -271,6 +271,7 @@ dock:
 	$(call make_dock_app,/Applications/Microsoft Excel)
 	$(call make_dock_app,/Applications/Microsoft Word)
 	$(call make_dock_app,/Applications/krita)
+	$(call make_dock_app,/Applications/ColorSlurp)
 	$(call make_dock_app,/Applications/Steam)
 	$(call make_dock_app,/Applications/Epic Games Launcher)
 	killall Dock
