@@ -1,3 +1,9 @@
+# Software I like, on macOS.
+#
+# When changing this file, you might also want to change these files:
+# ~/.config/Makefile
+#
+
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
@@ -120,6 +126,7 @@ cask "signal"
 ## Image
 cask "pika"
 cask "gimp"
+cask "krita"
 cask "imageoptim"
 cask "inkscape"
 mas "GIPHY CAPTURE", id: 668208984
