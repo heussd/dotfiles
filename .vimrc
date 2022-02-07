@@ -83,6 +83,10 @@ Plug 'stsewd/gx-extended.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
+
+Plug 'dense-analysis/ale'
+Plug 'Yggdroot/indentLine'
+Plug 'pedrohdz/vim-yaml-folds'
 call plug#end()
 
 colorscheme molokai
@@ -222,3 +226,4 @@ au BufRead,BufNewFile reflections setfiletype reflections
 au BufRead,BufNewFile urls,config setfiletype conf.tabsep
 
 
+let g:indentLine_char = ''
