@@ -89,7 +89,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 call plug#end()
 
-colorscheme molokai
 let g:airline_theme='deus'
 
 " Workaround for creating transparent bg
@@ -227,3 +226,9 @@ au BufRead,BufNewFile urls,config setfiletype conf.tabsep
 
 
 let g:indentLine_char = ''
+
+colorscheme molokai
+hi Folded ctermbg=NONE guibg=NONE
+hi Folded ctermfg=grey
+
+
