@@ -99,7 +99,7 @@ autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
 
 
 " vimwiki settings
-let g:vimwiki_list = [{ 
+let g:vimwiki_list = [{
 	\ 'path': "$HOME/Developer/vimwiki/",
 	\ 'ext':'.md',
 	\ 'syntax':'markdown',
@@ -117,13 +117,13 @@ let g:vimwiki_listsyms = ' ○◐●✓'
 function VimwikiMode()
 	" Change working copy (for rg, fzf) when entering vimwiki
 	lcd %:p:h
-	
+
 	set autoread " Auto update on external file changes
 
 	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
 	autocmd! BufWritePost * " Clear existing auto-commands
 	autocmd BufWritePost * silent exec '!markdownlint --fix --config markdownlint.yml "%" > /dev/null; slmd "%" -o; git add "%" && git commit -n -m "[auto commit]" > /dev/null'
-	
+
 	" Inspired by https://gist.github.com/jondkinney/2040114
 	" FUZZY FIND
 	nnoremap <C-f> :Rg<CR>
@@ -137,7 +137,7 @@ function VimwikiMode()
 
 	nnoremap <C-p> :Git pull<CR>
     nnoremap <C-o> :Git push<CR>
-    
+
 	map <Leader>wp  :VimwikiDiaryPrevDay<CR>
     map <Leader>wn  :VimwikiDiaryNextDay<CR>
     set shiftwidth=2
@@ -148,7 +148,7 @@ function VimwikiMode()
 	let g:vimwiki_table_mappings = 0
 	nnoremap <C-Space> i
 	inoremap <C-Space> <c-x><c-u>
-	
+
 endfunction
 au FileType vimwiki call VimwikiMode()
 
@@ -230,5 +230,14 @@ let g:indentLine_char = ''
 colorscheme molokai
 hi Folded ctermbg=NONE guibg=NONE
 hi Folded ctermfg=grey
+
+
+let g:ale_lint_on_save	= 1
+let g:ale_sign_error                  = '✘'
+let g:ale_sign_warning                = '⚠'
+highlight ALEErrorSign ctermbg        =NONE ctermfg=red
+highlight ALEWarningSign ctermbg      =NONE ctermfg=yellow
+
+
 
 
