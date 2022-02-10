@@ -87,6 +87,8 @@ Plug 'godlygeek/tabular'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 let g:airline_theme='deus'
@@ -232,12 +234,15 @@ hi Folded ctermbg=NONE guibg=NONE
 hi Folded ctermfg=grey
 
 
-let g:ale_lint_on_save	= 1
 let g:ale_sign_error                  = '✘'
 let g:ale_sign_warning                = '⚠'
 highlight ALEErrorSign ctermbg        =NONE ctermfg=red
 highlight ALEWarningSign ctermbg      =NONE ctermfg=yellow
 
 
-
+let g:ale_lint_on_save	= 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
 

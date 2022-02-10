@@ -15,7 +15,11 @@ function! Fold(lnum)
 endfunction
 
 
-autocmd BufWritePost * silent exec '!markdownlint --fix --config $HOME/.markdownlint.yml "%" 2> /dev/null; slmd "%" -o;'
+"autocmd BufWritePost * silent exec '!markdownlint --fix --config $HOME/.markdownlint.yml "%" 2> /dev/null; slmd "%" -o;'
+
+let g:ale_fixers = {}
+let g:ale_fixers['markdown'] = ['prettier']
+let g:ale_fix_on_save = 1
 
 " Reload file after external change
 set autoread
