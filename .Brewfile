@@ -152,7 +152,8 @@ if system 'hostname | grep "kabylake" > /dev/null'
     cask "epic-games"
     cask "sweet-home3d"
 
-    brew "lima"
+    cask "multipass"
+    brew "podman"
 end
 
 if system 'hostname | grep "coffeelake" > /dev/null'
