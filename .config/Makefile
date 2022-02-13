@@ -177,6 +177,8 @@ macdown:
 	defaults write com.uranusjr.macdown editorBaseFontInfo -dict-add name "$(FONT)"
 	defaults write com.uranusjr.macdown editorBaseFontInfo -dict-add size "$(SIZE)"
 	defaults write com.uranusjr.macdown htmlStyleName "$(CSS)"
+	defaults write com.uranusjr.macdown htmlSyntaxHighlighting 1
+	defaults write com.uranusjr.macdown htmlDetectFrontMatter 1
 
 
 coteditor:
