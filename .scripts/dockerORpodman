@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Bridge for Podman / Docker
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# Find the right container cli
+command -v "podman" >/dev/null 2>&1 && {
+	podman "$@"
+}
+command -v "lima" >/dev/null 2>&1 && {
+	lima nerdctl "$@"
+}
+command -v "docker" >/dev/null 2>&1 && {
+	DOCKER_BUILDKIT=1 docker "$@"
+}
+
