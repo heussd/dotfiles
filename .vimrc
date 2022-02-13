@@ -89,6 +89,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'cespare/vim-toml', { 'branch': 'main' }
 call plug#end()
 
 let g:airline_theme='deus'
