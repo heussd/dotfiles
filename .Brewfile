@@ -9,6 +9,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/cask-versions"
 
+
 ## Essentials
 cask "kitty"
 brew "imagemagick"
@@ -142,10 +143,12 @@ cask "handbrake"
 cask "syntax-highlight", greedy: true
 
 
+## Developer
 brew "buildkit"
-
+brew "hugo"
 mas "Boop", id: 1518425043
 
+## kabylake
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
     cask "steam"
@@ -156,6 +159,8 @@ if system 'hostname | grep "kabylake" > /dev/null'
     brew "podman"
 end
 
+
+## coffeelake
 if system 'hostname | grep "coffeelake" > /dev/null'
 	cask "finicky"
 	cask "google-chrome"
