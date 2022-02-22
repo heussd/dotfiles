@@ -2,6 +2,7 @@
 .config/newsboat/filters	  	filter=crypt diff=crypt merge=crypt
 .config/newsboat/highlights	  	filter=crypt diff=crypt merge=crypt
 .config/newsboat/news/newsboat/killfile	filter=crypt diff=crypt merge=crypt
+.config/newsboat/killfile	filter=crypt diff=crypt merge=crypt
 .config/newsboat/news/newsboat/urls  	filter=crypt diff=crypt merge=crypt
 .config/newsboat/tv/newsboat/urls  	filter=crypt diff=crypt merge=crypt
 
