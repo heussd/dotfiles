@@ -7,4 +7,3 @@ bind-key O            	 open-in-browser
 bind-key o            	 open-in-browser-and-mark-read
 
 
-include "~/.config/newsboat/news/newsboat/killfile"
