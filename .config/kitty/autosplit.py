@@ -1,4 +1,4 @@
-# Taken from https://github.com/ad-on-is/kittens
+# Inspired by https://github.com/ad-on-is/kittens
 
 import array
 import fcntl
@@ -20,4 +20,4 @@ def main(args: List[str]) -> str:
 
 
 def handle_result(args: List[str], split: str, target_window_id: int, boss: Boss) -> None:
-    boss.launch(split)
+    boss.launch('--cwd=current', split)
