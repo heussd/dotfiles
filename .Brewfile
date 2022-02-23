@@ -146,6 +146,7 @@ cask "syntax-highlight", greedy: true
 ## Developer
 brew "buildkit"
 brew "hugo"
+brew "helm"
 mas "Boop", id: 1518425043
 
 ## kabylake
