@@ -90,6 +90,8 @@ Plug 'pedrohdz/vim-yaml-folds'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'cespare/vim-toml', { 'branch': 'main' }
+
+Plug 'pseewald/vim-anyfold'
 call plug#end()
 
 let g:airline_theme='deus'
