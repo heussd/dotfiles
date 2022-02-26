@@ -5,7 +5,7 @@ set -o nounset
 
 
 function fail() {
-	read
+	read -r
 }
 trap fail ERR
 
@@ -15,8 +15,8 @@ function gitpull() {
     gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
   fi
   gitcmd="$gitcmd pull --tags --recurse-submodules"
-  echo $gitcmd
-  eval ${gitcmd}
+  echo "$gitcmd"
+  eval "${gitcmd}"
 }
 
 
