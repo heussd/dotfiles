@@ -1,0 +1,3 @@
+gui:
+  showRandomTip: false
+quitOnTopLevelReturn: true
