@@ -1,0 +1,18 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+function fail() {
+	read -r
+}
+trap fail ERR
+
+gitcmd="lazygit"
+if [ "$PWD" = "$HOME" ]; then
+  gitcmd="lazygit --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
+fi
+
+eval "${gitcmd}"
+
