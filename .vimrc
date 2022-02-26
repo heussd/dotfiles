@@ -229,6 +229,9 @@ endfunction
 au BufRead,BufNewFile reflections setfiletype reflections
 au BufRead,BufNewFile urls,config setfiletype conf.tabsep
 
+" https://www.reddit.com/r/KittyTerminal/comments/rzpjed/easier_ways_to_reload_kitty/
+autocmd bufwritepost ~/.config/kitty/kitty.conf :silent !kill -SIGUSR1 $(pgrep -a kitty)
+
 
 let g:indentLine_char = ''
 
