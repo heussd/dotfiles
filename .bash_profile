@@ -73,4 +73,4 @@ source $HOME/.container-aliases
 _hasFile ~/.fzf.bash && source ~/.fzf.bash
 source-if-exist ".bash_profile."`uname -s`
 
-source .shell-motd
+source "$HOME/.shell-motd"

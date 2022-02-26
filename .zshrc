@@ -106,42 +106,8 @@ bindkey '^[OA'  up-line-or-beginning-search
 bindkey '^[[B'  down-line-or-beginning-search  # Arrow down
 bindkey '^[OB'  down-line-or-beginning-search
 
-
 # Suffix aliases
 #alias -s {sh,css,js,ts,html,md,txt}=code
-
-
-# https://dev.to/ecologic/using-keyboard-shortcuts-with-zsh-16b
-
-# Hotkey for git pull (ctrl-p)
-function gitpull() {
-  gitcmd="git"
-  if [ "$PWD" = "$HOME" ]; then
-    gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
-  fi
-  gitcmd="$gitcmd pull --tags --recurse-submodules"
-  echo $gitcmd
-  eval ${gitcmd}
-  zle reset-prompt;
-  zle redisplay
-}
-zle -N gitpull
-bindkey '^p' gitpull
-
-# Hotkey for git push (ctrl-o)
-function gitpush() {
-  gitcmd="git"
-  if [ "$PWD" = "$HOME" ]; then
-    gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
-  fi
-  gitcmd="$gitcmd push"
-  echo $gitcmd
-  eval ${gitcmd}
-  zle reset-prompt;
-  zle redisplay
-}
-zle -N gitpush
-bindkey '^o' gitpush
 
 
 export NVM_DIR="/usr/local/opt/nvm"
