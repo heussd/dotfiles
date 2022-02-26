@@ -11,7 +11,7 @@ url="https://mediathekviewweb.de/feed?future=false&query="
 query=""
 [[ ! -z $channel ]] && query="$query !$channel"
 [[ ! -z $title ]] && query="$query #$title"
-query="$(echo $query | jq -sRr @uri)"
+query=$(echo "$query" | jq -sRr @uri)
 
 
 curl --fail "$url$query"
