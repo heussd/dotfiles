@@ -8,14 +8,14 @@ set -o nounset
 # This would also be nice, but it does not work for non-GitHub git repos
 # gh repo view --web    
 
-gitcmd="git"
+gitops="git "
 if [ "$PWD" = "$HOME" ]; then
-	gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
+	gitops="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME"
 fi
 
-remoteName=$("$gitcmd" remote -v | head -n 1 | awk '{print $1}')
+remoteName=$(eval "$gitops" remote -v | head -n 1 | awk '{print $1}')
 
-remoteUrl=$("$gitcmd" remote get-url --push "$remoteName")
+remoteUrl=$(eval "$gitops" remote get-url --push "$remoteName")
 remoteUrl=$(echo "$remoteUrl" | awk -F "@" '{print $2}') # Remove @ prefix
 remoteUrl=$(echo "$remoteUrl" | awk -F ":" '{print $1"\/"$2}') # Replace : with slash
 remoteUrl="https://$remoteUrl" # Add protocol
