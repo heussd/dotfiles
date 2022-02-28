@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Find the right container cli
+command -v "podman" >/dev/null 2>&1 && {
+	alias cc='podman'
+	alias dc='podman-compose'
+}
+command -v "lima" >/dev/null 2>&1 && {
+	alias cc='lima nerdctl'
+	alias dc='cc compose'
+}
+command -v "docker" >/dev/null 2>&1 && {
+	alias cc='docker'
+	alias dc="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose"
+}
+
+function fail() {
+	echo "There are linter issues :-("
+	read -r
+}
+trap fail ERR
+
+
+dockerrun() { eval cc run --rm --interactive --tty "$*"; }
+dockerrunu() { eval dockerrun --user="$(id -u):$(id -g)" "$*"; }
+dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$*"; }
+
+dockerrunuw ghcr.io/heussd/babellint:main
+
