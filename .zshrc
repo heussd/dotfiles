@@ -143,17 +143,11 @@ bindkey -e
 bindkey '[C' forward-word
 bindkey '[D' backward-word
 
-bindkey -s "^k" "code .\n"
-bindkey -s "^f" "open .\n"
-bindkey -s "^s" "stree .\n"
-bindkey -s "^g" "lazygit .\n"
-bindkey -s "^d" "lazydocker\n"
-
 
 source ~/.shell-aliases
 source ~/.container-aliases
-
 source ~/.shell-motd
+
 # Avoid recursive calls by checking the pane number
 #if (( $(tmux list-panes | wc -l) == 1)); then
 #	tmux split-window -p 30 \; send-keys 'source ~/.shell-motd; sleep 3; exit' C-m \; last-pane;
