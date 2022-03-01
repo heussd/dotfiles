@@ -1,6 +1,6 @@
 module.exports = {
     options: {
-        hideIcon: false,
+        hideIcon: true,
     },
     defaultBrowser: "Firefox",
     handlers: [
@@ -9,7 +9,7 @@ module.exports = {
             browser: "Google Chrome"
         },
         {
-            match: ["*.azure.com/*", "*.microsoft.com/*"],
+            match: ["*.gitlab.com", "*.azure.com/*", "*.microsoft.com/*"],
             browser: "Google Chrome"
         },
         {
