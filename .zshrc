@@ -155,3 +155,4 @@ source ~/.shell-motd
 
 
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
+_hasFolder ~/.stew && export PATH="$HOME/.stew/bin:$PATH"
