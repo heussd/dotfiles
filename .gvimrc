@@ -1,6 +1,6 @@
 " Taken from https://github.com/fitzage/.vim/blob/master/gvimrc
 
-set guifont=Source\ Code\ Pro:h13
+set guifont=Source\ Code\ Pro:h21
 set antialias		" MacVim: smooth fonts.
 set encoding=utf-8	" Use UTF-8 everywhere.
 set guioptions-=r	" Don't show right scrollbar
