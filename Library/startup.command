@@ -21,6 +21,7 @@ launchIfInstalled "Tiles.app"
 launchIfInstalled "Maccy.app"
 launchIfInstalled "Easy Move+Resize.app"
 launchIfInstalled "MeetingBar.app"
+launchIfInstalled "Itsycal.app"
 
 launchIfInstalled "Multipass.app"
 launchIfInstalled "Docker.app"
