@@ -4,6 +4,11 @@ set -o pipefail
 set -o nounset
 
 
+
+## Hook disabled for now
+exit 0
+
+
 CERR='\033[0;31m'
 NC='\033[0m'
 
