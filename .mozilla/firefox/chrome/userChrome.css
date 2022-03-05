@@ -28,6 +28,17 @@
   visibility: collapse !important;
 }
 
+#PlacesToolbarItems {
+  display: flex !important;
+  justify-content: center !important;
+}
+#PlacesToolbarItems .bookmark-item {
+  min-width: 80px;
+  padding: 0 10px 0 10px;
+}
+#PlacesToolbarItems .toolbarbutton-icon { display: none !important }
+#PlacesToolbarItems .bookmark-item:first-child { margin-left: 6px !important; }
+#PlacesToolbarItems .bookmark-item { margin-right: 6px !important; }
 
 /*
  * Full Auto-show/hide Theme
