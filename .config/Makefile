@@ -114,6 +114,7 @@ darwin: \
 	macvim \
 	sourcetree \
 	tiles \
+	keka \
 	dock \
 	macos-lockscreen \
 	macos-settings \
@@ -217,6 +218,10 @@ tiles:
 	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
 	defaults write com.sempliva.Tiles LaunchAtLoginEnabled 0
 	defaults write com.sempliva.Tiles DidAskUserForLoginItem 1
+
+keka:
+	defaults write com.aone.keka FinderAfterExtraction 1
+	defaults write com.aone.keka FinderAfterCompression 1
 
 
 easy-move-resize:
