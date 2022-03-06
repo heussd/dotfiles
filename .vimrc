@@ -208,6 +208,11 @@ let g:vimwiki_folding = 'custom'
 nnoremap <space> za
 vnoremap <space> za
 
+nnoremap <leader>0 zczA
+vnoremap <leader>0 zczA
+
+
+
 " https://stackoverflow.com/questions/9403098/is-it-possible-to-jump-to-the-next-closed-fold-in-vim#answer-9407015
 nnoremap <silent> <s-j> :call NextClosedFold('j')<cr>
 nnoremap <silent> <s-k> :call NextClosedFold('k')<cr>
