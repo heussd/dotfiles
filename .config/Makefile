@@ -276,6 +276,8 @@ dock:
 	$(call make_dock_app,/Applications/ColorSlurp)
 	$(call make_dock_app,/Applications/Steam)
 	$(call make_dock_app,/Applications/Epic Games Launcher)
+	defaults write com.apple.Dock size-immutable -bool true
+	defaults write com.apple.Dock contents-immutable -bool true
 	killall Dock
 
 
