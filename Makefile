@@ -26,7 +26,7 @@ endef
 # $2 - Message to print
 # $3 - Commands to execute
 define if-old
-	@if [ -e $(1) ]; then find "$(1)" -mmin +$$((7*24*60)) \
+	@if [ -e $(1) ]; then find "$(1)" -mmin +$$((3*24*60)) \
 		-exec bash -c 'echo -e "\033[0;34m[Home Makefile]\033[0m$(2)"; $(3)' \; ;\
 	fi
 endef
