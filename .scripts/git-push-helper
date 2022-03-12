@@ -21,3 +21,7 @@ function gitpush() {
 
 
 gitpush
+
+trap - ERR
+read -r -t3
+

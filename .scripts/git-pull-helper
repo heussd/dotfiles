@@ -21,3 +21,7 @@ function gitpull() {
 
 
 gitpull
+
+
+trap - ERR
+read -r -t3

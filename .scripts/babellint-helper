@@ -24,3 +24,5 @@ dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$
 
 dockerrunuw ghcr.io/heussd/babellint:main
 
+trap - ERR
+read -r -t3
