@@ -157,10 +157,11 @@ macos-settings:
 
 
 define openApp
-	@echo "We'll open $(1) to create initial config file, then kill it again."
-	@open --background -a $(1)
-	@sleep 3
-	@killall $(1)
+	echo "opening app is disable right now..."
+	#@echo "We'll open $(1) to create initial config file, then kill it again."
+	#@open --background -a $(1)
+	#@sleep 3
+	#@killall $(1)
 endef
 
 
