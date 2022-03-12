@@ -4,5 +4,7 @@
   "window.autoDetectColorScheme": true,
   "window.restoreWindows": "none",
   "workbench.editor.restoreViewState": false,
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs":"active"
 }

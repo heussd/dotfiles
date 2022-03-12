@@ -58,7 +58,6 @@ $(HOME)/.ssh/id_rsa.pub:
 
 
 vscode:
-	@code --install-extension coenraads.bracket-pair-colorizer-2
 	@code --install-extension dakara.transformer
 	@code --install-extension esbenp.prettier-vscode
 	@code --install-extension formulahendry.auto-close-tag
