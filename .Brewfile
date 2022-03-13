@@ -149,6 +149,7 @@ brew "hugo"
 brew "helm"
 mas "Boop", id: 1518425043
 
+
 ## kabylake
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
@@ -158,6 +159,7 @@ if system 'hostname | grep "kabylake" > /dev/null'
 
     cask "multipass"
     brew "podman"
+    cask "pycharm-ce"
 end
 
 
