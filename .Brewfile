@@ -160,6 +160,7 @@ if system 'hostname | grep "kabylake" > /dev/null'
     cask "multipass"
     brew "podman"
     cask "pycharm-ce"
+    cask "postman"
 end
 
 
