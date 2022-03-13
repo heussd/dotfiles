@@ -76,6 +76,7 @@ mas "OneDrive", id: 823766827
 
 
 ## Power Tools
+cask "finicky"
 brew "zsh-completions"
 cask "appcleaner"
 cask "balenaetcher"
@@ -166,7 +167,6 @@ end
 
 ## coffeelake
 if system 'hostname | grep "coffeelake" > /dev/null'
-	cask "finicky"
 	cask "google-chrome"
 	cask "google-drive"
 	cask "lens"

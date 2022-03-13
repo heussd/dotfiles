@@ -5,6 +5,10 @@ module.exports = {
     defaultBrowser: "Firefox",
     handlers: [
         {
+            match: ["*.apple.com/*"],
+            browser: "Safari"
+        },
+        {
             match: ["*.pwc.com/*", "*.pwc.de/*"],
             browser: "Google Chrome"
         },
