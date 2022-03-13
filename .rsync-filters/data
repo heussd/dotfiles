@@ -3,6 +3,7 @@
 + data/keyword-matcher/
 + data/keyword-matcher/keywords.txt
 + data/keyword-matcher/last_id.txt
++ data/keyword-matcher/POCKET_*.txt
 - data/keyword-matcher/*
 
 + data/newsboat/
