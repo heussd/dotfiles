@@ -7,7 +7,7 @@ set -o nounset
 url="$1"
 title="$2"
 title=$(echo "$title" | sed -e 's/ (matches.*$//') 
-description=$(curl "$url" | readability "$url" | html2md | awk '{print "> "$0}')
+description=$(wget -q -O - "$url" | readability "$url" | html2md | awk '{print "> "$0}')
 
 
 file=$(date '+%Y-%m-%d')
