@@ -11,10 +11,28 @@ command -v "lima" >/dev/null 2>&1 && {
 	cc='lima nerdctl'
 }
 
-function fail() {
-	echo "There are linter issues :-("
-	read -r
+function color() {
+	cols=$(tput cols)
+	words=${#3}
+	cols=$((cols - words - 2))
+	cols=$((cols / 2 ))
+	
+	printf "\\n"
+	printf "\\e[1;%sm" "$1" # foreground color
+	printf "\\e[1;%sm" "$2" # background color
+	for ((i=0; i<= cols; i++)); do printf " "; done
+	printf "%s" "$3"
+	for ((i=0; i<= cols; i++)); do printf " "; done
+	printf "\\e[0m\\n"
+	printf "\\n"
 }
+
+function fail() {
+	color 30 41 "There are linter issues :-("
+	read -r
+	exit 1
+}
+
 trap fail ERR
 
 
@@ -25,4 +43,5 @@ dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$
 dockerrunuw ghcr.io/heussd/babellint:main
 
 trap - ERR
-read -r -t3
+color 30 42 "All OK"
+read -r -t2
