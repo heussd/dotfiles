@@ -32,8 +32,10 @@ gitcmd="git"
 if [ "$PWD" = "$HOME" ]; then
   gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
 fi
+eval "${gitcmd} submodule update --init --remote --recursive"
 gitcmd="$gitcmd pull --tags --recurse-submodules"
 eval "${gitcmd}"
+
 
 
 trap - ERR
