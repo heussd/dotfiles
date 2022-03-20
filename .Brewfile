@@ -33,6 +33,7 @@ cask "vorta"
 brew "bat"
 brew "exa"
 brew "w3m"
+brew "yq"
 brew "brew-cask-completion"
 brew "choose-gui"
 brew "coreutils"
@@ -99,6 +100,9 @@ mas "Disk Graph", id: 697942581
 mas "Ka-Block!", id: 1335413823
 mas "OwlOCR", id: 1499181666
 mas "SleepTime", id: 465772885
+
+tap "marwanhawari/tap"
+brew "stew"
 
 
 ## Fonts
