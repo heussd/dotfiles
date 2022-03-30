@@ -116,10 +116,11 @@ cask "font-source-code-pro"
 cask "font-sauce-code-pro-nerd-font", greedy: true
 
 
-
 ## Drivers
 tap "homebrew/cask-drivers"
 cask "logitech-options"
+
+
 ## Office
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
@@ -153,6 +154,7 @@ cask "syntax-highlight", greedy: true
 
 
 ## Developer
+cask "Ferdi"
 brew "buildkit"
 brew "hugo"
 brew "helm"

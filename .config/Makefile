@@ -238,6 +238,7 @@ dock:
 	$(call make_dock_app,/Applications/Firefox)
 	$(call make_dock_app,/Applications/Safari)
 	$(call make_dock_app,/Applications/Google Chrome)
+	$(call make_dock_app,/Applications/Ferdi)
 	$(call make_dock_app,/Applications/Slack)
 	$(call make_dock_app,/Applications/Microsoft Teams)
 	$(call make_dock_app,/Applications/Clockify Desktop)
