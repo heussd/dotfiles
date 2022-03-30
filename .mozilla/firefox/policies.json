@@ -67,6 +67,7 @@
     "SupportMenu": {
       "Title": "✅ Timm's modifications enabled",
       "URL": "https://github.com/heussd/dotfiles"
-    }
+    },
+    "DontCheckDefaultBrowser": true
   }
 }
