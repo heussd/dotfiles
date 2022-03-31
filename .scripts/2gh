@@ -7,8 +7,11 @@ if [ ! -d ".git" ]; then
     git init
 fi
 
+repository=${PWD##*/}
+
 open -a SourceTree -W --args "$PWD"
 
-gh repo create -y
+gh repo create "$repository" --private
 
-git push --set-upstream origin main
+git remote add origin "git@github.com:heussd/$repository.git" 
+git push --set-upstream origin main --no-verify
