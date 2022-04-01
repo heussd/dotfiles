@@ -13,7 +13,7 @@ bookmark-cmd        "~/.config/newsboat/scripts/m3u"
 bookmark-autopilot  yes
 
 #max-items 500
-keep-articles-days 500
+keep-articles-days 300
 
 ignore-article "*" "title =~ \"(Gebärdensprache)\""
 ignore-article "*" "title =~ \"(mit Gebärdensprache)\""
