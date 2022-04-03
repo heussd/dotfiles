@@ -19,7 +19,7 @@ auto-config: Makefile
 	$(MAKE) $(HOME)/.ssh/id_rsa.pub
 
 	touch auto-config
-	@-~/Library/startup.command
+	#@-~/Library/startup.command
 
 #ifneq ("$(wildcard Makefile.$(OS_NAME))","")
 #"include Makefile.$(OS_NAME)
