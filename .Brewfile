@@ -127,6 +127,7 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "MeetingBar", id: 1532419400
 cask "libreoffice-still"
+cask "mactex"
 
 
 ## Voice / Com
@@ -183,7 +184,6 @@ if system 'hostname | grep "coffeelake" > /dev/null'
 	cask "lens"
 	cask "microsoft-edge"
 	cask "adobe-acrobat-reader"
-	cask "mactex"
 	cask "qgis"
 	cask "docker"
 	cask "webex-meetings"
