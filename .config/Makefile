@@ -105,7 +105,6 @@ zsh-default: ## Set ZSH as default
 darwin: \
 	prep-darwin \
 	login-items \
-	reset-firefox-permissions \
 	maccy \
 	coteditor \
 	easy-move-resize \
@@ -245,6 +244,7 @@ dock:
 	$(call make_dock_app,/Applications/Microsoft Edge)
 	$(call make_dock_app,/System/Applications/Mail)
 	$(call make_dock_app,/Applications/Signal)
+	$(call make_dock_app,/Applications/Threema)
 	$(call make_dock_app,/Applications/Discord)
 	$(call make_dock_app,/System/Applications/Calendar)
 	$(call make_dock_app,/System/Applications/Notes)
@@ -290,7 +290,7 @@ dock:
 .PHONY: macos-lockscreen
 macos-lockscreen: ## Set a lost and found message and contact info on the lockscreen
 	@sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If you found this device, please contact $$(osascript -e 'tell application "Contacts" to get value of email 1 of my card') / $$(osascript -e 'tell application "Contacts" to get value of phone 1 of my card')"
-	@tccutil reset AddressBook
+	#@tccutil reset AddressBook
 
 
 reset-firefox-permissions:
