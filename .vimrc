@@ -169,6 +169,12 @@ nnoremap gO :!open '%:p'<CR>
 " :set nolist In vim versions prior to 7.4.353 list disabled linebreak
 
 
+nnoremap <C-f> :Files!<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-i': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 let mapleader=","
 
 " https://groups.google.com/forum/#!topic/vimwiki/ChSY9b4WBbQ
@@ -248,3 +254,5 @@ hi Folded ctermfg=grey
 
 source ~/.vim/ale.vim
 source ~/.vim/coc.vim
+
+let g:netrw_liststyle = 3
