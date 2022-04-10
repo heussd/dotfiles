@@ -173,6 +173,7 @@ if system 'hostname | grep "kabylake" > /dev/null'
     brew "podman"
     cask "pycharm-ce"
     cask "postman"
+    cask "playonmac"
 end
 
 
