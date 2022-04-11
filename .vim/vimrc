@@ -1,0 +1,133 @@
+" https://stackoverflow.com/questions/743150/how-to-prevent-vim-from-creating-and-leaving-temporary-files
+set nobackup       "no backup files
+set nowritebackup  "only in case you don't want a backup file while editing
+set noswapfile     "no swap files
+" https://stackoverflow.com/questions/2816719/clear-the-viminfo-file
+:set viminfo=	   "no ~/.viminfo file
+
+" Essential: use proper encryption by default
+" https://dgl.cx/2014/10/vim-blowfish
+:setlocal cm=blowfish2
+
+" Line Numbers
+:set number
+" turn hybrid line numbers on
+:set number relativenumber
+
+" Highlight current line
+:set cursorline
+":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
+" hlsearch word Taken from http://nvie.com/posts/how-i-boosted-my-vim/
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                    "    case-sensitive otherwise
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+
+
+" using Source Code Pro
+" http://jonathanmh.com/using-adobes-source-code-pro-in-vim/
+" set anti enc=utf-8
+set guifont=Source\ Code\ Pro\ Regular\ 11
+
+
+" Taken from https://github.com/fitzage/.vim/blob/master/gvimrc#L9
+set antialias		" MacVim: smooth fonts.
+set encoding=utf-8	" Use UTF-8 everywhere.
+set termencoding=utf-8
+
+
+" Neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+
+
+hi CursorLine term=bold cterm=bold guibg=Grey40
+
+syntax enable
+
+set nocompatible
+filetype plugin on
+
+
+" Install VIM plug - https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'michal-h21/vim-zettel'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'honza/writer.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'tomasr/molokai'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'stsewd/gx-extended.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'godlygeek/tabular'
+
+Plug 'dense-analysis/ale'
+Plug 'Yggdroot/indentLine'
+Plug 'pedrohdz/vim-yaml-folds'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'cespare/vim-toml', { 'branch': 'main' }
+
+Plug 'pseewald/vim-anyfold'
+call plug#end()
+
+let g:airline_theme='deus'
+
+" Workaround for creating transparent bg
+" https://stackoverflow.com/questions/37712730/set-vim-background-transparent/67569365#answer-67569365
+autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
+        \ |    highlight LineNr     ctermbg=NONE guibg=NONE
+        \ |    highlight SignColumn ctermbg=NONE guibg=NONE
+
+
+" https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
+:set wrap
+:set linebreak
+" :set nolist In vim versions prior to 7.4.353 list disabled linebreak
+
+let mapleader=","
+
+" Map C-Y C-N to Control Space
+" https://vi.stackexchange.com/questions/21457/how-to-remap-autocomplete-on-controln-to-controlspace#answer-21469
+inoremap <c-@> <c-n>
+
+au BufRead,BufNewFile reflections setfiletype reflections
+au BufRead,BufNewFile urls,config setfiletype conf.tabsep
+
+" https://www.reddit.com/r/KittyTerminal/comments/rzpjed/easier_ways_to_reload_kitty/
+autocmd bufwritepost ~/.config/kitty/kitty.conf :silent !kill -SIGUSR1 $(pgrep -a kitty)
+
+
+let g:indentLine_char = ''
+
+colorscheme molokai
+hi Folded ctermbg=NONE guibg=NONE
+hi Folded ctermfg=grey
+
+
+source ~/.vim/ale.vim
+source ~/.vim/coc.vim
+source ~/.vim/fzf.vim
+source ~/.vim/folds.vim
+source ~/.vim/vimwiki.vim
+source ~/.vim/commands.vim
+
+let g:netrw_liststyle = 3

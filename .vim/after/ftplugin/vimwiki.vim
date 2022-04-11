@@ -1,0 +1,62 @@
+" https://groups.google.com/forum/#!topic/vimwiki/ChSY9b4WBbQ
+fun! CompleteLinks(findstart, base)
+    if a:findstart
+        " locate the start of the word
+        let line = getline('.')
+        let start = col('.') - 1
+        while start > 0 && line[start - 1] =~ '\a'
+            let start -= 1
+        endwhile
+        return start
+    else
+        " find files matching with "a:base"
+        let res = []
+        for m in split(globpath('.', '**/*.md'), '\n')
+            let n = fnamemodify(m, ':t:r')
+            if n =~ '^' . a:base
+                call add(res, n)
+            endif
+        endfor
+        return res
+    endif
+endfun
+
+function VimwikiMode()
+	" Change working copy (for rg, fzf) when entering vimwiki
+	lcd %:p:h
+
+	set autoread " Auto update on external file changes
+
+	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
+	autocmd! BufWritePost * " Clear existing auto-commands
+	autocmd BufWritePost * silent exec '!markdownlint --fix --config markdownlint.yml "%" > /dev/null; slmd "%" -o; git add "%" && git commit -n -m "[auto commit]" > /dev/null'
+
+	" Inspired by https://gist.github.com/jondkinney/2040114
+	" FUZZY FIND
+	nnoremap <C-f> :Rg<CR>
+
+	set spell spelllang=de,en
+	set spell
+
+	" This line is causing display glitches on Linux terminals, so it's disabled for now.
+	" https://stackoverflow.com/questions/20593268/vim-on-ubuntu-text-rendering-bug-repeating-and-disappearing-weirdly#25085808
+	" set lines=50 columns=130
+
+	nnoremap <C-p> :Git pull<CR>
+    nnoremap <C-o> :Git push<CR>
+
+	map <Leader>wp  :VimwikiDiaryPrevDay<CR>
+    map <Leader>wn  :VimwikiDiaryNextDay<CR>
+    set shiftwidth=2
+    set expandtab
+
+
+	set completefunc=CompleteLinks
+	let g:vimwiki_table_mappings = 0
+	nnoremap <C-Space> i
+	inoremap <C-Space> <c-x><c-u>
+
+endfunction
+
+
+call VimwikiMode()
