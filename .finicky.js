@@ -9,7 +9,7 @@ module.exports = {
             browser: "Safari"
         },
         {
-            match: ["*.pwc.com/*", "*.pwc.de/*"],
+            match: ["*.pwc.com/*", "*.pwc.de/*", "*.replicon.com/*"],
             browser: "Google Chrome"
         },
         {
