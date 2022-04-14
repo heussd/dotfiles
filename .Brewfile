@@ -159,6 +159,7 @@ cask "Ferdi"
 brew "buildkit"
 brew "hugo"
 brew "helm"
+brew "devtoys"
 mas "Boop", id: 1518425043
 
 

@@ -263,6 +263,7 @@ dock:
 	$(call make_dock_app,/Applications/Visual Studio Code)
 	$(call make_dock_app,/System/Applications/Preview)
 	$(call make_dock_app,/Applications/Boop)
+	$(call make_dock_app,/Applications/DevToys)
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}';
 	$(call make_dock_app,/Applications/Meld)
 	$(call make_dock_app,/Applications/Sourcetree)
