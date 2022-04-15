@@ -168,6 +168,7 @@ if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
     cask "steam"
     cask "epic-games"
+    cask "battle-net"
     cask "sweet-home3d"
 
     cask "multipass"
