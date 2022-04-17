@@ -9,6 +9,7 @@ set -o nounset
 # Find the right container cli
 command -v "podman" >/dev/null 2>&1 && {
 	podman "$@"
+	exit $?
 }
 command -v "lima" >/dev/null 2>&1 && {
 	lima nerdctl "$@"
