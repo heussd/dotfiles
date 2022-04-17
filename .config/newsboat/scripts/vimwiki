@@ -34,11 +34,7 @@ echo "
 > $description
 
 <$url>
-(Last access $(date '+%Y-%m-%d'))"
-
-
-# >> ./"$file.md"
-exit
+(Last access $(date '+%Y-%m-%d'))" >> ./"$file.md"
 
 
 git add "$file.md"
