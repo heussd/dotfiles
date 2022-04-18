@@ -160,6 +160,7 @@ brew "buildkit"
 brew "hugo"
 brew "helm"
 brew "devtoys"
+brew "aspell"
 mas "Boop", id: 1518425043
 
 
