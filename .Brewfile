@@ -78,6 +78,7 @@ mas "OneDrive", id: 823766827
 
 ## Power Tools
 cask "finicky"
+brew "nnn"
 brew "zsh-completions"
 cask "appcleaner"
 cask "balenaetcher"
