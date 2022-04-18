@@ -23,7 +23,7 @@ if [[ $(echo "$description" | wc -l) -le 3 ]]; then
 fi
 
 
-faile=$(date '+%Y-%m-%d')
+file=$(date '+%Y-%m-%d')
 
 cd "$TH_PROJECTS_FOLDER/vimwiki" || exit 1
 
@@ -34,7 +34,7 @@ echo "
 > $description
 
 <$url>
-(Last access $(date '+%Y-%m-%d'))" >> ./"$file.md"
+(Last access $(date '+%Y-%m-%d'))" >> ./"$(file).md"
 
 
 git add "$file.md"
