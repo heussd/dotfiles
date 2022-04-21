@@ -160,7 +160,7 @@ cask "Ferdi"
 brew "buildkit"
 brew "hugo"
 brew "helm"
-brew "devtoys"
+cask "devtoys"
 brew "aspell"
 mas "Boop", id: 1518425043
 
