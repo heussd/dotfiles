@@ -279,9 +279,11 @@ dock:
 	$(call make_dock_app,/Applications/Microsoft Powerpoint)
 	$(call make_dock_app,/Applications/Microsoft Excel)
 	$(call make_dock_app,/Applications/Microsoft Word)
-	$(call make_dock_app,/Applications/krita)
 	$(call make_dock_app,/Applications/ColorSlurp)
+	$(call make_dock_app,/Applications/GIMP-2.10)
+	$(call make_dock_app,/Applications/krita)
 	$(call make_dock_app,/Applications/Steam)
+	$(call make_dock_app,/Applications/Battle.net)
 	$(call make_dock_app,/Applications/Epic Games Launcher)
 	defaults write com.apple.Dock size-immutable -bool true
 	defaults write com.apple.Dock contents-immutable -bool true

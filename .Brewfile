@@ -125,10 +125,9 @@ cask "logitech-options"
 ## Office
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "MeetingBar", id: 1532419400
 cask "libreoffice-still"
-cask "mactex"
+#cask "mactex"
 
 
 ## Voice / Com
@@ -156,7 +155,6 @@ cask "syntax-highlight", greedy: true
 
 
 ## Developer
-cask "Ferdi"
 brew "buildkit"
 brew "hugo"
 brew "helm"
@@ -173,16 +171,15 @@ if system 'hostname | grep "kabylake" > /dev/null'
     cask "battle-net"
     cask "sweet-home3d"
 
-    cask "multipass"
     brew "podman"
     cask "pycharm-ce"
-    cask "postman"
     cask "playonmac"
 end
 
 
 ## coffeelake
 if system 'hostname | grep "coffeelake" > /dev/null'
+	cask "Ferdi"
 	cask "google-chrome"
 	cask "google-drive"
 	cask "lens"
