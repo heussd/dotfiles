@@ -155,6 +155,10 @@ source ~/.shell-motd
 
 
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
+export FZF_COMPLETION_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+export FZF_COMPLETION_TRIGGER='**'
+
+
 _hasFolder ~/.stew && export PATH="$HOME/.stew/bin:$PATH"
 
 
