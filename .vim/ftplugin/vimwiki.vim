@@ -23,3 +23,5 @@ let g:ale_fix_on_save = 1
 
 " Reload file after external change
 set autoread
+
+autocmd bufwritepost Topics.md !make
