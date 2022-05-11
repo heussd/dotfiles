@@ -174,6 +174,7 @@ if system 'hostname | grep "kabylake" > /dev/null'
     brew "podman"
     cask "pycharm-ce"
     cask "playonmac"
+    cask "teamviewer"
 end
 
 
