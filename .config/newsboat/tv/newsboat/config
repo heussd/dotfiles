@@ -22,4 +22,4 @@ ignore-article "*" "title =~ \"(Audiodeskription)\"
 ignore-article "*" "title =~ \"- Audiodeskription\"
 
 
-#run-on-startup		"open"
+run-on-startup		"open"
