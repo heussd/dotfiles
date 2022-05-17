@@ -127,6 +127,7 @@ cask "logitech-options"
 mas "Numbers", id: 409203825
 mas "MeetingBar", id: 1532419400
 cask "libreoffice-still"
+cask "drawio"
 #cask "mactex"
 
 
