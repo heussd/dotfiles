@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 dockerrun() { eval docker run --rm --interactive --tty "$*"; }
 dockerrunu() { eval dockerrun --user="$(id -u):$(id -g)" "$*"; }
