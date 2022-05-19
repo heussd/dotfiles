@@ -8,6 +8,8 @@ docker-logs() {
 docker logs -f "$(docker ps | fzf | awk '{print $1}')"
 }
 
+alias dc='docker-compose'
+alias dcd='docker-compose down --remove-orphans --volumes'
 
 alias babellint='dockerrunuw ghcr.io/heussd/babellint:main'
 
