@@ -1,0 +1,10 @@
+#!/bin/bash
+# alias docker="podman", with additions:
+# 1) Propagated to third party commands, unlike aliases
+
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+bash -c "podman $*"
