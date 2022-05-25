@@ -5,11 +5,6 @@ Install=spoon.SpoonInstall
 Install:asyncUpdateAllRepos()
 
 
-Install:andUse("TimeMachineProgress", {
-  start = true
-})
-
-
 Install:andUse("ReloadConfiguration", {
   start = true
 })
