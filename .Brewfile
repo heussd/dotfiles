@@ -67,6 +67,7 @@ brew "glab"
 brew "gh"			# GitHub-cli
 brew "markdownlint-cli"
 brew "lazygit"
+brew "lazydocker"
 
 
 ## Cloud File Sync
@@ -192,7 +193,6 @@ if system 'hostname | grep "coffeelake" > /dev/null'
 	cask "docker"
 	cask "webex-meetings"
 	brew "dive"
-	brew "lazydocker"
 	brew "az"
 	brew "gradle"
 	brew "k9s"
