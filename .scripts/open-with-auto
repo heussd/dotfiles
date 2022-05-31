@@ -1,0 +1,19 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+
+function openApp() {
+	echo "Launching $1"
+	open -na "$1" --args "$(pwd)" &
+}
+
+[ -d .git ] && openApp "SourceTree"
+
+[ -f "package.json" ] && openApp "WebStorm"
+[ -f "pom.xml" ] && openApp "IntelliJ IDEA"
+[ -f "build.gradle.kts" ] && openApp "IntelliJ IDEA"
+[ -f "build.gradle" ] && openApp "IntelliJ IDEA"
+[ -f "settings.gradle" ] && openApp "IntelliJ IDEA"
+[ -f "requirements.txt" ] && openApp "PyCharm"
+
+

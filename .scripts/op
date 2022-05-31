@@ -18,21 +18,6 @@ fi
 
 cd "$sel" || exit 1
 
-function openApp() {
-	open --background -na "$1" --args "$(pwd)" &
-}
 
-[ -d .git ] && (
-	git pull &> /dev/null &
-	open --background -a SourceTree "$(pwd)"
-)
-
-[ -f "package.json" ] && openApp "WebStorm"
-[ -f "pom.xml" ] && openApp "IntelliJ IDEA"
-[ -f "build.gradle.kts" ] && openApp "IntelliJ IDEA"
-[ -f "build.gradle" ] && openApp "IntelliJ IDEA"
-[ -f "settings.gradle" ] && openApp "IntelliJ IDEA"
-[ -f "requirements.txt" ] && openApp "PyCharm"
-
-
+open-with-auto &
 op
