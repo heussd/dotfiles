@@ -7,9 +7,6 @@
 [submodule ".hammerspoon/Spoons/global-mute-spoon"]
 	path = .hammerspoon/Spoons/global-mute-spoon
 	url = https://github.com/cmaahs/global-mute-spoon
-[submodule ".dotfiles-externals/podman-desktop"]
-	path = .dotfiles-externals/podman-desktop
-	url = https://github.com/jedahan/podman-desktop
 [submodule ".dotfiles-externals/git-fuzzy"]
 	path = .dotfiles-externals/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy
