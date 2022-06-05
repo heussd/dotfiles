@@ -133,3 +133,7 @@ source ~/.vim/vimwiki.vim
 source ~/.vim/commands.vim
 
 let g:netrw_liststyle = 3
+
+
+
+autocmd VimEnter * if argc() == 0 | Explore! | endif

@@ -20,5 +20,4 @@ let g:vimwiki_folding = 'custom'
 
 
 
-:autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
 
