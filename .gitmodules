@@ -13,3 +13,6 @@
 [submodule ".dotfiles-externals/keylayout-de_DE-no-deadkeys"]
 	path = .dotfiles-externals/keylayout-de_DE-no-deadkeys
 	url = https://github.com/oschrenk/keylayout-de_DE-no-deadkeys
+[submodule ".dotfiles-externals/pocket-sh-add"]
+	path = .dotfiles-externals/pocket-sh-add
+	url = https://github.com/riichard/pocket-sh-add
