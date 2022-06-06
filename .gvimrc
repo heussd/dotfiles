@@ -10,4 +10,4 @@ set lines=40 columns=100          " Window dimensions.
 set macligatures
 
 
-"autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
+autocmd VimEnter * if argc() == 0 | execute 'VimwikiIndex' | endif
