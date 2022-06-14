@@ -44,3 +44,7 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 
 user_pref("dom.security.https_only_mode", true);
+
+// Total Cookie Protection
+// https://blog.mozilla.org/en/products/firefox/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/
+user_pref("network.cookie.cookieBehavior", 5);
