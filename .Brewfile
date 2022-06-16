@@ -80,6 +80,7 @@ mas "OneDrive", id: 823766827
 ## Power Tools
 cask "finicky"
 brew "nnn"
+brew "btop"
 brew "zsh-completions"
 cask "appcleaner"
 cask "balenaetcher"
@@ -148,6 +149,7 @@ mas "GIPHY CAPTURE", id: 668208984
 
 ## Audio / Video
 cask "mpv"
+brew "ffmpeg" # Better performance for mpv? - https://bbs.archlinux.org/viewtopic.php?id=249816
 cask "vlc"
 cask "handbrake"
 
