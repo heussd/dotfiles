@@ -1,5 +1,8 @@
 #!/bin/bash
 
+open --background "$@" &> /dev/null &
+exit 0
+
 if type "mpv" > /dev/null; then
 	mpv "$@" &> /dev/null &
 else
