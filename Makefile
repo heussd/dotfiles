@@ -61,7 +61,7 @@ install: .install-$(OS_NAME) firefox-policies
 	@touch .stew
 
 .pip: requirements.txt
-	@pip3 install -U -r requirements.txt
+	@pip3 install --upgrade --requirement requirements.txt
 	@touch .pip
 
 .docker-compose: docker-compose.yml
