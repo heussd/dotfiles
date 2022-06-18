@@ -18,6 +18,7 @@ brew "git"
 brew "git-delta"
 brew "git-lfs"
 brew "git-gui"		# gitk
+brew "ugit"
 cask "macdown"
 cask "sourcetree"
 cask "firefox"
