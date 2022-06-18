@@ -6,7 +6,7 @@ function pre_lock()
 
     if (hs.wifi.currentNetwork() == "Wachtberg") then
         hs.execute("killall newsboat", true)
-        hs.execute("make -f $HOME/Makefile push &", true)
+        --hs.execute("make -f $HOME/Makefile push &", true)
     end
 
     device = hs.audiodevice.defaultOutputDevice()
@@ -25,7 +25,7 @@ function post_lock()
 
     print("Current WIFI is "..hs.wifi.currentNetwork())
     if (hs.wifi.currentNetwork() == "Wachtberg") then
-        hs.execute("make -f $HOME/Makefile pull &", true)
+        --hs.execute("make -f $HOME/Makefile pull &", true)
         hlspeak('hello')
     end
 end

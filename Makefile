@@ -7,7 +7,7 @@ HOST          	 := $$(hostname | cut -d"." -f 1)
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 
 
-default: auto-pull-dotfiles auto-install auto-config
+default: auto-pull-dotfiles install auto-config
 .PHONY: default
 
 
@@ -26,7 +26,7 @@ endef
 # $2 - Message to print
 # $3 - Commands to execute
 define if-old
-	@if [ -e $(1) ]; then find "$(1)" -mmin +$$((3*24*60)) \
+	@if [ -e $(1) ]; then find "$(1)" -mmin +$$((999*24*60)) \
 		-exec bash -c 'echo -e "\033[0;34m[Home Makefile]\033[0m$(2)"; $(3)' \; ;\
 	fi
 endef
@@ -38,41 +38,47 @@ auto-pull-dotfiles: ## Pulls from dotfiles remote repository, if last pull is ol
 .PHONY: auto-pull-dotfiles
 
 check-time-last-installed:
-	$(call if-old,$(HOME)/.auto-install-$(OS_NAME),\
-		Triggering auto install...,\
-		rm -f "$(HOME)/.auto-install-$(OS_NAME)")
+	$(call if-old,$(HOME)/.install-$(OS_NAME),\
+		install will be executed on next run,\
+		 make remove-stat-files --no-print-directory)
 .PHONY: check-time-last-installed
 
 
-auto-install: .auto-install-$(OS_NAME) firefox-policies
-.PHONY: auto-install
+.PHONY: install
+install: .install-$(OS_NAME) firefox-policies
+	@touch .install-$(OS_NAME)
 
-.auto-install-darwin: .Brewfile .pip-global-requirements.txt .docker-cli-images.yml | check-time-last-installed
-	@touch .auto-install-darwin
-	
-	$(call exec,Brew bundle install,\
-		export HOMEBREW_CASK_OPTS="--no-quarantine"; \
-		brew bundle install -v --cleanup --force --file=.Brewfile)
+.install-darwin: .brew .stew .pip .docker-compose | check-time-last-installed
+.install-linux: .brew .stew .pip .docker-compose .apt | check-time-last-installed
 
-	$(call exec,PIP install,\
-		pip3 install -U -r .pip-global-requirements.txt)
+.brew: Brewfile
+	@HOMEBREW_CASK_OPTS="--no-quarantine" \
+		brew bundle install -v --cleanup --force --file=Brewfile
+	@touch .brew
 
-	$(call exec,Pulling Docker CLI images,\
-		.scripts/container-compose -f .docker-cli-images.yml pull)
+.stew: Stewfile
+	@stew install Stewfile
+	@touch .stew
 
+.pip: requirements.txt
+	@pip3 install -U -r requirements.txt
+	@touch .pip
 
-.auto-install-linux: .apt-packages-base .pip-global-requirements.txt .docker-cli-images.yml | check-time-last-installed
-	@touch .auto-install-linux
+.docker-compose: docker-compose.yml
+	@docker-compose -f docker-compose.yml pull
+	@touch .docker-compose
 
-#	# https://stackoverflow.com/questions/25391307/pipes-with-apt-package-manager#25391412
-	$(call exec,APT install,\
-		xargs -d '\n' -- sudo apt-get install -y < .apt-packages-base)
+.apt: apt-packages
+	@xargs -d '\n' -- sudo apt-get install -y < apt-packages
+	@touch .apt
 
-	$(call exec,PIP install,\
-		pip3 install -U -r .pip-global-requirements.txt)
+.PHONY: remove-stat-files
+remove-stat-files:
+	@rm .brew .stew .pip .docker-compose .apt 2> /dev/null || true
 
-	$(call exec,Pulling Docker CLI images,\
-		docker-compose -f .docker-cli-images.yml pull)
+.PHONY: update
+update: remove-stat-files install
+
 
 
 FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
