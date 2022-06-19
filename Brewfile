@@ -1,4 +1,4 @@
-# Software I like, on macOS.
+# Software I like
 #
 # When changing this file, you might also want to change these files:
 # ~/.config/Makefile
@@ -9,6 +9,14 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/cask-versions"
 
+
+brew "gh" # GitHub cli
+brew "neovim"
+brew "fzf" # Needed because apt version is too old for vim
+brew "ripgrep" # Also needed for vim
+
+
+if system 'uname -s | grep "Darwin" > /dev/null'
 
 ## Essentials
 cask "kitty"
@@ -40,13 +48,11 @@ brew "choose-gui"
 brew "coreutils"
 brew "ctop"
 brew "figlet"
-brew "fzf"
 brew "gnupg"
 brew "htop"
 brew "howdoi"
 brew "mas"
 brew "newsboat"
-brew "ripgrep"
 brew "the_silver_searcher"
 brew "thefuck"
 brew "transcrypt"
@@ -65,7 +71,6 @@ cask "meld"
 cask "yed"
 mas "CotEditor", id: 1024640650
 brew "glab"
-brew "gh"			# GitHub-cli
 brew "markdownlint-cli"
 brew "lazygit"
 brew "lazydocker"
@@ -215,4 +220,6 @@ if system 'hostname | grep "coffeelake" > /dev/null'
 	cask "postman"
 	cask "slack"
 	mas "Xcode", id: 497799835
+end
+
 end
