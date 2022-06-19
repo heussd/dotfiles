@@ -16,6 +16,7 @@ brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
 
 
+## macOS apps
 if system 'uname -s | grep "Darwin" > /dev/null'
 
 ## Essentials
