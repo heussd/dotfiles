@@ -251,6 +251,7 @@ dock:
 	$(call make_dock_app,/System/Applications/Reminders)
 	$(call make_dock_app,/System/Applications/Photos)
 	$(call make_dock_app,/System/Applications/Music)
+	$(call make_dock_app,/System/Applications/Podcasts)
 	$(call make_dock_app,/Applications/KeePassXC)
 	$(call make_dock_app,/Applications/Cryptomator)
 	$(call make_dock_app,/Applications/kitty)
