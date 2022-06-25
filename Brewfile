@@ -193,7 +193,6 @@ end
 
 ## coffeelake
 if system 'hostname | grep "coffeelake" > /dev/null'
-	cask "Ferdi"
 	cask "google-chrome"
 	cask "google-drive"
 	cask "lens"
