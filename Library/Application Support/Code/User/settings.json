@@ -6,5 +6,6 @@
   "workbench.editor.restoreViewState": false,
   "workbench.startupEditor": "none",
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs":"active"
+  "editor.guides.bracketPairs": "active",
+  "redhat.telemetry.enabled": false
 }
