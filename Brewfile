@@ -172,6 +172,7 @@ brew "hugo"
 brew "helm"
 cask "devtoys"
 brew "aspell"
+cask "vivaldi"
 mas "Boop", id: 1518425043
 
 
