@@ -4,13 +4,13 @@ require('utils')
 function pre_lock()
     print("Executing pre lock...")
 
-    if (hs.wifi.currentNetwork() == "Wachtberg") then
-        hs.execute("killall newsboat", true)
+    --if (hs.wifi.currentNetwork() == "Wachtberg") then
+        --hs.execute("killall newsboat", true)
         --hs.execute("make -f $HOME/Makefile push &", true)
-    end
+    --end
 
-    device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(5)
+    --device = hs.audiodevice.defaultOutputDevice()
+    --device:setOutputVolume(5)
     hlspeak('doop')
 end
 
@@ -18,8 +18,8 @@ end
 function post_lock()
     print("Executing post lock...")
 
-    device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(5)
+    --device = hs.audiodevice.defaultOutputDevice()
+    --device:setOutputVolume(5)
 
     hlspeak('bell')
 
