@@ -176,6 +176,11 @@ cask "vivaldi"
 mas "Boop", id: 1518425043
 
 
+### nats
+tap "nats-io/nats-tools"
+brew "nats-io/nats-tools/nats"
+
+
 ## kabylake
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
