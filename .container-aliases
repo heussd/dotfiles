@@ -9,7 +9,7 @@ docker logs -f "$(docker ps | fzf | awk '{print $1}')"
 }
 
 alias dc='docker-compose'
-alias dcd='docker-compose down --remove-orphans --volumes'
+alias dcd='docker-compose down --remove-orphans'
 alias podman-nuke='podman rm -f'
 alias podman-machine-restart='podman machine stop; sleep 3; podman machine start'
 
