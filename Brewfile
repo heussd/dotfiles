@@ -37,6 +37,7 @@ cask "keka"
 cask "visual-studio-code"
 brew "borgbackup"
 cask "vorta"
+brew "watch"
 
 
 ## Command line tools
