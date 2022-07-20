@@ -174,6 +174,7 @@ brew "helm"
 cask "devtoys"
 brew "aspell"
 cask "vivaldi"
+brew "rustup"
 mas "Boop", id: 1518425043
 
 
