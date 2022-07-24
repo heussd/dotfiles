@@ -192,5 +192,11 @@ fif() {
 }
 
 
+
 # Linux: add Homebrew to the PATH
 _hasFile /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+
+# Kitty
+alias kitty-colors-reset='kitty @ set-colors --reset'
+alias kitty-colors-white='kitty @ set-colors --all --configured ~/.config/kitty/white-theme.conf'
