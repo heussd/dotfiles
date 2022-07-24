@@ -79,7 +79,7 @@ brew "lazydocker"
 
 
 ## Cloud File Sync
-cask "dropbox"
+cask "maestral"
 cask "cryptomator", greedy: true
 cask "macfuse", greedy: true
 mas "OneDrive", id: 823766827
@@ -101,7 +101,6 @@ cask "easy-move-plus-resize"
 cask "hammerspoon"
 cask "knockknock"
 cask "maccy"
-cask "itsycal"
 cask "mendeley"
 cask "tabula" 
 cask "tiles"
