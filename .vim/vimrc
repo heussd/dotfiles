@@ -82,8 +82,6 @@ Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 Plug 'pseewald/vim-anyfold'
@@ -126,7 +124,6 @@ hi Folded ctermfg=grey
 
 
 source ~/.vim/ale.vim
-source ~/.vim/coc.vim
 source ~/.vim/fzf.vim
 source ~/.vim/folds.vim
 source ~/.vim/vimwiki.vim
