@@ -41,6 +41,7 @@ alias ...='cd ../..'
 alias ..='cd ..'
 alias KILL='sudo kill -9'
 alias RM='rm -Rfv'
+alias rm-empty-folders='find . -type d -empty -delete'
 alias plz="sudo !!"
 alias cp='cp -v'
 alias df='df -h'
