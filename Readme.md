@@ -10,12 +10,12 @@ In the great tradition of sharing dotfiles, this repository contains various con
 
 ### macOS
 
- curl -fsSL <https://raw.githubusercontent.com/heussd/dotfiles/master/.config/onboard.sh> | bash
+ curl -fsSL <https://raw.githubusercontent.com/heussd/dotfiles/main/.config/onboard.sh> | bash
 
 
 ### Ubuntu
 
- wget -O- <https://raw.githubusercontent.com/heussd/dotfiles/master/.config/onboard.sh> | bash
+ wget -O- <https://raw.githubusercontent.com/heussd/dotfiles/main/.config/onboard.sh> | bash
 
 
 ## Credits
