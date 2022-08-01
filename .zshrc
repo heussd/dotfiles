@@ -106,6 +106,9 @@ bindkey '^[OA'  up-line-or-beginning-search
 bindkey '^[[B'  down-line-or-beginning-search  # Arrow down
 bindkey '^[OB'  down-line-or-beginning-search
 
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 # Suffix aliases
 #alias -s {sh,css,js,ts,html,md,txt}=code
 
