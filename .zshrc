@@ -38,6 +38,7 @@ antigen bundle desyncr/auto-ls
 antigen bundle Cloudstek/zsh-plugin-appup
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle marlonrichert/zsh-autocomplete
 
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 export SPACESHIP_KUBECTL_SHOW=false
