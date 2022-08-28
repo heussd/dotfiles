@@ -48,17 +48,17 @@ check-time-last-installed:
 install: .install-$(OS_NAME) firefox-policies
 	@touch .install-$(OS_NAME)
 
-.install-darwin: .Brewfile.state .stew .pip .docker-compose | check-time-last-installed
-.install-linux: .Brewfile.state .stew .pip .docker-compose .apt | check-time-last-installed
+.install-darwin: .Brewfile.state .Stewfile.state .pip .docker-compose | check-time-last-installed
+.install-linux: .Brewfile.state .Stewfile.state .pip .docker-compose .apt | check-time-last-installed
 
 .Brewfile.state: .Brewfile
 	@HOMEBREW_CASK_OPTS="--no-quarantine" \
 		brew bundle install -v --cleanup --force --file=.Brewfile
 	@touch .Brewfile.state
 
-.stew: Stewfile
-	@stew install Stewfile
-	@touch .stew
+.Stewfile.state: .Stewfile
+	@stew install .Stewfile
+	@touch .Stewfile.state
 
 .pip: requirements.txt
 	@pip3 install --upgrade --requirement requirements.txt
