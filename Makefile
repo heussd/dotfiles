@@ -52,29 +52,29 @@ install: .install-$(OS_NAME) firefox-policies
 .install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .apt-package-state | check-time-last-installed
 
 .Brewfile.state: .Brewfile
-	@HOMEBREW_CASK_OPTS="--no-quarantine" \
+	HOMEBREW_CASK_OPTS="--no-quarantine" \
 		brew bundle install -v --cleanup --force --file=.Brewfile
 	@touch .Brewfile.state
 
 .Stewfile.state: .Stewfile
-	@stew install .Stewfile
+	stew install .Stewfile
 	@touch .Stewfile.state
 
 .requirements.txt.state: .requirements.txt
-	@pip3 install --upgrade --requirement .requirements.txt
+	pip3 install --upgrade --requirement .requirements.txt
 	@touch .requirements.txt.state
 
 .docker-compose.yml-state:
-	@docker-compose -f .docker-compose.yml pull
+	docker-compose -f .docker-compose.yml pull
 	@touch .docker-compose.yml-state
 
 .apt-package-state: .apt-packages
-	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages
+	xargs -d '\n' -- sudo apt-get install -y < .apt-packages
 	@touch .apt-package-state
 
 .PHONY: remove-stat-files
 remove-stat-files:
-	@rm .brew .stew .pip .docker-compose .apt 2> /dev/null || true
+	@rm .Brewfile.state .Stewfile.state .requirements.txt-state .docker-compose.yml-state .apt-package-state 2> /dev/null || true
 
 .PHONY: update
 update: remove-stat-files install
