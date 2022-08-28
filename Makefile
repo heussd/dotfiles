@@ -48,8 +48,8 @@ check-time-last-installed:
 install: .install-$(OS_NAME) firefox-policies
 	@touch .install-$(OS_NAME)
 
-.install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose | check-time-last-installed
-.install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose .apt | check-time-last-installed
+.install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state | check-time-last-installed
+.install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .apt | check-time-last-installed
 
 .Brewfile.state: .Brewfile
 	@HOMEBREW_CASK_OPTS="--no-quarantine" \
@@ -64,9 +64,9 @@ install: .install-$(OS_NAME) firefox-policies
 	@pip3 install --upgrade --requirement .requirements.txt
 	@touch .requirements.txt.state
 
-.docker-compose: docker-compose.yml
-	@docker-compose -f docker-compose.yml pull
-	@touch .docker-compose
+.docker-compose.yml-state:
+	@docker-compose -f .docker-compose.yml pull
+	@touch .docker-compose.yml-state
 
 .apt: apt-packages
 	@xargs -d '\n' -- sudo apt-get install -y < apt-packages
