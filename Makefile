@@ -49,7 +49,7 @@ install: .install-$(OS_NAME) firefox-policies
 	@touch .install-$(OS_NAME)
 
 .install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state | check-time-last-installed
-.install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .apt | check-time-last-installed
+.install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .apt-package-state | check-time-last-installed
 
 .Brewfile.state: .Brewfile
 	@HOMEBREW_CASK_OPTS="--no-quarantine" \
@@ -68,9 +68,9 @@ install: .install-$(OS_NAME) firefox-policies
 	@docker-compose -f .docker-compose.yml pull
 	@touch .docker-compose.yml-state
 
-.apt: apt-packages
-	@xargs -d '\n' -- sudo apt-get install -y < apt-packages
-	@touch .apt
+.apt-package-state: .apt-packages
+	@xargs -d '\n' -- sudo apt-get install -y < .apt-packages
+	@touch .apt-package-state
 
 .PHONY: remove-stat-files
 remove-stat-files:
