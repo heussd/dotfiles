@@ -6,9 +6,6 @@ function activated()
     hlspeak('activated')
 end
 
-hyper:bind({"command"}, "p", nil, function() 
-    hs.alert("Playground :-)")
-end)
 
 function omg(test)
     hs.alert(test)
@@ -17,7 +14,7 @@ end
 function do_sth()
 end
 
-hyper:bind({}, "p", nil, function() 
+hyper:bind({}, "ä", nil, function() 
     hs.alert("Playground")
 
     device = hs.audiodevice.defaultOutputDevice()

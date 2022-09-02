@@ -33,3 +33,7 @@ hs.hotkey.bind({"alt"}, "space", function()
     hs.execute("~/.scripts/snippets-choose", true)
 end)
 
+
+hyper:bind({}, "p", nil, function()
+    hs.application.launchOrFocus("KeepassXC")
+end)
