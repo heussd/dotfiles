@@ -82,7 +82,7 @@ alias dotifles='dotfiles'
 alias .f='dotfiles'
 
 alias dotfiles-code='dotfiles ls-files | fzf | xargs code'
-alias .fe='export GIT_DIR=$HOME/.dotfiles-bare-repo; export GIT_WORK_TREE=$HOME/; dotfiles ls-files | fzf --preview "bat --style=numbers --color=always --line-range :500 {}" | xargs -o vim; git status; unset GIT_DIR; unset GIT_WORK_TREE'
+alias .fe='export GIT_DIR=$HOME/.dotfiles-bare-repo; export GIT_WORK_TREE=$HOME/; dotfiles ls-files | fzf --preview "bat --style=numbers --color=always --line-range :500 {}" | xargs -o code; git status; unset GIT_DIR; unset GIT_WORK_TREE'
 
 alias home='make --makefile="$HOME/Makefile" --directory="$HOME/" --no-print-directory'
 
