@@ -74,6 +74,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 
 	f = fuzzy
 
+	sync = "!git pull && git push"
 
 [include]
 	path = ~/.git-over-ssh-enabled

@@ -3,5 +3,10 @@
     "allow_all": true,
     "cmd": "git push --no-verify",
     "help": "SOMETHING"
+  },
+  "sync":{
+    "cmd": "git sync",
+    "allow_all": true,
+    "help": "SOMETHING"
   }
 }
