@@ -38,6 +38,7 @@ cask "visual-studio-code"
 brew "borgbackup"
 cask "vorta"
 brew "watch"
+brew "rclone"
 
 
 ## Command line tools
