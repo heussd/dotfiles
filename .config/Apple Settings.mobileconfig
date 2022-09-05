@@ -37,7 +37,7 @@
 			<key>allowCloudBookmarks</key>
 			<false/>
 			<key>allowCloudPhotoLibrary</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<!-- https://github.com/rtrouton/profiles/blob/main/SkipiCloudSetup/SkipiCloudSetup.mobileconfig -->
