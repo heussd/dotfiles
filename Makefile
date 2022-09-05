@@ -150,11 +150,11 @@ sync: pull push ## Synchronize files with maya ❤️
 
 pull:
 	@gita pull
-	$(call rsync,maya:~/,~/,$(HOST),)
+#	$(call rsync,maya:~/,~/,$(HOST),)
 
 push:
 	@gita push
-	$(call rsync,~/,maya:~/,$(HOST),)
+#	$(call rsync,~/,maya:~/,$(HOST),)
 
 force-push:
 	@gita push
