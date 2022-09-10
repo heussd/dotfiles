@@ -322,10 +322,9 @@ openwith:
 
 filetypes: openwith
 	./openwith io.mpv mkv mov mp4 avi webm m3u
-	./openwith com.coteditor.CotEditor txt
 	./openwith org.libreoffice.script csv xls xlsx
 	./openwith com.aone.keka 7z zip zipx rar tar gzip bzip2 xz lzip brotli zstd lrzip lzma cab wim msi pax 
-
+	./openwith com.microsoft.VSCode xml yml yaml Dockerfile Makefile java kt js jsx log tex txt json cls sh 
 
 linux:
 	@:
