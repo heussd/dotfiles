@@ -201,3 +201,7 @@ _hasFile /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/br
 # Kitty
 alias kitty-colors-reset='kitty @ set-colors --reset'
 alias kitty-colors-white='kitty @ set-colors --all --configured ~/.config/kitty/white-theme.conf'
+
+
+# Kubectl
+export KUBECONFIG="${KUBECONFIG}:${HOME}/.kube/config:${HOME}/.kube/cm-cloud-dev:${HOME}/.kube/cm-cloud-stage:${HOME}/.kube/cm-cloud-prod"
