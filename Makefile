@@ -7,7 +7,7 @@ HOST          	 := $$(hostname | cut -d"." -f 1)
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 
 
-default: auto-pull-dotfiles install auto-config
+default: auto-pull-dotfiles install
 .PHONY: default
 
 
@@ -225,7 +225,3 @@ macos-fix-brew: ## Fixes brew warnings, https://github.com/Homebrew/brew/issues/
 macos-disable-timemachine-throttling-temporarily:
 	@sudo sysctl debug.lowpri_throttle_enabled=0
 
-
-
-auto-config:
-	@cd .config; make
