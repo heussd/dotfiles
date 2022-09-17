@@ -19,7 +19,7 @@ if [ "$PWD" = "$HOME" ]; then
 	)
 
 	_hasCmd docker && (
-		docker ps --format "table {{.ID}}  {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
+		docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
 	)
 		
 	# Updates on macOS might require reinstallation of developer tools
