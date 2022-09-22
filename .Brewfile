@@ -215,6 +215,7 @@ if system 'hostname | grep "coffeelake" > /dev/null'
 	brew "kubectx"
 	brew "maven"
 	brew "node"
+	brew "nvm"
 	brew "sops"
 	brew "yarn"
 	cask "azure-data-studio"
