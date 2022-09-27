@@ -15,7 +15,6 @@ CSS	:= Timm's Way to View Things
 
 auto-config: Makefile
 	$(MAKE) $(OS_NAME)
-	$(MAKE) vscode 
 	$(MAKE) $(HOME)/.ssh/id_rsa.pub
 
 	touch auto-config
@@ -56,18 +55,6 @@ endif
 $(HOME)/.ssh/id_rsa.pub:
 	ssh-keygen -f $(HOME)/.ssh/id_rsa -P "" -v
 
-
-vscode:
-	@code --install-extension dakara.transformer
-	@code --install-extension esbenp.prettier-vscode
-	@code --install-extension formulahendry.auto-close-tag
-	@code --install-extension formulahendry.auto-rename-tag
-	@code --install-extension streetsidesoftware.code-spell-checker
-	@code --install-extension ms-azuretools.vscode-docker
-	@code --install-extension vomout.latex-syntax
-	@code --install-extension redhat.vscode-xml
-	@code --install-extension dotjoshjohnson.xml
-	@code --install-extension deltaxml.xslt-xpath
 
 
 transcrypt: ## Setup transcrypt for dotfiles

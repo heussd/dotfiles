@@ -48,8 +48,8 @@ check-time-last-installed:
 install: .install-$(OS_NAME) firefox-policies
 	@touch .install-$(OS_NAME)
 
-.install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state | check-time-last-installed
-.install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .apt-package-state | check-time-last-installed
+.install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .vscode-packages-state | check-time-last-installed
+.install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .apt-package-state .vscode-packages-state | check-time-last-installed
 
 .Brewfile.state: .Brewfile
 	HOMEBREW_CASK_OPTS="--no-quarantine" \
@@ -225,3 +225,10 @@ macos-fix-brew: ## Fixes brew warnings, https://github.com/Homebrew/brew/issues/
 macos-disable-timemachine-throttling-temporarily:
 	@sudo sysctl debug.lowpri_throttle_enabled=0
 
+
+
+.vscode-packages-state: .vscode-packages
+	@while read -r package; do \
+		code --install-extension "$$package"; \
+	done < .vscode-packages
+	@touch .vscode-packages-state
