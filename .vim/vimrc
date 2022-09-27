@@ -112,8 +112,6 @@ inoremap <c-@> <c-n>
 au BufRead,BufNewFile reflections setfiletype reflections
 au BufRead,BufNewFile urls,config setfiletype conf.tabsep
 
-" https://www.reddit.com/r/KittyTerminal/comments/rzpjed/easier_ways_to_reload_kitty/
-autocmd bufwritepost ~/.config/kitty/kitty.conf :silent !kill -SIGUSR1 $(pgrep -a kitty)
 
 
 let g:indentLine_char = ''
@@ -128,6 +126,7 @@ source ~/.vim/fzf.vim
 source ~/.vim/folds.vim
 source ~/.vim/vimwiki.vim
 source ~/.vim/commands.vim
+source ~/.vim/dotfiles.vim
 
 let g:netrw_liststyle = 3
 
