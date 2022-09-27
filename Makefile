@@ -45,7 +45,7 @@ check-time-last-installed:
 
 
 .PHONY: install
-install: .install-$(OS_NAME) firefox-policies
+install: .install-$(OS_NAME) firefox-policies .macos-dock-state
 	@touch .install-$(OS_NAME)
 
 .install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .vscode-packages-state | check-time-last-installed
@@ -232,3 +232,17 @@ macos-disable-timemachine-throttling-temporarily:
 		code --install-extension "$$package"; \
 	done < .vscode-packages
 	@touch .vscode-packages-state
+
+
+config-macos-dock:
+	@rm .macos-dock-state
+	$(MAKE) .macos-dock-state
+.macos-dock-state: .macos-dock
+	defaults write com.apple.dock persistent-apps -array
+	@while read -r package; do \
+		[[ -d "$$package.app" ]] && echo "$$package.app" && defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$$package.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"; \
+	done < .macos-dock
+	defaults write com.apple.Dock size-immutable -bool true
+	defaults write com.apple.Dock contents-immutable -bool true
+	killall Dock
+	@touch .macos-dock-state

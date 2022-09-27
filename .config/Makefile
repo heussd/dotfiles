@@ -100,7 +100,6 @@ darwin: \
 	sourcetree \
 	tiles \
 	keka \
-	dock \
 	macos-lockscreen \
 	macos-settings \
 
@@ -213,71 +212,6 @@ keka:
 easy-move-resize:
 	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
 
-
-define make_dock_app
-	if [ -d "$(1).app" ]; then \
-	defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$(1).app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"; fi
-endef
-
-dock:
-	defaults write com.apple.dock persistent-apps -array
-	$(call make_dock_app,/Applications/Firefox)
-	$(call make_dock_app,/Applications/Safari)
-	$(call make_dock_app,/Applications/Google Chrome)
-	$(call make_dock_app,/Applications/Ferdi)
-	$(call make_dock_app,/Applications/Slack)
-	$(call make_dock_app,/Applications/Microsoft Teams)
-	$(call make_dock_app,/Applications/Clockify Desktop)
-	$(call make_dock_app,/Applications/Microsoft Edge)
-	$(call make_dock_app,/System/Applications/Mail)
-	$(call make_dock_app,/Applications/Signal)
-	$(call make_dock_app,/Applications/Threema)
-	$(call make_dock_app,/Applications/Discord)
-	$(call make_dock_app,/System/Applications/Calendar)
-	$(call make_dock_app,/System/Applications/Notes)
-	$(call make_dock_app,/System/Applications/Reminders)
-	$(call make_dock_app,/System/Applications/Photos)
-	$(call make_dock_app,/System/Applications/Music)
-	$(call make_dock_app,/System/Applications/TV)
-	$(call make_dock_app,/Applications/KeePassXC)
-	$(call make_dock_app,/Applications/Cryptomator)
-	$(call make_dock_app,/Applications/kitty)
-	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}';
-	$(call make_dock_app,/Applications/Keka)
-	$(call make_dock_app,/Applications/VLC)
-	$(call make_dock_app,/Applications/mpv)
-	$(call make_dock_app,/Applications/MacVim)
-	$(call make_dock_app,/Applications/CotEditor)
-	$(call make_dock_app,/Applications/Visual Studio Code)
-	$(call make_dock_app,/System/Applications/Preview)
-	$(call make_dock_app,/Applications/Boop)
-	$(call make_dock_app,/Applications/DevToys)
-	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}';
-	$(call make_dock_app,/Applications/Meld)
-	$(call make_dock_app,/Applications/Sourcetree)
-	$(call make_dock_app,/Applications/Postman)
-	$(call make_dock_app,/Applications/Camunda Modeler)
-	$(call make_dock_app,$(HOME)/Applications/JetBrains Toolbox/IntelliJ IDEA Ultimate)
-	$(call make_dock_app,$(HOME)/Applications/JetBrains Toolbox/PyCharm Professional)
-	$(call make_dock_app,$(HOME)/Applications/JetBrains Toolbox/WebStorm)
-	$(call make_dock_app,/Applications/MacDown)
-	$(call make_dock_app,/Applications/LibreOffice)
-	$(call make_dock_app,/Applications/Pages)
-	$(call make_dock_app,/Applications/Numbers)
-	$(call make_dock_app,/Applications/Microsoft Powerpoint)
-	$(call make_dock_app,/Applications/Microsoft Excel)
-	$(call make_dock_app,/Applications/Microsoft Word)
-	$(call make_dock_app,/Applications/ColorSlurp)
-	$(call make_dock_app,/Applications/GIMP-2.10)
-	$(call make_dock_app,/Applications/krita)
-	$(call make_dock_app,/Applications/draw.io)
-
-	$(call make_dock_app,/Applications/Steam)
-	$(call make_dock_app,/Applications/Battle.net)
-	$(call make_dock_app,/Applications/Epic Games Launcher)
-	defaults write com.apple.Dock size-immutable -bool true
-	defaults write com.apple.Dock contents-immutable -bool true
-	killall Dock
 
 
 .PHONY: macos-lockscreen
