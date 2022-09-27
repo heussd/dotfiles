@@ -43,6 +43,7 @@ brew "rclone"
 
 ## Command line tools
 brew "bat"
+brew "glow" # Render markdown on the CLI
 brew "exa"
 brew "w3m"
 brew "yq"
