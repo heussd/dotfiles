@@ -14,14 +14,14 @@ bind-key	O	open-in-browser-and-mark-read
 
 # Vim bindings
 unbind-key	j
-bind-key	j	next
+bind-key	j	down
 unbind-key	J
 bind-key	J	next-feed
 
-unbind-key	k
-bind-key	k	prev
-unbind-key	K
-bind-key	K	prev-feed
+unbind-key 	 k
+bind-key   	 k 	 up
+unbind-key 	 K
+bind-key   	 K 	 prev-feed
 
 
 unbind-key l

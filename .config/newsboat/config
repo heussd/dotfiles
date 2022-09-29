@@ -1,7 +1,8 @@
 auto-reload                  	 yes
 delete-read-articles-on-quit 	 yes
 cleanup-on-quit              	 yes
-confirm-mark-feed-read  	 no
+confirm-mark-feed-read       	 no
+ignore-mode                  	 "display"
 
 
 user-agent 	 "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:94.0) Gecko/20100101 Firefox/94.0"

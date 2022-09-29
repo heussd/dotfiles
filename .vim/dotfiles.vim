@@ -3,3 +3,5 @@ autocmd bufwritepost ~/.config/kitty/kitty.conf :silent !kill -SIGUSR1 $(pgrep -
 
 
 autocmd BufWritePre ~/.vscode-packages :%sort
+autocmd BufWritePre ~/.config/newsboat/killfile :%sort
+
