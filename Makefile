@@ -120,6 +120,10 @@ clean:	## Cleans various places
 	@-rm -rf ~/.tmp/*
 	@-rm -rf ~/.Trash/*
 	@-rm -rf ~/Library/Caches/*
+	@-rm -rf ~/Library/Caches/com.apple.dt.Xcode
+	@-rm -rf ~/Library/Developer/Xcode/DerivedData
+	@-rm -rf ~/Library/Developer/Xcode/Archives
+	@-rm -rf ~/Library/Developer/Xcode/iOS DeviceSupport/
 	@-rm -rf "$(brew --cache)"
 	@-brew cleanup -s
 	@-docker system prune --all --force
