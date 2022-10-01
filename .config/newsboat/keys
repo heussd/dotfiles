@@ -16,7 +16,7 @@ bind-key	O	open-in-browser-and-mark-read
 unbind-key	j
 bind-key	j	down
 unbind-key	J
-bind-key	J	next-feed
+bind-key	J	next-unread
 
 unbind-key 	 k
 bind-key   	 k 	 up
