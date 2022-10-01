@@ -19,6 +19,7 @@ brew "ripgrep" # Also needed for vim
 ## macOS apps
 if system 'uname -s | grep "Darwin" > /dev/null'
 
+
 ## Essentials
 cask "kitty"
 brew "git"
@@ -159,6 +160,7 @@ brew "nats-io/nats-tools/nats"
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
     brew "podman"
+    cask "steam"
 end
 
 
@@ -226,7 +228,6 @@ end
 
 if false
     cask "discord"
-    cask "steam"
     cask "epic-games"
     cask "battle-net"
     cask "sweet-home3d"
