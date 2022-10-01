@@ -1,7 +1,7 @@
 # Software I like
 #
 # When changing this file, you might also want to change these files:
-# ~/.config/Makefile
+# ~/.macos-dock
 #
 
 tap "homebrew/bundle"
@@ -21,8 +21,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
 
 ## Essentials
 cask "kitty"
-brew "imagemagick"
-
 brew "git"
 brew "git-delta"
 brew "git-lfs"
@@ -38,7 +36,6 @@ cask "visual-studio-code"
 brew "borgbackup"
 cask "vorta"
 brew "watch"
-brew "rclone"
 
 
 ## Command line tools
@@ -65,18 +62,9 @@ brew "p7zip"
 brew "sqlite"
 brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
 brew "terminal-notifier"
-cask "cyberduck"
-cask "db-browser-for-sqlite"
 cask "xbar"
-cask "gephi"
-cask "hex-fiend"
-cask "meld"
-cask "yed"
-mas "CotEditor", id: 1024640650
-brew "glab"
 brew "markdownlint-cli"
 brew "lazygit"
-brew "lazydocker"
 
 
 ## Cloud File Sync
@@ -95,7 +83,6 @@ cask "appcleaner"
 cask "balenaetcher"
 cask "betterzip"
 brew "vale"
-cask "bibdesk"
 cask "dozer"
 cask "dupeguru"
 cask "easy-move-plus-resize"
@@ -103,11 +90,9 @@ cask "hammerspoon"
 cask "knockknock"
 cask "maccy"
 cask "mendeley"
-cask "tabula" 
 cask "tiles"
 cask "tor-browser"
 cask "transmission"
-cask "raspberry-pi-imager"
 mas "Disk Graph", id: 697942581
 mas "Ka-Block!", id: 1335413823
 mas "OwlOCR", id: 1499181666
@@ -136,31 +121,23 @@ cask "logitech-options"
 ## Office
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
-mas "MeetingBar", id: 1532419400
-cask "libreoffice-still"
-cask "drawio"
+
 #cask "mactex"
 
 
 ## Voice / Com
-cask "discord"
 cask "signal"
 
 
 ## Image
-mas "ColorSlurp", id: 1287239339
 cask "gimp"
-cask "krita"
-cask "imageoptim"
 cask "inkscape"
-mas "GIPHY CAPTURE", id: 668208984
 
 
 ## Audio / Video
 cask "mpv"
 brew "ffmpeg" # Better performance for mpv? - https://bbs.archlinux.org/viewtopic.php?id=249816
 cask "vlc"
-cask "handbrake"
 
 
 ## QuickLook
@@ -170,12 +147,7 @@ cask "syntax-highlight", greedy: true
 ## Developer
 brew "buildkit"
 brew "hugo"
-brew "helm"
-cask "devtoys"
 brew "aspell"
-cask "vivaldi"
-brew "rustup"
-mas "Boop", id: 1518425043
 
 
 ### nats
@@ -186,16 +158,7 @@ brew "nats-io/nats-tools/nats"
 ## kabylake
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
-    cask "steam"
-    cask "epic-games"
-    cask "battle-net"
-    cask "sweet-home3d"
-
     brew "podman"
-    cask "podman-desktop"
-    cask "pycharm-ce"
-    cask "playonmac"
-    cask "teamviewer"
 end
 
 
@@ -229,6 +192,46 @@ if system 'hostname | grep "coffeelake" > /dev/null'
 	cask "postman"
 	cask "slack"
 	mas "Xcode", id: 497799835
+	cask "cyberduck"
+	cask "db-browser-for-sqlite"
+	cask "gephi"
+	cask "hex-fiend"
+	cask "meld"
+	cask "yed"
+	mas "CotEditor", id: 1024640650
+	brew "glab"
+	cask "tabula" 
+	brew "lazydocker"
+	cask "raspberry-pi-imager"
+	mas "MeetingBar", id: 1532419400
+	cask "libreoffice-still"
+	cask "drawio"
+	mas "GIPHY CAPTURE", id: 668208984
+	mas "ColorSlurp", id: 1287239339
+	cask "krita"
+	cask "imageoptim"
+
+	cask "handbrake"
+	brew "helm"
+	cask "devtoys"
+	cask "vivaldi"
+	brew "rustup"
+	mas "Boop", id: 1518425043
+	
 end
 
+end
+
+
+
+if false
+    cask "discord"
+    cask "steam"
+    cask "epic-games"
+    cask "battle-net"
+    cask "sweet-home3d"
+    cask "podman-desktop"
+    cask "pycharm-ce"
+    cask "playonmac"
+    cask "teamviewer"
 end
