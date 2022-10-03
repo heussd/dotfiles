@@ -81,7 +81,7 @@ brew "nnn"
 brew "btop"
 brew "zsh-completions"
 cask "appcleaner"
-cask "balenaetcher"
+cask "balenaetcher" # USB Flash tool
 cask "betterzip"
 brew "vale"
 cask "dozer"
