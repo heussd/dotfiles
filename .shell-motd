@@ -13,6 +13,7 @@ if [ "$PWD" = "$HOME" ]; then
 	
 	echo "dotfiles @ $(dotfiles log --oneline | head -n 1)"
 	echo -e "\033[31m$(dotfiles status --porcelain)\033[0m"
+	echo -e "\033[31m$(dotfiles-private status --porcelain)\033[0m"
 
 	_hasCmd zpool && (
 		zpool status && echo

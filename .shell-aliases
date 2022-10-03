@@ -77,11 +77,11 @@ alias pip=pip3
 alias gita="python3 -m gita"
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
-alias dotfiles-secrets='git --git-dir=$HOME/.dotfiles-secrets-bare-repo/ --work-tree=$HOME/'
+alias dotfiles-private='git --git-dir=$HOME/.dotfiles-private-bare-repo/ --work-tree=$HOME/'
 alias dotfiels='dotfiles'
 alias dotifles='dotfiles'
 alias .f='dotfiles'
-alias .fs='dotfiles-secrets'
+alias .fp='dotfiles-private'
 
 alias dotfiles-code='dotfiles ls-files | fzf | xargs code'
 alias .fe='export GIT_DIR=$HOME/.dotfiles-bare-repo; export GIT_WORK_TREE=$HOME/; dotfiles ls-files | fzf --preview "bat --style=numbers --color=always --line-range :500 {}" | xargs -o vim; git status; unset GIT_DIR; unset GIT_WORK_TREE'
