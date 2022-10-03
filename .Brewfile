@@ -94,6 +94,7 @@ cask "mendeley"
 cask "tiles"
 cask "tor-browser"
 cask "transmission"
+brew "imagemagick"
 mas "Disk Graph", id: 697942581
 mas "Ka-Block!", id: 1335413823
 mas "OwlOCR", id: 1499181666
