@@ -38,6 +38,8 @@ return require 'packer'.startup(function(use)
   use 'mfussenegger/nvim-lint'
 
   use 'jamessan/vim-gnupg'
+  
+  use "ellisonleao/gruvbox.nvim"
 
     -- bootstrap sync check
     if packer_bootstrap then
