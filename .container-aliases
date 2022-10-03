@@ -25,7 +25,7 @@ alias xelatex='dockerrunu mingc/latex xelatex'
 #alias gcloud='docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud'
 
 # Office
-alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest /slides/ --separator "^\n\n\n" --vertical-separator "^\n\n"'
+alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest'
 #alias pandoc='dockerrunuw pandoc/latex:latest'
 #alias latex='dockerrunu --net=none -v "$PWD":/data "blang/latex:ubuntu"'
 #alias latexmk='latex latexmk'
