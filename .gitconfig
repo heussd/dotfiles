@@ -76,6 +76,8 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 
 	sync = "!git pull && git push"
 
+	vim = "!git ls-files | fzf --preview \"bat --style=numbers --color=always --line-range :500 {}\" | xargs -o vim; git status"
+
 [include]
 	path = ~/.git-over-ssh-enabled
 [help]
