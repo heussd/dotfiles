@@ -164,10 +164,9 @@ force-push:
 	@gita push
 	$(call rsync,~/,maya:~/,$(HOST),--delete)
 
-full-sync: ## Synchronize completely with maya
-	@if ssh maya "test -e ~/data/newsboat/news.db.lock"; then echo "maya is busy, cannot sync now. STOP."; exit 1; fi
-	$(call rsync,maya:~/,~/,$(HOST)-full,)
-	$(call rsync,~/,maya:~/,$(HOST)-full,)
+rsync: 
+	$(call rsync,kabylake:~/,~/,$(HOST),)
+	$(call rsync,~/,kabylake:~/,$(HOST),)
 
 
 

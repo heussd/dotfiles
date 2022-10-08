@@ -1,7 +1,2 @@
-+ data/
-+ data/newsboat/
-+ data/newsboat/news.db
-- data/newsboat/*
-
 merge .rsync-filters/coffeelake
 
