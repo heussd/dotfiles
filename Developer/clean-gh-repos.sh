@@ -5,7 +5,7 @@ set -o nounset
 
 
 for d in */ ; do
-	if [ "$d" = "snippets/" ] || [ "$d" = "vimwiki/" ]; then
+	if [ "$d" = "snippets/" ] || [ "$d" = "awesome-github-workflows/" ] || [ "$d" = "vimwiki/" ]; then
 		continue
 	fi
 
@@ -16,6 +16,7 @@ for d in */ ; do
 		if [[ `git status --porcelain` ]]; then
 			action=💾
 		else
+			git pull
 			git push
 			action=❌
 		fi
