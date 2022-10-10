@@ -1,6 +1,7 @@
 + data/
 
 + data/news-analysis/
++ data/news-analysis/POCKET_*
 + data/news-analysis/nats-persistence/
 + data/news-analysis/nats-persistence/*
 - data/news-analysis/*
