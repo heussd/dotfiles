@@ -1,6 +1,5 @@
 #!/bin/bash
 set -o errexit
-set -o pipefail
 set -o nounset
 
 
@@ -12,8 +11,8 @@ for d in */ ; do
 	action=💾
 	pushd "$d" > /dev/null
 
-	if [[ `git remote -v | grep github.com:heussd` ]]; then
-		if [[ `git status --porcelain` ]]; then
+	if [[ $(git remote -v | grep -q 'github.com:heussd') ]]; then
+		if [[ $(git status --porcelain) ]]; then
 			action=💾
 		else
 			git pull
