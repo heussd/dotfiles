@@ -49,7 +49,6 @@ brew "brew-cask-completion"
 brew "choose-gui"
 brew "coreutils"
 brew "ctop"
-brew "figlet"
 brew "gnupg"
 brew "htop"
 brew "howdoi"
@@ -162,12 +161,9 @@ if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
     brew "podman"
     cask "steam"
-end
-
-
-## coffeelake
-if system 'hostname | grep "coffeelake" > /dev/null'
-	cask "google-chrome"
+	cask "raspberry-pi-imager"
+	brew "figlet"
+else
 	cask "google-drive"
 	cask "lens"
 	cask "microsoft-edge"
@@ -205,7 +201,6 @@ if system 'hostname | grep "coffeelake" > /dev/null'
 	brew "glab"
 	cask "tabula" 
 	brew "lazydocker"
-	cask "raspberry-pi-imager"
 	mas "MeetingBar", id: 1532419400
 	cask "libreoffice-still"
 	cask "drawio"
