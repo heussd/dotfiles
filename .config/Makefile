@@ -59,14 +59,6 @@ zsh-default: ## Set ZSH as default
 darwin: \
 	prep-darwin \
 	login-items \
-	maccy \
-	coteditor \
-	easy-move-resize \
-	macdown \
-	macvim \
-	sourcetree \
-	tiles \
-	keka \
 	macos-lockscreen \
 	macos-settings \
 
@@ -78,18 +70,6 @@ prep-darwin:
 
 macos-settings:
 	defaults write com.apple.universalaccess reduceMotion 1
-
-	defaults write -g NSWindowShouldDragOnGesture -bool true
-	defaults write com.apple.screencapture location $(HOME)/Downloads
-	killall SystemUIServer 
-	defaults write com.apple.Dock autohide-delay -float 0.0001
-	defaults write com.apple.dock autohide-time-modifier -float 0.25
-	killall Dock
-	defaults write NSGlobalDomain _HIHideMenuBar -bool true
-	killall Finder
-	defaults write NSGlobalDomain InitialKeyRepeat -int 12
-	defaults write NSGlobalDomain KeyRepeat -int 4
-	
 	sudo tmutil addexclusion -p /Applications
 	sudo tmutil addexclusion -p ~/data
 	sudo tmutil addexclusion -p ~/Downloads
@@ -117,69 +97,6 @@ define openApp
 endef
 
 
-maccy:
-	$(call openApp,Maccy)
-	defaults write org.p0deje.Maccy showInStatusBar 0
-	defaults write org.p0deje.Maccy avoidTakingFocus 1
-	# Configure hotkey Command-Shift-V
-	defaults write org.p0deje.Maccy KeyboardShortcuts_popup -string "{\"carbonModifiers\":768,\"carbonKeyCode\":9}"
-
-
-macdown:
-	$(call openApp,MacDown)
-	defaults write com.uranusjr.macdown editorBaseFontInfo -dict-add name "$(FONT)"
-	defaults write com.uranusjr.macdown editorBaseFontInfo -dict-add size "$(SIZE)"
-	defaults write com.uranusjr.macdown htmlStyleName "$(CSS)"
-	defaults write com.uranusjr.macdown htmlSyntaxHighlighting 1
-	defaults write com.uranusjr.macdown htmlDetectFrontMatter 1
-
-
-coteditor:
-	$(call openApp,CotEditor)
-	defaults write com.coteditor.CotEditor showNavigationBar 0
-	defaults write com.coteditor.CotEditor lineHeight 1.1
-	defaults write com.coteditor.CotEditor fontName SauceCodePowerline-Regular
-	defaults write com.coteditor.CotEditor fontSize 13
-	defaults write com.coteditor.CotEditor highlightCurrentLine 1
-	defaults write com.coteditor.CotEditor enablesAutosaveInPlace 0
-	defaults write com.coteditor.CotEditor documentConflictOption 1
-	@ln -vfs /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/cot
-
-
-sourcetree:
-	$(call openApp,Sourcetree)
-	defaults write com.TorusKnot.SourceTreeNotMAS allowForcePush 1
-	defaults write com.TorusKnot.SourceTreeNotMAS createBookmarksOnOpenRepo 0
-	defaults write com.TorusKnot.SourceTreeNotMAS bookmarksClosedOnStartup 1
-	defaults write com.TorusKnot.SourceTreeNotMAS windowRestorationMethod 1
-	defaults write com.TorusKnot.SourceTreeNotMAS DidShowGettingStarted 1
-	defaults write com.TorusKnot.SourceTreeNotMAS AtlassianAccountEmail "me@my.atlassian.com"
-
-
-macvim: /Applications/MacVim.app
-	$(call openApp,MacVim)
-	defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
-
-iterm:
-	$(call openApp,iTerm2)
-	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
-	defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
-
-
-tiles:
-	defaults write com.sempliva.Tiles MenuBarIconEnabled 0
-	defaults write com.sempliva.Tiles LaunchAtLoginEnabled 0
-	defaults write com.sempliva.Tiles DidAskUserForLoginItem 1
-
-keka:
-	defaults write com.aone.keka FinderAfterExtraction 1
-	defaults write com.aone.keka FinderAfterCompression 1
-
-
-easy-move-resize:
-	defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
-
-
 
 .PHONY: macos-lockscreen
 macos-lockscreen: ## Set a lost and found message and contact info on the lockscreen
@@ -202,17 +119,6 @@ login-items:
 	osascript -e "tell application \"System Events\" to make login item at end with properties {path:  POSIX path of (path to home folder) & \"/Library/startup.command\", hidden:false}"
 
 
-openwith:
-	git clone https://github.com/jdek/openwith openwith-git
-	cd openwith-git && make
-	mv openwith-git/openwith .
-	rm -Rfv openwith-git/
-
-filetypes: openwith
-	./openwith io.mpv mkv mov mp4 avi webm m3u mp3
-	./openwith org.libreoffice.script csv xls xlsx
-	./openwith com.aone.keka 7z zip zipx rar tar gzip bzip2 xz lzip brotli zstd lrzip lzma cab wim msi pax 
-	./openwith com.microsoft.VSCode xml yml yaml Dockerfile Makefile java kt js jsx log tex txt json cls sh 
 
 linux:
 	@:

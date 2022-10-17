@@ -45,10 +45,10 @@ check-time-last-installed:
 
 
 .PHONY: install
-install: .install-$(OS_NAME) firefox-policies .macos-dock-state
+install: .install-$(OS_NAME) firefox-policies 
 	@touch .install-$(OS_NAME)
 
-.install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .vscode-packages-state | check-time-last-installed
+.install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .vscode-packages-state | check-time-last-installed .macos-dock-state .macos-defaults-state
 .install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .apt-package-state .vscode-packages-state | check-time-last-installed
 
 .Brewfile.state: .Brewfile
@@ -249,3 +249,10 @@ config-macos-dock:
 	defaults write com.apple.Dock contents-immutable -bool true
 	killall Dock
 	@touch .macos-dock-state
+
+config-macos-defaults:
+	@rm .macos-defaults-state
+	$(MAKE) .macos-defaults-state
+.macos-defaults-state: .macos-defaults
+	@source .macos-defaults
+	@touch .macos-defaults-state
