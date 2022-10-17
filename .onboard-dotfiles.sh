@@ -27,7 +27,7 @@ function coGitBare {
 	# Include everything
 	echo "/*" > "$DOTFILES_BARE/info/sparse-checkout"
 	# Exclude readme
-	echo "!Readme.md" >> "$DOTFILES_BARE/info/sparse-checkout"
+	echo "!/Readme.md" >> "$DOTFILES_BARE/info/sparse-checkout"
 
 	# Ignore Library folder on Linux
 	if [ "$OS_NAME" = "darwin" ]; then
