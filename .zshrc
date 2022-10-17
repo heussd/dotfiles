@@ -3,12 +3,10 @@
 #	exit
 #fi
 
-
 [[ ! -d "$HOME/.antigen" ]] && git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen"
 source "$HOME/.antigen/antigen.zsh"
 
-# Set the default plugin repo to be zsh-utils
-antigen use belak/zsh-utils
+antigen use oh-my-zsh
 
 # Specify completions we want before the completion module
 antigen bundle zsh-users/zsh-completions
@@ -26,7 +24,6 @@ antigen bundle command-not-found
 # Specify additional external plugins we want
 antigen bundle smallhadroncollider/antigen-git-rebase
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle hchbaw/auto-fu.zsh
 
 auto-ls-ls-extended() {
 	ls-extended;
@@ -37,13 +34,14 @@ AUTO_LS_COMMANDS=(ls-extended)
 antigen bundle desyncr/auto-ls
 antigen bundle Cloudstek/zsh-plugin-appup
 antigen bundle unixorn/autoupdate-antigen.zshplugin
-antigen bundle zdharma/fast-syntax-highlighting
-antigen bundle marlonrichert/zsh-autocomplete
+antigen bundle zdharma-continuum/fast-syntax-highlighting
 
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
-export SPACESHIP_KUBECTL_SHOW=false
-export SPACESHIP_KUBECTL_VERSION_SHOW=false
-export SPACESHIP_KUBECONTEXT_SHOW=false
+export SPACESHIP_KUBECTL_SHOW=true
+export SPACESHIP_KUBECTL_VERSION_SHOW=true
+#export SPACESHIP_KUBECONTEXT_SHOW=false
+export SPACESHIP_KUBECTL_CONTEXT_SHOW=true
+export SPACESHIP_KUBECTL_CONTEXT_SHOW=true
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
 
 # Load everything
@@ -84,9 +82,6 @@ zstyle ':filter-select' case-insensitive yes # enable case-insensitive searchhtt
 
 
 
-export PATH=$PATH:~/.scripts
-
-
 
 # https://gist.github.com/phette23/5270658#gistcomment-1265682
 precmd() {
@@ -101,6 +96,9 @@ autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
+
+
+
 
 bindkey '^[[A'  up-line-or-beginning-search    # Arrow up
 bindkey '^[OA'  up-line-or-beginning-search
@@ -148,6 +146,7 @@ bindkey '[C' forward-word
 bindkey '[D' backward-word
 
 
+
 source ~/.shell-aliases
 source ~/.container-aliases
 source ~/.shell-motd
@@ -163,10 +162,10 @@ export FZF_COMPLETION_OPTS="--preview 'bat --style=numbers --color=always --line
 export FZF_COMPLETION_TRIGGER='**'
 
 
-_hasFolder ~/.stew && export PATH="$HOME/.stew/bin:$PATH"
-
-
 
 _hasFolder ~/.nvm && export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+export PATH="$PATH:/opt/homebrew/bin/"

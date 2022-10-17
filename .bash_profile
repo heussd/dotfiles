@@ -42,10 +42,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 
 
-# Path additions
- [[ -d $(dirname "${BASH_SOURCE[0]}")/.scripts/ ]] && export PATH=$PATH:$(dirname "${BASH_SOURCE[0]}")/.scripts
-
-
  [[ ! -d "$HOME/.bash-git-prompt" ]] && git clone https://github.com/magicmonty/bash-git-prompt "$HOME/.bash-git-prompt"
  source "$HOME/.bash-git-prompt/gitprompt.sh"
 
@@ -65,7 +61,6 @@ elif [ -f /etc/bash_completion ]; then
 fi
 
 
-export PATH=$PATH:~/.scripts
 
 source $HOME/.shell-aliases
 source $HOME/.container-aliases
