@@ -4,7 +4,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-OS_NAME=$( uname -s | tr A-Z a-z )
+OS_NAME=$( uname -s | tr '[:upper:]' '[:lower:]')
 
 function installHomebrew {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";

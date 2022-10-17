@@ -41,7 +41,7 @@ defaults write com.TorusKnot.SourceTreeNotMAS AtlassianAccountEmail "me@my.atlas
 
 defaults write org.vim.MacVim MMTitlebarAppearsTransparent 1
 
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/"
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/.iterm2/"
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool YES
 
 defaults write com.sempliva.Tiles MenuBarIconEnabled 0
