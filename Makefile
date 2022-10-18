@@ -48,7 +48,8 @@ check-time-last-installed:
 install: .install-$(OS_NAME) firefox-policies 
 	@touch .install-$(OS_NAME)
 
-.install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .vscode-packages-state | check-time-last-installed .macos-dock-state .macos-defaults-state
+.install-darwin: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .vscode-packages-state .macos-dock-state .macos-defaults-state | check-time-last-installed
+
 .install-linux: .Brewfile.state .Stewfile.state .requirements.txt.state .docker-compose.yml-state .apt-package-state .vscode-packages-state | check-time-last-installed
 
 .Brewfile.state: .Brewfile
@@ -240,7 +241,7 @@ macos-disable-timemachine-throttling-temporarily:
 config-macos-dock:
 	@rm .macos-dock-state
 	$(MAKE) .macos-dock-state
-.macos-dock-state: .macos-dock
+.macos-dock-state: .macos-dock .Brewfile
 	defaults write com.apple.dock persistent-apps -array
 	@while read -r package; do \
 		[[ -d "$$package.app" ]] && echo "$$package.app" && defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$$package.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>" || true; \

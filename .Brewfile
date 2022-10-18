@@ -76,11 +76,9 @@ mas "OneDrive", id: 823766827
 
 ## Power Tools
 cask "finicky"
-brew "nnn"
 brew "btop"
 brew "zsh-completions"
 cask "appcleaner"
-cask "balenaetcher" # USB Flash tool
 cask "betterzip"
 brew "vale"
 cask "dozer"
@@ -89,7 +87,6 @@ cask "easy-move-plus-resize"
 cask "hammerspoon"
 cask "knockknock"
 cask "maccy"
-cask "mendeley"
 cask "tiles"
 cask "tor-browser"
 cask "transmission"
@@ -106,11 +103,7 @@ brew "stew"
 ## Fonts
 tap "homebrew/cask-fonts"
 brew "svn" ## Dependency of font-open-sans
-cask "font-fira-code"
-cask "font-fontawesome"
-cask "font-jetbrains-mono"
 cask "font-open-sans"
-cask "font-source-code-pro"
 cask "font-sauce-code-pro-nerd-font", greedy: true
 
 
@@ -160,6 +153,7 @@ brew "nats-io/nats-tools/nats"
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
     brew "podman"
+	cask "balenaetcher" # USB Flash tool
     cask "steam"
 	cask "raspberry-pi-imager"
 	brew "figlet"
@@ -168,7 +162,6 @@ else
 	cask "lens"
 	cask "microsoft-edge"
 	cask "adobe-acrobat-reader"
-	cask "qgis"
 	cask "docker"
 	cask "webex-meetings"
 	brew "dive"
@@ -187,9 +180,7 @@ else
 	cask "google-cloud-sdk"
 	cask "jetbrains-toolbox"
 	cask "microsoft-azure-storage-explorer"
-	cask "microsoft-teams"
 	cask "postman"
-	cask "slack"
 	mas "Xcode", id: 497799835
 	cask "cyberduck"
 	cask "db-browser-for-sqlite"
@@ -212,7 +203,6 @@ else
 	cask "handbrake"
 	brew "helm"
 	cask "devtoys"
-	cask "vivaldi"
 	brew "rustup"
 	mas "Boop", id: 1518425043
 	
@@ -231,4 +221,5 @@ if false
     cask "pycharm-ce"
     cask "playonmac"
     cask "teamviewer"
+	cask "qgis"
 end

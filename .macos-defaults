@@ -17,7 +17,7 @@ defaults write org.p0deje.Maccy avoidTakingFocus 1
 # Configure hotkey Command-Shift-V
 defaults write org.p0deje.Maccy KeyboardShortcuts_popup -string "{\"carbonModifiers\":768,\"carbonKeyCode\":9}"
 
-defaults write com.uranusjr.macdown editorBaseFontInfo -dict-add name "Source Code Pro"
+defaults write com.uranusjr.macdown editorBaseFontInfo -dict-add name "SauceCodePro Nerd Font"
 defaults write com.uranusjr.macdown editorBaseFontInfo -dict-add size "13"
 defaults write com.uranusjr.macdown htmlStyleName "Timm's Way to View Things"
 defaults write com.uranusjr.macdown htmlSyntaxHighlighting 1
