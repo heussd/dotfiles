@@ -1,19 +1,7 @@
 # Console prints may be skipped
 if [ "$PWD" = "$HOME" ]; then
 
-	echo
-	_hasCmd figlet && (
-		figlet '  ' $SHORTHOSTNAME
-	) || echo '  ' $SHORTHOSTNAME
-	echo
-	
-	_isLinux && (
-		lsb_release --short --description
-	) || echo $(sw_vers -productName) $(sw_vers -productVersion) $(sw_vers -buildVersion)
-	
-	echo "dotfiles @ $(dotfiles log --oneline | head -n 1)"
-	echo -e "\033[31m$(dotfiles status --porcelain)\033[0m"
-	echo -e "\033[31m$(dotfiles-private status --porcelain)\033[0m"
+	make
 
 	_hasCmd zpool && (
 		zpool status && echo
@@ -27,9 +15,6 @@ if [ "$PWD" = "$HOME" ]; then
 	_hasCmd make || (
 		_isMacOS && xcode-select --install
 	)
-
-	KITTY=$(echo $TERMINFO | grep kitty > /dev/null && echo "YES")
-	make KITTY=$KITTY
 fi
 
 # Try to resume screen session
