@@ -166,6 +166,13 @@ config-login-items:
 	sudo xattr -cr "$$HOME/Library/startup.command"
 	osascript -e "tell application \"System Events\" to make login item at end with properties {path:  POSIX path of (path to home folder) & \"/Library/startup.command\", hidden:false}"
 
+config-lock-autostart:
+	@-SetFile -a L "$$HOME/Library/LaunchAgents"
+	@-sudo rm /Library/LaunchAgents/*
+	@-sudo SetFile -a L "/Library/LaunchAgents"
+	@-sudo rm /Library/LaunchDaemons/*
+	@-sudo SetFile -a L "/Library/LaunchDaemons"
+
 config-lockscreen:
 	@sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If you found this device, please contact $$(osascript -e 'tell application "Contacts" to get value of email 1 of my card') / $$(osascript -e 'tell application "Contacts" to get value of phone 1 of my card')"
 	#@tccutil reset AddressBook
