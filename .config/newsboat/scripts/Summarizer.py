@@ -31,7 +31,7 @@ def summarize(document):
         if index < len(result_dict["summarize_result"]):
             sentence = result_dict["summarize_result"][index].strip()
             summary.append("[Score " + str(round(score)) + "] " + sentence)
-    
+
     return summary
 
 
