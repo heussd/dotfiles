@@ -1,0 +1,7 @@
+#!/bin/sh
+
+url="$1"
+
+# Requires npm install -g mozilla-readability-cli
+curl --fail --silent "$url" | readability "$url" | python3 ~/.config/newsboat/scripts/Summarizer.py | less
+
