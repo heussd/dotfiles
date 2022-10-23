@@ -13,12 +13,12 @@ In the great tradition of sharing dotfiles, this repository contains various con
 
 ### macOS
 
-	curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
 
 
 ### Ubuntu
 
-	wget -O- https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
+    wget -O- https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
 
 
 ## Credits
