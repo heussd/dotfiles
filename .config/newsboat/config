@@ -22,7 +22,7 @@ articlelist-format                   	 "%f%?T?%-14T ? %t%> %D"
 scrolloff                            	 50
 #toggleitemread-jumps-to-next-unread 	 no
 #feed-sort-order                     	 lastupdated
-goto-next-feed                       	 no
+goto-next-feed                       	 yes
 
 
 bookmark-cmd       	 "~/.config/newsboat/scripts/vimwiki"
