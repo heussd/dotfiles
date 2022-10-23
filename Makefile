@@ -36,27 +36,32 @@ auto: \
 
 
 .auto-Brewfile: .Brewfile
-	HOMEBREW_CASK_OPTS="--no-quarantine" \
-		brew bundle install -v --cleanup --force --file=.Brewfile
-	@touch .auto-Brewfile
+	@-command -v brew && \
+		HOMEBREW_CASK_OPTS="--no-quarantine" \
+		brew bundle install -v --cleanup --force --file=.Brewfile && \
+		touch .auto-Brewfile
 
 .auto-Stewfile: .Stewfile
-	stew install .Stewfile
-	@touch .auto-Stewfile
+	@-command -v stew && \
+		stew install .Stewfile && \
+		touch .auto-Stewfile
 
 .auto-requirements.txt: .requirements.txt
-	pip3 install --upgrade --requirement .requirements.txt
-	@touch .auto-requirements.txt
+	@-command -v pip3 && \
+		pip3 install --upgrade --requirement .requirements.txt && \
+		touch .auto-requirements.txt
 
 .auto-docker-compose.yml: .docker-compose.yml
-	docker-compose -f .docker-compose.yml pull
-	@touch .auto-docker-compose.yml
+	@-command -v docker-compose && \
+		docker-compose -f .docker-compose.yml pull && \
+		touch .auto-docker-compose.yml
 
 .auto-vscode-packages: .vscode-packages
-	@while read -r package; do \
-		code --install-extension "$$package"; \
-	done < .vscode-packages
-	@touch .auto-vscode-packages
+	@-command -v code && \
+		while read -r package; do \
+			code --install-extension "$$package"; \
+		done < .vscode-packages && \
+		touch .auto-vscode-packages
 
 
 
