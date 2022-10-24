@@ -36,7 +36,11 @@ antigen bundle Cloudstek/zsh-plugin-appup
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+antigen theme spaceship-prompt/spaceship-prompt
+
+source $HOME/.zsh/spaceship-sections/foobar.plugin.zsh
+
+
 export SPACESHIP_KUBECTL_SHOW=true
 export SPACESHIP_KUBECTL_VERSION_SHOW=true
 #export SPACESHIP_KUBECONTEXT_SHOW=false
