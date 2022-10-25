@@ -161,9 +161,9 @@ _hasCmd "exa" && ls-extended() {
 	if [ "$PWD" = "$HOME" ]; then
 	  gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
 	fi
-	gitcmd="$gitcmd status -s"
 	if [ -d "$PWD/.git" ] || [ "$PWD" = "$HOME" ]; then
-		eval ${gitcmd}
+		eval "${gitcmd} status -s";
+		eval "${gitcmd} remote -v | head -n 1 | grep github.com";
 	fi
 }
 _hasCmd "exa" && alias l='ls-extended'

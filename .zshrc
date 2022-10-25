@@ -38,8 +38,6 @@ antigen bundle zdharma-continuum/fast-syntax-highlighting
 
 antigen theme spaceship-prompt/spaceship-prompt
 
-source $HOME/.zsh/spaceship-sections/foobar.plugin.zsh
-
 
 export SPACESHIP_KUBECTL_SHOW=true
 export SPACESHIP_KUBECTL_VERSION_SHOW=true
