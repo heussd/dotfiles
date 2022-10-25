@@ -69,4 +69,4 @@ _hasFile ~/.fzf.bash && source ~/.fzf.bash
 source-if-exist ".bash_profile."`uname -s`
 
 source "$HOME/.shell-motd"
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"

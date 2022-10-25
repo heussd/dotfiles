@@ -1,4 +1,4 @@
 [ -n "$PS1" ] && source ~/.bash_profile;
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-. "$HOME/.cargo/env"
+[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
