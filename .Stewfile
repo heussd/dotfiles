@@ -1,4 +1,4 @@
-docker/compose
-nats-io/nats-top
 alihanyalcin/nats-spy
+docker/compose
 jdek/openwith
+nats-io/nats-top

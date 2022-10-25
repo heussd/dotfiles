@@ -3,5 +3,6 @@ fzf
 git
 make
 p7zip-full
+podman
 vim
 zsh
