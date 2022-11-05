@@ -80,6 +80,9 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	v = vim
 
 	i = "!lazygit"
+
+	defrag = "!git reflog expire --all --expire=now; git gc --prune=now --aggressive"
+
 [include]
 	path = ~/.git-over-ssh-enabled
 [help]
