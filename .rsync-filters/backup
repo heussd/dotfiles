@@ -5,10 +5,10 @@
 + /Pictures/
 + /data/
 
-+ /Development/
-+ /Development/git-of-github/
-+ /Development/vimwiki/
-- /Development/**
++ /Developer/
++ /Developer/git-of-github/
++ /Developer/vimwiki/
+- /Developer/**
 
 + /Library/
 + /Library/Thunderbird/
