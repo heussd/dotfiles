@@ -10,9 +10,6 @@
 [submodule ".dotfiles-externals/pocket-sh-add"]
 	path = .dotfiles-externals/pocket-sh-add
 	url = https://github.com/riichard/pocket-sh-add
-[submodule ".dotfiles-externals/git-fuzzy"]
-	path = .dotfiles-externals/git-fuzzy
-	url = https://github.com/bigH/git-fuzzy
 [submodule "Library/Keyboard Layouts"]
 	path = Library/Keyboard Layouts
 	url = https://github.com/oschrenk/keylayout-de_DE-no-deadkeys
