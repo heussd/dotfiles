@@ -137,6 +137,9 @@ endef
 rsync: 
 	$(call rsync,kabylake:~/,~/,$(HOST),)
 	$(call rsync,~/,kabylake:~/,$(HOST),)
+rsync-geneva: 
+	$(call rsync,geneva:~/,~/,geneva,)
+	$(call rsync,~/,geneva:~/,geneva,)
 
 force-push:
 	@gita push

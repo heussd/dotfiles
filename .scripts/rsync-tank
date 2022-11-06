@@ -1,0 +1,11 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+rsync -auipv --progress --safe-links \
+    --filter=". $HOME/.rsync-filters/backup" \
+    -F \
+    --exclude=/* \
+    $HOME/ \
+    geneva:/tank/
