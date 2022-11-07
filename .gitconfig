@@ -83,6 +83,9 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 
 	defrag = "!git reflog expire --all --expire=now; git gc --prune=now --aggressive"
 
+	# https://stackoverflow.com/questions/12809951/git-cannot-undo-modified-files#12815013
+	renormalize = "!git rm --cached -r .; git reset --hard"
+
 [include]
 	path = ~/.git-over-ssh-enabled
 [help]
