@@ -8,7 +8,7 @@ HOST          	 := $$(hostname | cut -d"." -f 1)
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 
 
-all: hostname auto status-dotfiles
+all: hostname delete-old-states auto status-dotfiles
 
 hostname:
 	@-echo $(HOST)
@@ -242,3 +242,10 @@ backup:
 	cd ~/Documents && git bundle create /Volumes/Backup/Documents-git-bundle --all
 	tmutil startbackup --rotation
 
+
+delete-old-states:
+	@find "$$HOME" \( -name ".auto-Brewfile" \
+		-o -name ".auto-requirements.txt" \) \
+		-maxdepth 1 -mmin +$$((7*24*60)) \
+		-delete \
+		-exec echo "{} was outdated and has been removed." \; 
