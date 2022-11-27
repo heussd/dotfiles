@@ -71,3 +71,6 @@ buildNumber.properties
 .jupyter/
 .ipython/
 .env
+
+
+.vscode/settings.json
