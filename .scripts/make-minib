@@ -1,0 +1,18 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+mkdir ~/tempa
+cd ~/tempa
+
+git clone ~/Documents/ .
+cp /Volumes/Cl*/Do*/P*x .
+
+git add -A -f
+git commit -m "Added before bundle"
+
+git bundle create ~/.minib --all
+
+cd ..
+#rm -R ~/tempa
