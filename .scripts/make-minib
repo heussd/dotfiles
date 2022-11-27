@@ -4,7 +4,7 @@ set -o pipefail
 set -o nounset
 
 mkdir ~/tempa
-cd ~/tempa
+cd ~/tempa || exit 1
 
 git clone ~/Documents/ .
 cp /Volumes/Cl*/Do*/P*x .
@@ -14,5 +14,5 @@ git commit -m "Added before bundle"
 
 git bundle create ~/.minib --all
 
-cd ..
-#rm -R ~/tempa
+cd .. || exit 1
+rm -R ~/tempa
