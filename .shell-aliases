@@ -213,9 +213,6 @@ alias kitty-colors-reset='kitty @ set-colors --reset'
 alias kitty-colors-white='kitty @ set-colors --all --configured ~/.config/kitty/white-theme.conf'
 
 
-# Kubectl
-export KUBECONFIG="${KUBECONFIG}:${HOME}/.kube/config:${HOME}/.kube/cm-cloud-dev:${HOME}/.kube/cm-cloud-stage:${HOME}/.kube/cm-cloud-prod"
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -225,3 +222,9 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+# Kubectl
+export KUBECONFIG="${KUBECONFIG}:${HOME}/.kube/config:${HOME}/.kube/cm-cloud-dev:${HOME}/.kube/cm-cloud-stage:${HOME}/.kube/cm-cloud-prod"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+alias k="kubectl"
