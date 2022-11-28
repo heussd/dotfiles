@@ -3,26 +3,31 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-
-## Hook disabled for now
-#exit 0
-
 CERR='\033[0;31m'
 NC='\033[0m'
-
-
-container=docker
-#command -v "podman" &>/dev/null && container=podman
-#command -v "lima" &>/dev/null && container="lima nerdctl"
-
 
 # Try to ask for linting. If tty cannot be opened the git command might be issued from a GUI. In this case, ignore the hook.
 read -r -n1 -t 3 -p "babellint this? [b/f/*]: " c < /dev/tty || exit 0
 echo
 
+function color() {
+	cols=$(tput cols)
+	words=${#3}
+	cols=$((cols - words - 2))
+	cols=$((cols / 2 ))
+	
+	printf "\\n"
+	printf "\\e[1;%sm" "$1" # foreground color
+	printf "\\e[1;%sm" "$2" # background color
+	for ((i=0; i<= cols; i++)); do printf " "; done
+	printf "%s" "$3"
+	for ((i=0; i<= cols; i++)); do printf " "; done
+	printf "\\e[0m\\n"
+	printf "\\n"
+}
 
 function fail {
-    echo -e "\\n\\n${CERR}Sorry, but a pre-commit-hock has prevented this commit.${NC}"
+	color 30 41 "Pre-commit-hock has prevented this commit."
     echo -e "You may ignore the hock via\\n"
     echo -e "\\t git commit -n \\t\\t"
     exit 1
@@ -30,16 +35,17 @@ function fail {
 trap fail ERR
 
 
-
-c=${c:-b}
+c=${c:-n}
 case "$c" in
     "f")
-        $container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" "ghcr.io/heussd/babellint:main" "--fix"
+    	    docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" "ghcr.io/heussd/babellint:main" "--fix"
         ;;
     "b")
-        $container run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" "ghcr.io/heussd/babellint:main"
+	    docker run --rm --interactive -e "TERM=xterm-256color" -v "$(pwd)":"$(pwd)" -w "$(pwd)" "ghcr.io/heussd/babellint:main"
         ;;
     *)
         exit 0
 	;;
 esac
+
+color 30 42 "All OK."
