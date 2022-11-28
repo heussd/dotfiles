@@ -115,6 +115,7 @@ cask "logitech-options"
 ## Office
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
+cask "itsycal"
 
 #cask "mactex"
 
