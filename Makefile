@@ -8,7 +8,7 @@ HOST          	 := $$(hostname | cut -d"." -f 1)
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 
 
-all: hostname delete-old-states auto status-dotfiles
+all: hostname auto status-dotfiles delete-old-states
 
 hostname:
 	@-echo $(HOST)
