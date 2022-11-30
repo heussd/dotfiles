@@ -65,6 +65,7 @@ brew "terminal-notifier"
 cask "xbar"
 brew "markdownlint-cli"
 brew "lazygit"
+brew "rclone"
 
 
 ## Cloud File Sync
