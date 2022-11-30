@@ -9,8 +9,8 @@ function pre_lock()
         hs.execute("make -f $HOME/Makefile push &", true)
     end
 
-    device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(5)
+    --device = hs.audiodevice.defaultOutputDevice()
+    --device:setOutputVolume(5)
     hlspeak('doop')
 end
 
