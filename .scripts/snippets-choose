@@ -22,7 +22,7 @@ rawurlencode() {
 
 selection=$(cd "$TH_PROJECTS_FOLDER/snippets" && \
 	git ls-files | \
-	/usr/local/bin/choose -m -u -n 20 -w 50 -s 20)
+	choose -m -u -n 20 -w 50 -s 20)
 
 file="$TH_PROJECTS_FOLDER/snippets/$selection"
 if [ -e "$file" ]; then
