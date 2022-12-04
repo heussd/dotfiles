@@ -18,8 +18,8 @@ end
 function post_lock()
     print("Executing post lock...")
 
-    device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(5)
+    --device = hs.audiodevice.defaultOutputDevice()
+    --device:setOutputVolume(5)
 
     hlspeak('bell')
 
