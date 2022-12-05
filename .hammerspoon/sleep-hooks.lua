@@ -9,8 +9,8 @@ function pre_lock()
         hs.execute("make -f $HOME/Makefile push &", true)
     end
 
-    --device = hs.audiodevice.defaultOutputDevice()
-    --device:setOutputVolume(5)
+    device = hs.audiodevice.defaultOutputDevice()
+    device:setOutputVolume(15)
     hlspeak('doop')
 end
 
@@ -18,8 +18,8 @@ end
 function post_lock()
     print("Executing post lock...")
 
-    --device = hs.audiodevice.defaultOutputDevice()
-    --device:setOutputVolume(5)
+    device = hs.audiodevice.defaultOutputDevice()
+    device:setOutputVolume(15)
 
     hlspeak('bell')
 
