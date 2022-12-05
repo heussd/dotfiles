@@ -17,4 +17,4 @@ function openApp() {
 [ -f "requirements.txt" ] && openApp "PyCharm"
 
 
-read -t1
+read -t1 -r
