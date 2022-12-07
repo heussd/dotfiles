@@ -190,6 +190,7 @@ else
 	cask "hex-fiend"
 	cask "meld"
 	cask "yed"
+	cask "r"
 	mas "CotEditor", id: 1024640650
 	brew "glab"
 	cask "tabula" 
