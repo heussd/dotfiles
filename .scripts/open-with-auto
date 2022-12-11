@@ -15,6 +15,7 @@ function openApp() {
 [ -f "build.gradle" ] && openApp "IntelliJ IDEA"
 [ -f "settings.gradle" ] && openApp "IntelliJ IDEA"
 [ -f "requirements.txt" ] && openApp "PyCharm"
+[ -f "go.mod" ] && openApp "GoLand"
 
 
 read -t1 -r
