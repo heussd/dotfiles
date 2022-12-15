@@ -143,6 +143,7 @@ cask "syntax-highlight", greedy: true
 ## Developer
 brew "buildkit"
 brew "hugo"
+brew "go"
 brew "aspell"
 
 
