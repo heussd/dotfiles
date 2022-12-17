@@ -16,8 +16,11 @@ if [ "$sel" = "." ]; then
 	exit
 fi
 
-cd "$sel" || exit 1
-
+if [[ -f "$sel" ]]; then
+	vim $sel
+else
+	cd "$sel" || exit 1
+fi
 
 open-with-auto &
 op
