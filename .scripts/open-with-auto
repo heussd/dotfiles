@@ -8,7 +8,7 @@ function openApp() {
 }
 
 [ -d .git ] && (
-	openApp "SourceTree"
+	stree . # SourceTree opens new instances when using open
 	code .
 )
 
