@@ -17,7 +17,7 @@ if [ "$sel" = "." ]; then
 fi
 
 if [[ -f "$sel" ]]; then
-	vim $sel
+	vim "$sel"
 else
 	cd "$sel" || exit 1
 fi
