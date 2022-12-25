@@ -134,4 +134,3 @@ let g:netrw_liststyle = 3
 " pattern uses more memory than 'maxmempattern'
 set maxmempattern=5000
 
-autocmd VimEnter * if argc() == 0 | Explore! | endif

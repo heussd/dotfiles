@@ -19,5 +19,5 @@ let g:vimwiki_folding = 'custom'
 
 
 
-
+autocmd VimEnter * if argv() ==# ['wiki'] | execute 'VimwikiIndex' | endif
 
