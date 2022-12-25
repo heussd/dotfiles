@@ -26,7 +26,6 @@ brew "git"
 brew "git-delta"
 brew "git-lfs"
 brew "git-gui"		# gitk
-brew "ugit"
 cask "macdown"
 cask "sourcetree"
 cask "firefox"
@@ -34,8 +33,6 @@ cask "macvim"
 cask "keepassxc"
 cask "keka"
 cask "visual-studio-code"
-brew "borgbackup"
-cask "vorta"
 brew "watch"
 
 
@@ -62,7 +59,6 @@ brew "p7zip"
 brew "sqlite"
 brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
 brew "terminal-notifier"
-cask "xbar"
 brew "markdownlint-cli"
 brew "lazygit"
 brew "rclone"
@@ -72,7 +68,6 @@ brew "rclone"
 cask "maestral"
 cask "cryptomator", greedy: true
 cask "macfuse", greedy: true
-mas "OneDrive", id: 823766827
 
 
 ## Power Tools
@@ -162,7 +157,6 @@ if system 'hostname | grep "kabylake" > /dev/null'
 	brew "figlet"
 else
 	cask "google-drive"
-	cask "lens"
 	cask "microsoft-edge"
 	cask "adobe-acrobat-reader"
 	cask "docker"
@@ -194,7 +188,6 @@ else
 	cask "r"
 	mas "CotEditor", id: 1024640650
 	brew "glab"
-	cask "tabula" 
 	brew "lazydocker"
 	mas "MeetingBar", id: 1532419400
 	cask "libreoffice-still"
