@@ -68,7 +68,8 @@ auto: \
 .auto-macos-dock: .macos-dock .Brewfile
 	defaults write com.apple.dock persistent-apps -array
 	@while read -r package; do \
-		[[ -d "$$package.app" ]] && echo "$$package.app" && defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$$package.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>" || true; \
+		app="$${package/#\~/$$HOME}"; \
+		[[ -d "$$app.app" ]] && echo "$$app.app" && defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$$app.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>" || true; \
 	done < .macos-dock
 	defaults write com.apple.Dock size-immutable -bool true
 	defaults write com.apple.Dock contents-immutable -bool true
