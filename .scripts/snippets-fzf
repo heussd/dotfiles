@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ "$PWD" != "$TH_PROJECTS_FOLDER/snippets" ]; then
-	pushd "$TH_PROJECTS_FOLDER/snippets" || exit 1
-fi
+pushd "$HOME/Developer/snippets" || exit 1
 
 
 # https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html#find-file-and-edit
