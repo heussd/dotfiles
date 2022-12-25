@@ -1,0 +1,10 @@
+#!/bin/sh
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+folder="$(cd ~/.bookmarks/ && find -- * -print | fzf)"
+
+kitty @launch --type=tab --tab-title="$folder" --cwd="$HOME/.bookmarks/$folder"
+
