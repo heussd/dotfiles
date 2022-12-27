@@ -112,6 +112,12 @@ cask "logitech-options"
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 cask "itsycal"
+cask "google-drive"
+cask "microsoft-edge"
+cask "adobe-acrobat-reader"
+cask "clockify"
+mas "MeetingBar", id: 1532419400
+cask "libreoffice-still"
 
 #cask "mactex"
 
@@ -123,12 +129,17 @@ cask "signal"
 ## Image
 cask "gimp"
 cask "inkscape"
+mas "GIPHY CAPTURE", id: 668208984
+mas "ColorSlurp", id: 1287239339
+cask "krita"
+cask "imageoptim"
 
 
 ## Audio / Video
 cask "mpv"
 brew "ffmpeg" # Better performance for mpv? - https://bbs.archlinux.org/viewtopic.php?id=249816
 cask "vlc"
+cask "handbrake"
 
 
 ## QuickLook
@@ -140,9 +151,40 @@ brew "buildkit"
 brew "hugo"
 brew "go"
 brew "aspell"
+cask "docker"
+brew "dive"
+brew "az"
+brew "gradle"
+brew "k9s"
+brew "kubectx"
+brew "maven"
+brew "node"
+brew "nvm"
+brew "sops"
+brew "yarn"
+cask "azure-data-studio"
+cask "camunda-modeler"
+cask "google-cloud-sdk"
+cask "jetbrains-toolbox"
+cask "microsoft-azure-storage-explorer"
+cask "postman"
+mas "Xcode", id: 497799835
+cask "cyberduck"
+cask "db-browser-for-sqlite"
+cask "gephi"
+cask "hex-fiend"
+cask "meld"
+brew "glab"
+brew "lazydocker"
+cask "yed"
+cask "r"
+mas "CotEditor", id: 1024640650
+brew "helm"
+cask "devtoys"
+mas "Boop", id: 1518425043
 
 
-### nats
+## nats
 tap "nats-io/nats-tools"
 brew "nats-io/nats-tools/nats"
 
@@ -155,54 +197,6 @@ if system 'hostname | grep "kabylake" > /dev/null'
     cask "steam"
 	cask "raspberry-pi-imager"
 	brew "figlet"
-else
-	cask "google-drive"
-	cask "microsoft-edge"
-	cask "adobe-acrobat-reader"
-	cask "docker"
-	cask "webex-meetings"
-	brew "dive"
-	brew "az"
-	brew "gradle"
-	brew "k9s"
-	brew "kubectx"
-	brew "maven"
-	brew "node"
-	brew "nvm"
-	brew "sops"
-	brew "yarn"
-	cask "azure-data-studio"
-	cask "camunda-modeler"
-	cask "clockify"
-	cask "google-cloud-sdk"
-	cask "jetbrains-toolbox"
-	cask "microsoft-azure-storage-explorer"
-	cask "postman"
-	mas "Xcode", id: 497799835
-	cask "cyberduck"
-	cask "db-browser-for-sqlite"
-	cask "gephi"
-	cask "hex-fiend"
-	cask "meld"
-	cask "yed"
-	cask "r"
-	mas "CotEditor", id: 1024640650
-	brew "glab"
-	brew "lazydocker"
-	mas "MeetingBar", id: 1532419400
-	cask "libreoffice-still"
-	cask "drawio"
-	mas "GIPHY CAPTURE", id: 668208984
-	mas "ColorSlurp", id: 1287239339
-	cask "krita"
-	cask "imageoptim"
-
-	cask "handbrake"
-	brew "helm"
-	cask "devtoys"
-	brew "rustup"
-	mas "Boop", id: 1518425043
-	
 end
 
 end
@@ -214,9 +208,7 @@ if false
     cask "epic-games"
     cask "battle-net"
     cask "sweet-home3d"
-    cask "podman-desktop"
-    cask "pycharm-ce"
     cask "playonmac"
     cask "teamviewer"
-	cask "qgis"
+    cask "qgis"
 end
