@@ -1,7 +1,7 @@
 {
   "policies": {
     "DisableFirefoxStudies": true,
-    "DisablePocket": true,
+    "DisablePocket": false,
     "DisableSetDesktopBackground": true,
     "DisableTelemetry": true,
     "Extensions": {
