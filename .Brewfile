@@ -100,7 +100,8 @@ brew "stew"
 tap "homebrew/cask-fonts"
 brew "svn" ## Dependency of font-open-sans
 cask "font-open-sans"
-cask "font-sauce-code-pro-nerd-font", greedy: true
+cask "font-sauce-code-pro-nerd-font"
+cask "font-humor-sans"
 
 
 ## Drivers
