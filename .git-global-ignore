@@ -73,4 +73,4 @@ buildNumber.properties
 .env
 
 
-.vscode/settings.json
+.vscode
