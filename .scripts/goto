@@ -4,7 +4,7 @@ set -o pipefail
 set -o nounset
 
 
-folder="$(cd ~/.bookmarks/ && find -- * -print | fzf)"
+folder="$(cd ~/Developer/ && find . -maxdepth 1 -print0 | xargs -0 gstat --format '%Y :%y %n' | sort -nr | cut -d: -f2- | fzf | cut -d" " -f 4)"
 
-kitty @launch --type=tab --tab-title="$folder" --cwd="$HOME/.bookmarks/$folder"
+kitty @launch --type=tab --tab-title="$folder" --cwd="$HOME/Developer/$folder"
 
