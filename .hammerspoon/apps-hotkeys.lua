@@ -37,3 +37,7 @@ end)
 hyper:bind({}, "p", nil, function()
     hs.application.launchOrFocus("KeepassXC")
 end)
+
+hyper:bind({}, "w", nil, function()
+    hs.execute("~/.scripts/afterwork")
+end)

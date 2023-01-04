@@ -1,0 +1,36 @@
+#!/bin/sh
+PROCESS=MeetingBar
+number=$(pgrep "$PROCESS")
+
+# https://github.com/orbxball/make-Pulse-Secure-great-again
+quitvpn() {
+  launchctl unload -w /Library/LaunchAgents/net.pulsesecure.pulsetray.plist
+  osascript -e 'tell application "Pulse Secure" to quit'
+}
+startvpn() {
+  launchctl load -w /Library/LaunchAgents/net.pulsesecure.pulsetray.plist
+}
+
+
+if [ "$number" -gt 0 ]; then
+    echo "Enter afterwork mode"
+    afplay /System/Library/Sounds/Sosumi.aiff &
+    quitvpn
+    killall "Google Drive"
+    killall "Google Chrome"
+    killall "Microsoft Edge"
+    killall "MeetingBar"
+    killall "KerberosMenuExtra"
+    open -a "Maestral"
+    open --background -a "Mail"
+else
+    echo "Leave afterwork mode"
+    afplay /System/Library/Sounds/Ping.aiff &
+    startvpn
+    open -a "Google Chrome"
+    open -a "Google Drive"
+    open -a "MeetingBar"
+fi
+
+
+
