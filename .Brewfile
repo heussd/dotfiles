@@ -190,6 +190,10 @@ tap "nats-io/nats-tools"
 brew "nats-io/nats-tools/nats"
 
 
+tap "azure/functions"
+brew "azure-functions-core-tools"
+
+
 ## kabylake
 if system 'hostname | grep "kabylake" > /dev/null'
     cask "Thunderbird"
