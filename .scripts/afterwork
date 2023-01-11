@@ -1,6 +1,6 @@
 #!/bin/sh
 PROCESS=MeetingBar
-number=$(pgrep "$PROCESS")
+number="$(pgrep $PROCESS)"
 
 # https://github.com/orbxball/make-Pulse-Secure-great-again
 quitvpn() {
@@ -12,30 +12,39 @@ startvpn() {
 }
 
 
+declare -a workapps=(
+	"Google Chrome"
+	"Google Drive"
+   	"Clockify Desktop"
+   	"Dozer"
+   	"KerberosMenuExtra"
+   	"MeetingBar"
+    	"Microsoft Edge"
+)
+
+declare -a nonworkapps=(
+	"Maestral"
+	"Mail"
+   	"Calendar"
+)
+
 
 if [ "$number" -gt 0 ]; then
-    echo "Enter afterwork mode"
-    afplay /System/Library/Sounds/Sosumi.aiff &
+    echo "Afterwork mode"
     gita sync &
     quitvpn
-    killall "Google Drive"
-    killall "Google Chrome"
-    killall "Microsoft Edge"
-    killall "MeetingBar"
-    killall "KerberosMenuExtra"
-    killall "Clockify"
-    open -a "Maestral"
-    open --background -a "Mail"
+
+    for app in "${workapps[@]}"; do killall "$app"; done
+    for app in "${nonworkapps[@]}"; do open --background -a "$app"; done
 else
-    echo "Leave afterwork mode"
-    afplay /System/Library/Sounds/Ping.aiff &
+    echo "Work mode"
+    
+    for app in "${nonworkapps[@]}"; do killall "$app"; done
+
     gita sync
     startvpn
-    open -a "Google Chrome"
-    open -a "Google Drive"
-    open -a "MeetingBar"
-    open -a "Clockify"
-fi
 
+    for app in "${workapps[@]}"; do open --background -a "$app"; done
+fi
 
 
