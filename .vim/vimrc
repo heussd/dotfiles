@@ -79,7 +79,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 
 Plug 'dense-analysis/ale'
-Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 
 Plug 'cespare/vim-toml', { 'branch': 'main' }
@@ -127,6 +126,8 @@ source ~/.vim/folds.vim
 source ~/.vim/vimwiki.vim
 source ~/.vim/commands.vim
 source ~/.vim/dotfiles.vim
+
+autocmd BufRead docker-compose*.yml source ~/.vim/files/docker-compose.vim
 
 let g:netrw_liststyle = 3
 
