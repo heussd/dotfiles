@@ -23,6 +23,7 @@ if [ "$number" -gt 0 ]; then
     killall "Microsoft Edge"
     killall "MeetingBar"
     killall "KerberosMenuExtra"
+    killall "Clockify"
     open -a "Maestral"
     open --background -a "Mail"
 else
@@ -33,6 +34,7 @@ else
     open -a "Google Chrome"
     open -a "Google Drive"
     open -a "MeetingBar"
+    open -a "Clockify"
 fi
 
 
