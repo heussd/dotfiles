@@ -228,3 +228,7 @@ export NVM_DIR="$HOME/.nvm"
 export KUBECONFIG="${KUBECONFIG}:${HOME}/.kube/config:${HOME}/.kube/cm-cloud-dev:${HOME}/.kube/cm-cloud-stage:${HOME}/.kube/cm-cloud-prod"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k="kubectl"
+
+
+# Declare everything in Golang as private, https://sourcehut.org/blog/2023-01-09-gomodulemirror/
+export GOPRIVATE=*
