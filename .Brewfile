@@ -16,6 +16,44 @@ brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
 
 
+## kabylake - pre decommissioning
+if system 'hostname | grep "kabylake" > /dev/null'
+
+brew "exa"
+brew "ffmpeg" # Better performance for mpv? - https://bbs.archlinux.org/viewtopic.php?id=249816
+brew "git"
+brew "git"
+cask "hammerspoon"
+brew "git-delta"
+brew "git-gui"		# gitk
+brew "lazygit"
+brew "markdownlint-cli"
+brew "newsboat"
+brew "svn" ## Dependency of font-open-sans
+brew "transcrypt"
+brew "w3m"
+cask "Thunderbird"
+cask "cryptomator", greedy: true
+cask "firefox"
+tap "homebrew/cask-fonts"
+cask "font-open-sans"
+cask "font-sauce-code-pro-nerd-font"
+cask "keepassxc"
+cask "keka"
+cask "kitty"
+cask "maccy"
+cask "macdown"
+cask "macfuse", greedy: true
+cask "maestral"
+cask "mpv"
+cask "tiles"
+cask "visual-studio-code"
+
+
+else
+
+
+
 ## macOS apps
 if system 'uname -s | grep "Darwin" > /dev/null'
 
@@ -194,26 +232,23 @@ tap "azure/functions"
 brew "azure-functions-core-tools"
 
 
-## kabylake
-if system 'hostname | grep "kabylake" > /dev/null'
-    cask "Thunderbird"
-    brew "podman"
-	cask "balenaetcher" # USB Flash tool
-    cask "steam"
-	cask "raspberry-pi-imager"
-	brew "figlet"
+
 end
+
 
 end
 
 
 
-if false
-    cask "discord"
-    cask "epic-games"
-    cask "battle-net"
-    cask "sweet-home3d"
-    cask "playonmac"
-    cask "teamviewer"
-    cask "qgis"
-end
+#brew "podman"
+#cask "balenaetcher" # USB Flash tool
+#cask "steam"
+#cask "raspberry-pi-imager"
+#brew "figlet"
+#cask "discord"
+#cask "epic-games"
+#cask "battle-net"
+#cask "sweet-home3d"
+#cask "playonmac"
+#cask "teamviewer"
+#cask "qgis"
