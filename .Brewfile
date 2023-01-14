@@ -48,6 +48,7 @@ cask "maestral"
 cask "mpv"
 cask "tiles"
 cask "visual-studio-code"
+brew "p7zip"
 
 
 else
