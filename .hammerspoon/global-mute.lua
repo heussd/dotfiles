@@ -15,9 +15,9 @@ function toggleMic()
   globalmute:toggle()
 
   if (globalmute.muted) then
-    hl2play("off1")
+    hl2speak("npc/combine_soldier/vo", "off1")
   else
-    hl2play("on1")
+    hl2speak("npc/combine_soldier/vo", "on1")
   end
   generate_menu()
 end

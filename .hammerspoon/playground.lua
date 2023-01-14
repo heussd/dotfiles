@@ -11,14 +11,14 @@ function omg(test)
     hs.alert(test)
 end
 
-function do_sth()
-end
 
 hyper:bind({}, "ä", nil, function() 
     hs.alert("Playground")
 
     device = hs.audiodevice.defaultOutputDevice()
     device:setOutputVolume(20)
+
+    hl2speak('friends', 'message')
 
     hlspeak('dadeda')
     if (hs.fs.chdir(os.getenv("HOME") .. "/Developer/hl_text2speech/snd/male/") == nil) then
