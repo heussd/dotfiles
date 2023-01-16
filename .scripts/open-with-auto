@@ -4,7 +4,7 @@ set -o pipefail
 
 function openApp() {
 	echo "Launching $1"
-	open --background -na "$1" --args "$(pwd)" &
+	open -na "$1" --args "$(pwd)" &
 }
 
 [ -d .git ] && (
@@ -21,4 +21,4 @@ function openApp() {
 [ -f "go.mod" ] && openApp "GoLand"
 
 
-read -t1 -r
+#read -t1 -r
