@@ -132,3 +132,12 @@ let g:netrw_liststyle = 3
 " pattern uses more memory than 'maxmempattern'
 set maxmempattern=5000
 
+
+
+" all modes except insert
+map <s-j> <S-}>
+map <s-k> <S-{>
+
+" insert mode
+imap <s-j> <esc><S-}>i
+imap <s-k> <esc><S-{>i
