@@ -21,4 +21,4 @@ function openApp() {
 [ -f "go.mod" ] && openApp "GoLand"
 
 
-#read -t1 -r
+read -t1 -r
