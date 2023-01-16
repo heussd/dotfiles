@@ -74,8 +74,6 @@ Plug 'tomasr/molokai'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'stsewd/gx-extended.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 
 Plug 'dense-analysis/ale'
@@ -88,7 +86,6 @@ Plug 'pseewald/vim-anyfold'
 Plug 'mcchrish/nnn.vim'
 call plug#end()
 
-let g:airline_theme='deus'
 
 " Workaround for creating transparent bg
 " https://stackoverflow.com/questions/37712730/set-vim-background-transparent/67569365#answer-67569365
