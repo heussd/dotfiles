@@ -138,6 +138,3 @@ set maxmempattern=5000
 map <s-j> <S-}>
 map <s-k> <S-{>
 
-" insert mode
-imap <s-j> <esc><S-}>i
-imap <s-k> <esc><S-{>i
