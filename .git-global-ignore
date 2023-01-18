@@ -74,3 +74,8 @@ buildNumber.properties
 
 
 .vscode
+
+
+node_modules/
+.tmp/
+dist/
