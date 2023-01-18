@@ -19,7 +19,6 @@ declare -a workapps=(
    	"Dozer"
    	"KerberosMenuExtra"
    	"MeetingBar"
-    	"Microsoft Edge"
 )
 
 declare -a nonworkapps=(
