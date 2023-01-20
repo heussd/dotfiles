@@ -230,7 +230,7 @@ brew "nats-io/nats-tools/nats"
 
 
 tap "azure/functions"
-brew "azure-functions-core-tools"
+brew "azure-functions-core-tools@4"
 
 
 
