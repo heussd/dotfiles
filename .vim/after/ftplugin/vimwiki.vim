@@ -61,3 +61,6 @@ endfunction
 
 
 call VimwikiMode()
+
+
+hi folded ctermbg=NONE

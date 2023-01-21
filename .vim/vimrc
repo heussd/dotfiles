@@ -115,7 +115,6 @@ let g:indentLine_char = ''
 
 "colorscheme molokai
 hi Folded ctermbg=NONE guibg=NONE
-hi Folded ctermfg=grey
 
 
 source ~/.vim/ale.vim
@@ -144,7 +143,6 @@ let g:gruvbox_transparent_bg = 1
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
 
-
 " https://arslan.io/2021/02/15/automatic-dark-mode-for-terminal-applications/
 function! ChangeBackground()
   if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
@@ -158,3 +156,5 @@ autocmd SigUSR1 * call ChangeBackground()
 
 call ChangeBackground()
 
+
+autocmd VimEnter * if argc() == 0 | Explore! | endif
