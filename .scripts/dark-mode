@@ -3,16 +3,27 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+function kittytheme() {
+	pushd "$HOME/.config/kitty" || exit 1
+
+	activeTheme="active_theme.conf"
+    rm "$activeTheme"
+    ln -s "$1-theme.conf" "$activeTheme"
+    popd
+
+    for pid in $(pgrep 'kitty'); do
+    	    kill -SIGUSR1 "$pid"
+    done
+}
+
 
 if [ "$(defaults read -g AppleInterfaceStyle | grep 'Dark')" ]; then
 	osascript -e 'tell app "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Silver.png"'
+	kittytheme "white"
 else
 	osascript -e 'tell app "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Black.png"'
+	kittytheme "dark"
 fi
-
-
-kitty-toggle-theme
-
 
 
 osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
