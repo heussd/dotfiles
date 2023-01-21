@@ -38,7 +38,13 @@ hyper:bind({}, "p", nil, function()
     hs.application.launchOrFocus("KeepassXC")
 end)
 
+hyper:bind({}, "d", nil, function()
+    notify("Dark mode toggled.")
+    hs.execute("~/.scripts/dark-mode", true)
+end)
+
 hyper:bind({}, "w", nil, function()
-    hl2speak('friends', 'message')
+    notify("Work mode toggled.")
+    --/Users/theuss001/Developer/hl2/sound/ambient/alarms/apc_alarm_loop1.wav
     hs.execute("~/.scripts/afterwork")
 end)

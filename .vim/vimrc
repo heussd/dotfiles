@@ -70,7 +70,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'honza/writer.vim'
 Plug 'vimwiki/vimwiki'
-Plug 'tomasr/molokai'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'stsewd/gx-extended.vim'
@@ -84,6 +83,8 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'pseewald/vim-anyfold'
 
 Plug 'mcchrish/nnn.vim'
+
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 
@@ -112,7 +113,7 @@ au BufRead,BufNewFile urls,config setfiletype conf.tabsep
 
 let g:indentLine_char = ''
 
-colorscheme molokai
+"colorscheme molokai
 hi Folded ctermbg=NONE guibg=NONE
 hi Folded ctermfg=grey
 
@@ -137,4 +138,23 @@ set maxmempattern=5000
 " all modes except insert
 map <s-j> <S-}>
 map <s-k> <S-{>
+
+
+let g:gruvbox_transparent_bg = 1
+let g:gruvbox_contrast_light = "hard"
+colorscheme gruvbox
+
+
+" https://arslan.io/2021/02/15/automatic-dark-mode-for-terminal-applications/
+function! ChangeBackground()
+  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+    set background=dark   " for the dark version of the theme
+  else
+    set background=light  " for the light version of the theme
+  endif
+endfunction
+
+autocmd SigUSR1 * call ChangeBackground()
+
+call ChangeBackground()
 

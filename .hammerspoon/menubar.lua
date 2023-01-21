@@ -20,7 +20,7 @@ function applescript_reader(string)
 end
 
 function toggle_dark_mode()
-    hs.osascript.applescriptFromFile(os.getenv("HOME") .. "/.scripts/toggle-dark-mode.applescript")
+    hs.execute("~/.scripts/dark-mode", true)
 end
 
 function toggle_caffeine()

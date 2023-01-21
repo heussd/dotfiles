@@ -1,0 +1,22 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+if [ "$(defaults read -g AppleInterfaceStyle | grep 'Dark')" ]; then
+	osascript -e 'tell app "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Silver.png"'
+else
+	osascript -e 'tell app "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Black.png"'
+fi
+
+
+kitty-toggle-theme
+
+
+
+osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
+
+killall -KILL SystemUIServer
+killall -KILL Dock

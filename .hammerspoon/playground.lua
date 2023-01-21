@@ -15,6 +15,8 @@ end
 hyper:bind({}, "ä", nil, function() 
     hs.alert("Playground")
 
+    notify("OMOMOMOMOOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMO")
+
     device = hs.audiodevice.defaultOutputDevice()
     device:setOutputVolume(20)
 

@@ -1,0 +1,18 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+cd "$HOME/.config/kitty" || exit 1
+
+activeTheme="active_theme.conf"
+
+ls -l "$activeTheme" | grep dark && (
+    rm "$activeTheme"
+    ln -s "white-theme.conf" "$activeTheme"
+) || (
+    rm "$activeTheme"
+    ln -s "dark-theme.conf" "$activeTheme"
+)
+
+kill -SIGUSR1 $(pgrep -a kitty)

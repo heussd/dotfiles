@@ -27,3 +27,12 @@ function hlspeak(word)
         sound:play()
     end
 end
+
+
+function notify(text)
+    hl2speak('friends', 'message')
+    myNotification = hs.notify.new()
+        :title("™")
+        :informativeText(text)
+        :send()
+end
