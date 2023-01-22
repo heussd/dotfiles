@@ -7,7 +7,7 @@ function kittytheme() {
 	pushd "$HOME/.config/kitty" || exit 1
 
 	activeTheme="active_theme.conf"
-    rm "$activeTheme"
+    rm "$activeTheme" || true
     ln -s "$1-theme.conf" "$activeTheme"
     popd
 
@@ -24,7 +24,6 @@ else
 	osascript -e 'tell app "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Black.png"'
 	kittytheme "dark"
 fi
-
 
 osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
 
