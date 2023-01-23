@@ -8,6 +8,10 @@ defaults write com.apple.Dock autohide-delay -float 0.0001
 defaults write com.apple.dock autohide-time-modifier -float 0.25
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock largesize -float 64
+
+defaults write com.apple.dock wvous-bl-corner -int 2 # Mission Control
+defaults write com.apple.dock wvous-br-corner -int 4 # Show Desktop
+
 killall Dock
 
 defaults write NSGlobalDomain InitialKeyRepeat -int 12
