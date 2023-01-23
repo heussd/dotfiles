@@ -7,21 +7,28 @@ function kittytheme() {
 	pushd "$HOME/.config/kitty" || exit 1
 
 	activeTheme="active_theme.conf"
-    rm "$activeTheme" || true
-    ln -s "$1-theme.conf" "$activeTheme"
-    popd
+	
+	rm "$activeTheme" || true
+	ln -s "$1-theme.conf" "$activeTheme"
+	
+	popd
 
-    for pid in $(pgrep 'kitty'); do
-    	    kill -SIGUSR1 "$pid"
-    done
+	for pid in $(pgrep 'kitty'); do
+	    kill -SIGUSR1 "$pid"
+    	done
+}
+
+function wallpaper() {
+	osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"/System/Library/Desktop Pictures/Solid Colors/$1.png\""
 }
 
 
+
 if [ "$(defaults read -g AppleInterfaceStyle | grep 'Dark')" ]; then
-	osascript -e 'tell app "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Silver.png"'
+	wallpaper "Silver"
 	kittytheme "white"
 else
-	osascript -e 'tell app "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Black.png"'
+	wallpaper "Black"
 	kittytheme "dark"
 fi
 
