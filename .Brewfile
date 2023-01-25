@@ -164,6 +164,7 @@ cask "libreoffice-still"
 
 ## Voice / Com
 cask "signal"
+cask "slack"
 
 
 ## Image
