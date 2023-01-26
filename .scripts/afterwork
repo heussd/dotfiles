@@ -19,6 +19,14 @@ declare -a workapps=(
    	"Dozer"
    	"KerberosMenuExtra"
    	"MeetingBar"
+   	"Slack"
+   	"Microsoft Teams"
+)
+declare -a workapps_ko=(
+	"Microsoft Azure Storage Explorer"
+	"Microsoft Edge"
+	"Visual Studio Code"
+	"Teams" // No "MS" prefix to kill...
 )
 
 declare -a nonworkapps=(
@@ -33,7 +41,8 @@ if [ "$number" -gt 0 ]; then
     gita sync &
     quitvpn
 
-    for app in "${workapps[@]}"; do killall "$app"; done
+    for app in "${workapps[@]}"; do killall "$app" || true; done
+    for app in "${workapps_ko[@]}"; do killall "$app" || true; done
     for app in "${nonworkapps[@]}"; do open --background -a "$app"; done
 else
     echo "Work mode"
