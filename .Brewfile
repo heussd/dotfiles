@@ -20,8 +20,6 @@ brew "ripgrep" # Also needed for vim
 if system 'hostname | grep "kabylake" > /dev/null'
 
 brew "exa"
-brew "ffmpeg" # Better performance for mpv? - https://bbs.archlinux.org/viewtopic.php?id=249816
-brew "git"
 brew "git"
 cask "hammerspoon"
 brew "git-delta"
@@ -179,7 +177,6 @@ cask "imageoptim"
 
 ## Audio / Video
 cask "mpv"
-brew "ffmpeg" # Better performance for mpv? - https://bbs.archlinux.org/viewtopic.php?id=249816
 cask "vlc"
 cask "handbrake"
 
