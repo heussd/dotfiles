@@ -155,7 +155,7 @@ cask "microsoft-edge"
 cask "adobe-acrobat-reader"
 cask "clockify"
 mas "MeetingBar", id: 1532419400
-cask "libreoffice-still"
+cask "libreoffice"
 
 #cask "mactex"
 
