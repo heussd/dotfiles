@@ -45,6 +45,7 @@ cask "mpv"
 cask "tiles"
 cask "visual-studio-code"
 brew "p7zip"
+cask "steam"
 
 
 else
