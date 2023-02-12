@@ -91,7 +91,6 @@ brew "the_silver_searcher"
 brew "thefuck"
 brew "transcrypt"
 brew "wget"
-brew "pandoc"
 brew "p7zip"
 brew "sqlite"
 brew "jq"	# jq is a lightweight and flexible command-line JSON processor.

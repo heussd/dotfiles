@@ -26,7 +26,7 @@ alias xelatex='dockerrunu mingc/latex xelatex'
 
 # Office
 alias reveal-md='docker run --rm -p 1948:1948 -v $(pwd)/:/slides webpronl/reveal-md:latest'
-#alias pandoc='dockerrunuw pandoc/latex:latest'
+alias pandoc='dockerrunuw pandoc/latex:latest'
 #alias latex='dockerrunu --net=none -v "$PWD":/data "blang/latex:ubuntu"'
 #alias latexmk='latex latexmk'
 #alias graphviz="graphviz/graphviz:ubuntu-20.04"
