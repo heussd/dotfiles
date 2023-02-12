@@ -46,4 +46,4 @@ alias protoc='dockerrunu -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
 #alias npm10='node10 npm --loglevel=warn '
 #alias npx10='node10 npx --loglevel=warn '
 
-alias ffmpeg='dockerrunuw opencoconut/ffmpeg'
+alias ffmpeg='dockerrunuw docker.io/jrottenberg/ffmpeg:latest'
