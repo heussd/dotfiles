@@ -206,6 +206,7 @@ cask "google-cloud-sdk"
 cask "jetbrains-toolbox"
 cask "microsoft-azure-storage-explorer"
 cask "postman"
+cask "rapidapi"
 mas "Xcode", id: 497799835
 cask "cyberduck"
 cask "db-browser-for-sqlite"
