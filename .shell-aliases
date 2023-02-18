@@ -16,7 +16,7 @@ export TH_PROJECTS_FOLDER="$HOME/Developer"
 
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_CASK_OPTS="--no-quarantine"
+#export HOMEBREW_CASK_OPTS="--no-quarantine"
 function brew-forget() { rm -rfv "/usr/local/Caskroom/$1"; }
 
 

@@ -37,7 +37,6 @@ auto: \
 
 .auto-Brewfile: .Brewfile
 	@-command -v brew && \
-		HOMEBREW_CASK_OPTS="--no-quarantine" \
 		brew bundle install -v --cleanup --force --file=.Brewfile && \
 		touch .auto-Brewfile
 
