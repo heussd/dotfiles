@@ -26,7 +26,6 @@ brew "lazygit"
 brew "markdownlint-cli"
 brew "newsboat"
 brew "transcrypt"
-cask "Thunderbird"
 cask "cryptomator", greedy: true
 cask "firefox"
 tap "homebrew/cask-fonts"
@@ -40,7 +39,7 @@ cask "macfuse", greedy: true
 cask "maestral"
 cask "mpv"
 cask "tiles"
-cask "visual-studio-code"
+cask "coteditor"
 brew "p7zip"
 
 
