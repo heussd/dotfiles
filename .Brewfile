@@ -25,9 +25,7 @@ brew "git-gui"		# gitk
 brew "lazygit"
 brew "markdownlint-cli"
 brew "newsboat"
-brew "svn" ## Dependency of font-open-sans
 brew "transcrypt"
-brew "w3m"
 cask "Thunderbird"
 cask "cryptomator", greedy: true
 cask "firefox"
@@ -38,14 +36,12 @@ cask "keepassxc"
 cask "keka"
 cask "kitty"
 cask "maccy"
-cask "macdown"
 cask "macfuse", greedy: true
 cask "maestral"
 cask "mpv"
 cask "tiles"
 cask "visual-studio-code"
 brew "p7zip"
-cask "steam"
 
 
 else
