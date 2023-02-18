@@ -119,9 +119,10 @@ clean-downloads: ## Cleans old downloads
 
 sync: pull push
 pull:
-	@gita pull
+	@python3 -m gita pull
 push:
-	@gita push
+	@killall newsboat
+	@python3 -m gita push
 
 # rsyncs a remote location with this user's home
 # $1 - Source machine

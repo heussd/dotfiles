@@ -5,7 +5,6 @@ function pre_lock()
     print("Executing pre lock...")
 
     if (hs.wifi.currentNetwork() == "Wachtberg") then
-        hs.execute("killall newsboat", true)
         hs.execute("make -f $HOME/Makefile push &", true)
     end
 
