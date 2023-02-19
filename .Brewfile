@@ -19,18 +19,19 @@ if system 'hostname | grep "kabylake" > /dev/null'
 
 brew "exa"
 brew "git"
-cask "hammerspoon"
 brew "git-delta"
-brew "git-gui"		# gitk
 brew "lazygit"
 brew "markdownlint-cli"
 brew "newsboat"
+brew "p7zip"
+brew "the_silver_searcher"
 brew "transcrypt"
+cask "coteditor"
 cask "cryptomator", greedy: true
 cask "firefox"
-tap "homebrew/cask-fonts"
 cask "font-open-sans"
 cask "font-sauce-code-pro-nerd-font"
+cask "hammerspoon"
 cask "keepassxc"
 cask "keka"
 cask "kitty"
@@ -39,12 +40,9 @@ cask "macfuse", greedy: true
 cask "maestral"
 cask "mpv"
 cask "tiles"
-cask "coteditor"
-brew "p7zip"
-
+tap "homebrew/cask-fonts"
 
 else
-
 
 
 ## macOS apps
