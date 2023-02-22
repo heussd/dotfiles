@@ -216,6 +216,7 @@ mas "CotEditor", id: 1024640650
 brew "helm"
 cask "devtoys"
 mas "Boop", id: 1518425043
+brew "terraform"
 
 
 ## nats
