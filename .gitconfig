@@ -17,28 +17,31 @@
 
 change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
 [difftool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
 	trustExitCode = true
 
 
-# Taken from https://yousseb.github.io/meld/
+# Taken from
+# https://yousseb.github.io/meld/
+# https://github.com/HaemanthSP/learning/blob/80ab5642dd34aa8af0856c4f7ffd2ddb2aa37292/configs/gitconfig
 [diff]
-	tool = meld
+  tool = meld
 [difftool]
-	prompt = false
+  prompt = false
 [difftool "meld"]
-	trustExitCode = true
-	cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
 [merge]
-	tool = meld
+  tool = meld
 [mergetool]
-	prompt = false
+  prompt = false
 [mergetool "meld"]
-	trustExitCode = true
-	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+
 
 
 [alias]
