@@ -7,9 +7,9 @@ if [ "$PWD" = "$HOME" ]; then
 		zpool status && echo
 	)
 
-	_hasCmd docker && (
-		docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
-	)
+#	_hasCmd docker && (
+#		docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
+#	)
 		
 	# Updates on macOS might require reinstallation of developer tools
 	_hasCmd make || (
