@@ -29,8 +29,6 @@ brew "transcrypt"
 cask "coteditor"
 cask "cryptomator", greedy: true
 cask "firefox"
-cask "font-open-sans"
-cask "font-sauce-code-pro-nerd-font"
 cask "hammerspoon"
 cask "keepassxc"
 cask "keka"
@@ -40,7 +38,13 @@ cask "macfuse", greedy: true
 cask "maestral"
 cask "mpv"
 cask "tiles"
+
 tap "homebrew/cask-fonts"
+cask "font-open-sans"
+cask "font-sauce-code-pro-nerd-font"
+
+tap "homebrew/cask-drivers"
+cask "logitech-options"
 
 else
 
