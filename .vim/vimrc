@@ -85,6 +85,9 @@ Plug 'pseewald/vim-anyfold'
 Plug 'mcchrish/nnn.vim'
 
 Plug 'morhetz/gruvbox'
+
+
+Plug 'ervandew/supertab'
 call plug#end()
 
 
