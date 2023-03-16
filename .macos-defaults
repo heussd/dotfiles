@@ -14,6 +14,16 @@ defaults write com.apple.dock wvous-br-corner -int 4 # Show Desktop
 
 killall Dock
 
+defaults write -g AppleShowAllExtensions -bool true
+defaults write com.apple.finder AppleShowAllFiles true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+defaults write com.apple.finder ShowPathbar -bool true
+
+killall Finder
+
+
+defaults write com.apple.TextEdit RichText -int 0
+
 defaults write NSGlobalDomain InitialKeyRepeat -int 12
 defaults write NSGlobalDomain KeyRepeat -int 4
 
