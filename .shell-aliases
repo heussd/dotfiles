@@ -16,7 +16,7 @@ export TH_PROJECTS_FOLDER="$HOME/Developer"
 
 # Commonly used programs
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_CASK_OPTS="--no-quarantine"
+export HOMEBREW_CASK_OPTS="--no-quarantine --require-sha"
 function brew-forget() { rm -rfv "/usr/local/Caskroom/$1"; }
 
 
@@ -111,32 +111,28 @@ rm-macos-temp-files() { find \( -name ".AppleDouble" -or -name ".DS_Store" -or -
 
 
 # Third party commands
-_hasCmd rsync && alias gentlecp='rsync --update --progress --human-readable'
-_hasCmd screen && alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
-_hasCmd thefuck && eval "$(thefuck --alias)"
+alias gentlecp='rsync --update --progress --human-readable'
+alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via escape+ESC\""
 
-_hasCmd newsboat && {
-	customboat() {
-		local XDG_CONFIG_HOME="$HOME/.config/newsboat/$1/"
-		local XDG_DATA_HOME="$HOME/.local/share/newsboat/$1/" 
-		local DB_VAULT="$HOME/Dropbox/newsboat/"
-		# security add-generic-password -a $LOGNAME -s newsboat -w *********
-		local password=$(security find-generic-password -w -a "$LOGNAME" -s newsboat)
 
-		7z e "$DB_VAULT/$1.7z" -o"$XDG_DATA_HOME/newsboat/" -aos -mhe=on -p"$password" || return
-		
-		XDG_CONFIG_HOME="$XDG_CONFIG_HOME" XDG_DATA_HOME="$XDG_DATA_HOME" newsboat; stty sane || return
-		
-		7z u "$DB_VAULT/$1.7z" "$XDG_DATA_HOME/newsboat/cache.db" -mx4 -mhe=on -p"$password"
-		rm "$XDG_DATA_HOME/newsboat/cache.db"
-	}
+customboat() {
+	local XDG_CONFIG_HOME="$HOME/.config/newsboat/$1/"
+	local XDG_DATA_HOME="$HOME/.local/share/newsboat/$1/" 
+	local DB_VAULT="$HOME/Dropbox/newsboat/"
+	# security add-generic-password -a $LOGNAME -s newsboat -w *********
+	local password=$(security find-generic-password -w -a "$LOGNAME" -s newsboat)
 
-	alias news='customboat "news"'
-	alias tv='customboat "tv"'
+	7z e "$DB_VAULT/$1.7z" -o"$XDG_DATA_HOME/newsboat/" -aos -mhe=on -p"$password" || return
+	
+	XDG_CONFIG_HOME="$XDG_CONFIG_HOME" XDG_DATA_HOME="$XDG_DATA_HOME" newsboat; stty sane || return
+	
+	7z u "$DB_VAULT/$1.7z" "$XDG_DATA_HOME/newsboat/cache.db" -mx4 -mhe=on -p"$password"
+	rm "$XDG_DATA_HOME/newsboat/cache.db"
 }
 
+alias news='customboat "news"'
+alias tv='customboat "tv"'
 
-_hasCmd lazydocker && alias lzd='lazydocker'
 
 
 # Shortcuts

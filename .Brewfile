@@ -213,7 +213,6 @@ cask "meld"
 brew "glab"
 brew "lazydocker"
 cask "yed"
-cask "r"
 mas "CotEditor", id: 1024640650
 brew "helm"
 cask "devtoys"

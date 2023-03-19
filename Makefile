@@ -37,7 +37,7 @@ auto: \
 
 .auto-Brewfile: .Brewfile
 	@-command -v brew && \
-		HOMEBREW_CASK_OPTS="--no-quarantine" \
+		HOMEBREW_CASK_OPTS="--no-quarantine --require-sha" \
 		brew update && \
 		brew bundle install -v --cleanup --force --file=.Brewfile && \
 		brew cu -ya && \
