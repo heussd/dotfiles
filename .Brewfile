@@ -6,6 +6,7 @@
 
 tap "homebrew/bundle"
 tap "homebrew/cask-versions"
+tap "buo/cask-upgrade" # CU command
 
 
 brew "gh" # GitHub cli

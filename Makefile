@@ -38,7 +38,9 @@ auto: \
 .auto-Brewfile: .Brewfile
 	@-command -v brew && \
 		HOMEBREW_CASK_OPTS="--no-quarantine" \
+		brew update && \
 		brew bundle install -v --cleanup --force --file=.Brewfile && \
+		brew cu -ya && \
 		touch .auto-Brewfile
 
 .auto-Stewfile: .Stewfile
@@ -198,12 +200,12 @@ config-disable-unattended-updates:
 
 
 FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
-ifneq ("$(OS_NAME)","linux")
+ifeq ("$(OS_NAME)","linux")
 FIREFOX_PROFILES_LOCATION=$$HOME/.mozilla/firefox/
 endif
 config-firefox: firefox-policies
 	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do \
-		echo "$$profile"; \
+		echo "Installing config to $$profile"; \
 		ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; \
 		mkdir -p "$$profile/chrome"; \
 		ln -sFf $$HOME/.mozilla/firefox/chrome/userChrome.css "$$profile/chrome/"; \
