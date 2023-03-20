@@ -39,6 +39,8 @@ cask "macfuse", greedy: true
 cask "maestral"
 cask "mpv"
 cask "tiles"
+cask "signal"
+brew "jq"
 
 tap "homebrew/cask-fonts"
 cask "font-open-sans"
