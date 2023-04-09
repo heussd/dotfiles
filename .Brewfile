@@ -6,7 +6,7 @@
 
 tap "homebrew/bundle"
 tap "homebrew/cask-versions"
-tap "buo/cask-upgrade" # CU command
+#tap "buo/cask-upgrade" # CU command
 
 
 brew "gh" # GitHub cli
@@ -230,10 +230,7 @@ brew "nats-io/nats-tools/nats"
 tap "azure/functions"
 brew "azure-functions-core-tools@4"
 
-
-
 end
-
 
 end
 
