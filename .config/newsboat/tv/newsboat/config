@@ -1,4 +1,6 @@
 include "~/.config/newsboat/config"
+include "~/.config/newsboat/highlights"
+
 
 articlelist-format  "%f%?T?%-1T ?%t %> %T %D"
 
@@ -23,3 +25,4 @@ ignore-article "*" "title =~ \"- Audiodeskription\"
 
 
 run-on-startup		"open"
+
