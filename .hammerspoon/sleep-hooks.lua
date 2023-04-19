@@ -9,7 +9,7 @@ function pre_lock()
     end
 
     device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(15)
+    device:setOutputVolume(5)
     hlspeak('doop')
 end
 
@@ -18,7 +18,7 @@ function post_lock()
     print("Executing post lock...")
 
     device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(15)
+    device:setOutputVolume(5)
 
     hlspeak('bell')
 
