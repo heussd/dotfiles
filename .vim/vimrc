@@ -161,3 +161,9 @@ call ChangeBackground()
 
 
 autocmd VimEnter * if argc() == 0 | Explore! | endif
+
+" Fix fold background color
+" https://stackoverflow.com//questions/16014361/how-to-set-a-custom-color-to-folded-highlighting-in-vimrc-for-use-with-putty#answer-16029014
+au VimEnter * :hi! Folded guibg=NONE ctermbg=NONE
+set t_Co=256
+
