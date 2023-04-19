@@ -1,0 +1,11 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+dims="$(tput cols)x$(tput lines)@0x0"
+
+clear
+kitty +kitten icat --clear
+kitty +kitten icat --hold --scale-up --place "$dims" "$1"
+clear
