@@ -47,3 +47,4 @@ alias protoc='dockerrunu -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
 #alias npx10='node10 npx --loglevel=warn '
 
 alias ffmpeg='dockerrunuw docker.io/jrottenberg/ffmpeg:latest'
+alias gdal='dockerrunuw ghcr.io/osgeo/gdal:ubuntu-small-3.6.4'
