@@ -8,8 +8,10 @@ function pre_lock()
         hs.execute("make -f $HOME/Makefile push &", true)
     end
 
-    device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(5)
+    if (not hs.host.localizedName() == "kabylake") then
+	    device = hs.audiodevice.defaultOutputDevice()
+	    device:setOutputVolume(5)
+    end
     hlspeak('doop')
 end
 
@@ -17,8 +19,10 @@ end
 function post_lock()
     print("Executing post lock...")
 
-    device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(5)
+    if (not hs.host.localizedName() == "kabylake") then
+    	device = hs.audiodevice.defaultOutputDevice()
+	device:setOutputVolume(5)
+    end
 
     hlspeak('bell')
 
