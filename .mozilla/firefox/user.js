@@ -1,3 +1,10 @@
+// Do not automatically fill sign-in forms with known usernames and passwords
+// This avoids hidden credentail steals as demonstrated here:
+// https://senglehardt.com/demo/no_boundaries/loginmanager/
+user_pref("signon.autofillForms", false);
+
+
+
 // Enable userChrome.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
