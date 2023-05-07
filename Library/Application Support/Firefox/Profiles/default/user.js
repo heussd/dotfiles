@@ -57,7 +57,38 @@ user_pref("dom.security.https_only_mode", true);
 user_pref("network.cookie.cookieBehavior", 5);
 
 
+// ##########################################################################################################
+// https://github.com/pyllyukko/user.js/blob/master/user.js
+// ##########################################################################################################
 
+// PREF: Disable collection/sending of the health report (healthreport.sqlite*)
+// https://support.mozilla.org/en-US/kb/firefox-health-report-understand-your-browser-perf
+// https://gecko.readthedocs.org/en/latest/toolkit/components/telemetry/telemetry/preferences.html
+user_pref("datareporting.healthreport.uploadEnabled",		false);
+user_pref("datareporting.healthreport.service.enabled",		false);
+user_pref("datareporting.policy.dataSubmissionEnabled",		false);
+// "Allow Firefox to make personalized extension recommendations"
+user_pref("browser.discovery.enabled",				false);
+
+// PREF: Disable Shield/Heartbeat/Normandy (Mozilla user rating telemetry)
+// https://wiki.mozilla.org/Advocacy/heartbeat
+// https://trac.torproject.org/projects/tor/ticket/19047
+// https://trac.torproject.org/projects/tor/ticket/18738
+// https://wiki.mozilla.org/Firefox/Shield
+// https://github.com/mozilla/normandy
+// https://support.mozilla.org/en-US/kb/shield
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1370801
+// https://wiki.mozilla.org/Firefox/Normandy/PreferenceRollout
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
+user_pref("extensions.shield-recipe-client.enabled",		false);
+user_pref("app.shield.optoutstudies.enabled",			false);
+
+
+// PREF: Do not check if Firefox is the default browser
+user_pref("browser.shell.checkDefaultBrowser",			false);
+
+// ##########################################################################################################
 
 # Mozilla User Preferences
 # kuketz-blog.de | Firefox-Kompendium | 10.11.2021 | Firefox 94.0.1
