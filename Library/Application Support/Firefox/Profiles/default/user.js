@@ -1,3 +1,10 @@
+// Cookie Banner Rejection
+// https://github.com/mozilla/cookie-banner-rules-list
+user_pref("cookiebanners.service.mode", 1);
+user_pref("cookiebanners.bannerClicking.enabled", true);
+user_pref("cookiebanners.cookieInjector.enabled", true);
+
+
 // Do not automatically fill sign-in forms with known usernames and passwords
 // This avoids hidden credentail steals as demonstrated here:
 // https://senglehardt.com/demo/no_boundaries/loginmanager/
