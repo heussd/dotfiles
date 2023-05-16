@@ -30,7 +30,6 @@ declare -a workapps_ko=(
 )
 
 declare -a nonworkapps=(
-	"Maestral"
 	"Mail"
    	"Calendar"
 )
