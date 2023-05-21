@@ -1,3 +1,7 @@
+// Show bookmarks toolbar only in new tab pages
+user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+
+
 // Cookie Banner Rejection
 // https://github.com/mozilla/cookie-banner-rules-list
 user_pref("cookiebanners.service.mode", 1);
