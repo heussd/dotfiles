@@ -1,0 +1,27 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+content=$(cat -)
+title=$(echo "$content" | tail -n +2 | head -n 1 | awk '{gsub("Title:","## "); print}')
+description=$(echo "$content" | tail -n +3 | awk '{print "> "$0}')
+
+
+file=$(date '+%Y-%m-%d')
+
+cd "$HOME/Developer/vimwiki" || exit 1
+
+echo "
+
+$title
+
+$description
+
+(Last access $(date '+%Y-%m-%d'))" >> ./"$file.md"
+
+
+git add "$file.md"
+git commit -m "$file.md (auto commit)" -n > /dev/null
+
+exit 0
