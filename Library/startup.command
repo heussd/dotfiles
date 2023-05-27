@@ -28,5 +28,4 @@ launchIfInstalled "Docker.app"
 
 make sync
 
-
-killall Terminal
+osascript -e 'tell application "Terminal" to quit'
