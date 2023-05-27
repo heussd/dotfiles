@@ -39,11 +39,13 @@ antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen theme spaceship-prompt/spaceship-prompt
 
 
-export SPACESHIP_KUBECTL_SHOW=true
-export SPACESHIP_KUBECTL_VERSION_SHOW=true
-#export SPACESHIP_KUBECONTEXT_SHOW=false
-export SPACESHIP_KUBECTL_CONTEXT_SHOW=true
-export SPACESHIP_KUBECTL_CONTEXT_SHOW=true
+export SPACESHIP_KUBECTL_SHOW=false
+export SPACESHIP_KUBECTL_VERSION_SHOW=false
+export SPACESHIP_KUBECTL_CONTEXT_SHOW=false
+export SPACESHIP_GCLOUD_SHOW=false
+export SPACESHIP_AZURE_SHOW=false
+export SPACESHIP_TERRAFORM_SHOW=false
+export SPACESHIP_HOST_SHOW=false
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
 
 # Load everything
