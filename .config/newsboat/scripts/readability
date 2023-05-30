@@ -1,0 +1,4 @@
+#!/bin/sh
+
+url="$1"
+readable "$url" | html2md -i | glow 

@@ -33,6 +33,7 @@ browser 	 "~/.config/newsboat/scripts/browser"
 macro f 	 set browser "~/.config/newsboat/scripts/full-text-article" ; open-in-browser ; toggle-article-read "read" ; set browser "~/.config/newsboat/scripts/browser"
 macro s 	 set browser "~/.config/newsboat/scripts/full-text-summary" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
 macro p 	 set browser "~/.config/newsboat/scripts/pocket" ; open-in-browser-and-mark-read ; set browser "~/.config/newsboat/scripts/browser"
+macro r 	 set browser "~/.config/newsboat/scripts/readability" ; open-in-browser-and-mark-read ; set browser "~/.config/newsboat/scripts/browser"
 macro o 	 set browser open ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
 macro w 	 set browser w3m ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser"
 macro i 	 set pager "~/.config/newsboat/scripts/kitty-img-pager"; open; set pager internal
