@@ -20,3 +20,6 @@ set autoread
 
 
 let b:ale_enabled = 0
+
+
+autocmd BufWritePost * silent exec '%!markdownlint --fix --config "$HOME/.markdownlint.yml" "%" > /dev/null; slmd "%" -o'
