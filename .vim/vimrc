@@ -88,6 +88,8 @@ Plug 'morhetz/gruvbox'
 
 
 Plug 'ervandew/supertab'
+
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 
