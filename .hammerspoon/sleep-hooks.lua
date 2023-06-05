@@ -31,6 +31,9 @@ function post_lock()
         hs.execute("make -f $HOME/Makefile pull &", true)
         hlspeak('hello')
     end
+
+    -- Maestral seems to crash randomly. Just execute it after sleep.
+    hs.execute("open -a \"Maestral\" &")
 end
 
 function sleepWatch(eventType)
