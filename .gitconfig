@@ -84,7 +84,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 
 	i = "!lazygit"
 
-	defrag = "!git reflog expire --all --expire=now; git gc --prune=now --aggressive"
+	defrag = "!git reflog expire --all --expire=now; git gc --prune=now --aggressive; git rm --cached -r .; git reset --hard"
 
 	# https://stackoverflow.com/questions/12809951/git-cannot-undo-modified-files#12815013
 	renormalize = "!git rm --cached -r .; git reset --hard"
