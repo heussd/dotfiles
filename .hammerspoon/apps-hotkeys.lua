@@ -35,7 +35,11 @@ end)
 
 
 hyper:bind({}, "p", nil, function()
-    hs.application.launchOrFocus("KeepassXC")
+    if (hs.application.frontmostApplication():name() == "KeePassXC") then
+        hs.window.focusedWindow():minimize()
+    else
+        hs.application.launchOrFocus("KeepassXC")
+    end
 end)
 
 hyper:bind({}, "d", nil, function()
