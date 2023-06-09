@@ -20,8 +20,9 @@ keep-articles-days 90
 ignore-article "*" "title =~ \"(Gebärdensprache)\""
 ignore-article "*" "title =~ \"(mit Gebärdensprache)\""
 ignore-article "*" "title =~ \"(mit Untertitel)\""
-ignore-article "*" "title =~ \"(Audiodeskription)\"
-ignore-article "*" "title =~ \"- Audiodeskription\"
+ignore-article "*" "title =~ \"(Audiodeskription)\""
+ignore-article "*" "title =~ \"- Audiodeskription\""
+ignore-article "*" "title =~ \"Trailer: \""
 
 
 run-on-startup 	  	 "open"
