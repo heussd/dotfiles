@@ -3,4 +3,4 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" | fzf -m | awk '{print $1}' | xargs -I {} docker port {} | awk '{print $3}' | sed 's/0.0.0.0/localhost/' | xargs -I {} open http://\{\}
+docker ps --format "{{.ID}}\\t{{.Names}}\\t{{.Ports}}" | fzf -m | awk '{print $1}' | xargs -I {} docker port {} | awk '{print $3}' | sed 's/0.0.0.0/localhost/' | xargs -I {} open http://\{\}
