@@ -2,13 +2,14 @@
 PROCESS=MeetingBar
 number="$(pgrep $PROCESS)"
 
-# https://github.com/orbxball/make-Pulse-Secure-great-again
+# https://gist.github.com/kaleksandrov/3cfee92845a403da995e7e44ba771183
 quitvpn() {
-  launchctl unload -w /Library/LaunchAgents/net.pulsesecure.pulsetray.plist
-  osascript -e 'tell application "Pulse Secure" to quit'
+	launchctl remove com.paloaltonetworks.gp.pangps
+        launchctl remove com.paloaltonetworks.gp.pangpa
 }
 startvpn() {
-  launchctl load -w /Library/LaunchAgents/net.pulsesecure.pulsetray.plist
+	launchctl load /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist
+    	launchctl load /Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist
 }
 
 
