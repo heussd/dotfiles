@@ -1,7 +1,6 @@
+#podman-compose==0.1.11
 bitbucket-cli
-docker-compose
 gita
-podman-compose==0.1.11
 pysummarization
 shyaml
 slmd
