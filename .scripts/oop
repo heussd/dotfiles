@@ -18,7 +18,15 @@ remoteName=$(eval "$gitops" remote -v | head -n 1 | awk '{print $1}')
 remoteUrl=$(eval "$gitops" remote get-url --push "$remoteName")
 remoteUrl=$(echo "$remoteUrl" | awk -F "@" '{print $2}') # Remove @ prefix
 remoteUrl=$(echo "$remoteUrl" | awk -F ":" '{print $1"\/"$2}') # Replace : with slash
+remoteUrl=${remoteUrl/.git/} # Remove trailing ".git"
 remoteUrl="https://$remoteUrl" # Add protocol
+
+case "$remoteUrl" in
+	*gitlab.com*)
+		remoteUrl="${remoteUrl}/-/pipelines/"
+		;;
+	*)
+esac
 
 open "$remoteUrl"
 
