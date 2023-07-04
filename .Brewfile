@@ -208,6 +208,7 @@ cask "google-cloud-sdk"
 cask "jetbrains-toolbox"
 cask "microsoft-azure-storage-explorer"
 cask "postman"
+cask "insomnia"
 cask "rapidapi"
 mas "Xcode", id: 497799835
 cask "cyberduck"
