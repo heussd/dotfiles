@@ -35,7 +35,6 @@ cask "keepassxc"
 cask "keka"
 cask "kitty"
 cask "maccy"
-cask "macfuse", greedy: true
 cask "maestral"
 cask "mpv"
 cask "tiles"
@@ -105,7 +104,9 @@ brew "rclone"
 ## Cloud File Sync
 cask "maestral"
 cask "cryptomator", greedy: true
-cask "macfuse", greedy: true
+# userspace implementation of FUSE, replaces macfuse
+tap "macos-fuse-t/homebrew-cask"
+cask "fuse-t"
 
 
 ## Power Tools
