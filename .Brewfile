@@ -158,6 +158,7 @@ cask "adobe-acrobat-reader"
 cask "clockify"
 mas "MeetingBar", id: 1532419400
 cask "libreoffice"
+brew "pandoc"
 
 #cask "mactex"
 
