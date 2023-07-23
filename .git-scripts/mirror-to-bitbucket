@@ -17,7 +17,7 @@ password=$(security find-generic-password -w -a "$LOGNAME" -s bitbucket)
 CURL_OPTS=(-u "$username:$password" --silent)
 
 function print {
-    echo -e "${BLUE}[bitbucket-pre-push-hook]${NC} $1"
+    echo -e "${BLUE}[mirror-to-bitbucket]${NC} $1"
 }
 
 # Does one of the remotes contain "github" and "heussd"?
@@ -33,7 +33,7 @@ git remote -v | grep "github.com" | grep "heussd" > /dev/null && (
 
     # Ignore these repositories
     case "$repository" in
-    	 "dotfiles" | "vimwiki")
+    	 "dotfiles")
     	 	exit 0;;
     esac
 

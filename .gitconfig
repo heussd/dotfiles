@@ -89,6 +89,11 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	# https://stackoverflow.com/questions/12809951/git-cannot-undo-modified-files#12815013
 	renormalize = "!git rm --cached -r .; git reset --hard"
 
+	# https://stackoverflow.com//questions/7124914/how-to-search-a-git-repository-by-commit-message#answer-7125014
+	find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+
+	mirror-to-bitbucket = "!$HOME/.git-scripts/mirror-to-bitbucket"
+
 [include]
 	path = ~/.git-over-ssh-enabled
 [help]
