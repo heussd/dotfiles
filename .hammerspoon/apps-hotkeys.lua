@@ -50,5 +50,5 @@ end)
 hyper:bind({}, "w", nil, function()
     notify("Work mode toggled.")
     --/Users/theuss001/Developer/hl2/sound/ambient/alarms/apc_alarm_loop1.wav
-    hs.execute("~/.scripts/afterwork")
+    hs.execute("~/.scripts/togglevpn")
 end)

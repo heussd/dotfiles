@@ -1,0 +1,21 @@
+#!/bin/bash
+number="$(launchctl list | grep -c com.paloaltonetworks.gp.pangps)"
+
+# https://gist.github.com/kaleksandrov/3cfee92845a403da995e7e44ba771183
+quitvpn() {
+	launchctl remove com.paloaltonetworks.gp.pangps
+        launchctl remove com.paloaltonetworks.gp.pangpa
+}
+startvpn() {
+	launchctl load /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist
+    	launchctl load /Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist
+}
+
+if [[ "$number" -gt 0 ]]; then
+    echo "Afterwork mode"
+    quitvpn
+else
+    echo "Work mode"
+    startvpn
+fi
+
