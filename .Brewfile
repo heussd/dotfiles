@@ -20,6 +20,7 @@ if system 'hostname | grep "kabylake" > /dev/null'
 
 brew "exa"
 brew "git"
+brew "git-lfs"
 brew "git-delta"
 brew "lazygit"
 brew "markdownlint-cli"
