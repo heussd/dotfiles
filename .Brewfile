@@ -30,6 +30,7 @@ brew "the_silver_searcher"
 brew "transcrypt"
 cask "coteditor"
 cask "cryptomator", greedy: true
+cask "macfuse"
 cask "firefox"
 cask "hammerspoon"
 cask "keepassxc"
