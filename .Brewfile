@@ -14,6 +14,18 @@ brew "neovim"
 brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
 
+## ARM vs. i386
+
+if system 'uname -p | grep "i386" > /dev/null'
+  cask "macfuse" # macfuse is still the best choice for non-arm Macs
+end
+
+if system 'uname -p | grep "arm" > /dev/null'
+  # userspace implementation of FUSE, replaces macfuse
+  tap "macos-fuse-t/homebrew-cask"
+  cask "fuse-t"
+end
+
 
 ## kabylake - pre decommissioning
 if system 'hostname | grep "kabylake" > /dev/null'
@@ -30,7 +42,6 @@ brew "the_silver_searcher"
 brew "transcrypt"
 cask "coteditor"
 cask "cryptomator", greedy: true
-cask "macfuse"
 cask "firefox"
 cask "hammerspoon"
 cask "keepassxc"
@@ -44,7 +55,6 @@ cask "signal"
 cask "appcleaner"
 brew "jq"
 cask "vlc"
-
 
 tap "homebrew/cask-fonts"
 cask "font-open-sans"
@@ -106,9 +116,6 @@ brew "rclone"
 ## Cloud File Sync
 cask "maestral"
 cask "cryptomator", greedy: true
-# userspace implementation of FUSE, replaces macfuse
-tap "macos-fuse-t/homebrew-cask"
-cask "fuse-t"
 
 
 ## Power Tools
@@ -232,7 +239,6 @@ brew "terraform"
 ## nats
 tap "nats-io/nats-tools"
 brew "nats-io/nats-tools/nats"
-
 
 tap "azure/functions"
 brew "azure-functions-core-tools@4"
