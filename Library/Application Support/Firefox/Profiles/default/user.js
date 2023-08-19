@@ -1,3 +1,5 @@
+user_pref("extensions.pocket.enabled", false);
+
 // Show bookmarks toolbar only in new tab pages
 user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 

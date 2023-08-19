@@ -113,12 +113,15 @@ clean-all:	## Cleans various places
 	@-rm -rf ~/.m2/*
 .PHONY: clean 
 
+
 clean-downloads: ## Cleans old downloads
 	@find ~/Downloads -maxdepth 1 -mtime +30 -exec mv -v {} ~/.Trash/ \;
 .PHONY: clean-downloads
 
 
 sync: pull push
+
+
 pull:
 	@python3 -m gita pull
 push:
@@ -136,6 +139,7 @@ define rsync
 		$(1) $(2) \
 		$(4)
 endef
+
 
 rsync: 
 	$(call rsync,kabylake:~/,~/,$(HOST),)
@@ -202,30 +206,6 @@ FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
 ifeq ("$(OS_NAME)","linux")
 FIREFOX_PROFILES_LOCATION=$$HOME/.mozilla/firefox/
 endif
-config-firefox: firefox-policies
-	@for profile in $(FIREFOX_PROFILES_LOCATION)/*/; do \
-		echo "Installing config to $$profile"; \
-		ln -sFf $$HOME/.mozilla/firefox/user.js "$$profile"; \
-		mkdir -p "$$profile/chrome"; \
-		ln -sFf $$HOME/.mozilla/firefox/chrome/userChrome.css "$$profile/chrome/"; \
-	done
-
-firefox-policies: firefox-policies-$(OS_NAME) ## Install Firefox policies
-	@:
-firefox-policies-darwin: /Applications/Firefox.app/Contents/Resources/distribution/policies.json
-firefox-policies-linux:  /etc/firefox/policies/policies.json
-
-/Applications/Firefox.app/Contents/Resources/distribution/policies.json: $(HOME)/.mozilla/firefox/policies.json
-	@printf "\e[1;34m[Home Makefile]\e[0m Installing Firefox policies to $@...\n"
-	@mkdir -p /Applications/Firefox.app/Contents/Resources/distribution/
-	@cp $$HOME/.mozilla/firefox/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json
-/etc/firefox/policies/policies.json: $(HOME)/.mozilla/firefox/policies.json
-	@printf "\e[1;34m[Home Makefile]\e[0m Installing Firefox policies to $@...\n"
-	@sudo mkdir -p /etc/firefox/policies/
-	@sudo cp $$HOME/.mozilla/firefox/policies.json /etc/firefox/policies/policies.json
-
-
-
 backup:
 	sudo sysctl debug.lowpri_throttle_enabled=0
 	BORG_PASSCOMMAND='keepasspw-fzf' \
