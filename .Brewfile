@@ -5,7 +5,7 @@
 #
 
 tap "homebrew/bundle"
-tap "homebrew/cask-versions"
+#tap "homebrew/cask-versions"
 #tap "buo/cask-upgrade" # CU command
 
 
