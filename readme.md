@@ -13,12 +13,30 @@ In the great tradition of sharing dotfiles, this repository contains various con
 
 ### macOS
 
-    curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
 
+```sh
+curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
+```
 
 ### Ubuntu
 
-    wget -O- https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
+```sh
+wget -O- https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
+```
+
+### devcontainer.json
+
+```json
+"customizations": {
+    "vscode": {
+        "settings": {
+            "dotfiles.repository": "https://github.com/heussd/dotfiles",
+            "dotfiles.targetPath": "~/.dotfiles",
+            "dotfiles.installCommand": ".onboard-dotfiles.sh",
+        }
+    }
+}
+```
 
 
 ## Credits
