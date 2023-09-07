@@ -30,7 +30,7 @@ end
 ## kabylake - pre decommissioning
 if system 'hostname | grep "kabylake" > /dev/null'
 
-brew "exa"
+brew "eza" # a fork of the discontinued exa
 brew "git"
 brew "git-lfs"
 brew "git-delta"
@@ -89,7 +89,7 @@ brew "watch"
 ## Command line tools
 brew "bat"
 brew "glow" # Render markdown on the CLI
-brew "exa"
+brew "eza" # a fork of the discontinued exa
 brew "w3m"
 brew "yq"
 brew "brew-cask-completion"

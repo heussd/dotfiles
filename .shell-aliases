@@ -150,8 +150,9 @@ alias add-url-to-diary="~/.config/newsboat/scripts/vimwiki"
 function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 
 
-_hasCmd "exa" && ls-extended() {
-	exa --icons -l --sort=changed;
+alias exa="eza"
+_hasCmd "eza" && ls-extended() {
+	eza --icons -l --sort=changed;
 
 	echo
 
@@ -164,7 +165,7 @@ _hasCmd "exa" && ls-extended() {
 		eval "${gitcmd} remote -v | head -n 1 | grep gitlab.com > /dev/null && glab ci list --per-page 2";
 	fi
 }
-_hasCmd "exa" && alias l='ls-extended'
+_hasCmd "eza" && alias l='ls-extended'
 
 
 
