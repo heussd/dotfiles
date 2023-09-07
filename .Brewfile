@@ -199,7 +199,6 @@ cask "syntax-highlight", greedy: true
 
 ## Developer
 brew "buildkit"
-brew "hugo"
 brew "go"
 brew "aspell"
 cask "docker"
@@ -234,6 +233,8 @@ brew "helm"
 cask "devtoys"
 mas "Boop", id: 1518425043
 brew "terraform"
+brew "shellcheck"
+brew "hadolint"
 
 
 ## nats
