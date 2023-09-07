@@ -1,0 +1,18 @@
+{
+    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "telemetry.telemetryLevel": "off",
+    "window.restoreWindows": "none",
+    "workbench.editor.restoreViewState": false,
+    "workbench.startupEditor": "none",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "redhat.telemetry.enabled": false,
+    "peacock.surpriseMeOnStartup": true,
+    "editor.fontSize": 16,
+    "editor.fontVariations": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    }
+}
