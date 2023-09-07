@@ -1,5 +1,6 @@
 {
     "editor.fontFamily": "SauceCodePro Nerd Font",
+    "editor.fontLigatures": true,
     "telemetry.telemetryLevel": "off",
     "window.restoreWindows": "none",
     "workbench.editor.restoreViewState": false,
@@ -15,5 +16,6 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
-    "workbench.iconTheme": "file-icons"
+    "workbench.iconTheme": "file-icons",
+    "workbench.editor.enablePreview": false
 }
