@@ -17,5 +17,7 @@
         "source.fixAll": true
     },
     "workbench.iconTheme": "file-icons",
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "window.autoDetectColorScheme": true,
+    "workbench.colorTheme": "Default Light Modern"
 }
