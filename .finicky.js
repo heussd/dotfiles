@@ -13,7 +13,7 @@ module.exports = {
             browser: "Google Chrome"
         },
         {
-            match: ["*.azure.com/*", "*.microsoft.com/*", "*.microsoftonline.com/*"],
+            match: ["*.azure.com/*", "*.microsoft.com/*", "*.microsoftonline.com/*", "*.sharepoint.com/*"],
             browser: "Google Chrome"
         },
         {
