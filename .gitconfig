@@ -23,24 +23,9 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	trustExitCode = true
 
 
-# Taken from
-# https://yousseb.github.io/meld/
-# https://github.com/HaemanthSP/learning/blob/80ab5642dd34aa8af0856c4f7ffd2ddb2aa37292/configs/gitconfig
+# Further config no longer needed or even causing conflicts, e.g. https://stackoverflow.com//questions/35642530/git-difftool-not-opening-sometimes#answer-41971435
 [diff]
-  tool = meld
-[difftool]
-  prompt = false
-[difftool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
-[merge]
-  tool = meld
-[mergetool]
-  prompt = false
-[mergetool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
-
+	tool = meld
 
 
 [alias]
