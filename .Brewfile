@@ -218,8 +218,7 @@ cask "google-cloud-sdk"
 cask "jetbrains-toolbox"
 cask "microsoft-azure-storage-explorer"
 cask "postman"
-cask "insomnia"
-cask "rapidapi"
+cask "bruno"
 mas "Xcode", id: 497799835
 cask "cyberduck"
 cask "db-browser-for-sqlite"
@@ -241,8 +240,8 @@ brew "hadolint"
 tap "nats-io/nats-tools"
 brew "nats-io/nats-tools/nats"
 
-tap "azure/functions"
-brew "azure-functions-core-tools@4"
+#tap "azure/functions"
+#brew "azure-functions-core-tools@4"
 
 end
 
