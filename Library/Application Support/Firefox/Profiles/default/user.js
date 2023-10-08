@@ -1,3 +1,7 @@
+// Hide adressbar in full screen mode
+user_pref("browser.fullscreen.autohide", true);
+
+
 user_pref("extensions.pocket.enabled", false);
 
 // Show bookmarks toolbar only in new tab pages
