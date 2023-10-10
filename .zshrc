@@ -8,14 +8,11 @@ source "$HOME/.antigen/antigen.zsh"
 
 antigen use oh-my-zsh
 
-# Specify completions we want before the completion module
-antigen bundle zsh-users/zsh-completions
 
 # Specify plugins we want
 antigen bundle editor
 antigen bundle history
 antigen bundle utility
-antigen bundle completion
 antigen bundle heroku
 antigen bundle pip
 antigen bundle lein
@@ -39,6 +36,9 @@ antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen theme spaceship-prompt/spaceship-prompt
 
 
+antigen bundle joshskidmore/zsh-fzf-history-search
+
+
 export SPACESHIP_KUBECTL_SHOW=false
 export SPACESHIP_KUBECTL_VERSION_SHOW=false
 export SPACESHIP_KUBECTL_CONTEXT_SHOW=false
@@ -51,39 +51,11 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
 # Load everything
 antigen apply
 
-# Better completion, taken from https://meabed.com/zsh-oh-my-zsh-up-and-running/
-zstyle ':completion:*:*:*:*:*' menu select
-
-zstyle ':completion:*' verbose true
-zstyle ':completion:*' menu yes select=1
-zstyle ':completion:*' substitute 0
-zstyle ':completion:*' max-errors 2 not-numeric
-zstyle ':completion:*' original true
-zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path ~/.zsh/cache
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' file-sort links reverse
-zstyle ':completion:*:commands' rehash true
-zstyle ':completion:*:functions' ignored-patterns '_*'
-
-zstyle ':completion:*' completer _expand _complete _approximate
-zstyle ':completion:*' completions 1
-zstyle ':completion:*' glob 1
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' ignore-parents parent pwd ..
-zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' matcher-list '' '+m:{a-z}={A-Z} r:|[._-]=* r:|=*' '' 'l:|=* r:|=*'
-zstyle ':completion:*:messages' format $'\e[00;31m%d'
-zstyle ':completion:*:descriptions' format "- %d -"
-zstyle ':completion:*:corrections' format "- %d - (errors %e})"
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==36=36}:${(s.:.)LS_COLORS}")';
 
 zstyle ':filter-select:highlight' matched fg=red
 zstyle ':filter-select' max-lines 1000
 zstyle ':filter-select' rotate-list yes
 zstyle ':filter-select' case-insensitive yes # enable case-insensitive searchhttps://github.com/tideflow-io/tideflow
-
 
 
 
