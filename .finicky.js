@@ -9,11 +9,22 @@ module.exports = {
             browser: "Safari"
         },
         {
-            match: ["*.pwc.com/*", "*.pwc.de/*", "*.replicon.com/*","gitlab.com/*"],
+            match: ["*.pwc.com/*", "*.pwc.de/*", "*.replicon.com/*","gitlab.com/*",
+            	    "statics.teams.cdn.office.net/*"  // Teams link verification
+            ],
             browser: "Google Chrome"
         },
         {
-            match: ["*.azure.com/*", "*.microsoft.com/*", "*.microsoftonline.com/*", "*.sharepoint.com/*"],
+		match: ({ url }) => url.host.endsWith("azure.com"),
+            	browser: "Google Chrome"
+	},
+        {
+            match: finicky.matchHostnames([
+            	    "cloudapp.azure.com",
+            	    "*.microsoft.com",
+            	    "microsoftonline.com",
+            	    "sharepoint.com"
+            ]),
             browser: "Google Chrome"
         },
         {
