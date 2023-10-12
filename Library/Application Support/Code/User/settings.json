@@ -19,5 +19,9 @@
     "workbench.iconTheme": "file-icons",
     "workbench.editor.enablePreview": false,
     "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "Default Light Modern"
+    "workbench.colorTheme": "GitHub Light",
+    "workbench.preferredLightColorTheme": "GitHub Light",
+    "workbench.preferredDarkColorTheme": "GitHub Dark",
+    "workbench.preferredHighContrastLightColorTheme": "GitHub Light High Contrast",
+    "workbench.preferredHighContrastColorTheme": "GitHub Dark High Contrast"
 }
