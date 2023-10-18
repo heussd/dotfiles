@@ -23,5 +23,6 @@
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.preferredDarkColorTheme": "GitHub Dark",
     "workbench.preferredHighContrastLightColorTheme": "GitHub Light High Contrast",
-    "workbench.preferredHighContrastColorTheme": "GitHub Dark High Contrast"
+    "workbench.preferredHighContrastColorTheme": "GitHub Dark High Contrast",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
