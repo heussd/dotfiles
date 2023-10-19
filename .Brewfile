@@ -61,7 +61,7 @@ cask "font-open-sans"
 cask "font-sauce-code-pro-nerd-font"
 
 tap "homebrew/cask-drivers"
-cask "logitech-options"
+cask "logitech-options-plus"
 
 else
 
@@ -124,7 +124,6 @@ brew "btop"
 brew "zsh-completions"
 cask "appcleaner"
 cask "betterzip"
-brew "vale"
 cask "dozer"
 cask "dupeguru"
 cask "easy-move-plus-resize"
@@ -154,7 +153,7 @@ cask "font-humor-sans"
 
 ## Drivers
 tap "homebrew/cask-drivers"
-cask "logitech-options"
+cask "logi-options-plus"
 
 
 ## Office
@@ -163,18 +162,13 @@ mas "Numbers", id: 409203825
 cask "itsycal"
 cask "google-drive"
 cask "microsoft-edge"
-cask "adobe-acrobat-reader"
 cask "clockify"
 mas "MeetingBar", id: 1532419400
 cask "libreoffice"
-brew "pandoc"
-
-#cask "mactex"
 
 
 ## Voice / Com
 cask "signal"
-cask "slack"
 cask "microsoft-teams"
 
 
@@ -182,8 +176,7 @@ cask "microsoft-teams"
 cask "gimp"
 cask "inkscape"
 mas "GIPHY CAPTURE", id: 668208984
-mas "ColorSlurp", id: 1287239339
-cask "krita"
+
 cask "imageoptim"
 
 
@@ -196,18 +189,14 @@ cask "handbrake"
 ## QuickLook
 cask "syntax-highlight", greedy: true
 
-
+ 
 ## Developer
-brew "buildkit"
 brew "go"
-brew "aspell"
 cask "docker"
 brew "dive"
 brew "az"
-brew "gradle"
 brew "k9s"
 brew "kubectx"
-brew "maven"
 brew "node"
 brew "nvm"
 brew "sops"
