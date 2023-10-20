@@ -1,0 +1,41 @@
+#!/bin/bash
+PROCESS=MeetingBar
+number="$(pgrep $PROCESS)"
+
+
+declare -a workapps=(
+	"Google Chrome"
+	"Google Drive"
+   	"Dozer"
+   	"MeetingBar"
+   	"Microsoft Teams classic"
+)
+declare -a workapps_ko=(
+	"Microsoft Azure Storage Explorer"
+	"Microsoft Edge"
+	"Visual Studio Code"
+	"Teams" // No "MS" prefix to kill...
+)
+
+declare -a nonworkapps=(
+	"Mail"
+	"Signal"
+   	"Calendar"
+)
+
+
+
+if [[ "$number" -gt 0 ]]; then
+    echo "Afterwork mode"
+
+    for app in "${workapps[@]}"; do killall "$app" || true; done
+    for app in "${workapps_ko[@]}"; do killall "$app" || true; done
+    for app in "${nonworkapps[@]}"; do open -gja "$app"; done
+else
+    echo "Work mode"
+    
+    for app in "${nonworkapps[@]}"; do killall "$app"; done
+    for app in "${workapps[@]}"; do open -gja "$app"; done
+fi
+
+
