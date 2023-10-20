@@ -19,6 +19,10 @@ module.exports = {
             browser: 'Google Chrome',
         },
         {
+            match: ({ url }) => url.host.endsWith('sharepoint.com'),
+            browser: 'Google Chrome',
+        },
+        {
             match: ({ url }) => url.host.endsWith('azure.com'),
             browser: 'Google Chrome',
         },
