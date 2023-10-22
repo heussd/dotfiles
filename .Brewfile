@@ -61,7 +61,7 @@ cask "font-open-sans"
 cask "font-sauce-code-pro-nerd-font"
 
 tap "homebrew/cask-drivers"
-cask "logitech-options-plus"
+cask "logi-options-plus"
 
 else
 
