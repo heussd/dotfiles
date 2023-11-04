@@ -48,7 +48,6 @@ include ~/.config/newsboat/killfile
 include ~/.config/newsboat/highlights-autogen
 
 
-highlight-article "tags # \"blue\"" blue default bold
-highlight-article "tags # \"green\"" green default bold
 highlight-article "tags # \"red\"" red default
+highlight-article "tags # \"English\"" blue default
 
