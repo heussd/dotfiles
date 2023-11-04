@@ -14,4 +14,5 @@ query=""
 query=$(echo "$query" | jq -sRr @uri)
 
 
-curl --fail "$url$query" | ./.config/newsboat/scripts/recent-items.py
+curl --fail "$url$query"
+# | ./.config/newsboat/scripts/recent-items.py
