@@ -164,7 +164,7 @@ _hasCmd "eza" && ls-extended() {
 		eval "${gitcmd} status -s";
 		eval "${gitcmd} remote -v | head -n 1 | grep gitlab.com > /dev/null && glab ci list --per-page 2";
 	fi
-}
+} || ls-extended() { ls -lart }
 _hasCmd "eza" && alias l='ls-extended'
 
 

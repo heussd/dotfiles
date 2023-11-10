@@ -30,38 +30,25 @@ end
 ## kabylake - pre decommissioning
 if system 'hostname | grep "kabylake" > /dev/null'
 
-brew "eza" # a fork of the discontinued exa
 brew "git"
-brew "git-lfs"
-brew "git-delta"
-brew "lazygit"
-brew "markdownlint-cli"
 brew "newsboat"
 brew "p7zip"
-brew "the_silver_searcher"
-brew "transcrypt"
-cask "coteditor"
 cask "cryptomator", greedy: true
 cask "firefox"
 cask "hammerspoon"
 cask "keepassxc"
-cask "keka"
 cask "kitty"
-cask "maccy"
 cask "maestral"
 cask "mpv"
-cask "tiles"
-cask "signal"
 cask "appcleaner"
-brew "jq"
 cask "vlc"
 
 tap "homebrew/cask-fonts"
-cask "font-open-sans"
-cask "font-sauce-code-pro-nerd-font"
+cask "font-monaspace"
 
 tap "homebrew/cask-drivers"
 cask "logi-options-plus"
+cask "cursorcerer"
 
 else
 
