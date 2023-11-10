@@ -107,6 +107,7 @@ cask "cryptomator", greedy: true
 
 ## Power Tools
 cask "finicky"
+cask "fluor"
 brew "btop"
 brew "zsh-completions"
 cask "appcleaner"
