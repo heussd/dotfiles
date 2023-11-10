@@ -136,6 +136,7 @@ brew "svn" ## Dependency of font-open-sans
 cask "font-open-sans"
 cask "font-sauce-code-pro-nerd-font"
 cask "font-humor-sans"
+cask "font-monaspace"
 
 
 ## Drivers
