@@ -23,6 +23,7 @@ ignore-article "*" "title =~ \"(mit Untertitel)\""
 ignore-article "*" "title =~ \"(Audiodeskription)\""
 ignore-article "*" "title =~ \"- Audiodeskription\""
 ignore-article "*" "title =~ \"Trailer: \""
+ignore-article "*" "title =~ \"#shorts\""
 
 
 run-on-startup 	  	 "open"
