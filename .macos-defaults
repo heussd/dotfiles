@@ -5,6 +5,8 @@ defaults write com.apple.screencapture location "$HOME/Downloads"
 
 defaults write -g AppleReduceDesktopTinting -bool yes
 
+defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
+
 killall SystemUIServer 
 
 defaults write com.apple.Dock autohide -bool true
