@@ -49,5 +49,4 @@ include ~/.config/newsboat/highlights-autogen
 
 
 highlight-article "tags # \"red\"" red default
-highlight-article "tags # \"English\"" blue default
 
