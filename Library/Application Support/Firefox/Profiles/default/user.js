@@ -1,3 +1,7 @@
+// Disable Relay prompts for email fields
+user_pref("signon.firefoxRelay.feature", "disabled");
+
+
 // Hide adressbar in full screen mode
 user_pref("browser.fullscreen.autohide", true);
 
