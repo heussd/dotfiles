@@ -1,3 +1,7 @@
+// Global Privacy Control
+user_pref("privacy.globalprivacycontrol.enabled", true);
+
+
 // Disable Relay prompts for email fields
 user_pref("signon.firefoxRelay.feature", "disabled");
 
