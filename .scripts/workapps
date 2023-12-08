@@ -1,0 +1,53 @@
+#!/bin/bash
+PROCESS=MeetingBar
+number="$(pgrep $PROCESS)"
+
+
+declare -a workapps=(
+	"Google Chrome"
+	"Google Drive"
+	"Chat"
+	"Gmail"
+   	"Dozer"
+   	"MeetingBar"
+   	"Microsoft Teams classic"
+)
+declare -a workapps_ko=(
+	"Microsoft Azure Storage Explorer"
+	"Microsoft Edge"
+	"Visual Studio Code"
+	"Teams" // No "MS" prefix to kill...
+)
+
+declare -a nonworkapps=(
+	"Mail"
+)
+
+launchHidden() (
+	echo "$1"
+	osascript -e "run app \"$1\""
+	osascript -e "tell application \"System Events\" to set visible of application process \"$1\" to false"
+)
+
+killApp() (
+	osascript -e "quit app \"$1\"" || true;
+	killall "$1" || true;
+)
+
+
+if [[ "$number" -gt 0 ]]; then
+    echo "Afterwork mode"
+
+    for app in "${workapps[@]}"; do killApp "$app" || true; done
+    for app in "${workapps_ko[@]}"; do killApp "$app" || true; done
+    for app in "${nonworkapps[@]}"; do launchHidden "$app"; done
+else
+    echo "Work mode"
+    
+    for app in "${nonworkapps[@]}"; do killApp "$app"; done
+    for app in "${workapps[@]}"; do launchHidden "$app"; done
+
+    #osascript -e 'tell application "System Events" to set visible of application process "Teams" to false'
+fi
+
+
