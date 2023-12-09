@@ -21,6 +21,7 @@ declare -a workapps_ko=(
 
 declare -a nonworkapps=(
 	"Mail"
+	"Signal"
 )
 
 launchHidden() (
@@ -41,6 +42,25 @@ if [[ "$number" -gt 0 ]]; then
     for app in "${workapps[@]}"; do killApp "$app" || true; done
     for app in "${workapps_ko[@]}"; do killApp "$app" || true; done
     for app in "${nonworkapps[@]}"; do launchHidden "$app"; done
+
+    osascript << EOF
+set theBool to false
+    repeat until theBool
+        tell application "System Events" to ¬
+            if menu item "Close Window" of ¬
+                menu 1 of ¬
+                menu bar item "File" of ¬
+                menu bar 1 of ¬
+                application process "Signal" exists then ¬
+                set theBool to true
+        delay 0.2
+    end repeat
+tell application "System Events"
+	repeat until visible of process "Signal" is false
+		set visible of process "Signal" to false
+	end repeat
+end tell
+EOF
 else
     echo "Work mode"
     
