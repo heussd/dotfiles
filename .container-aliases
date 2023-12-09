@@ -1,10 +1,11 @@
 #!/bin/bash
+# shellcheck disable=SC1004
 
 dockerrun() { eval docker run --rm --interactive --tty "$*"; }
 dockerrunu() { eval dockerrun --user="$(id -u):$(id -g)" "$*"; }
 dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$*"; }
 
-docker-logs() { 
+docker-logs() {
 docker logs -f "$(docker ps | fzf | awk '{print $1}')"
 }
 
