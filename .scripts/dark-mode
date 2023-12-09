@@ -25,10 +25,10 @@ function wallpaper() {
 
 
 if [ "$(defaults read -g AppleInterfaceStyle | grep 'Dark')" ]; then
-	wallpaper "Silver"
+	#wallpaper "Silver"
 	kittytheme "white"
 else
-	wallpaper "Black"
+	#wallpaper "Black"
 	kittytheme "dark"
 fi
 
