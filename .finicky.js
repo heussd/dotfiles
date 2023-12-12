@@ -44,6 +44,7 @@ module.exports = {
                 'calendar.google.com',
                 'chat.google.com',
                 'docs.google.com',
+                'script.google.com', // MO Plus
             ]),
             browser: 'Google Chrome',
         },
