@@ -51,7 +51,7 @@ alias protoc='dockerrunu -v $(pwd):$(pwd) -w $(pwd) znly/protoc'
 alias ffmpeg='dockerrunuw docker.io/jrottenberg/ffmpeg:latest'
 alias gdal='dockerrunuw ghcr.io/osgeo/gdal:ubuntu-small-3.6.4'
 
-alias opsifyc='docker run --interactive --tty --platform linux/amd64 --rm \
+alias opsifyc='docker run --pull always --interactive --tty --platform linux/amd64 --rm \
 	-v "$HOME/.opsify/:/root/.opsify/" \
 	-v "$(PWD)/:/app/workdir/" \
 	-v "$HOME/.gitconfig:/root/.gitconfig" \
