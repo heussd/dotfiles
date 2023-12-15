@@ -50,6 +50,7 @@ require('apps-hotkeys')
 require('vim-cursor')
 -- require('window-move-resize') -- Not stable enough, replaced by Easy Move+Resize app
 require('window-management')
+require('window-management-next-window-fix')
 
 require("global-mute")
 require('menubar')
