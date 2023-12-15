@@ -4,19 +4,21 @@ number="$(pgrep $PROCESS)"
 
 
 declare -a workapps=(
-	"Google Chrome"
-	"Google Drive"
 	"Chat"
 	"Gmail"
+	"Google Calendar"
+	"Google Chrome"
+	"Google Drive"
+	"OneDrive"
    	"Dozer"
    	"MeetingBar"
-   	"Microsoft Teams classic"
+   	"Microsoft Teams (work or school)"
 )
 declare -a workapps_ko=(
 	"Microsoft Azure Storage Explorer"
 	"Microsoft Edge"
-	"Visual Studio Code"
 	"Teams" // No "MS" prefix to kill...
+	"Visual Studio Code"
 )
 
 declare -a nonworkapps=(
