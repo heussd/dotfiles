@@ -229,7 +229,6 @@ end
 
 #brew "podman"
 #cask "balenaetcher" # USB Flash tool
-#cask "steam"
 #cask "raspberry-pi-imager"
 #brew "figlet"
 #cask "discord"
@@ -239,3 +238,8 @@ end
 #cask "playonmac"
 #cask "teamviewer"
 #cask "qgis"
+#
+
+
+## Games
+cask "steam"
