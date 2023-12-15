@@ -58,7 +58,7 @@ module.exports = {
         },
         {
             match: finicky.matchHostnames(['teams.microsoft.com']),
-            browser: 'com.microsoft.teams',
+            browser: 'com.microsoft.teams2',
             url({ url }) {
                 return {
                     ...url,
