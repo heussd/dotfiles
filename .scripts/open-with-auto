@@ -7,7 +7,7 @@ function openApp() {
 	open -na "$1" --args "$(pwd)" &
 }
 
-[ -d ".devcontainer" ] && devcontainer open; exit
+[ -d ".devcontainer" ] && devcontainer open
 
 [ -d .git ] && (
 	stree . # SourceTree opens new instances when using open
@@ -21,6 +21,7 @@ function openApp() {
 [ -f "settings.gradle" ] && openApp "IntelliJ IDEA"
 [ -f "requirements.txt" ] && openApp "PyCharm"
 [ -f "go.mod" ] && openApp "GoLand"
+[ -f "go.work" ] && openApp "GoLand"
 
 
 read -t1 -r
