@@ -243,3 +243,7 @@ end
 
 ## Games
 cask "steam"
+
+
+## Safari
+mas "AdGuard for Safari", id: 1440147259
