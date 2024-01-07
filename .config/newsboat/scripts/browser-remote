@@ -2,5 +2,6 @@
 
 url=$(echo "$1" | tr -d '"')
 
+# shellcheck disable=SC2029
 ssh th@kabylake "open \"$url\""
 exit 0
