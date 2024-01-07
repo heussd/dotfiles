@@ -4,7 +4,7 @@ include "~/.config/newsboat/highlights"
 
 articlelist-format  "%f%?T?%-1T ?%t %> %T %D"
 
-browser 	 "~/.config/newsboat/scripts/browser-foreground"
+browser 	 "~/.config/newsboat/scripts/browser-remote"
 macro o 	 set browser "~/.config/newsboat/scripts/media" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser-foreground"
 
 

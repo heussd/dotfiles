@@ -1,0 +1,6 @@
+#!/bin/sh
+
+url=$(echo "$1" | tr -d '"')
+
+ssh th@kabylake "open \"$url\""
+exit 0
