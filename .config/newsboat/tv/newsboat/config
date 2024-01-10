@@ -4,12 +4,9 @@ include "~/.config/newsboat/highlights"
 
 articlelist-format  "%f%?T?%-1T ?%t %> %T %D"
 
-browser 	 "~/.config/newsboat/scripts/browser-remote"
-macro o 	 set browser "~/.config/newsboat/scripts/media" ; open-in-browser ; set browser "~/.config/newsboat/scripts/browser-foreground"
 
-
-# use "u" to open podcasts
 external-url-viewer "grep 'Podcast Download URL' | cut -c 23- | rev | cut -c19- | rev | mpv --playlist=- &> /dev/null &"
+bind-key p show-urls
 
 bookmark-cmd        "~/.config/newsboat/scripts/m3u"
 bookmark-autopilot  yes
@@ -28,3 +25,4 @@ ignore-article "*" "title =~ \"#shorts\""
 
 run-on-startup 	  	 "open"
 
+browser 	 "~/.config/newsboat/scripts/browser-remote"

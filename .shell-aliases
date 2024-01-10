@@ -132,8 +132,10 @@ customboat() {
 	rm "$XDG_DATA_HOME/newsboat/cache.db"
 }
 
-alias news='customboat "news"'
-alias tv='customboat "tv"'
+#alias news='customboat "news"'
+alias news="XDG_CONFIG_HOME=\"$HOME/.config/newsboat/news/\" XDG_DATA_HOME=\"$HOME/.local/share/newsboat/news/\" newsboat"
+#alias tv='customboat "tv"'
+alias tv="XDG_CONFIG_HOME=\"$HOME/.config/newsboat/tv/\" XDG_DATA_HOME=\"$HOME/.local/share/newsboat/tv/\" newsboat"
 
 
 

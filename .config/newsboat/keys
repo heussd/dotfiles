@@ -14,15 +14,25 @@ bind-key	O	open-in-browser-and-mark-read
 
 # Vim bindings
 unbind-key 	 j
-bind-key   	 j 	 next
+bind-key   	 j 	 down article
+bind-key   	 j 	 next articlelist
+bind-key   	 j 	 next feedlist
 unbind-key 	 J
-bind-key   	 J 	 next-feed
+bind-key   	 J 	 next article
+bind-key   	 J 	 next-feed articlelist
+bind-key   	 J 	 next-feed feedlist
 unbind-key 	 k
-bind-key   	 k 	 prev
+bind-key   	 k 	 up article
+bind-key   	 k 	 prev articlelist
+bind-key   	 k 	 prev feedlist 
 unbind-key 	 K
-bind-key   	 K 	 prev-feed
+bind-key   	 K 	 prev article
+bind-key   	 K 	 prev-feed articlelist
+bind-key   	 K 	 prev-feed feedlist
 unbind-key 	 l
-bind-key   	 l 	 open
+bind-key   	 l 	 open-in-browser article
+bind-key   	 l 	 open articlelist
+bind-key   	 l 	 open feedlist
 unbind-key 	 h
 bind-key   	 h 	 quit
 
