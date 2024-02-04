@@ -212,6 +212,7 @@ mas "Boop", id: 1518425043
 brew "terraform"
 brew "shellcheck"
 brew "hadolint"
+cask "dotnet-sdk"
 
 
 ## nats
