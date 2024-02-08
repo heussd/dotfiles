@@ -173,6 +173,7 @@ cask "imageoptim"
 cask "mpv"
 cask "vlc"
 cask "handbrake"
+cask "adapter" # General purpose video converter
 
 
 ## QuickLook
