@@ -196,7 +196,7 @@ cask "camunda-modeler"
 cask "google-cloud-sdk"
 cask "jetbrains-toolbox"
 cask "microsoft-azure-storage-explorer"
-cask "postman"
+#cask "postman" # RIP, replaced by bruno
 cask "bruno"
 mas "Xcode", id: 497799835
 cask "cyberduck"
