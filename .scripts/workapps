@@ -4,6 +4,7 @@ number="$(pgrep $PROCESS)"
 
 
 declare -a workapps=(
+	"Clockify Desktop"
 	"Gmail"
 	"Google Calendar"
 	"Google Chat"
