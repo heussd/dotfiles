@@ -14,6 +14,7 @@ module.exports = {
                 '*.pwc.de/*',
                 '*.replicon.com/*',
                 'gitlab.com/*',
+                'login.microsoftonline.com/*',
                 'statics.teams.cdn.office.net/*', // Teams link verification
             ],
             browser: 'Google Chrome',
