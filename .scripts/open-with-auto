@@ -7,12 +7,11 @@ function openApp() {
 	open -na "$1" --args "$(pwd)" &
 }
 
-[ -d ".devcontainer" ] && devcontainer open
-
 [ -d .git ] && (
 	stree . # SourceTree opens new instances when using open
-	code .
 )
+
+[ -d ".devcontainer" ] && devcontainer open && exit 0
 
 [ -f "package.json" ] && openApp "WebStorm"
 [ -f "pom.xml" ] && openApp "IntelliJ IDEA"
