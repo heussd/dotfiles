@@ -216,6 +216,10 @@ brew "hadolint"
 cask "dotnet-sdk"
 
 
+tap "Azure/kubelogin"
+brew "kubelogin"
+
+
 ## nats
 tap "nats-io/nats-tools"
 brew "nats-io/nats-tools/nats"

@@ -177,10 +177,14 @@ source-if-exist() { [[ -e $1 ]] && source "$1"; }
 # Load Host specific bash settings
 source-if-exist "${BASH_SOURCE[0]}.$SHORTHOSTNAME"
 
+
 function inc-install() { 
   npx google-artifactregistry-auth ~/.npmrc
   npm install $@
 }
+export KUBECONFIG="$(find ~/.kube/cm-shared-kubeconf/caas-de-cloud-* -type f -maxdepth 1 | tr '\n' ':')"
+
+
 function b64D() {
   echo $1 | base64 --decode
 }
