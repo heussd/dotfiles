@@ -49,7 +49,7 @@ auto: \
 
 .auto-requirements.txt: .requirements.txt
 	@-command -v pip3 && \
-		pip3 install --upgrade --requirement .requirements.txt && \
+		pip3 install --user --upgrade --requirement .requirements.txt && \
 		touch .auto-requirements.txt
 
 .auto-docker-compose.yml: .docker-compose.yml
@@ -106,7 +106,7 @@ clean-all:	## Cleans various places
 	@-rm -rf ~/Library/Developer/Xcode/DerivedData
 	@-rm -rf ~/Library/Developer/Xcode/Archives
 	@-rm -rf ~/Library/Developer/Xcode/iOS DeviceSupport/
-	@-rm -rf "$(brew --cache)"
+	@-rm -rf "$$(brew --cache)"
 	@-brew cleanup -s
 	@-docker system prune --all --force
 	@-docker volume prune
