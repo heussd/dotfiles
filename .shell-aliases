@@ -219,16 +219,6 @@ alias kitty-colors-white='kitty @ set-colors --all --configured ~/.config/kitty/
 
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
 # Kubectl
 export KUBECONFIG="${KUBECONFIG}:${HOME}/.kube/config:${HOME}/.kube/cm-cloud-dev:${HOME}/.kube/cm-cloud-stage:${HOME}/.kube/cm-cloud-prod"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -237,3 +227,10 @@ alias k="kubectl"
 
 # Declare everything in Golang as private, https://sourcehut.org/blog/2023-01-09-gomodulemirror/
 export GOPRIVATE=*
+
+
+# Lazy load nvm, based on https://medium.com/@dannysmith/little-thing-2-speeding-up-zsh-f1860390f92
+nvm() {
+  unset -f nvm
+  source $(brew --prefix nvm)/nvm.sh && nvm "$@"
+}

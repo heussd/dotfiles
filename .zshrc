@@ -1,3 +1,6 @@
+# profile zsh with zprof
+# zmodload zsh/zprof
+
 #if [ -z $TMUX ]; then;
 #	tmux -u;
 #	exit
@@ -13,13 +16,9 @@ antigen use oh-my-zsh
 antigen bundle editor
 antigen bundle history
 antigen bundle utility
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
 antigen bundle command-not-found
 
 # Specify additional external plugins we want
-antigen bundle smallhadroncollider/antigen-git-rebase
 antigen bundle zsh-users/zsh-autosuggestions
 
 auto-ls-ls-extended() {
@@ -46,7 +45,7 @@ export SPACESHIP_GCLOUD_SHOW=false
 export SPACESHIP_AZURE_SHOW=false
 export SPACESHIP_TERRAFORM_SHOW=false
 export SPACESHIP_HOST_SHOW=false
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#8a7575"
 
 # Load everything
 antigen apply
@@ -87,9 +86,6 @@ bindkey "^[[1;3D" backward-word
 # Suffix aliases
 #alias -s {sh,css,js,ts,html,md,txt}=code
 
-
-export NVM_DIR="/usr/local/opt/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
 [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/ ] && (
@@ -137,11 +133,14 @@ _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
 export FZF_COMPLETION_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
 export FZF_COMPLETION_TRIGGER='**'
 
+# https://medium.com/@dannysmith/little-thing-2-speeding-up-zsh-f1860390f92
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 
-_hasFolder ~/.nvm && export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
 export PATH="$PATH:/opt/homebrew/bin/"
