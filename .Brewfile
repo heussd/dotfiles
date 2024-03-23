@@ -74,8 +74,8 @@ brew "watch"
 
 
 ## Command line tools
-brew "bat"
-brew "glow" # Render markdown on the CLI
+#brew "bat"
+#brew "glow" # Render markdown on the CLI
 brew "eza" # a fork of the discontinued exa
 brew "w3m"
 brew "yq"
@@ -89,12 +89,12 @@ brew "howdoi"
 brew "newsboat"
 brew "the_silver_searcher"
 brew "thefuck"
-brew "transcrypt"
+#brew "transcrypt"
 brew "wget"
 brew "p7zip"
 brew "sqlite"
 brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
-brew "terminal-notifier"
+#brew "terminal-notifier"
 brew "markdownlint-cli"
 brew "lazygit"
 brew "rclone"
@@ -123,8 +123,8 @@ cask "tor-browser"
 cask "transmission"
 brew "imagemagick"
 mas "Disk Graph", id: 697942581
-mas "Ka-Block!", id: 1335413823
-mas "OwlOCR", id: 1499181666
+#mas "Ka-Block!", id: 1335413823
+#mas "OwlOCR", id: 1499181666
 mas "SleepTime", id: 465772885
 
 tap "marwanhawari/tap"
@@ -139,12 +139,12 @@ cask "font-sauce-code-pro-nerd-font"
 cask "font-humor-sans"
 cask "font-monaspace"
 
-
+ 
 ## Drivers
 tap "homebrew/cask-drivers"
 cask "logi-options-plus"
-
-
+ 
+ 
 ## Office
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
@@ -155,13 +155,13 @@ cask "clockify"
 mas "MeetingBar", id: 1532419400
 cask "libreoffice"
 
-
+ 
 ## Voice / Com
 cask "signal"
 cask "microsoft-teams"
-
-
-## Image
+ 
+ 
+ ## Image
 cask "gimp"
 cask "inkscape"
 mas "GIPHY CAPTURE", id: 668208984
@@ -169,7 +169,7 @@ mas "GIPHY CAPTURE", id: 668208984
 cask "imageoptim"
 
 
-## Audio / Video
+# # Audio / Video
 cask "mpv"
 cask "vlc"
 cask "handbrake"
@@ -191,11 +191,11 @@ brew "node"
 brew "nvm"
 brew "sops"
 brew "yarn"
-cask "azure-data-studio"
+#cask "azure-data-studio"
 cask "camunda-modeler"
 cask "google-cloud-sdk"
 cask "jetbrains-toolbox"
-cask "microsoft-azure-storage-explorer"
+#cask "microsoft-azure-storage-explorer"
 #cask "postman" # RIP, replaced by bruno
 cask "bruno"
 mas "Xcode", id: 497799835
@@ -207,13 +207,13 @@ cask "meld"
 brew "glab"
 cask "yed"
 mas "CotEditor", id: 1024640650
-brew "helm"
+#brew "helm"
 cask "devtoys"
 mas "Boop", id: 1518425043
 brew "terraform"
 brew "shellcheck"
 brew "hadolint"
-cask "dotnet-sdk"
+#cask "dotnet-sdk"
 
 
 tap "Azure/kubelogin"
@@ -237,9 +237,6 @@ end
 #cask "balenaetcher" # USB Flash tool
 #cask "raspberry-pi-imager"
 #brew "figlet"
-#cask "discord"
-#cask "epic-games"
-#cask "battle-net"
 #cask "sweet-home3d"
 #cask "playonmac"
 #cask "teamviewer"
@@ -248,7 +245,10 @@ end
 
 
 ## Games
-cask "steam"
+#cask "steam"
+#cask "discord"
+#cask "epic-games"
+#cask "battle-net"
 
 
 ## Safari
