@@ -14,7 +14,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll": true
+        "source.fixAll": "explicit"
     },
     "workbench.iconTheme": "file-icons",
     "workbench.editor.enablePreview": false,
@@ -24,5 +24,6 @@
     "workbench.preferredDarkColorTheme": "GitHub Dark",
     "workbench.preferredHighContrastLightColorTheme": "GitHub Light High Contrast",
     "workbench.preferredHighContrastColorTheme": "GitHub Dark High Contrast",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "remote.autoForwardPortsSource": "hybrid"
 }
