@@ -28,7 +28,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	tool = meld
 	trustExitCode = true
 [merge]
-	tool = meld
+	tool = kdiff3
 	conflictStyle = zdiff3
 
 
@@ -81,6 +81,9 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
 
 	mirror-to-bitbucket = "!$HOME/.git-scripts/mirror-to-bitbucket"
+
+	# https://stackoverflow.com/questions/6127328/how-do-i-delete-all-git-branches-which-have-been-merged
+	delete-merged = "!git branch --merged | grep -Ev \"(^\\*|master|main|dev)\" | xargs git branch -d"
 
 [include]
 	path = ~/.git-over-ssh-enabled
