@@ -17,6 +17,7 @@ unbind-key 	 j
 bind-key   	 j 	 down article
 bind-key   	 j 	 next articlelist
 bind-key   	 j 	 next feedlist
+bind-key   	 j 	 next tagselection
 unbind-key 	 J
 bind-key   	 J 	 next article
 bind-key   	 J 	 next-feed articlelist
@@ -25,6 +26,7 @@ unbind-key 	 k
 bind-key   	 k 	 up article
 bind-key   	 k 	 prev articlelist
 bind-key   	 k 	 prev feedlist 
+bind-key   	 k 	 prev tagselection
 unbind-key 	 K
 bind-key   	 K 	 prev article
 bind-key   	 K 	 prev-feed articlelist
@@ -33,6 +35,7 @@ unbind-key 	 l
 bind-key   	 l 	 open-in-browser article
 bind-key   	 l 	 open articlelist
 bind-key   	 l 	 open feedlist
+bind-key   	 l 	 open tagselection
 unbind-key 	 h
 bind-key   	 h 	 quit
 
