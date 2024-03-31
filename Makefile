@@ -2,100 +2,14 @@ SHELL         	 := bash
 .SHELLFLAGS   	 := -eu -o pipefail -c
 MAKEFLAGS     	 += --warn-undefined-variables
 MAKEFLAGS     	 += --no-builtin-rules
-DOTFILES_BARE 	 := $(HOME)/.dotfiles-bare-repo/
-DOTFILES_BARE_P  := $(HOME)/.dotfiles-private-bare-repo/
 HOST          	 := $$(hostname | cut -d"." -f 1)
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 
 
-all: hostname auto status-dotfiles delete-old-states
+# https://gist.github.com/prwhite/8168133?permalink_comment_id=3456785#gistcomment-3456785
+help: 
+	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
-hostname:
-	@-echo $(HOST)
-
-status-dotfiles:
-	@-echo "dotfiles @ $$(git --git-dir=$(DOTFILES_BARE) log --oneline | head -n 1)"
-	@-echo -n -e "\033[31m"
-	@-git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME) status --porcelain
-	@-git --git-dir=$(DOTFILES_BARE_P) --work-tree=$(HOME) status --porcelain
-	@-echo -n -e "\033[0m"
-
-auto: \
-	.auto-Brewfile \
-	.auto-Stewfile \
-	.auto-requirements.txt \
-	.auto-docker-compose.yml \
-	.auto-vscode-packages \
-	.auto-$(OS_NAME)
-
-.auto-linux: .auto-apt-packages
-	@lsb_release --short --description
-
-.auto-darwin: .auto-macos-dock .auto-macos-defaults
-	@echo "$$(sw_vers -productName) $$(sw_vers -productVersion) $$(sw_vers -buildVersion)"
-
-
-.auto-Brewfile: .Brewfile
-	@-command -v brew && \
-		HOMEBREW_CASK_OPTS="--no-quarantine --require-sha" \
-		brew update && \
-		brew bundle install -v --cleanup --force --file=.Brewfile && \
-		touch .auto-Brewfile
-
-.auto-Stewfile: .Stewfile
-	@-command -v stew && \
-		stew install .Stewfile && \
-		touch .auto-Stewfile
-
-.auto-requirements.txt: .requirements.txt
-	@-command -v pip3 && \
-		pip3 install --user --upgrade --requirement .requirements.txt && \
-		touch .auto-requirements.txt
-
-.auto-docker-compose.yml: .docker-compose.yml
-	@-command -v docker-compose && \
-		docker-compose -f .docker-compose.yml pull && \
-		touch .auto-docker-compose.yml
-
-.auto-vscode-packages: .vscode-packages
-	@-command -v code && \
-		while read -r package; do \
-			code --install-extension "$$package"; \
-		done < .vscode-packages && \
-		touch .auto-vscode-packages
-
-
-
-.auto-macos-dock: .macos-dock .Brewfile
-	defaults write com.apple.dock persistent-apps -array
-	@while read -r package; do \
-		app="$${package/#\~/$$HOME}"; \
-		[[ -d "$$app.app" ]] && echo "$$app.app" && defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$$app.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>" || true; \
-	done < .macos-dock
-	defaults write com.apple.Dock size-immutable -bool true
-	defaults write com.apple.Dock contents-immutable -bool true
-	killall Dock
-	@touch .auto-macos-dock
-
-.auto-macos-defaults: .macos-defaults .Brewfile
-	@source .macos-defaults
-	@touch .auto-macos-defaults
-
-
-.auto-apt-packages: .apt-packages
-	xargs -d '\n' -- sudo apt-get install -y < .apt-packages
-	@touch .auto-apt-packages
-
-
-upgrade-all:
-	@-rm .auto-*
-	$(MAKE)
-
-upgrade-software: redo-Brewfile
-
-redo-%:
-	rm .auto-$*
-	$(MAKE) .auto-$*
 
 
 clean-all:	## Cleans various places
@@ -111,7 +25,6 @@ clean-all:	## Cleans various places
 	@-docker system prune --all --force
 	@-docker volume prune
 	@-rm -rf ~/.m2/*
-.PHONY: clean 
 
 
 clean-downloads: ## Cleans old downloads
@@ -155,16 +68,13 @@ force-push:
 
 
 
-config-dock: redo-macos-dock
-config-defaults: redo-macos-defaults
-
 config-git-over-ssh:
 	@ln -s $(HOME)/.git-over-ssh $(HOME)/.git-over-ssh-enabled
 
 config-zsh-as-default:
 	@chsh -s $(which zsh) $(whoami)
 
-config-wallpaper: .esoc0932a.jpg config-wallpaper-$(OS_NAME)
+config-wallpaper: .esoc0932a.jpg config-wallpaper-$(OS_NAME) ## Set my default wallpaper
 .esoc0932a.jpg:
 	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O .esoc0932a.jpg
 config-wallpaper-linux:
@@ -201,11 +111,6 @@ config-apt-no-sudo-passwd:
 config-disable-unattended-updates:
 	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
 
-
-FIREFOX_PROFILES_LOCATION=$$HOME/Library/Application\ Support/Firefox/Profiles/
-ifeq ("$(OS_NAME)","linux")
-FIREFOX_PROFILES_LOCATION=$$HOME/.mozilla/firefox/
-endif
 backup:
 	sudo sysctl debug.lowpri_throttle_enabled=0
 	BORG_PASSCOMMAND='keepasspw-fzf' \
@@ -226,9 +131,4 @@ backup:
 	tmutil startbackup --rotation
 
 
-delete-old-states:
-	@find "$$HOME" \( -name ".auto-Brewfile" \
-		-o -name ".auto-requirements.txt" \) \
-		-maxdepth 1 -mmin +$$((7*24*60)) \
-		-delete \
-		-exec echo "{} was outdated and has been removed." \; 
+#include .config/Makefile

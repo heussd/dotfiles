@@ -1,28 +1,58 @@
-# Console prints may be skipped
-if [ "$PWD" = "$HOME" ]; then
+# This file is called right before user prompt is available. 
 
-	make
-
+system_info() {
+	hostname
+	_isMacOS && (
+		echo "$(sw_vers -productName) $(sw_vers -productVersion) $(sw_vers -buildVersion)"
+	)
+	_isLinux && (
+		lsb_release --short --description
+	)
+}
+zpool_status() {
 	_hasCmd zpool && (
 		zpool status && echo
 	)
-
-#	_hasCmd docker && (
-#		docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
-#	)
-		
+}
+docker_running() {
+	_hasCmd docker && (
+		docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Ports}}" 2> /dev/null | tail -n +2 && echo
+	)
+}
+repair_macos_make() {
 	# Updates on macOS might require reinstallation of developer tools
 	_hasCmd make || (
 		_isMacOS && xcode-select --install
 	)
+}
+dotfiles_status() {
+	_hasCmd .f && (
+		echo "dotfiles @ $(.f log --oneline | head -n 1)"
+		echo -n -e "\033[31m"
+		.f status --porcelain
+		.fp status --porcelain
+		echo -n -e "\033[0m"
+	)
+}
+resume_screen() {
+	# Try to resume screen session
+	_hasCmd screen && (
+		if [ $TERM != 'screen' ]; then
+		  screen -r > /dev/null
+		fi
+	)
+}
+auto_make() {
+	make -f .auto.Makefile
+}
+
+
+if [ "$PWD" = "$HOME" ]; then
+	system_info
+	repair_macos_make
+	zpool_status
+	dotfiles_status
+	auto_make
 fi
 
-# Try to resume screen session
-_hasCmd screen && (
-	if [ $TERM != 'screen' ]; then
-	  screen -r > /dev/null
-	fi
-)
-
-
-# motd: hostname version
+resume_screen
