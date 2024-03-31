@@ -203,7 +203,8 @@ cask "cyberduck"
 cask "db-browser-for-sqlite"
 cask "gephi"
 cask "hex-fiend"
-cask "meld"
+#cask "meld" # deprecated, replaced with kdiff
+cask "kdiff3"
 brew "glab"
 cask "yed"
 mas "CotEditor", id: 1024640650

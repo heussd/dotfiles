@@ -25,8 +25,9 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 
 # Further config no longer needed or even causing conflicts, e.g. https://stackoverflow.com//questions/35642530/git-difftool-not-opening-sometimes#answer-41971435
 [diff]
-	tool = meld
+	tool = kdiff3
 	trustExitCode = true
+	guitool = kdiff3
 [merge]
 	tool = kdiff3
 	conflictStyle = zdiff3
