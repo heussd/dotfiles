@@ -48,7 +48,7 @@ if ! command -v "git" &> /dev/null; then
 	case "$OS_NAME" in
 	darwin*)
 		xcode-select --install || true
-		;; 
+		;;
 	linux*)
 		sudo apt install -y curl make git
 		;;
@@ -82,6 +82,7 @@ fi
 if [ ! -d ".dotfiles-bare-repo/" ]; then
 	coGitBare "https://github.com/heussd/dotfiles.git" "$HOME/" ".dotfiles-bare-repo/"
 	echo "Onboarding complete. Re-execute for private dotfiles."
+	exit 0
 else
 	echo "Skipping dotfiles onboarding as it is already onboarded"
 fi

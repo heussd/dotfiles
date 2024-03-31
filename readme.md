@@ -26,13 +26,13 @@ In the great tradition of sharing dotfiles, this repository contains various con
 ### macOS
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
+curl -fsSL https://raw.githubusercontent.com/heussd/dotfiles/main/.install.sh | bash
 ```
 
 ### Ubuntu
 
 ```sh
-wget -O- https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfiles.sh | bash
+wget -O- https://raw.githubusercontent.com/heussd/dotfiles/main/.install.sh | bash
 ```
 
 ### devcontainer.json
@@ -43,7 +43,7 @@ wget -O- https://raw.githubusercontent.com/heussd/dotfiles/main/.onboard-dotfile
         "settings": {
             "dotfiles.repository": "https://github.com/heussd/dotfiles",
             "dotfiles.targetPath": "~/.dotfiles",
-            "dotfiles.installCommand": ".onboard-dotfiles.sh",
+            "dotfiles.installCommand": ".install.sh",
         }
     }
 }
