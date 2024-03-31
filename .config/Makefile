@@ -6,27 +6,35 @@ MAKEFLAGS	+= -s
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 
 
-$(HOME)/.ssh/id_rsa.pub:
-	ssh-keygen -f $(HOME)/.ssh/id_rsa -P "" -v
+macos-login-items: ## Configure macOS login items
+	osascript -e 'tell application "System Events"' \
+		-e 'repeat with i in (get the name of every login item)' \
+		-e 'delete login item i' \
+		-e 'end repeat' \
+		-e 'end tell'
+	sudo xattr -cr "$$HOME/Library/startup.command"
+	osascript -e "tell application \"System Events\" to make login item at end with properties {path:  POSIX path of (path to home folder) & \"/Library/startup.command\", hidden:false}"
 
 
-macos-settings:
-	defaults write com.apple.universalaccess reduceMotion 1
-	sudo tmutil addexclusion -p /Applications
-	sudo tmutil addexclusion -p ~/data
-	sudo tmutil addexclusion -p ~/Downloads
-	# Homebrew folders
-	sudo tmutil addexclusion -p /usr/local/Caskroom
-	sudo tmutil addexclusion -p /usr/local/Cellar
-	sudo tmutil addexclusion -p /usr/local/Homebrew
+macos-lock-autostart: ## Lock auto start items
+	@-SetFile -a L "$$HOME/Library/LaunchAgents"
+	@-sudo rm /Library/LaunchAgents/*
+	@-sudo SetFile -a L "/Library/LaunchAgents"
+	@-sudo rm /Library/LaunchDaemons/*
+	@-sudo SetFile -a L "/Library/LaunchDaemons"
 
-	sudo tmutil addexclusion -p "~/Library/Application Support/Steam"
-		
-	open "Apple Settings.mobileconfig"
-	open -b com.apple.systempreferences /System/Library/PreferencePanes/Profiles.prefPane
 
-	# Required to apply keyboard settings
-	#osascript -e 'tell application "System Events" to log out'
+macos-lockscreen: ## Configure macOS lockscreen
+	@sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If you found this device, please contact $$(osascript -e 'tell application "Contacts" to get value of email 1 of my card') / $$(osascript -e 'tell application "Contacts" to get value of phone 1 of my card')"
+	#@tccutil reset AddressBook
+
+
+git-over-ssh: ## Configure git to prefer SSH
+	@ln -s $(HOME)/.git-over-ssh $(HOME)/.git-over-ssh-enabled
+
+
+zsh-as-default: ## Configure ZSH as default shell
+	@chsh -s $(which zsh) $(whoami)
 
 
 reset-firefox-permissions:
@@ -34,21 +42,11 @@ reset-firefox-permissions:
 	tccutil reset Camera org.mozilla.firefox
 	
 
-.PHONY: linux-install-docker
-linux-install-docker: ## Install Docker and docker-compose
+linux-install-docker: ## Install Docker
 	@curl -fsSL https://get.docker.com/ -o - | sh
 	@sudo usermod -aG docker $(USER)
-	@sudo apt-get install -y python3-pip python3-dev
-	@sudo pip3 install docker-compose
-	docker-compose --version
 
-.PHONY: linux-install-veracrypt
-linux-install-veracrypt: ## Install Veracrypt from a PPA
-	sudo add-apt-repository ppa:unit193/encryption
-	sudo apt update
-	sudo apt-get install veracrypt 
 
-.PHONY: linux-install-cryptomator
 linux-install-cryptomator: ## Install Cryptomator from a PPA
 	sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
 	sudo apt update
@@ -67,7 +65,7 @@ macos-xcode: ## Repair Xcode installation
 
 
 .PHONY: macos-reset-privacy-permissions
-macos-reset-privacy-permissions: ## Resets privacy settings
+macos-reset-privacy-perms: ## Resets privacy settings
 	@tccutil reset Accessibility
 	@tccutil reset AddressBook
 	@tccutil reset AppleEvents
@@ -77,7 +75,6 @@ macos-reset-privacy-permissions: ## Resets privacy settings
 	@killall Dock
 
 
-# https://github.com/Homebrew/brew/issues/4388#issuecomment-401364773
 .PHONY: macos-fix-brew
 macos-fix-brew: ## Fixes brew warnings, https://github.com/Homebrew/brew/issues/4388#issuecomment-401364773
 	@brew cleanup 2>&1 | grep "Warning: Skipping" | awk -F: '{print $$2}' | awk '{print $$2}' | xargs brew upgrade
@@ -87,3 +84,21 @@ macos-fix-brew: ## Fixes brew warnings, https://github.com/Homebrew/brew/issues/
 .PHONY: macos-disable-timemachine-throttling-temporarily
 macos-disable-timemachine-throttling-temporarily:
 	@sudo sysctl debug.lowpri_throttle_enabled=0
+
+
+config-wallpaper: .esoc0932a.jpg config-wallpaper-$(OS_NAME) ## Set my default wallpaper
+.esoc0932a.jpg:
+	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O ~/.esoc0932a.jpg
+config-wallpaper-linux:
+	@feh --bg-scale .esoc0932a.jpg
+config-wallpaper-darwin:
+	@osascript -e 'tell application "System Events" to tell every desktop to set picture to ((path to home folder as text) & ".esoc0932a.jpg")'
+
+
+linux-apt-no-sudo-passwd: ## Allow apt without admin password
+	echo "%sudo   ALL=(ALL:ALL) NOPASSWD:/usr/bin/apt" | sudo tee /etc/sudoers.d/010_apt-nopasswd
+
+
+linux-disable-unattended-updates: ## Disable unattended updates
+	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
+
