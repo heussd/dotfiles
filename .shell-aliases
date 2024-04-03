@@ -182,7 +182,6 @@ function inc-install() {
   npx google-artifactregistry-auth ~/.npmrc
   npm install $@
 }
-export KUBECONFIG="$(find ~/.kube/cm-shared-kubeconf/caas-de-cloud-* -type f -maxdepth 1 | tr '\n' ':')"
 
 
 function b64D() {
@@ -220,7 +219,7 @@ alias kitty-colors-white='kitty @ set-colors --all --configured ~/.config/kitty/
 
 
 # Kubectl
-export KUBECONFIG="${KUBECONFIG}:${HOME}/.kube/config:${HOME}/.kube/cm-cloud-dev:${HOME}/.kube/cm-cloud-stage:${HOME}/.kube/cm-cloud-prod"
+_hasFolder "${HOME}/.kube" && export KUBECONFIG="${KUBECONFIG}:${HOME}/.kube/config:${HOME}/.kube/cm-cloud-dev:${HOME}/.kube/cm-cloud-stage:${HOME}/.kube/cm-cloud-prod"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k="kubectl"
 
