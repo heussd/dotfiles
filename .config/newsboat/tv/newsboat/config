@@ -26,3 +26,7 @@ ignore-article "*" "title =~ \"#shorts\""
 run-on-startup 	  	 "open"
 
 browser 	 "~/.config/newsboat/scripts/browser-remote"
+
+
+bind-key	O	open-in-browser
+bind-key	o	open-in-browser-and-mark-read
