@@ -2,6 +2,7 @@ SHELL         	 := bash
 .SHELLFLAGS   	 := -eu -o pipefail -c
 MAKEFLAGS     	 += --warn-undefined-variables
 MAKEFLAGS     	 += --no-builtin-rules
+MAKEFLAGS     	 += --silent
 HOST          	 := $$(hostname | cut -d"." -f 1)
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 DOTFILES_BARE 	 := $(HOME)/.dotfiles-bare-repo/
@@ -57,22 +58,22 @@ auto: \
 		touch .auto-Brewfile
 
 .auto-Stewfile: .Stewfile
-	@-command -v stew && \
+	@-command -v stew &> /dev/null && \
 		stew install .Stewfile && \
 		touch .auto-Stewfile
 
 .auto-requirements.txt: .requirements.txt
-	@-command -v pip3 && \
+	@-command -v pip3 &> /dev/null && \
 		pip3 install --user --upgrade --requirement .requirements.txt && \
 		touch .auto-requirements.txt
 
 .auto-docker-compose.yml: .docker-compose.yml
-	@-command -v docker-compose && \
+	@-command -v docker &> /dev/null && \
 		docker-compose -f .docker-compose.yml pull && \
 		touch .auto-docker-compose.yml
 
 .auto-vscode-packages: .vscode-packages
-	@-command -v code && \
+	@-command -v code &> /dev/null && \
 		while read -r package; do \
 			code --install-extension "$$package"; \
 		done < .vscode-packages && \
