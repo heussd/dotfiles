@@ -82,9 +82,6 @@ alias gp='git pull --rebase origin'
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 alias ge='git ls-files | fzf --preview "bat --style=numbers --color=always --line-range :500 {}" | xargs -o vim; git status; unset GIT_DIR; unset GIT_WORK_TREE'
 
-alias pip=pip3
-
-alias gita="python3 -m gita"
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'
 alias dotfiles-private='git --git-dir=$HOME/.dotfiles-private-bare-repo/ --work-tree=$HOME/'

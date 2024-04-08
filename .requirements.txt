@@ -2,7 +2,5 @@
 bitbucket-cli
 gita
 pysummarization
-shyaml
 slmd
 yamllint
-yt-dlp

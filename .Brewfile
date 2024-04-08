@@ -71,6 +71,9 @@ cask "keepassxc"
 cask "keka"
 cask "visual-studio-code"
 brew "watch"
+brew "yt-dlp"
+brew "bat"
+brew "pipx"
 
 
 ## Command line tools

@@ -12,7 +12,7 @@ auto: \
 	.auto-pull-dotfiles \
 	.auto-Brewfile \
 	.auto-Stewfile \
-	.auto-requirements.txt \
+	.auto-pipx \
 	.auto-docker-compose.yml \
 	.auto-vscode-packages \
 	.auto-$(OS_NAME) \
@@ -79,11 +79,17 @@ auto: \
 		done < .vscode-packages && \
 		touch .auto-vscode-packages
 
+.auto-pipx: .pipx-packages
+	@-command -v pipx &> /dev/null && \
+		while read -r package; do \
+			pipx install "$$package" > /dev/null ; \
+		done <".pipx-packages" && \
+		touch .auto-pipx
 
 delete-old-states:
 	@find "$$HOME" \( \
 		-name ".auto-Brewfile" -o \
-		-name ".auto-requirements.txt" \
+		-name ".auto-pipx" \
 		\) \
 		-maxdepth 1 -mmin +$$((7*24*60)) \
 		-delete \
