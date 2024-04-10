@@ -12,6 +12,7 @@ module.exports = {
             match: [
                 '*.pwc.com/*',
                 '*.pwc.de/*',
+                '*.pwcinternal.com/*',
                 '*.replicon.com/*',
                 'gitlab.com/*',
                 'login.microsoftonline.com/*',
