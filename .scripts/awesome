@@ -1,0 +1,14 @@
+#!/bin/bash
+
+AWESOME=$TH_PROJECTS_FOLDER/awesome-templates/
+
+template=$(find "$AWESOME" \
+	-maxdepth 1 \
+	-not -path '*/.*' \
+	-not -path '*/' \
+	| fzf)
+
+if [ -n "$template" ]; then
+	cp -Rv -n "$template"/. .
+fi
+
