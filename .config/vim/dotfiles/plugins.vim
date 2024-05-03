@@ -9,5 +9,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'morhetz/gruvbox'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'zivyangll/git-blame.vim'
 call plug#end()
 
