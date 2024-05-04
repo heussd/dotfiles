@@ -87,11 +87,12 @@ auto: \
 		touch .auto-pipx
 
 delete-old-states:
-	@find "$$HOME" \( \
+	@find "$$HOME" \
+		-maxdepth 1 -mmin +$$((7*24*60)) \
+		\( \
 		-name ".auto-Brewfile" -o \
 		-name ".auto-pipx" \
 		\) \
-		-maxdepth 1 -mmin +$$((7*24*60)) \
 		-delete \
 		-exec echo "{} was outdated and has been removed." \;
 
