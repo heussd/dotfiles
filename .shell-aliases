@@ -61,7 +61,7 @@ alias halt='sudo halt'
 
 alias l='ls -lh'
 alias ll='l -ltr'
-alias la='l -A'
+alias la='ls -lha'
 alias mv='mv -v'
 alias reboot='sudo reboot'
 
@@ -148,6 +148,7 @@ alias add-url-to-diary="~/.config/newsboat/scripts/vimwiki"
 
 function apple-app-id() { osascript -e 'id of app "'$1'"'; }
 
+ls-extended() { ls -lart; }
 
 alias exa="eza"
 _hasCmd "eza" && ls-extended() {
@@ -163,7 +164,8 @@ _hasCmd "eza" && ls-extended() {
 		eval "${gitcmd} status -s";
 		eval "${gitcmd} remote -v | head -n 1 | grep gitlab.com > /dev/null && glab ci list --per-page 2";
 	fi
-} || ls-extended() { ls -lart }
+}
+
 _hasCmd "eza" && alias l='ls-extended'
 
 
