@@ -33,6 +33,7 @@ antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 
 antigen theme spaceship-prompt/spaceship-prompt
+#PROMPT='> '
 
 
 antigen bundle joshskidmore/zsh-fzf-history-search
