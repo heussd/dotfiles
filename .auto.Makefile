@@ -13,7 +13,7 @@ auto: \
 	.auto-Brewfile \
 	.auto-Stewfile \
 	.auto-pipx \
-	.auto-docker-compose.yml \
+	.auto-compose.yml \
 	.auto-vscode-packages \
 	.auto-$(OS_NAME) \
 	delete-old-states
@@ -67,10 +67,10 @@ auto: \
 		pip3 install --user --upgrade --requirement .requirements.txt && \
 		touch .auto-requirements.txt
 
-.auto-docker-compose.yml: .docker-compose.yml
+.auto-compose.yml: .compose.yml
 	@-command -v docker &> /dev/null && \
-		docker-compose -f .docker-compose.yml pull && \
-		touch .auto-docker-compose.yml
+		docker compose -f .compose.yml pull && \
+		touch .auto-compose.yml
 
 .auto-vscode-packages: .vscode-packages
 	@-command -v code &> /dev/null && \
