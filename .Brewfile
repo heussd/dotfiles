@@ -256,4 +256,4 @@ end
 
 
 ## Safari
-mas "AdGuard for Safari", id: 1440147259
+#mas "AdGuard for Safari", id: 1440147259
