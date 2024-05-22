@@ -12,3 +12,6 @@ inoremap <c-@> <c-n>
 
 map <s-j> <S-}>
 map <s-k> <S-{>
+
+
+map <C-F> :GFiles <CR>
