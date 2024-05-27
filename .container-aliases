@@ -1,6 +1,9 @@
 #!/bin/bash
 # shellcheck disable=SC1004
 
+_hasCmd "docker" || return 0 
+
+
 dockerrun() { eval docker run --rm --interactive --tty "$*"; }
 dockerrunu() { eval dockerrun --user="$(id -u):$(id -g)" "$*"; }
 dockerrunuw() { eval dockerrunu --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" "$*"; }

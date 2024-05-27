@@ -1,20 +1,56 @@
 /Applications/Firefox
-/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
 /Applications/kitty
+/System/Applications/Mail
 /System/Applications/Calendar
-/System/Applications/Notes
+/Applications/Microsoft Teams (work or school)
+/Applications/Signal
+#/System/Applications/Notes
 /System/Applications/Reminders
+#/System/Applications/Photos
+#/System/Applications/Music
+#/System/Applications/TV
+/Applications/Microsoft Edge
+#/Applications/Google Chrome
+#/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
+/Applications/Clockify Desktop
+#/Applications/KeePassXC
+#/Applications/Cryptomator
 /Applications/Keka
-/Applications/VLC
+#/Applications/VLC
+#/Applications/mpv
 /Applications/MacVim
 /Applications/CotEditor
 /Applications/Visual Studio Code
+#/System/Applications/Preview
 /Applications/Microsoft Azure Storage Explorer
 /Applications/Boop
+/Applications/DevToys
+#Applications/Meld
+#Applications/DiffMerge
+#Applications/Sourcetree
+/Applications/Postman
 /Applications/Bruno
-~/Applications/Aqua
-~/Applications/Goland
-~/Applications/IntelliJ IDEA Ultimate
-~/Applications/PyCharm Professional Edition
-~/Applications/Webstorm
-~/Applications/DataGrip
+#/Applications/Insomnia
+#/Applications/RapidAPI
+#~/Applications/Aqua
+#~/Applications/Goland
+#~/Applications/IntelliJ IDEA Ultimate
+#~/Applications/PyCharm Professional Edition
+#~/Applications/Webstorm
+#~/Applications/DataGrip
+#/Applications/Camunda Modeler
+#/Applications/draw.io
+#/Applications/yEd
+#/Applications/MacDown
+#/Applications/LibreOffice
+#/Applications/Pages
+#/Applications/Numbers
+#/Applications/Keynote
+#/Applications/Microsoft Powerpoint
+#/Applications/Microsoft Excel
+#/Applications/Microsoft Word
+#/Applications/ColorSlurp
+#/Applications/Inkscape
+#/Applications/GIMP
+#/Applications/krita
+#/System/Applications/System Settings

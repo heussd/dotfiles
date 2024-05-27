@@ -5,11 +5,6 @@ number="$(pgrep $PROCESS)"
 
 declare -a workapps=(
 	"Clockify Desktop"
-	"Gmail"
-	"Google Calendar"
-	"Google Chat"
-	"Google Chrome"
-	"Google Drive"
 	"OneDrive"
    	"MeetingBar"
    	"Microsoft Teams (work or school)"
