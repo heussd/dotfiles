@@ -162,7 +162,6 @@ _hasCmd "eza" && ls-extended() {
 	fi
 	if [ -d "$PWD/.git" ] || [ "$PWD" = "$HOME" ]; then
 		eval "${gitcmd} status -s";
-		eval "${gitcmd} remote -v | head -n 1 | grep gitlab.com > /dev/null && glab ci list --per-page 2";
 	fi
 }
 
