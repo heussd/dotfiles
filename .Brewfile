@@ -39,7 +39,7 @@ cask "hammerspoon"
 cask "keepassxc"
 cask "kitty"
 cask "maestral"
-cask "mpv"
+cask "stolendata-mpv" # https://github.com/orgs/Homebrew/discussions/5270
 cask "appcleaner"
 cask "vlc"
 
@@ -173,8 +173,8 @@ cask "imageoptim"
 
 
 # # Audio / Video
-cask "mpv"
 cask "vlc"
+cask "stolendata-mpv" # https://github.com/orgs/Homebrew/discussions/5270
 cask "handbrake"
 cask "adapter" # General purpose video converter
 
