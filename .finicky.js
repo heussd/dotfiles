@@ -32,6 +32,7 @@ module.exports = {
             match: finicky.matchHostnames([
                 'cloudapp.azure.com',
                 '*.microsoft.com',
+                'urldefense.com',
                 'microsoftonline.com',
                 'sharepoint.com',
             ]),
