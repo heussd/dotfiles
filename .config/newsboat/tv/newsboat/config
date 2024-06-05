@@ -21,6 +21,7 @@ ignore-article "*" "title =~ \"(Audiodeskription)\""
 ignore-article "*" "title =~ \"- Audiodeskription\""
 ignore-article "*" "title =~ \"Trailer: \""
 ignore-article "*" "title =~ \"#shorts\""
+ignore-article "*" "title =~ \"Fast Lap | auto motor und sport$\""
 
 
 run-on-startup 	  	 "open"
