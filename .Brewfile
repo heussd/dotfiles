@@ -31,24 +31,21 @@ end
 if system 'hostname | grep "kabylake" > /dev/null'
 
 brew "git"
-brew "newsboat"
-brew "p7zip"
+#brew "newsboat"
+#brew "p7zip"
 cask "cryptomator", greedy: true
 cask "firefox"
 cask "hammerspoon"
 cask "keepassxc"
 cask "kitty"
 cask "maestral"
-cask "stolendata-mpv" # https://github.com/orgs/Homebrew/discussions/5270
 cask "appcleaner"
 cask "vlc"
 
 tap "homebrew/cask-fonts"
 cask "font-monaspace"
 
-tap "homebrew/cask-drivers"
-cask "logi-options-plus"
-cask "cursorcerer"
+#cask "cursorcerer"
 
 else
 
