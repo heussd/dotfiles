@@ -8,7 +8,7 @@ defaults write -g AppleReduceDesktopTinting -bool yes
 defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
 
 # Displays have separate spaces
-defaults write com.apple.spaces "spans-displays" -bool "false"
+defaults write com.apple.spaces "spans-displays" -bool "true"
 
 killall SystemUIServer 
 
