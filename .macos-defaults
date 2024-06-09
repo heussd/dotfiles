@@ -22,7 +22,7 @@ defaults write com.apple.dock largesize -float 128
 defaults write com.apple.dock wvous-bl-corner -int 2 # Mission Control
 defaults write com.apple.dock wvous-br-corner -int 4 # Show Desktop
 
-defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock show-recents -bool true
 defaults write com.apple.dock show-recent-count -int 3
 
 killall Dock
