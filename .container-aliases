@@ -12,6 +12,7 @@ docker-logs() {
 docker logs -f "$(docker ps | fzf | awk '{print $1}')"
 }
 
+alias d='docker'
 alias dc='docker compose'
 alias dcd='docker compose down --remove-orphans'
 alias podman-nuke='podman rm -f'
