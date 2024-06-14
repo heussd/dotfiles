@@ -196,6 +196,7 @@ cask "jetbrains-toolbox"
 #cask "microsoft-azure-storage-explorer"
 #cask "postman" # RIP, replaced by bruno
 cask "bruno"
+cask "insomnia"
 mas "Xcode", id: 497799835
 cask "cyberduck"
 cask "db-browser-for-sqlite"
