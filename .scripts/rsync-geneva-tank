@@ -1,0 +1,28 @@
+#!/bin/bash
+
+source="${HOME}"
+target=th@geneva:/tank/backup/
+
+
+linkLatest() {
+	rm "/tank/backup/latest" 2> /dev/null
+	latest=$(find "/tank/backup/" -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 stat --format '%Y :%y %n' | sort -nr | cut -d: -f2- | head -n 1 | cut -d' ' -f 4)
+	latest=${latest##*/}
+	ln -s "$latest" "/tank/backup/latest"
+}
+
+ssh th@geneva "$(typeset -f linkLatest); linkLatest"
+
+rsync \
+	--archive \
+	--update \
+	--itemize-changes \
+	--verbose --stats --progress \
+	--safe-links \
+	--filter=". $HOME/.rsync-filters/backup" \
+	--exclude=/* \
+	--link-dest="/tank/backup/latest/" \
+	"$source/" \
+	"$target/$(date +%Y-%m-%d-%H-%M-%S)/"
+
+ssh th@geneva "$(typeset -f linkLatest); linkLatest"

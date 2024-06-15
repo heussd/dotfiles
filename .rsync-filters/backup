@@ -1,19 +1,34 @@
 + /Archive
 + /Documents/
++ /Documents.git/
+
 + /Dropbox/
 + /OneDrive/
+
 + /Pictures/
++ /Music/
+
 + /data/
 + /.minib
 
 + /Developer/
+
 + /Developer/git-of-github/
++ /Developer/git-of-github/**
+
 + /Developer/vimwiki/
++ /Developer/vimwiki/**
++ /Developer/vimwiki.git/
++ /Developer/vimwiki.git/**
+
 - /Developer/**
 
+
 + /Library/
+
 + /Library/Thunderbird/
 + /Library/Thunderbird/**
+
 + /Library/Application Support/
 + /Library/Application Support/Firefox/
 + /Library/Application Support/Firefox/Profiles/
@@ -21,4 +36,5 @@
 + /Library/Application Support/Firefox/Profiles/*/places.sqlite
 + /Library/Application Support/Firefox/Profiles/*/key4.db
 + /Library/Application Support/Firefox/Profiles/*/logins.json
+
 - /Library/**
