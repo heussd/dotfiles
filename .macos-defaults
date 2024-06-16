@@ -8,7 +8,10 @@ defaults write -g AppleReduceDesktopTinting -bool yes
 defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
 
 # Displays have separate spaces
-defaults write com.apple.spaces "spans-displays" -bool "true"
+# Turns out: Enabling this has all kinds of implications, for example,
+# full screens can no longer be split. It's probably better not to enable
+# this
+defaults write com.apple.spaces "spans-displays" -bool "false"
 
 killall SystemUIServer 
 
