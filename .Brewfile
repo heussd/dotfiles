@@ -31,8 +31,7 @@ end
 if system 'hostname | grep "kabylake" > /dev/null'
 
 brew "git"
-#brew "newsboat"
-#brew "p7zip"
+brew "newsboat"
 cask "cryptomator", greedy: true
 cask "firefox"
 cask "hammerspoon"
@@ -41,10 +40,16 @@ cask "kitty"
 cask "maestral"
 cask "appcleaner"
 cask "vlc"
+brew "lazygit"
+brew "rclone"
 
 cask "font-monaspace"
 
-#cask "cursorcerer"
+mas "Disk Graph", id: 697942581
+brew "p7zip"
+cask "thunderbird"
+
+cask "signal"
 
 else
 
@@ -124,7 +129,7 @@ brew "imagemagick"
 mas "Disk Graph", id: 697942581
 #mas "Ka-Block!", id: 1335413823
 #mas "OwlOCR", id: 1499181666
-mas "SleepTime", id: 465772885
+#mas "SleepTime", id: 465772885
 
 tap "marwanhawari/tap"
 brew "stew"
