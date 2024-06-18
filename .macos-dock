@@ -4,6 +4,7 @@
 /Applications/Thunderbird
 /Applications/Signal
 /System/Applications/Calendar
+/Applications/Microsoft Teams
 /Applications/Microsoft Teams (work or school)
 #/System/Applications/Notes
 /System/Applications/Reminders
@@ -47,9 +48,10 @@
 #/Applications/Pages
 #/Applications/Numbers
 #/Applications/Keynote
-#/Applications/Microsoft Powerpoint
-#/Applications/Microsoft Excel
-#/Applications/Microsoft Word
+/Applications/Microsoft Outlook
+/Applications/Microsoft Excel
+/Applications/Microsoft Word
+/Applications/Microsoft Powerpoint
 #/Applications/ColorSlurp
 #/Applications/Inkscape
 #/Applications/GIMP
