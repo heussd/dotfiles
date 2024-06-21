@@ -4,15 +4,11 @@
 /Applications/Thunderbird
 /Applications/Signal
 /System/Applications/Calendar
-/Applications/Microsoft Teams
-/Applications/Microsoft Teams (work or school)
 #/System/Applications/Notes
 /System/Applications/Reminders
 /System/Applications/Photos
 /System/Applications/Music
 #/System/Applications/TV
-/Applications/Microsoft Edge
-#/Applications/Google Chrome
 #/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
 /Applications/Clockify Desktop
 #/Applications/KeePassXC
@@ -48,6 +44,10 @@
 #/Applications/Pages
 #/Applications/Numbers
 #/Applications/Keynote
+/Applications/Google Chrome
+/Applications/Microsoft Edge
+/Applications/Microsoft Teams
+/Applications/Microsoft Teams (work or school)
 /Applications/Microsoft Outlook
 /Applications/Microsoft Excel
 /Applications/Microsoft Word
