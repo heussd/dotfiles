@@ -5,14 +5,13 @@
 #
 
 tap "homebrew/bundle"
-#tap "homebrew/cask-versions"
-#tap "buo/cask-upgrade" # CU command
 
 
 brew "gh" # GitHub cli
 brew "neovim"
 brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
+
 
 ## ARM vs. i386
 
@@ -27,128 +26,106 @@ if system 'uname -p | grep "arm" > /dev/null'
 end
 
 
-## kabylake - pre decommissioning
 if system 'hostname | grep "kabylake" > /dev/null'
-
-brew "git"
-brew "newsboat"
-cask "cryptomator", greedy: true
-cask "firefox"
-cask "hammerspoon"
-cask "keepassxc"
-cask "kitty"
-cask "maestral"
-cask "appcleaner"
-cask "vlc"
-brew "lazygit"
-brew "rclone"
-
-cask "font-monaspace"
-
-mas "Disk Graph", id: 697942581
-brew "p7zip"
-cask "thunderbird"
-
-cask "signal"
-
-else
+  cask "thunderbird"
+  #brew "podman"
+  #cask "balenaetcher" # USB Flash tool
+  #cask "raspberry-pi-imager"
+  #brew "figlet"
+  #cask "sweet-home3d"
+  #cask "playonmac"
+  #cask "teamviewer"
+  #cask "qgis"
+  ## Games
+  #cask "steam"
+  #cask "discord"
+  #cask "epic-games"
+  #cask "battle-net"
+end
 
 
-## macOS apps
 if system 'uname -s | grep "Darwin" > /dev/null'
 
-
-## Essentials
-cask "kitty"
-brew "git"
-brew "git-delta"
-brew "git-lfs"
-brew "git-gui"		# gitk
-cask "macdown"
-cask "sourcetree"
-cask "firefox"
-#cask "macvim"
-cask "keepassxc"
-cask "keka"
-cask "visual-studio-code"
-brew "watch"
-brew "yt-dlp"
-brew "bat"
-brew "pipx"
-
-
-## Command line tools
 #brew "bat"
-#brew "glow" # Render markdown on the CLI
-brew "eza" # a fork of the discontinued exa
-brew "w3m"
-brew "yq"
 #brew "brew-cask-completion"
-brew "choose-gui"
-brew "coreutils"
-brew "ctop"
-brew "gnupg"
-brew "htop"
+#brew "glow" # Render markdown on the CLI
 #brew "howdoi"
-brew "newsboat"
-brew "the_silver_searcher"
-brew "thefuck"
-#brew "transcrypt"
-brew "wget"
-brew "p7zip"
 #brew "sqlite"
-brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
+#brew "svn" ## Dependency of font-open-sans
 #brew "terminal-notifier"
-brew "markdownlint-cli"
-brew "lazygit"
-brew "rclone"
-
-
-## Cloud File Sync
-cask "maestral"
-cask "cryptomator", greedy: true
-
-
-## Power Tools
-cask "finicky"
-cask "fluor"
-brew "btop"
-brew "zsh-completions"
-cask "appcleaner"
-cask "betterzip"
-cask "dozer"
-cask "dupeguru"
-cask "easy-move-plus-resize"
-cask "hammerspoon"
-cask "knockknock"
-cask "maccy"
-cask "tiles"
-cask "tor-browser"
-cask "transmission"
-brew "imagemagick"
-mas "Disk Graph", id: 697942581
+#brew "transcrypt"
+#mas "AdGuard for Safari", id: 1440147259
 #mas "Ka-Block!", id: 1335413823
 #mas "OwlOCR", id: 1499181666
 #mas "SleepTime", id: 465772885
+brew "bat"
+brew "btop"
+brew "choose-gui"
+brew "coreutils"
+brew "ctop"
+brew "eza" # a fork of the discontinued exa
+brew "git"
+brew "git-delta"
+brew "git-gui"		# gitk
+brew "git-lfs"
+brew "gnupg"
+brew "htop"
+brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
+brew "lazygit"
+brew "markdownlint-cli"
+brew "newsboat"
+brew "p7zip"
+brew "pipx"
+brew "rclone"
+brew "the_silver_searcher"
+brew "thefuck"
+brew "w3m"
+brew "watch"
+brew "wget"
+brew "yq"
+brew "yt-dlp"
+brew "zsh-completions"
+cask "appcleaner"
+cask "appcleaner"
+cask "betterzip"
+cask "cryptomator"
+cask "dozer"
+cask "dupeguru"
+cask "easy-move-plus-resize"
+cask "finicky"
+cask "firefox"
+cask "fluor"
+cask "font-humor-sans"
+cask "font-monaspace"
+cask "font-monaspace"
+cask "font-open-sans"
+cask "font-sauce-code-pro-nerd-font"
+cask "hammerspoon"
+cask "keepassxc"
+cask "keka"
+cask "kitty"
+cask "knockknock"
+cask "maccy"
+cask "macdown"
+cask "maestral"
+cask "signal"
+cask "sourcetree"
+cask "syntax-highlight", greedy: true
+cask "tiles"
+cask "tor-browser"
+cask "transmission"
+cask "visual-studio-code"
+cask "vlc"
+mas "Disk Graph", id: 697942581
 
 tap "marwanhawari/tap"
 brew "stew"
 
 
-## Fonts
-brew "svn" ## Dependency of font-open-sans
-cask "font-open-sans"
-cask "font-sauce-code-pro-nerd-font"
-cask "font-humor-sans"
-cask "font-monaspace"
+
+if system 'hostname | grep -v "kabylake" > /dev/null'
 
  
-## Drivers
-tap "homebrew/cask-drivers"
-cask "logi-options-plus"
- 
- 
-## Office
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 cask "itsycal"
@@ -157,32 +134,20 @@ cask "microsoft-edge"
 cask "clockify"
 mas "MeetingBar", id: 1532419400
 cask "libreoffice"
-
- 
-## Voice / Com
-cask "signal"
 cask "microsoft-teams"
  
  
  ## Image
 cask "gimp"
+brew "imagemagick"
 cask "inkscape"
 mas "GIPHY CAPTURE", id: 668208984
-
 cask "imageoptim"
 
 
-# # Audio / Video
-cask "vlc"
 cask "stolendata-mpv" # https://github.com/orgs/Homebrew/discussions/5270
 cask "handbrake"
 cask "adapter" # General purpose video converter
-
-
-## QuickLook
-cask "syntax-highlight", greedy: true
-
- 
 ## Developer
 #brew "go"
 cask "docker"
@@ -228,32 +193,8 @@ brew "kubelogin"
 tap "nats-io/nats-tools"
 brew "nats-io/nats-tools/nats"
 
-#tap "azure/functions"
-#brew "azure-functions-core-tools@4"
 
 end
 
 end
 
-
-
-#brew "podman"
-#cask "balenaetcher" # USB Flash tool
-#cask "raspberry-pi-imager"
-#brew "figlet"
-#cask "sweet-home3d"
-#cask "playonmac"
-#cask "teamviewer"
-#cask "qgis"
-#
-
-
-## Games
-#cask "steam"
-#cask "discord"
-#cask "epic-games"
-#cask "battle-net"
-
-
-## Safari
-#mas "AdGuard for Safari", id: 1440147259
