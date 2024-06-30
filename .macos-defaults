@@ -13,6 +13,10 @@ defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
 # this
 defaults write com.apple.spaces "spans-displays" -bool "false"
 
+# Change "Move focus to next window" shortcut to Command+<
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 27 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>60</integer><integer>50</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>"
+
+
 killall SystemUIServer 
 
 defaults write com.apple.Dock autohide -bool false
