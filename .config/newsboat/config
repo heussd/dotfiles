@@ -36,7 +36,7 @@ macro R 	 set browser "~/.config/newsboat/scripts/readability"        	 -- "Open
 macro f 	 set browser "~/.config/newsboat/scripts/browser-foreground" 	 -- "Open URLs with default browser in foreground"
 macro b 	 set browser "~/.config/newsboat/scripts/browser"            	 -- "Open URLs with default browser in background"
 macro s 	 set browser "~/.config/newsboat/scripts/full-text-summary"  	 -- "Open with summary"
-macro w 	 set browser w3m                                             	 -- "Open with w3m"
+macro w 	 set browser "~/.config/newsboat/scripts/browser-console"	 -- "Open with w3m"
 macro i 	 set pager "~/.config/newsboat/scripts/kitty-img-pager"      	 -- "Open with image pager"
 macro m 	 set browser "~/.config/newsboat/scripts/media"              	 -- "Open URLs in media player"
 
