@@ -29,6 +29,10 @@ function fail() {
 trap fail ERR
 
 gitcmd="/opt/homebrew/bin/lazygit"
+if [ ! -e "$gitcmd" ]; then
+	gitcmd="/usr/local/bin/lazygit";
+fi
+
 if [ "$PWD" = "$HOME" ]; then
   gitcmd="$gitcmd --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
 fi
