@@ -15,6 +15,7 @@ auto: \
 	.auto-pipx \
 	.auto-compose.yml \
 	.auto-vscode-packages \
+	.auto-vscode-settings \
 	.auto-$(OS_NAME) \
 	delete-old-states
 
@@ -78,6 +79,17 @@ auto: \
 			code --install-extension "$$package"; \
 		done < .vscode-packages && \
 		touch .auto-vscode-packages
+
+$(HOME)/Library/Application\ Support/Code/User/settings.json:
+	@echo "{}" > "$$HOME/Library/Application Support/Code/User/settings.json"
+
+.auto-vscode-settings: .vscode-settings $(HOME)/Library/Application\ Support/Code/User/settings.json
+	@-command -v code &> /dev/null && \
+		while read setting; do \
+			jq "$$setting" "$$HOME/Library/Application Support/Code/User/settings.json" > tmp; \
+			mv tmp "$$HOME/Library/Application Support/Code/User/settings.json"; \
+		done < .vscode-settings
+	@touch .auto-vscode-settings
 
 .auto-pipx: .pipx-packages
 	@-command -v pipx &> /dev/null && \
