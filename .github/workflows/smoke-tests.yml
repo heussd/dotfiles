@@ -6,9 +6,9 @@ on: [push]
 
 # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 jobs:
-  macos-11-0:
+  macos:
     name: macOS
-    runs-on: macOS-11.0
+    runs-on: macOS-latest
     steps:
       -
         name: Onboard
@@ -45,7 +45,7 @@ jobs:
           # Simulate first shell init
           #make -f Makefile
 
-  ubuntu-linux-20-04:
+  ubuntu:
     name: Ubuntu
     runs-on: ubuntu-latest
     steps:
