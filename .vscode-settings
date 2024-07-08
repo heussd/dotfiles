@@ -22,3 +22,5 @@
 ."workbench.preferredHighContrastColorTheme" = "GitHub Dark High Contrast"
 ."editor.defaultFormatter" = "esbenp.prettier-vscode"
 ."remote.autoForwardPortsSource" = "hybrid"
+."[terraform].editor.formatOnSave" = true
+."[terraform].editor.defaultFormatter" = "hashicorp.terraform"
