@@ -11,43 +11,37 @@ module.exports = {
         {
             match: [
                 '*.pwc.com/*',
-                '*.pwc.de/*',
-                '*.pwcinternal.com/*',
-                '*.replicon.com/*',
+            	'*.pwc.de/*',
+                '*.sharepoint.com/*',
+                '*.microsoftonline.com/*',
                 'gitlab.com/*',
-                'login.microsoftonline.com/*',
-                'statics.teams.cdn.office.net/*', // Teams link verification
+                'statics.teams.cdn.office.net/*' // Teams link verification
             ],
-            browser: 'Google Chrome',
-        },
-        {
-            match: ({ url }) => url.host.endsWith('sharepoint.com'),
-            browser: 'Google Chrome',
-        },
-        {
-            match: ({ url }) => url.host.endsWith('azure.com'),
-            browser: 'Google Chrome',
+            browser: 'Microsoft Edge',
         },
         {
             match: finicky.matchHostnames([
+                'replicon.com',
+            	'pwcinternal.com',
                 'cloudapp.azure.com',
-                '*.microsoft.com',
+                'microsoft.com',
                 'urldefense.com',
-                'microsoftonline.com',
-                'sharepoint.com',
+                'office.com',
+                'office.net',
+               	'azure.com',
+                'docs.google.com',
+                'stream.meet.google.com',
+                'accounts.google.com',
+                'drive.google.com',
             ]),
-            browser: 'Google Chrome',
+            browser: 'Microsoft Edge',
         },
         {
             match: finicky.matchHostnames([
-                'accounts.google.com',
-                'stream.meet.google.com',
                 'mail.google.com',
-                'drive.google.com',
                 'calendar.google.com',
                 'chat.google.com',
-                'docs.google.com',
-                'script.google.com', // MO Plus
+                'script.google.com' // MO Plus
             ]),
             browser: 'Google Chrome',
         },
