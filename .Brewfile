@@ -131,6 +131,7 @@ mas "Numbers", id: 409203825
 cask "itsycal"
 cask "google-drive"
 cask "microsoft-edge"
+cask "microsoft-edge@beta"
 cask "clockify"
 mas "MeetingBar", id: 1532419400
 cask "libreoffice"
@@ -174,7 +175,7 @@ cask "gephi"
 cask "hex-fiend"
 #cask "meld" # deprecated, replaced with kdiff
 cask "kdiff3"
-cask "yed"
+#cask "yed"
 mas "CotEditor", id: 1024640650
 #brew "helm"
 cask "devtoys"
