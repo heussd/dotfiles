@@ -28,6 +28,7 @@ end
 
 if system 'hostname | grep "kabylake" > /dev/null'
   cask "thunderbird"
+  brew "podman"
   #brew "podman"
   #cask "balenaetcher" # USB Flash tool
   #cask "raspberry-pi-imager"
