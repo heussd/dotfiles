@@ -130,12 +130,13 @@ if system 'hostname | grep -v "kabylake" > /dev/null'
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 cask "itsycal"
-cask "google-drive"
+#cask "google-drive"
 cask "microsoft-edge"
 cask "microsoft-edge@beta"
 cask "clockify"
 mas "MeetingBar", id: 1532419400
 cask "libreoffice"
+cask "onedrive"
 cask "microsoft-teams"
  
  
