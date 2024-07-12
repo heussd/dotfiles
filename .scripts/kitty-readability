@@ -1,0 +1,14 @@
+#!/bin/sh
+
+conf=$HOME/.config/kitty/readability.conf
+
+firstline=$(cat $conf | head -n 1)
+
+
+if [[ "$firstline" == \#* ]]; then
+	cat "$conf" | cut -c 2- | tee "$conf" 
+else
+	cat "$conf" | sed 's/^/#/' | tee "$conf"
+fi
+
+kill -s USR1 $(pgrep -a kitty)
