@@ -14,6 +14,7 @@ module.exports = {
             	'*.pwc.de/*',
                 '*.sharepoint.com/*',
                 '*.microsoftonline.com/*',
+                '*.microsoft.com/*',
                 'gitlab.com/*',
                 'statics.teams.cdn.office.net/*' // Teams link verification
             ],
