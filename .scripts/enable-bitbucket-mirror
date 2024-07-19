@@ -5,7 +5,7 @@ set -o nounset
 
 git pull
 
-read -p "Enter BB password:" secret
+read -r -p "Enter BB password:" secret
 echo "$secret"
 gh secret set BITBUCKET_PASSWORD -b"${secret}"
 
