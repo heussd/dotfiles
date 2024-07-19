@@ -123,6 +123,7 @@ mas "Disk Graph", id: 697942581
 tap "marwanhawari/tap"
 brew "stew"
 
+cask "onedrive"
 
 
 if system 'hostname | grep -v "kabylake" > /dev/null'
@@ -137,7 +138,6 @@ cask "microsoft-edge@beta"
 cask "clockify"
 mas "MeetingBar", id: 1532419400
 cask "libreoffice"
-cask "onedrive"
 cask "microsoft-teams"
  
  
