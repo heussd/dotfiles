@@ -19,12 +19,12 @@ hyper:bind({}, "m", nil, function()
 end)
 
 hyper:bind({}, "f", nil, function()
-    hs.application.launchOrFocus("Firefox")
+    hs.application.launchOrFocus("LibreWolf")
 end)
 
 
 hyper:bind({}, "s", nil, function()
-    hs.application.launchOrFocus("Firefox")
+    hs.application.launchOrFocus("LibreWolf")
     hs.eventtap.keyStroke({"cmd"}, "t")
     hs.eventtap.keyStroke({"cmd"}, "v")
 end)

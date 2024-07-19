@@ -117,7 +117,7 @@ alias screen="screen -t \""$SHORTHOSTNAME" - Escape key is CTRL+y - scroll via e
 customboat() {
 	local XDG_CONFIG_HOME="$HOME/.config/newsboat/$1/"
 	local XDG_DATA_HOME="$HOME/.local/share/newsboat/$1/" 
-	local DB_VAULT="$HOME/Cloud/Dropbox/newsboat/"
+	local DB_VAULT="$HOME/Cloud/OneDrive/newsboat/"
 	# security add-generic-password -a $LOGNAME -s newsboat -w *********
 	local password=$(security find-generic-password -w -a "$LOGNAME" -s newsboat)
 

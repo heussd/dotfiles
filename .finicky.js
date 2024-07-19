@@ -2,7 +2,7 @@ module.exports = {
     options: {
         hideIcon: true,
     },
-    defaultBrowser: 'Firefox',
+    defaultBrowser: 'LibreWolf',
     handlers: [
         {
             match: ['*.apple.com/*'],
@@ -12,18 +12,19 @@ module.exports = {
             match: [
                 '*.pwc.com/*',
             	'*.pwc.de/*',
+            	'*pwcnetwork*/*',
                 '*.sharepoint.com/*',
                 '*.microsoftonline.com/*',
                 '*.microsoft.com/*',
+            	'*.pwcinternal.com/*',
                 'gitlab.com/*',
                 'statics.teams.cdn.office.net/*' // Teams link verification
             ],
-            browser: 'Microsoft Edge',
+            browser: 'Google Chrome',
         },
         {
             match: finicky.matchHostnames([
                 'replicon.com',
-            	'pwcinternal.com',
                 'cloudapp.azure.com',
                 'microsoft.com',
                 'urldefense.com',
@@ -35,7 +36,7 @@ module.exports = {
                 'accounts.google.com',
                 'drive.google.com',
             ]),
-            browser: 'Microsoft Edge',
+            browser: 'Google Chrome',
         },
         {
             match: finicky.matchHostnames([
@@ -55,7 +56,7 @@ module.exports = {
             }),
         },
         {
-            match: finicky.matchHostnames(['teams.microsoft.com']),
+            match: ['*.teams.microsoft.com/*'],
             browser: 'com.microsoft.teams2',
             url({ url }) {
                 return {
