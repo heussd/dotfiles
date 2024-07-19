@@ -5,11 +5,13 @@ set -o nounset
 
 git pull
 
-secret=$(keepasspw-fzf)
+read -p "Enter BB password:" secret
+echo "$secret"
 gh secret set BITBUCKET_PASSWORD -b"${secret}"
 
+
 mkdir -p .github/workflows/
-wget https://raw.githubusercontent.com/heussd/mirror-to-bitbucket-github-action/main/.github/workflows/mirror-to-bitbucket.yml \
+wget https://raw.githubusercontent.com/heussd/dotfiles/main/.github/workflows/mirror-to-bitbucket.yml \
     --output-document=".github/workflows/mirror-to-bitbucket.yml"
 
 
