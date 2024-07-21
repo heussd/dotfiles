@@ -1,7 +1,8 @@
 #!/bin/bash
 # shellcheck disable=SC1004
 
-_hasCmd "docker" || return 0 
+_hasCmd "docker" || _hasCmd "podman" || return 0 
+_hasCmd "podman" && alias docker='podman'
 
 
 dockerrun() { eval docker run --rm --interactive --tty "$*"; }
