@@ -19,7 +19,7 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 27 "<dic
 
 killall SystemUIServer 
 
-defaults write com.apple.Dock autohide -bool false
+defaults write com.apple.Dock autohide -bool true 
 defaults write com.apple.Dock autohide-delay -float 0.0001
 defaults write com.apple.dock autohide-time-modifier -float 0.25
 defaults write com.apple.dock magnification -bool false
