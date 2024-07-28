@@ -97,3 +97,7 @@ user_pref("browser.safebrowsing.allowOverride", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
+
+// Disable PPA
+// https://michael.kjorling.se/blog/2024/disabling-privacy-preserving-ad-measurement-in-firefox-128/
+user_pref("dom.private-attribution.submission.enabled", false);
