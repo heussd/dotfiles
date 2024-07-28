@@ -29,6 +29,8 @@ end
 if system 'hostname | grep "kabylake" > /dev/null'
   cask "thunderbird"
   brew "podman"
+  cask "betterzip"
+  cask "steam"
   #brew "podman"
   #cask "balenaetcher" # USB Flash tool
   #cask "raspberry-pi-imager"
@@ -38,7 +40,6 @@ if system 'hostname | grep "kabylake" > /dev/null'
   #cask "teamviewer"
   #cask "qgis"
   ## Games
-  #cask "steam"
   #cask "discord"
   #cask "epic-games"
   #cask "battle-net"
@@ -87,15 +88,10 @@ brew "yq"
 brew "yt-dlp"
 brew "zsh-completions"
 cask "appcleaner"
-cask "appcleaner"
-cask "betterzip"
 cask "cryptomator"
-cask "dozer"
 cask "dupeguru"
 cask "easy-move-plus-resize"
-cask "finicky"
 cask "firefox"
-cask "fluor"
 cask "font-humor-sans"
 cask "font-monaspace"
 cask "font-monaspace"
@@ -127,6 +123,9 @@ cask "onedrive"
 
 if system 'hostname | grep -v "kabylake" > /dev/null'
 
+cask "finicky"
+cask "dozer"
+cask "fluor"
  
 #mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
