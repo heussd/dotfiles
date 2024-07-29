@@ -1,39 +1,48 @@
 require('utils')
 
+function reduce_sound_level()
+    device = hs.audiodevice.defaultOutputDevice()
+    device:setOutputVolume(5)
+end
+
 
 function pre_lock()
     print("Executing pre lock...")
+    hs.execute("~/.local/bin/gita push &", false)
+    reduce_sound_level()
 
-    if (hs.wifi.currentNetwork() == "Wachtberg") then
-        hs.execute("make -f $HOME/Makefile push &", true)
-    end
+    --if (hs.wifi.currentNetwork() == "Wachtberg") then
+    --    hs.execute("make -f $HOME/Makefile push &", true)
+    --end
 
-    if (hs.host.localizedName() ~= "kabylake") then
-	    device = hs.audiodevice.defaultOutputDevice()
-	    device:setOutputVolume(5)
-    end
+    --if (hs.host.localizedName() ~= "kabylake") then
+    --        device = hs.audiodevice.defaultOutputDevice()
+    --        device:setOutputVolume(5)
+    --end
     hlspeak('doop')
 end
 
 
 function post_lock()
     print("Executing post lock...")
-
-    if (hs.host.localizedName() ~= "kabylake") then
-    	device = hs.audiodevice.defaultOutputDevice()
-	    device:setOutputVolume(5)
-    end
-
     hlspeak('bell')
+    hs.execute("~/.local/bin/gita pull &", false)
+    hlspeak('hello')
 
-    print("Current WIFI is "..hs.wifi.currentNetwork())
-    if (hs.wifi.currentNetwork() == "Wachtberg") then
-        hs.execute("make -f $HOME/Makefile pull &", true)
-        hlspeak('hello')
-    end
+    --if (hs.host.localizedName() ~= "kabylake") then
+    --	device = hs.audiodevice.defaultOutputDevice()
+    --        device:setOutputVolume(5)
+    --end
 
-    -- Maestral seems to crash randomly. Just execute it after sleep.
-    hs.execute("open -a \"Maestral\" &")
+
+    --print("Current WIFI is "..hs.wifi.currentNetwork())
+    --if (hs.wifi.currentNetwork() == "Wachtberg") then
+    --    hs.execute("make -f $HOME/Makefile pull &", true)
+    --    hlspeak('hello')
+    --end
+
+    ---- Maestral seems to crash randomly. Just execute it after sleep.
+    --hs.execute("open -a \"Maestral\" &")
 end
 
 function sleepWatch(eventType)
@@ -49,7 +58,7 @@ function sleepWatch(eventType)
     end
 end
 
---sleepWatcher = hs.caffeinate.watcher.new(sleepWatch):start()
+sleepWatcher = hs.caffeinate.watcher.new(sleepWatch):start()
 
 
 
