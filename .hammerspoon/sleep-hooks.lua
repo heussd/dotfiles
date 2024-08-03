@@ -1,24 +1,22 @@
 require('utils')
 
 function reduce_sound_level()
-    device = hs.audiodevice.defaultOutputDevice()
-    device:setOutputVolume(5)
+    if (hs.host.localizedName() ~= "kabylake") then
+        device = hs.audiodevice.defaultOutputDevice()
+        device:setOutputVolume(5)
+    end
 end
 
 
 function pre_lock()
     print("Executing pre lock...")
     hs.execute("~/.local/bin/gita push &", false)
-    reduce_sound_level()
+    --reduce_sound_level()
 
     --if (hs.wifi.currentNetwork() == "Wachtberg") then
     --    hs.execute("make -f $HOME/Makefile push &", true)
     --end
 
-    --if (hs.host.localizedName() ~= "kabylake") then
-    --        device = hs.audiodevice.defaultOutputDevice()
-    --        device:setOutputVolume(5)
-    --end
     hlspeak('doop')
 end
 
@@ -29,20 +27,11 @@ function post_lock()
     hs.execute("~/.local/bin/gita pull &", false)
     hlspeak('hello')
 
-    --if (hs.host.localizedName() ~= "kabylake") then
-    --	device = hs.audiodevice.defaultOutputDevice()
-    --        device:setOutputVolume(5)
-    --end
-
-
     --print("Current WIFI is "..hs.wifi.currentNetwork())
     --if (hs.wifi.currentNetwork() == "Wachtberg") then
     --    hs.execute("make -f $HOME/Makefile pull &", true)
     --    hlspeak('hello')
     --end
-
-    ---- Maestral seems to crash randomly. Just execute it after sleep.
-    --hs.execute("open -a \"Maestral\" &")
 end
 
 function sleepWatch(eventType)
