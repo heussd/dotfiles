@@ -83,6 +83,7 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 
 alias vim-dotfiles='vim -u $HOME/.config/vim/dotfiles/.vimrc'
+alias vim-doc='vim -u $HOME/.config/vim/doc/vimrc'
 
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/'

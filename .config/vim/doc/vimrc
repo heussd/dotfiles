@@ -1,0 +1,68 @@
+if empty(glob('~/.config/vim/doc/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/doc/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.config/vim/doc/plugged')
+
+Plug 'jamessan/vim-gnupg', { 'commit': 'f9b608f' }
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
+call plug#end()
+
+set nobackup       "no backup files
+set nowritebackup  "only in case you don't want a backup file while editing
+set noswapfile     "no swap files
+set viminfo=	   "no ~/.viminfo file
+
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                    "    case-sensitive otherwise
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+
+set encoding=utf-8	" Use UTF-8 everywhere.
+set termencoding=utf-8
+
+set wrap
+set linebreak
+syntax enable
+
+set nocompatible
+filetype plugin on
+
+
+setlocal foldlevel=0
+setlocal foldenable
+setlocal foldmethod=expr
+setlocal foldexpr=Fold(v:lnum)
+
+function! Fold(lnum)
+  let fold_level = strlen(matchstr(getline(a:lnum), '^[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9] [0-2][0-9]'))
+  if (fold_level)
+    return '>1'  ". fold_level  " start a fold level
+  endif
+  return '=' " return previous fold level
+endfunction
+
+nnoremap <space> za
+vnoremap <space> za
+
+map <s-j> <S-}>
+map <s-k> <S-{>
+
+
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi Folded ctermbg=NONE guibg=NONE ctermfg=DarkGray
+autocmd vimenter * hi! link Folded SignColumn
+
+
+autocmd VimEnter * Goyo
+"autocmd! User GoyoEnter Limelight " <-- Not working, therefore we use a delay
+autocmd VimEnter * call timer_start(200, { tid -> execute('Limelight')})
+autocmd! User GoyoLeave Limelight!
+autocmd! User GoyoLeave quit " We would otherwise first just quit Goyo
+
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
