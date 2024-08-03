@@ -29,7 +29,7 @@ end
 if system 'hostname | grep "kabylake" > /dev/null'
   cask "thunderbird"
   brew "podman"
-  cask "betterzip"
+  #cask "betterzip"
   cask "steam"
   #brew "podman"
   #cask "balenaetcher" # USB Flash tool
@@ -80,7 +80,7 @@ brew "p7zip"
 brew "pipx"
 brew "rclone"
 brew "the_silver_searcher"
-brew "thefuck"
+#brew "thefuck"
 brew "w3m"
 brew "watch"
 brew "wget"
