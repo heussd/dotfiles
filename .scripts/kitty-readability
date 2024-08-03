@@ -1,14 +1,19 @@
-#!/bin/sh
+#!/bin/bash
+# shellcheck disable=SC2002
 
-conf=$HOME/.config/kitty/readability.conf
+conf="$HOME/.config/kitty/readability.conf"
+temp="$TMPDIR/readability.conf"
 
-firstline=$(cat $conf | head -n 1)
+
+firstline=$(cat "$conf" | head -n 1)
 
 
 if [[ "$firstline" == \#* ]]; then
-	cat "$conf" | cut -c 2- | tee "$conf" 
+	cat "$conf" | cut -c 2- > "$temp"
 else
-	cat "$conf" | sed 's/^/#/' | tee "$conf"
+	cat "$conf" | sed 's/^/#/' > "$temp"
 fi
 
-kill -s USR1 $(pgrep -a kitty)
+mv "$temp" "$conf"
+
+kill -s USR1 "$(pgrep -a kitty)"
