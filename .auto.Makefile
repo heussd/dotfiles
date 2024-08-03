@@ -58,9 +58,9 @@ auto: \
 		brew upgrade && \
 		touch .auto-Brewfile
 
-.auto-Stewfile: Stewfile
+.auto-Stewfile: .config/stew/Stewfile
 	@-command -v stew &> /dev/null && \
-		stew install Stewfile && \
+		stew install .config/stew/Stewfile && \
 		touch .auto-Stewfile
 
 .auto-requirements.txt: .requirements.txt
