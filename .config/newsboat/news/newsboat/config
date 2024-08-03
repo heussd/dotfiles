@@ -1,7 +1,5 @@
 include "~/.config/newsboat/config"
 include "~/.config/newsboat/highlights"
-include ~/.config/newsboat/killfile
-
 
 article-sort-order    	 date-asc
 mark-as-read-on-hover 	 no
