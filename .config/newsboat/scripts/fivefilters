@@ -1,0 +1,11 @@
+#!/bin/sh
+
+SERVICE="http://localhost:55000/"
+
+curl --fail --silent "$SERVICE" \
+	-o /dev/null \
+&& (
+	curl --fail "$SERVICE/makefulltextfeed.php?max=200&links=preserve&url=$*"
+) || (
+	curl --fail "$*"
+)
