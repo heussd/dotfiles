@@ -103,6 +103,7 @@ delete-old-states:
 		-maxdepth 1 -mmin +$$((7*24*60)) \
 		\( \
 		-name ".auto-Brewfile" -o \
+		-name ".auto-compose" -o \
 		-name ".auto-pipx" \
 		\) \
 		-delete \

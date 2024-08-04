@@ -1,3 +1,7 @@
 services:
   babellint:
     image: ghcr.io/heussd/babellint:main
+  fivefilters:
+    image: heussd/fivefilters-full-text-rss:latest
+    ports:
+      - "55000:80"
