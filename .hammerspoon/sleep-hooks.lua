@@ -10,6 +10,7 @@ end
 
 function pre_lock()
     print("Executing pre lock...")
+    hs.execute("killall newsboat")
     hs.execute("~/.local/bin/gita push &", false)
     --reduce_sound_level()
 
