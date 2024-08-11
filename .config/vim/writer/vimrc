@@ -1,9 +1,11 @@
-if empty(glob('~/.config/vim/doc/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/vim/doc/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let root = '~/.config/vim/writer/'
+
+if empty(glob(root . 'autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/writer/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.config/vim/doc/plugged')
+call plug#begin(root . 'plugged')
 
 Plug 'jamessan/vim-gnupg', { 'commit': 'f9b608f' }
 Plug 'junegunn/goyo.vim'
@@ -21,6 +23,11 @@ set smartcase     " ignore case if search pattern is all lowercase,
                     "    case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
+
+set backspace=indent,eol,start
+set wrap
+nnoremap <F5> :set linebreak<CR>
+nnoremap <C-F5> :set nolinebreak<CR>
 
 set encoding=utf-8	" Use UTF-8 everywhere.
 set termencoding=utf-8
