@@ -35,6 +35,7 @@ macro r 	 set browser "~/.config/newsboat/scripts/browser-remote"     	 -- "Open
 macro R 	 set browser "~/.config/newsboat/scripts/readability"        	 -- "Open URLs with readability"
 macro f 	 set browser "~/.config/newsboat/scripts/browser-foreground" 	 -- "Open URLs with default browser in foreground"
 macro b 	 set browser "~/.config/newsboat/scripts/browser"            	 -- "Open URLs with default browser in background"
+macro r 	 set browser "~/.config/newsboat/scripts/browser-fivefilters"	 -- "Retrieve full text from URLs and show resuls"
 macro s 	 set browser "~/.config/newsboat/scripts/full-text-summary"  	 -- "Open with summary"
 macro w 	 set browser "~/.config/newsboat/scripts/browser-console"	 -- "Open with w3m"
 macro i 	 set pager "~/.config/newsboat/scripts/kitty-img-pager"      	 -- "Open with image pager"
@@ -52,4 +53,5 @@ include ~/.config/newsboat/autogen
 
 highlight-article "tags # \"red\"" red default
 
-selecttag-format "%T(%n) %f/%u"
+selecttag-format "%5n - %T (%n) %f/%u"
+
