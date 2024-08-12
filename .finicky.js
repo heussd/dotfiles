@@ -17,7 +17,9 @@ module.exports = {
                 '*.microsoftonline.com/*',
                 '*.microsoft.com/*',
             	'*.pwcinternal.com/*',
+            	'*.figma.com/*',
                 'gitlab.com/*',
+               	'*.azure.com/*',
                 'statics.teams.cdn.office.net/*' // Teams link verification
             ],
             browser: 'Google Chrome',
@@ -29,6 +31,7 @@ module.exports = {
                 'microsoft.com',
                 'urldefense.com',
                 'office.com',
+                'my.1password.eu',
                 'office.net',
                	'azure.com',
                 'docs.google.com',
