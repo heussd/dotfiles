@@ -154,7 +154,7 @@ ls-extended() { ls -lart; }
 
 alias exa="eza"
 _hasCmd "eza" && ls-extended() {
-	eza --icons -l --sort=changed;
+	eza --icons -l --sort=changed --hyperlink;
 
 	echo
 
