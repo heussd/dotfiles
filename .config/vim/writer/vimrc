@@ -32,13 +32,13 @@ nnoremap <C-F5> :set nolinebreak<CR>
 set encoding=utf-8	" Use UTF-8 everywhere.
 set termencoding=utf-8
 
-set wrap
 set linebreak
 syntax enable
 
 set nocompatible
 filetype plugin on
 
+set noerrorbells
 
 setlocal foldlevel=0
 setlocal foldenable
@@ -69,7 +69,7 @@ autocmd vimenter * hi Folded ctermbg=NONE guibg=NONE ctermfg=DarkGray
 autocmd vimenter * hi! link Folded SignColumn
 
 
-autocmd VimEnter * Goyo
+autocmd VimEnter * Goyo 50%x80% " WidthxHeight
 "autocmd! User GoyoEnter Limelight " <-- Not working, therefore we use a delay
 autocmd VimEnter * call timer_start(200, { tid -> execute('Limelight')})
 autocmd! User GoyoLeave Limelight!
