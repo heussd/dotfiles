@@ -42,7 +42,7 @@ _hasFolder ~/.stew && export PATH="$HOME/.stew/bin:$PATH"
 
 _isLinux && export BROWSER="firefox"
 #_isMacOS && export BROWSER="open"
-export TERM=xterm-color
+
 export EDITOR='vim'
 export LC_ALL='en_US.UTF-8'
 
