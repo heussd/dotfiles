@@ -68,10 +68,13 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 
 	sync = "!git pull && git push"
 
-	vim = "!git ls-files | fzf --preview \"bat --style=numbers --color=always --line-range :500 {}\" | xargs -o vim; git status"
+	#vim = "!git ls-files | fzf --preview \"bat --style=numbers --color=always --line-range :500 {}\" | xargs -o vim; git status"
+	vim = "!vim -u $HOME/.config/vim/dotfiles/.vimrc -c \"GFiles\""
 	v = vim
 
 	i = "!lazygit"
+
+	vimi = "!git vim && git i"
 
 	defrag = "!git reflog expire --all --expire=now; git gc --prune=now --aggressive; git rm --cached -r .; git reset --hard"
 
