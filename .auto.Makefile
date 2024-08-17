@@ -7,8 +7,13 @@ HOST          	 := $$(hostname | cut -d"." -f 1)
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 DOTFILES_BARE 	 := $(HOME)/.dotfiles-bare-repo/
 
+ifneq ("$(wildcard .auto-lock)", "")
+locked:
+	$(info Auto Makefile operation is locked through file .auto-lock)
+endif
 
 auto: \
+	.auto-lock \
 	.auto-pull-dotfiles \
 	.auto-Brewfile \
 	.auto-Stewfile \
@@ -17,7 +22,11 @@ auto: \
 	.auto-vscode-packages \
 	.auto-vscode-settings \
 	.auto-$(OS_NAME) \
-	delete-old-states
+	delete-old-states 
+	rm .auto-lock || true
+
+.auto-lock:
+	touch .auto-lock
 
 .auto-pull-dotfiles:
 	@find "$(DOTFILES_BARE)/FETCH_HEAD" -mmin +$$((7*24*60)) \
