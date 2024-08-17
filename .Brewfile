@@ -186,6 +186,7 @@ brew "terraform"
 brew "shellcheck"
 brew "hadolint"
 #cask "dotnet-sdk"
+cask "1password"
 
 
 tap "Azure/kubelogin"
