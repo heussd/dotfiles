@@ -6,10 +6,10 @@ set -o nounset
 function kittytheme() {
 	pushd "$HOME/.config/kitty" || exit 1
 
-	activeTheme="active_theme.conf"
+	activeTheme="active_mode.conf"
 	
 	rm "$activeTheme" || true
-	ln -s "$1-theme.conf" "$activeTheme"
+	ln -s "modes/$1.conf" "$activeTheme"
 	
 	popd
 
