@@ -27,19 +27,19 @@ end
 
 
 function narrow_left()
-	move_window(0,0,0.35,1)
+	move_window(0,0,0.25,1)
 end
 
 function narrow_right()
-	move_window(0.65,0,0.35,1)
+	move_window(0.75,0,0.25,1)
 end
 
 function wide_left()
-	move_window(0,0,0.65,1)
+	move_window(0,0,0.75,1)
 end
 
 function wide_right()
-	move_window(0.35,0,0.65,1)
+	move_window(0.25,0,0.75,1)
 end
 
 function wide_left_below()
