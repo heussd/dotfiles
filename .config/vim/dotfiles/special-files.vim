@@ -18,5 +18,8 @@ autocmd BufWritePre ~/.config/stew/Stewfile :%sort
 autocmd BufWritePre ~/.config/newsboat/killfile :%sort
 autocmd BufWritePre ~/.config/newsboat/highlights :%sort
 autocmd BufWritePre ~/.config/newsboat/highlights :%sort
+autocmd BufRead ~/.amethyst set ft=json
+
+autocmd BufWritePre * Neoformat
 
 
