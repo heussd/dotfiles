@@ -8,6 +8,7 @@ call plug#begin('~/.config/vim/dotfiles/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'morhetz/gruvbox'
+Plug 'godlygeek/tabular'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'zivyangll/git-blame.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
