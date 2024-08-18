@@ -81,7 +81,6 @@ brew "pipx"
 brew "rclone"
 brew "the_silver_searcher"
 #brew "thefuck"
-brew "w3m"
 brew "watch"
 brew "wget"
 brew "yq"
@@ -120,6 +119,7 @@ tap "marwanhawari/tap"
 brew "stew"
 
 cask "onedrive"
+brew "glow"
 
 
 if system 'hostname | grep -v "kabylake" > /dev/null'
