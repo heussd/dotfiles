@@ -19,7 +19,6 @@ auto: \
 	.auto-Stewfile \
 	.auto-pipx \
 	.auto-compose.yml \
-	.auto-vscode-packages \
 	.auto-vscode-settings \
 	.auto-$(OS_NAME) \
 	delete-old-states 
@@ -81,13 +80,6 @@ auto: \
 	@-command -v docker &> /dev/null && \
 		docker compose -f .compose.yml pull && \
 		touch .auto-compose.yml
-
-.auto-vscode-packages: .vscode-packages
-	@-command -v code &> /dev/null && \
-		while read -r package; do \
-			code --install-extension "$$package"; \
-		done < .vscode-packages && \
-		touch .auto-vscode-packages
 
 $(HOME)/Library/Application\ Support/Code/User/settings.json:
 	@echo "{}" > "$$HOME/Library/Application Support/Code/User/settings.json"

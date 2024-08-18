@@ -202,3 +202,23 @@ end
 
 end
 
+
+
+vscode "dakara.transformer"
+vscode "dotjoshjohnson.xml"
+vscode "esbenp.prettier-vscode"
+vscode "exiasr.hadolint"
+vscode "file-icons.file-icons"
+vscode "formulahendry.auto-close-tag"
+vscode "formulahendry.auto-rename-tag"
+vscode "github.vscode-github-actions"
+vscode "hashicorp.terraform"
+vscode "johnpapa.vscode-peacock"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode-remote.remote-containers"
+vscode "nhoizey.gremlins"
+vscode "redhat.vscode-xml"
+vscode "redhat.vscode-yaml"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "timonwong.shellcheck"
+vscode "yzhang.markdown-all-in-one"
