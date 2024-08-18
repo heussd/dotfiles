@@ -82,7 +82,6 @@ alias gp='git pull --rebase origin'
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 
-alias vim-dotfiles='vim -u $HOME/.config/vim/dotfiles/.vimrc'
 alias vim-writer='vim -u $HOME/.config/vim/writer/vimrc'
 alias vim-doc=vim-writer
 
@@ -94,7 +93,7 @@ alias dotifles='dotfiles'
 alias .f='dotfiles'
 alias .fp='dotfiles-private'
 
-alias .fe='export GIT_DIR=$HOME/.dotfiles-bare-repo; export GIT_WORK_TREE=$HOME/; vim-dotfiles -c "GFiles"; git status; unset GIT_DIR; unset GIT_WORK_TREE'
+alias .fe='export GIT_DIR=$HOME/.dotfiles-bare-repo; export GIT_WORK_TREE=$HOME/; vim -c "GFiles"; git status; unset GIT_DIR; unset GIT_WORK_TREE'
 
 alias motd="source $HOME/.shell-motd"
 
