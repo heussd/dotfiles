@@ -62,7 +62,7 @@ auto: \
 	@-command -v brew &> /dev/null && \
 		HOMEBREW_CASK_OPTS="--no-quarantine --require-sha" \
 		brew update && \
-		brew bundle install -v --cleanup --force --file=.Brewfile && \
+		brew bundle install -v --cleanup --force --zap --file=.Brewfile && \
 		brew upgrade && \
 		touch .auto-Brewfile
 
