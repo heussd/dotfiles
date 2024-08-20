@@ -62,3 +62,4 @@ alias opsifyc='docker run --pull always --interactive --tty --platform linux/amd
 	-v "$HOME/.ssh:/root/.ssh" \
 	registry.gitlab.com/pwc-de/team-advisory-digital-incubator/devops/opsify:latest'
 
+alias magick='dockerrunuw minidocks/imagemagick'
