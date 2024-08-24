@@ -10,7 +10,7 @@ call plug#begin(root . 'plugged')
 Plug 'jamessan/vim-gnupg', { 'commit': 'f9b608f' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
+Plug 'girishji/vimcomplete'
 call plug#end()
 
 set nobackup       "no backup files
@@ -60,7 +60,6 @@ map <s-j> <S-}>
 map <s-k> <S-{>
 
 
-command Date :r! date "+\%Y-\%m-\%d \%H:\%M"
 :nnoremap ns i## <Esc>:Date
 
 

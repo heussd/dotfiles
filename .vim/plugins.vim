@@ -28,4 +28,5 @@ Plug 'stsewd/gx-extended.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'zivyangll/git-blame.vim'
+Plug 'girishji/vimcomplete'
 call plug#end()

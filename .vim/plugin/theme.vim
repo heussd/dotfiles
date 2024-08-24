@@ -1,8 +1,3 @@
-let g:gruvbox_transparent_bg = 1
-let g:gruvbox_contrast_light = "hard"
-colorscheme gruvbox
-
-
 hi CursorLine term=bold cterm=bold guibg=Grey40
 hi Folded ctermbg=NONE guibg=NONE
 

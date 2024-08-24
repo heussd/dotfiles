@@ -14,3 +14,9 @@ autocmd BufWritePre ~/.config/stew/Stewfile :%sort
 autocmd BufWritePre ~/.config/newsboat/killfile :%sort
 autocmd BufWritePre ~/.config/newsboat/highlights :%sort
 autocmd BufWritePre ~/.config/newsboat/highlights :%sort
+
+autocmd BufRead,BufNewFile reflections setfiletype reflections
+autocmd BufRead,BufNewFile urls,config setfiletype conf.tabsep
+
+autocmd BufRead compose*.yml source ~/.vim/files/docker-compose.vim
+
