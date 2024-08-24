@@ -2,5 +2,9 @@
 set list
 set listchars=tab:>-
 
-autocmd BufWritePost * silent Tabularize/\t
+" Format whole file
+" autocmd BufWritePost * silent :%Tabularize/\t
+
+" Format current block
+autocmd BufWritePost * silent :Tabularize/\t
 
