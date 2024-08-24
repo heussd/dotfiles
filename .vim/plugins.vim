@@ -10,7 +10,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'dense-analysis/ale'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'honza/writer.vim'
 Plug 'jamessan/vim-gnupg'
