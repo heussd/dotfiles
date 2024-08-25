@@ -1,0 +1,53 @@
+let root = '~/.config/vim/vimwiki/'
+set nocompatible
+
+if empty(glob(root . 'autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/vimwiki/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin(root . 'plugged')
+Plug 'airblade/vim-gitgutter'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'michal-h21/vim-zettel'
+Plug 'morhetz/gruvbox'
+Plug 'sbdchd/neoformat'
+Plug 'stsewd/gx-extended.vim'
+Plug 'vimwiki/vimwiki'
+call plug#end()
+
+set linebreak
+syntax enable
+
+filetype plugin on
+
+set noerrorbells
+
+
+let g:vimwiki_list = [{
+	\ 'path': "$HOME/Developer/vimwiki/",
+	\ 'ext':'.md',
+	\ 'syntax':'markdown',
+	\ 'diary_rel_path': "/",
+	\ 'diary_index': "diaryindex"
+	\ }]
+let g:vimwiki_markdown_link_ext = 1
+
+" Allow other markdown files to be non-vimwiki files
+let g:vimwiki_global_ext = 0
+let g:vimwiki_listsyms = ' ○◐●✓'
+let g:vimwiki_folding = 'custom'
+
+
+"autocmd VimEnter * if argv() ==# ['wiki'] | execute 'VimwikiIndex' | endif
+autocmd VimEnter * execute 'VimwikiIndex' 
+
+autocmd BufWritePost * silent exec '%!markdownlint --fix --config "$HOME/markdownlint.yml" "%" > /dev/null; slmd "%" -o; git add "%" && git commit -n -m "[auto-commit] on $HOST" > /dev/null' 
+
+let g:gruvbox_transparent_bg = 1
+let g:gruvbox_contrast_light = "hard"
+colorscheme gruvbox
+

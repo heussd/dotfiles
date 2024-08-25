@@ -29,15 +29,14 @@ function VimwikiMode()
 
 	" Auto Commit vimwiki pages https://superuser.com/questions/286290/is-there-any-way-to-hook-saving-in-vim-up-to-commiting-in-git
 	" Also don't screw the screen: https://www.rockyourcode.com/til-how-to-execute-an-external-command-in-vim-and-reload-the-file/#whats-even-better
-	autocmd! BufWritePost * " Clear existing auto-commands
-	autocmd BufWritePost * silent exec '%!markdownlint --fix --config "$HOME/markdownlint.yml" "%" > /dev/null; slmd "%" -o; git add "%" && git commit -n -m "[auto-commit] on $HOST" > /dev/null' 
+	"autocmd! BufWritePost * " Clear existing auto-commands
 
-	" Inspired by https://gist.github.com/jondkinney/2040114
-	" FUZZY FIND
-	nnoremap <C-f> :Rg<CR>
+  	 " Inspired by https://gist.github.com/jondkinney/2040114
+  	 " FUZZY FIND
+  	 "nnoremap <C-f> :Rg<CR>
 
-	set spell spelllang=de,en
-	set spell
+	"set spell spelllang=de,en
+	"set spell
 
 	" This line is causing display glitches on Linux terminals, so it's disabled for now.
 	" https://stackoverflow.com/questions/20593268/vim-on-ubuntu-text-rendering-bug-repeating-and-disappearing-weirdly#25085808

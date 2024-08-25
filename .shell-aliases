@@ -82,6 +82,9 @@ alias gp='git pull --rebase origin'
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 
+alias vim-vimwiki='pushd "$TH_PROJECTS_FOLDER/vimwiki"; vim -u ~/.config/vim/vimwiki/vimrc; popd'
+alias vimwiki="vim-vimwiki"
+
 alias vim-writer='vim -u $HOME/.config/vim/writer/vimrc'
 alias vim-doc=vim-writer
 
@@ -144,7 +147,6 @@ alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias p="cd $TH_PROJECTS_FOLDER"
 
-alias vimwiki="vim -c VimwikiIndex"
 alias add-url-to-diary="~/.config/newsboat/scripts/vimwiki"
 
 function apple-app-id() { osascript -e 'id of app "'$1'"'; }

@@ -46,6 +46,8 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
 source ~/.vim/plugins.vim
+source ~/.vim/vimcompletion.vim
+
 
 
 let g:indentLine_char = ''
@@ -53,7 +55,6 @@ let g:indentLine_char = ''
 
 source ~/.vim/ale.vim
 source ~/.vim/folds.vim
-source ~/.vim/vimwiki.vim
 
 let g:netrw_liststyle = 3
 
@@ -61,8 +62,6 @@ let g:netrw_liststyle = 3
 " pattern uses more memory than 'maxmempattern'
 set maxmempattern=5000
 
-
-source ~/.vim/auto-dark.vim
 
 let g:gruvbox_transparent_bg = 1
 let g:gruvbox_contrast_light = "hard"
