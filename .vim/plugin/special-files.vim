@@ -13,6 +13,7 @@ autocmd BufWritePre ~/.apt-packages :%sort
 autocmd BufWritePre ~/.config/stew/Stewfile :%sort
 autocmd BufWritePre ~/.config/newsboat/killfile :%sort
 autocmd BufWritePre ~/.config/newsboat/killfiles/* :%sort
+autocmd BufWritePre ~/.config/newsboat/killfiles/* :execute "make"
 autocmd BufWritePre ~/.config/newsboat/highlights :%sort
 autocmd BufWritePre ~/.config/newsboat/highlights :%sort
 
