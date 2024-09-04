@@ -66,3 +66,7 @@ set maxmempattern=5000
 let g:gruvbox_transparent_bg = 1
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
+
+" Change to workdir of opened files automatically
+" Might break some plugins
+set autochdir
