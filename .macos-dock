@@ -1,4 +1,5 @@
 /Applications/Firefox
+/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
 /Applications/kitty
 /System/Applications/Mail
 /Applications/Thunderbird
@@ -9,7 +10,6 @@
 /System/Applications/Photos
 /System/Applications/Music
 #/System/Applications/TV
-#/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
 /Applications/Clockify Desktop
 #/Applications/KeePassXC
 #/Applications/Cryptomator
