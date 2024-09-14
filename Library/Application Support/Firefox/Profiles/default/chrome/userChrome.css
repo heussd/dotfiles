@@ -8,17 +8,14 @@
 * Overwrite Container tab colors with pastel colors
 */
 .identity-color-toolbar {
-	--identity-tab-color: #808080 !important;
-	--identity-icon-color: #808080 !important;
+  --identity-tab-color: #808080 !important;
+  --identity-icon-color: #808080 !important;
 }
-
 
 /* Hide main tabs toolbar */
 #TabsToolbar {
-	visibility: collapse;
+  visibility: collapse;
 }
-
-
 
 /* Hide sidebar header
  * https://medium.com/@Aenon/firefox-hide-native-tabs-and-titlebar-f0b00bdbb88b
@@ -34,9 +31,9 @@
 }
 
 #personal-bookmarks .bookmark-item > .toolbarbutton-icon {
-	height: 24px !important;
-	width:24px!important;
-	filter: grayscale(1);
+  height: 24px !important;
+  width: 24px !important;
+  filter: grayscale(1);
 }
 /*
  * Full Auto-show/hide Theme
@@ -44,54 +41,144 @@
  */
 
 /* Hide main tabs toolbar */
-#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
-    opacity: 0;
-    pointer-events: none;
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"])
+  #TabsToolbar
+  > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
 }
 #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-    visibility: collapse !important;
+  visibility: collapse !important;
 }
 
 /* Sidebar min and max width removal */
 #sidebar {
-    max-width: none !important;
-    min-width: 0px !important;
+  max-width: none !important;
+  min-width: 0px !important;
 }
 /* Hide splitter, when using Tree Style Tab. */
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
-    display: none !important;
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
+  + #sidebar-splitter {
+  display: none !important;
 }
 /* Hide sidebar header, when using Tree Style Tab. */
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
-    visibility: collapse;
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
+  #sidebar-header {
+  visibility: collapse;
 }
 
 /* Shrink sidebar until hovered, when using Tree Style Tab. */
 :root {
-    --thin-tab-width: 35px;
-    --wide-tab-width: 500px;
+  --thin-tab-width: 35px;
+  --wide-tab-width: 500px;
 }
-#sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
-    min-width: var(--wide-tab-width) !important;
-    max-width: none !important;
+#sidebar-box:not(
+    [sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
+  ) {
+  min-width: var(--wide-tab-width) !important;
+  max-width: none !important;
 }
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
-    position: relative !important;
-    transition: all 100ms !important;
-    min-width: var(--thin-tab-width) !important;
-    max-width: var(--thin-tab-width) !important;
+  position: relative !important;
+  transition: all 100ms !important;
+  min-width: var(--thin-tab-width) !important;
+  max-width: var(--thin-tab-width) !important;
 }
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
-    transition: all 200ms !important;
-    min-width: var(--wide-tab-width) !important;
-    max-width: var(--wide-tab-width) !important;
-    margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
-    z-index: 1;
+  transition: all 200ms !important;
+  min-width: var(--wide-tab-width) !important;
+  max-width: var(--wide-tab-width) !important;
+  margin-right: calc(
+    (var(--wide-tab-width) - var(--thin-tab-width)) * -1
+  ) !important;
+  z-index: 1;
 }
-
-
-
 
 #sidebar {
   margin-left: -5px !important;
+}
+
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_main_toolbar.css made available under Mozilla Public License v. 2.0
+ * See the above repository for updates as well as full license text. */
+
+/* This style hides the main toolbar and shows it when the cursor is over the tabs toolbar as well as whenever the focus is inside nav-bar, such as when urlbar is focused. */
+
+:root {
+  --uc-navbar-transform: -40px;
+}
+:root[uidensity="compact"] {
+  --uc-navbar-transform: -34px;
+}
+
+#navigator-toolbox > div {
+  display: contents;
+}
+:root[sessionrestored]
+  :where(
+    #nav-bar,
+    #PersonalToolbar,
+    #tab-notification-deck,
+    .global-notificationbox
+  ) {
+  transform: translateY(var(--uc-navbar-transform));
+}
+:root:is([customizing], [chromehidden*="toolbar"])
+  :where(
+    #nav-bar,
+    #PersonalToolbar,
+    #tab-notification-deck,
+    .global-notificationbox
+  ) {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+#nav-bar:not([customizing]) {
+  opacity: 0;
+  transition: transform 400ms ease 1.8s, opacity 400ms ease 1.8s !important;
+  position: relative;
+  z-index: 2;
+}
+#titlebar {
+  position: relative;
+  z-index: 3;
+}
+
+/* Show when toolbox is focused, like when urlbar has received focus */
+#navigator-toolbox:focus-within > .browser-toolbar {
+  transform: translateY(0);
+  opacity: 1;
+  transition-duration: 500ms, 200ms !important;
+  transition-delay: 0s !important;
+}
+/* Show when toolbox is hovered */
+#titlebar:hover ~ .browser-toolbar,
+#nav-bar:hover,
+#nav-bar:hover + #PersonalToolbar {
+  transform: translateY(0);
+  opacity: 1;
+  transition-duration: 500ms, 200ms !important;
+  transition-delay: 0s !important;
+}
+/* This ruleset is separate, because not having :has support breaks other selectors as well */
+#mainPopupSet:has(> #appMenu-popup:hover)
+  ~ #navigator-toolbox
+  > .browser-toolbar {
+  transition-delay: 33ms !important;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Bookmarks toolbar needs so extra rules */
+#PersonalToolbar {
+  transition: transform 400ms ease 1.8s !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Move up the content view */
+:root[sessionrestored]:not([inFullscreen], [chromehidden~="toolbar"])
+  > body
+  > #browser {
+  margin-top: var(--uc-navbar-transform);
 }
