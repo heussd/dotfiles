@@ -4,15 +4,15 @@
 /System/Applications/Mail
 /Applications/Thunderbird
 /Applications/Signal
+/Applications/KeePassXC
+/Applications/Cryptomator
 /System/Applications/Calendar
-#/System/Applications/Notes
+/System/Applications/Notes
 /System/Applications/Reminders
 /System/Applications/Photos
 /System/Applications/Music
 #/System/Applications/TV
 /Applications/Clockify Desktop
-#/Applications/KeePassXC
-#/Applications/Cryptomator
 /Applications/Keka
 /Applications/VLC
 #/Applications/mpv
