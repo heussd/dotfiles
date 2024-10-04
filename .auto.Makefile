@@ -82,6 +82,7 @@ auto: \
 		touch .auto-compose.yml
 
 $(HOME)/Library/Application\ Support/Code/User/settings.json:
+	mkdir -p "$$HOME/Library/Application Support/Code/User/"
 	@echo "{}" > "$$HOME/Library/Application Support/Code/User/settings.json"
 
 .auto-vscode-settings: .vscode-settings $(HOME)/Library/Application\ Support/Code/User/settings.json
