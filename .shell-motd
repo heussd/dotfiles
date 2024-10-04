@@ -38,7 +38,7 @@ resume_screen() {
 	# Try to resume screen session
 	_hasCmd screen && (
 		if [ $TERM != 'screen' ]; then
-		  screen -r > /dev/null
+		  TERM="xterm" screen -r > /dev/null
 		fi
 	)
 }
@@ -56,3 +56,4 @@ if [ "$PWD" = "$HOME" ]; then
 fi
 
 resume_screen
+
