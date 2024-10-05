@@ -10,7 +10,7 @@ call plug#begin(root . 'plugged')
 Plug 'jamessan/vim-gnupg', { 'commit': 'f9b608f' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'girishji/vimcomplete'
+Plug 'preservim/vim-pencil'
 call plug#end()
 
 set nobackup       "no backup files
