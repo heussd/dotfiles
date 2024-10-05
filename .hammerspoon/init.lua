@@ -29,6 +29,8 @@ require('utils')
 require('focussed-border')
 
 require('apps-hotkeys')
+require('logi-options-minus')
+
 require('vim-cursor')
 -- require('window-move-resize') -- Not stable enough, replaced by Easy Move+Resize app
 require('window-management')
