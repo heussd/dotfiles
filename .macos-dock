@@ -3,6 +3,7 @@
 /Applications/kitty
 /System/Applications/Mail
 /Applications/Thunderbird
+/Applications/NetNewsWire
 /Applications/Signal
 /Applications/KeePassXC
 /Applications/Cryptomator
@@ -11,10 +12,12 @@
 /System/Applications/Reminders
 /System/Applications/Photos
 /System/Applications/Music
+/System/Applications/Podcasts
 #/System/Applications/TV
 /Applications/Clockify Desktop
 /Applications/Keka
 /Applications/VLC
+/Applications/Steam
 #/Applications/mpv
 /Applications/MacVim
 /Applications/CotEditor
@@ -40,10 +43,10 @@
 #/Applications/draw.io
 #/Applications/yEd
 #/Applications/MacDown
-#/Applications/LibreOffice
-#/Applications/Pages
-#/Applications/Numbers
-#/Applications/Keynote
+/Applications/LibreOffice
+/Applications/Pages
+/Applications/Numbers
+/Applications/Keynote
 /Applications/Google Chrome
 /Applications/Microsoft Edge
 /Applications/Microsoft Edge Beta
