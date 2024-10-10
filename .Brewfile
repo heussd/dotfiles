@@ -188,6 +188,7 @@ brew "shellcheck"
 brew "hadolint"
 #cask "dotnet-sdk"
 cask "1password"
+cask "1password-cli"
 
 
 tap "Azure/kubelogin"
