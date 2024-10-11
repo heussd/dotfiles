@@ -200,6 +200,9 @@ tap "nats-io/nats-tools"
 brew "nats-io/nats-tools/nats"
 
 
+
+cask "obs" # Open-source software for live streaming and screen recording.
+
 end
 
 end
