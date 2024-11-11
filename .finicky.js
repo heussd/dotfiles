@@ -2,7 +2,7 @@ module.exports = {
     options: {
         hideIcon: true,
     },
-    defaultBrowser: 'Firefox',
+    defaultBrowser: 'Safari',
     handlers: [
         {
             match: ['*.apple.com/*'],
@@ -40,6 +40,10 @@ module.exports = {
                 'drive.google.com',
             ]),
             browser: 'Google Chrome',
+        },
+        {
+            match: ['*.youtube.com/*'],
+            browser: 'Firefox',
         },
         {
             match: finicky.matchHostnames([

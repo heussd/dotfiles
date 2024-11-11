@@ -121,11 +121,11 @@ brew "stew"
 
 cask "onedrive"
 brew "glow"
+cask "finicky"
 
 
 if system 'hostname | grep -v "kabylake" > /dev/null'
 
-cask "finicky"
 cask "dozer"
 cask "fluor"
  
