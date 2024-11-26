@@ -67,31 +67,24 @@
   visibility: collapse;
 }
 
-/* Shrink sidebar until hovered, when using Tree Style Tab. */
-:root {
-  --thin-tab-width: 35px;
-  --wide-tab-width: 500px;
-}
-#sidebar-box:not(
-    [sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
-  ) {
-  min-width: var(--wide-tab-width) !important;
-  max-width: none !important;
-}
+/*
+https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#auto-showhide-sidebar-by-mouseover-hover
+*/
+
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
-  position: relative !important;
-  transition: all 100ms !important;
-  min-width: var(--thin-tab-width) !important;
-  max-width: var(--thin-tab-width) !important;
+  overflow: hidden;
+  min-width: 33px !important;
+  max-width: 33px !important;
+  transition: all 0.2s ease;
+  border-right: 1px solid #0c0c0d;
+  z-index: 2;
 }
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
-  transition: all 200ms !important;
-  min-width: var(--wide-tab-width) !important;
-  max-width: var(--wide-tab-width) !important;
-  margin-right: calc(
-    (var(--wide-tab-width) - var(--thin-tab-width)) * -1
-  ) !important;
-  z-index: 1;
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover,
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar {
+  min-width: 500px !important;
+  max-width: 500px !important;
+  z-index: 3;
 }
 
 #sidebar {
