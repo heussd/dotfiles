@@ -176,7 +176,7 @@ cask "db-browser-for-sqlite"
 cask "gephi"
 cask "hex-fiend"
 #cask "meld" # deprecated, replaced with kdiff
-cask "kdiff3"
+#cask "kdiff3" deprecated, replaced with vscode
 #cask "yed"
 mas "CotEditor", id: 1024640650
 #brew "helm"

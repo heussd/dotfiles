@@ -23,14 +23,17 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	trustExitCode = true
 
 
-# Further config no longer needed or even causing conflicts, e.g. https://stackoverflow.com//questions/35642530/git-difftool-not-opening-sometimes#answer-41971435
+[core]
+  editor = code --wait
 [diff]
-	tool = kdiff3
-	trustExitCode = true
-	guitool = kdiff3
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
-	tool = kdiff3
-	conflictStyle = zdiff3
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
 
 [alias]
