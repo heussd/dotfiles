@@ -182,7 +182,6 @@ mas "CotEditor", id: 1024640650
 #brew "helm"
 cask "devtoys"
 mas "Boop", id: 1518425043
-brew "terraform"
 brew "shellcheck"
 brew "hadolint"
 #cask "dotnet-sdk"
@@ -217,7 +216,6 @@ if system 'which code &> /dev/null'
 	vscode "formulahendry.auto-close-tag"
 	vscode "formulahendry.auto-rename-tag"
 	vscode "github.vscode-github-actions"
-	vscode "hashicorp.terraform"
 	vscode "johnpapa.vscode-peacock"
 	vscode "ms-azuretools.vscode-docker"
 	vscode "ms-vscode-remote.remote-containers"
