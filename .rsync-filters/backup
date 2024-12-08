@@ -8,22 +8,14 @@
 + /Music/
 
 + /data/
-+ /.minib
 
 + /Developer/
 
-+ /Developer/git-of-github/
-+ /Developer/git-of-github/**
-
-+ /Developer/vimwiki/
-+ /Developer/vimwiki/**
-+ /Developer/vimwiki.git/
-+ /Developer/vimwiki.git/**
-
-- /Developer/**
-
 
 + /Library/
+
++ /Library/CloudStorage/
++ /Library/CloudStorage/**
 
 + /Library/Thunderbird/
 + /Library/Thunderbird/**
