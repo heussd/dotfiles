@@ -10,23 +10,23 @@ end
 
 function pre_lock()
     print("Executing pre lock...")
-    hs.execute("killall newsboat")
+    --hs.execute("killall newsboat")
     hs.execute("gita push &", true)
-    reduce_sound_level()
+    --reduce_sound_level()
 
     --if (hs.wifi.currentNetwork() == "Wachtberg") then
     --    hs.execute("make -f $HOME/Makefile push &", true)
     --end
 
-    hlspeak('doop')
+    --hlspeak('doop')
 end
 
 
 function post_lock()
     print("Executing post lock...")
-    hlspeak('bell')
+    --hlspeak('bell')
     hs.execute("gita pull &", true)
-    hlspeak('hello')
+    --hlspeak('hello')
 
     --print("Current WIFI is "..hs.wifi.currentNetwork())
     --if (hs.wifi.currentNetwork() == "Wachtberg") then
