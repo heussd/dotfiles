@@ -2,7 +2,7 @@ module.exports = {
     options: {
         hideIcon: true,
     },
-    defaultBrowser: 'Safari',
+    defaultBrowser: 'Firefox',
     handlers: [
         {
             match: ['*.apple.com/*'],
