@@ -138,6 +138,7 @@ cask "clockify"
 mas "MeetingBar", id: 1532419400
 cask "libreoffice"
 cask "microsoft-teams"
+cask "chatgpt"
  
  
  ## Image
