@@ -125,7 +125,8 @@ cask "finicky"
 
 if system 'hostname | grep -v "kabylake" > /dev/null'
 
-cask "dozer"
+#cask "dozer" # Replaced by ICE
+cask "jordanbaird-ice"
 cask "fluor"
  
 #mas "Keynote", id: 409183694
