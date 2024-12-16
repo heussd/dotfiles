@@ -123,14 +123,14 @@ customboat() {
 	local XDG_DATA_HOME="$HOME/.local/share/newsboat/$1/" 
 	local DB_VAULT="$HOME/Cloud/OneDrive/newsboat/"
 	# security add-generic-password -a $LOGNAME -s newsboat -w *********
-	local password=$(security find-generic-password -w -a "$LOGNAME" -s newsboat)
+	#local password=$(security find-generic-password -w -a "$LOGNAME" -s newsboat)
 
-	7z e "$DB_VAULT/$1.7z" -o"$XDG_DATA_HOME/newsboat/" -aos -mhe=on -p"$password" || return
-	
-	XDG_CONFIG_HOME="$XDG_CONFIG_HOME" XDG_DATA_HOME="$XDG_DATA_HOME" newsboat; stty sane || return
-	
-	7z u "$DB_VAULT/$1.7z" "$XDG_DATA_HOME/newsboat/cache.db" -mx4 -mhe=on -p"$password"
-	rm "$XDG_DATA_HOME/newsboat/cache.db"
+ 	#7z e "$DB_VAULT/$1.7z" -o"$XDG_DATA_HOME/newsboat/" -aos -mhe=on -p"$password" || return
+
+ 	XDG_CONFIG_HOME="$XDG_CONFIG_HOME" XDG_DATA_HOME="$XDG_DATA_HOME" newsboat; stty sane || return
+
+ 	#7z u "$DB_VAULT/$1.7z" "$XDG_DATA_HOME/newsboat/cache.db" -mx4 -mhe=on -p"$password"
+ 	#rm "$XDG_DATA_HOME/newsboat/cache.db"
 }
 
 alias news='customboat "news"'
