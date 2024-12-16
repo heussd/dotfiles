@@ -76,7 +76,6 @@ brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
 brew "lazygit"
 brew "markdownlint-cli"
 brew "newsboat"
-cask "netnewswire"
 brew "p7zip"
 brew "pipx"
 brew "rclone"
