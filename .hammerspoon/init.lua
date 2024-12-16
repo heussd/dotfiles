@@ -26,7 +26,7 @@ hs.consoleOnTop(false)
 
 require('utils')
 
-require('focussed-border')
+--require('focussed-border')
 
 require('apps-hotkeys')
 require('logi-options-minus')
