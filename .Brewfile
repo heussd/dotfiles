@@ -111,6 +111,7 @@ cask "tiles"
 cask "tor-browser"
 cask "transmission"
 cask "visual-studio-code"
+cask "zed"
 cask "vlc"
 mas "Disk Graph", id: 697942581
 
