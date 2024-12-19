@@ -42,7 +42,10 @@ module.exports = {
             browser: 'Google Chrome',
         },
         {
-            match: ['*.youtube.com/*'],
+            match: [
+            	    '*.youtube.com/*',
+            	    '*.mp4'
+            ],
             browser: 'Firefox',
         },
         {
