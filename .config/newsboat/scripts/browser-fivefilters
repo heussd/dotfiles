@@ -4,7 +4,7 @@ SERVICE="http://localhost:55000/"
 
 url="$1"
 
-curl --fail "$SERVICE/extract.php?url=$url" | jq -r ".content" | html2text -b 0 | glow
+curl --fail "$SERVICE/extract.php?url=$url" | jq -r ".content" | html2text -b 0 | glow --pager
 
 #curl --fail --silent "http://maya.local:8080/extract.php?url=$url" | jq -r ".content" | w3m -v -F -T text/html
 
