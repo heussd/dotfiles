@@ -1,3 +1,5 @@
 gui:
   showRandomTip: false
+os:
+  editPreset: 'vim'
 quitOnTopLevelReturn: true
