@@ -24,7 +24,7 @@ ignore-article "*" "title =~ \"#shorts\""
 ignore-article "*" "title =~ \"Fast Lap | auto motor und sport$\""
 
 
-run-on-startup 	  	 "open"
+#run-on-startup 	  	 "open"
 
 browser 	 "~/.config/newsboat/scripts/browser-foreground"
 
