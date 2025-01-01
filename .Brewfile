@@ -106,6 +106,7 @@ cask "maccy"
 cask "macdown"
 cask "maestral"
 cask "signal"
+cask "whatsapp"
 cask "sourcetree"
 cask "syntax-highlight", greedy: true
 cask "tiles"
