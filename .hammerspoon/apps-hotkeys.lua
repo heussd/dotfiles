@@ -29,9 +29,9 @@ hyper:bind({}, "s", nil, function()
     hs.eventtap.keyStroke({"cmd"}, "v")
 end)
 
---hs.hotkey.bind({"alt"}, "space", function()
---    hs.execute("true | choose -e")
---end)
+hs.hotkey.bind({"alt"}, "space", function()
+    hs.application.launchOrFocus("Starface")
+end)
 
 
 hyper:bind({}, "p", nil, function()
