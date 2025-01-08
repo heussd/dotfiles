@@ -114,7 +114,7 @@ cask "tor-browser"
 cask "transmission"
 cask "visual-studio-code"
 cask "zed"
-cask "vlc"
+cask "mpv"
 mas "Disk Graph", id: 697942581
 
 tap "marwanhawari/tap"
@@ -152,7 +152,6 @@ mas "GIPHY CAPTURE", id: 668208984
 cask "imageoptim"
 
 
-cask "stolendata-mpv" # https://github.com/orgs/Homebrew/discussions/5270
 cask "handbrake"
 cask "adapter" # General purpose video converter
 ## Developer
