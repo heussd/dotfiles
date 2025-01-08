@@ -229,4 +229,6 @@ if system 'which code &> /dev/null'
 	vscode "streetsidesoftware.code-spell-checker"
 	vscode "timonwong.shellcheck"
 	vscode "yzhang.markdown-all-in-one"
+	vscode "github.copilot"
+	vscode "github.copilot-chat"
 end
