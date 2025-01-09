@@ -15,6 +15,7 @@ brew "ripgrep" # Also needed for vim
 
 if system 'uname -s | grep "Darwin" > /dev/null'
   instance_eval(File.read(".config/brew/Brewfile.darwin"))
+  instance_eval(File.read(".config/brew/Brewfile.vscode"))
 
   if system 'uname -p | grep "i386" > /dev/null'
     cask "macfuse" # macfuse is still the best choice for non-arm Macs
@@ -31,10 +32,5 @@ if system 'uname -s | grep "Darwin" > /dev/null'
     instance_eval(File.read(".config/brew/Brewfile.development"))
     instance_eval(File.read(".config/brew/Brewfile.work"))
   end
-end
-
-
-if system 'which code &> /dev/null'
-  instance_eval(File.read(".config/brew/Brewfile.vscode"))
 end
 
