@@ -1,0 +1,5 @@
+cask "clockify"
+cask "itsycal"
+cask "microsoft-edge"
+cask "microsoft-teams"
+mas "MeetingBar", id: 1532419400

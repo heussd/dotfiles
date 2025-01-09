@@ -16,6 +16,7 @@ autocmd BufWritePre ~/.config/newsboat/killfiles/* :%sort
 autocmd BufWritePre ~/.config/newsboat/killfiles/* :execute "make"
 autocmd BufWritePre ~/.config/newsboat/highlights :%sort
 autocmd BufWritePre ~/.config/newsboat/highlights :%sort
+autocmd BufWritePre ~/.config/brew/* :%sort
 
 autocmd BufRead,BufNewFile reflections setfiletype reflections
 autocmd BufRead,BufNewFile urls,config setfiletype conf.tabsep

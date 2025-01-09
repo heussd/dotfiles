@@ -1,0 +1,44 @@
+#brew "node"
+#cask "azure-data-studio"
+#cask "dozer" # Replaced by ICE
+#cask "kdiff3" deprecated, replaced with vscode
+#cask "meld" # deprecated, replaced with kdiff
+#cask "microsoft-azure-storage-explorer"
+#cask "postman" # RIP, replaced by bruno
+brew "az"
+brew "dive"
+brew "hadolint"
+brew "imagemagick"
+brew "k9s"
+brew "kubectx"
+brew "kubelogin"
+brew "nats-io/nats-tools/nats"
+brew "nvm"
+brew "shellcheck"
+brew "sops"
+brew "yarn"
+cask "1password"
+cask "1password-cli"
+cask "bruno"
+cask "camunda-modeler"
+cask "cyberduck"
+cask "db-browser-for-sqlite"
+cask "devtoys"
+cask "docker"
+cask "fluor"
+cask "gephi"
+cask "gimp"
+cask "google-cloud-sdk"
+cask "hex-fiend"
+cask "imageoptim"
+cask "inkscape"
+cask "jetbrains-toolbox"
+cask "jordanbaird-ice"
+cask "libreoffice"
+mas "Boop", id: 1518425043
+mas "CotEditor", id: 1024640650
+mas "GIPHY CAPTURE", id: 668208984
+mas "Numbers", id: 409203825
+mas "Xcode", id: 497799835
+tap "Azure/kubelogin"
+tap "nats-io/nats-tools"
