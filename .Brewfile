@@ -60,7 +60,8 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   cask "maccy"
   cask "macdown"
   cask "maestral"
-  cask "mpv"
+  #cask "mpv" replaced by iina because of installation loops
+  cask "iina"
   cask "netnewswire"
   cask "obs" # Open-source software for live streaming and screen recording.
   cask "onedrive"
