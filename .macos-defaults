@@ -94,6 +94,7 @@ defaults write org.dmarcotte.Easy-Move-Resize ModifierFlags SHIFT,CMD
 defaults write com.colliderli.iina SUHasLaunchedBefore 1
 defaults write com.colliderli.iina actionAfterLaunch 2
 defaults write com.colliderli.iina quitWhenNoOpenedWindow 1
+defaults write com.colliderli.iina themeMaterial 4
 
 
 openwith com.colliderli.iina mkv mov mp4 avi webm m3u mp3
