@@ -24,7 +24,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 
 
 [core]
-  editor = code --wait
+  editor = vim
 [diff]
   tool = vscode
 [difftool "vscode"]
