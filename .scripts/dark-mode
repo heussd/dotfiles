@@ -25,11 +25,13 @@ function wallpaper() {
 
 
 if [ "$(defaults read -g AppleInterfaceStyle | grep 'Dark')" ]; then
+	echo "Going white"
 	#wallpaper "Silver"
-	kittytheme "white"
+	#kittytheme "white"
 else
+	echo "Going black"
 	#wallpaper "Black"
-	kittytheme "dark"
+	#kittytheme "dark"
 fi
 
 osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
