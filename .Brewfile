@@ -148,6 +148,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
     cask "jetbrains-toolbox"
     cask "jordanbaird-ice"
     cask "libreoffice"
+    cask "cursor"
     mas "Boop", id: 1518425043
     mas "CotEditor", id: 1024640650
     mas "GIPHY CAPTURE", id: 668208984
