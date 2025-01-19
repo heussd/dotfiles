@@ -1,6 +1,7 @@
 #podman-compose==0.1.11
 bitbucket-cli
 gita
+poetry
 pysummarization
 slmd
 yamllint
