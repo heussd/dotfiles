@@ -163,7 +163,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
         
     
     cask "clockify"
-    cask "itsycal"
+    #cask "itsycal" replaced by Hammerspoons menu entry
     cask "microsoft-edge"
     cask "microsoft-teams"
     mas "MeetingBar", id: 1532419400
