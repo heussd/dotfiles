@@ -30,7 +30,9 @@ dotfiles_status() {
 		echo "dotfiles @ $(.f log --oneline | head -n 1)"
 		echo -n -e "\033[31m"
 		.f status --porcelain
-		.fp status --porcelain
+		_hasFolder "$HOME/.dotfiles-private-bare-repo/" && (
+			.fp status --porcelain
+		)
 		echo -n -e "\033[0m"
 	)
 }
