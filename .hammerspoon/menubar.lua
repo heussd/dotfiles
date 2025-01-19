@@ -1,6 +1,6 @@
 local bar = hs.menubar.new()
 -- bar:setTitle(hs.host:localizedName())
-bar:setTitle("™")
+bar:setTitle("CW " .. string.format("%u", os.date( "%V")))
 
 
 function test()
@@ -86,7 +86,6 @@ function generate_menu()
         {title = "-" },
         {title = "MoCkInG SPoNgE TYpE CLiPbOaRd", fn = spongeTypeClipboard},
         {title = "-" },
-        {title = globalmute.muted and "Microphone is MUTED" or "Microphone is OPEN", fn = toggleMic,},
         {
             title = hs.caffeinate.get("displayIdle") and "Display stays AWAKE" or "Display will sleep",
             checked = hs.caffeinate.get("displayIdle"),

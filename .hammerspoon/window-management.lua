@@ -102,6 +102,7 @@ end
 
 
 hyper:bind({}, "y", move_to_next_screen)
+hyper:bind({}, "z", move_to_next_screen)
 
 hyper:bind({}, "x", maximize_current_window)
 

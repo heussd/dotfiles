@@ -36,9 +36,9 @@ require('vim-cursor')
 require('window-management')
 require('window-management-next-window-fix')
 
-require("global-mute")
+--require("global-mute")
 require('menubar')
 
 require('sleep-hooks')
-require('playground')
+--require('playground')
 require('spoons')

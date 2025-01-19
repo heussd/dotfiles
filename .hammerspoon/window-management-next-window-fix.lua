@@ -42,5 +42,5 @@ function switchToPreviousWindowOfSameApp()
   end
 end
 
-hs.hotkey.bind('cmd', '<', switchToNextWindowOfSameApp)
-hs.hotkey.bind({'cmd', '>'}, '=', switchToPreviousWindowOfSameApp)
+hs.hotkey.bind('cmd', '`', switchToNextWindowOfSameApp)
+hs.hotkey.bind({'cmd', '`'}, '=', switchToPreviousWindowOfSameApp)
