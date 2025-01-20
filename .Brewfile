@@ -69,10 +69,10 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   cask "sourcetree"
   cask "syntax-highlight"
   cask "tiles"
-  cask "tor-browser"
-  cask "transmission"
+  #cask "tor-browser" # Unauthorised
+  #cask "transmission" # Unauthorised 
   cask "visual-studio-code"
-  cask "whatsapp"
+  #cask "whatsapp" # Unauthorised
   cask "zed"
   mas "Disk Graph", id: 697942581
   
