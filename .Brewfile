@@ -106,6 +106,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   cask "dupeguru"
   cask "finicky"
   cask "firefox"
+  cask "firefox@developer-edition"
   cask "fluor"
   cask "font-humor-sans"
   cask "font-monaspace"
