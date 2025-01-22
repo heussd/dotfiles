@@ -7,13 +7,74 @@
 tap "homebrew/bundle"
 
 brew "git"
-brew "gh" # GitHub cli
-brew "neovim"
 brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
 
 
+
+if system 'hostname | grep "AU_" > /dev/null'
+  brew "bat"
+  brew "coreutils"
+  brew "ctop"
+  brew "eza" # a fork of the discontinued exa
+  brew "git-delta"
+  brew "git-gui"		# gitk
+  brew "git-lfs"
+  brew "glow"
+  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
+  brew "lazygit"
+  brew "markdownlint-cli"
+  brew "pipx"
+  brew "rclone"
+  brew "wget"
+  brew "yq"
+  brew "zsh-completions"
+  cask "adapter" # General purpose video converter
+  cask "appcleaner"
+  cask "firefox"
+  cask "firefox@developer-edition"
+  cask "fluor"
+  cask "font-sauce-code-pro-nerd-font"
+  cask "hammerspoon"
+  cask "handbrake"
+  cask "keka"
+  cask "kitty"
+  cask "maccy"
+  cask "macdown"
+  cask "iina"
+  cask "onedrive"
+  cask "sourcetree"
+  cask "syntax-highlight"
+  cask "clockify"
+  mas "Disk Graph", id: 697942581
+  
+  tap "marwanhawari/tap"
+  brew "stew"
+  
+  brew "dive"
+  brew "hadolint"
+  brew "imagemagick"
+  brew "nvm"
+  brew "shellcheck"
+  brew "yarn"
+  cask "1password"
+  cask "1password-cli"
+  cask "bruno"
+  cask "docker"
+  cask "hiddenbar"
+  cask "cursor"
+  mas "Boop", id: 1518425043
+  mas "Numbers", id: 409203825
+  mas "Xcode", id: 497799835
+  cask "clockify"
+  cask "microsoft-teams"
+  mas "MeetingBar", id: 1532419400
+
+else
+
 if system 'uname -s | grep "Darwin" > /dev/null'
+  brew "gh" # GitHub cli
+  brew "neovim"
   brew "bat"
   brew "btop"
   brew "choose-gui"
@@ -170,3 +231,4 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   end
 end
 
+end
