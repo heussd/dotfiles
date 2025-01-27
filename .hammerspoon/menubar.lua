@@ -36,6 +36,11 @@ function download_autosort()
     hs.execute("~/.scripts/autosort_downloads", true)
 end
 
+function gita_sync()
+    local output = hs.execute("gita sync", true)
+    hs.alert(output)
+end 
+
 function open_config()
     hs.execute("code ~/.hammerspoon", true)
 end
@@ -79,6 +84,8 @@ function generate_menu()
     bar:setMenu({
         {title = "-" },
         {title = "Toggle Dark Mode", fn = toggle_dark_mode },
+        {title = "-" },
+        {title = "Gita sync", fn = gita_sync },
         {title = "-" },
         {title = "Focus Mode", fn = focus_mode },
         {title = "Good Night", fn = goodnight},
