@@ -15,7 +15,7 @@ hyper:bind({}, 'r', nil, function()
 end)
 
 
-hs.autoLaunch(false)
+hs.autoLaunch(true)
 hs.automaticallyCheckForUpdates(true)
 hs.preferencesDarkMode(true)
 hs.accessibilityState(true) -- show System Preferences if Accessibility is not enabled for Hammerspoon
