@@ -46,7 +46,10 @@ module.exports = {
             	    '*.youtube.com/*',
             	    '*.mp4'
             ],
-            browser: 'Firefox',
+            browser: (options) => ({
+                name: 'firefox',
+                args: [options.urlString, '-P', 'YouTube'],
+            }),
         },
         {
             match: finicky.matchHostnames([
