@@ -11,7 +11,8 @@ brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
 
 
-if system 'hostname | grep "DE_" > /dev/null'
+if system 'uname -s | grep "Darwin" > /dev/null'
+
   brew "bat"
   brew "coreutils"
   brew "ctop"
@@ -19,8 +20,6 @@ if system 'hostname | grep "DE_" > /dev/null'
   brew "git-delta"
   brew "git-gui"		# gitk
   brew "git-lfs"
-  brew "glow"
-  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
   brew "lazygit"
   brew "markdownlint-cli"
   cask "appcleaner"
@@ -34,10 +33,16 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "onedrive"
   cask "sourcetree"
   cask "syntax-highlight"
+  brew "pipx"
   
   tap "marwanhawari/tap"
   brew "stew"
-  
+ 
+end
+
+
+if system 'hostname | grep "DE_" > /dev/null'
+ 
   brew "dive"
   cask "1password"
   cask "1password-cli"
@@ -51,45 +56,20 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "hiddenbar"
   cask "maestral"
 
-
 elsif system 'hostname | grep "AU_" > /dev/null'
-  brew "bat"
-  brew "coreutils"
-  brew "ctop"
-  brew "eza" # a fork of the discontinued exa
-  brew "git-delta"
-  brew "git-gui"		# gitk
-  brew "git-lfs"
-  brew "glow"
-  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
-  brew "lazygit"
-  brew "markdownlint-cli"
-  brew "pipx"
+
   brew "rclone"
-  brew "wget"
+  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
   brew "yq"
   brew "zsh-completions"
   cask "adapter" # General purpose video converter
-  cask "appcleaner"
-  cask "firefox"
-  cask "firefox@developer-edition"
   cask "fluor"
-  cask "font-sauce-code-pro-nerd-font"
   cask "hammerspoon"
   cask "handbrake"
-  cask "keka"
-  cask "kitty"
   cask "maccy"
   cask "macdown"
-  cask "iina"
-  cask "onedrive"
-  cask "sourcetree"
-  cask "syntax-highlight"
   cask "clockify"
   mas "Disk Graph", id: 697942581
-  
-  tap "marwanhawari/tap"
-  brew "stew"
   
   brew "dive"
   brew "hadolint"
