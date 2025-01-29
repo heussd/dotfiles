@@ -11,8 +11,48 @@ brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
 
 
+if system 'hostname | grep "DE_" > /dev/null'
+  brew "bat"
+  brew "coreutils"
+  brew "ctop"
+  brew "eza" # a fork of the discontinued exa
+  brew "git-delta"
+  brew "git-gui"		# gitk
+  brew "git-lfs"
+  brew "glow"
+  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
+  brew "lazygit"
+  brew "markdownlint-cli"
+  cask "appcleaner"
+  cask "firefox"
+  cask "finicky"
+  cask "font-sauce-code-pro-nerd-font"
+  cask "hammerspoon"
+  cask "keka"
+  cask "kitty"
+  cask "iina"
+  cask "onedrive"
+  cask "sourcetree"
+  cask "syntax-highlight"
+  
+  tap "marwanhawari/tap"
+  brew "stew"
+  
+  brew "dive"
+  cask "1password"
+  cask "1password-cli"
+  cask "bruno"
+  cask "docker"
+  cask "visual-studio-code"
+  cask "microsoft-teams"
+  cask "netnewswire"
+  cask "keepassxc"
+  cask "cryptomator"
+  cask "hiddenbar"
+  cask "maestral"
 
-if system 'hostname | grep "AU_" > /dev/null'
+
+elsif system 'hostname | grep "AU_" > /dev/null'
   brew "bat"
   brew "coreutils"
   brew "ctop"
