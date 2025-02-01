@@ -5,3 +5,6 @@
 export PATH="/opt/homebrew/bin/:$PATH"
 
 # https://github.com/b4winckler/macvim/wiki/Troubleshooting#for-zsh-users
+
+# Created by `pipx` on 2025-02-01 14:07:48
+export PATH="$PATH:/Users/theuss001/.local/bin"

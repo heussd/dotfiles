@@ -106,3 +106,6 @@ export PATH="$PATH:/opt/homebrew/bin/"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Created by `pipx` on 2025-02-01 14:07:48
+export PATH="$PATH:/Users/theuss001/.local/bin"
