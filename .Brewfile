@@ -33,6 +33,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   cask "onedrive"
   cask "sourcetree"
   cask "syntax-highlight"
+  brew "rclone"
   brew "pipx"
   
   tap "marwanhawari/tap"
