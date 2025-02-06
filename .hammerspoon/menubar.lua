@@ -3,6 +3,11 @@ local bar = hs.menubar.new()
 bar:setTitle("CW " .. string.format("%u", os.date( "%V")))
 
 
+hs.timer.doAt("00:01",function()
+	bar:setTitle("CW " .. string.format("%u", os.date( "%V")))
+end)
+
+
 function test()
     hs.alert("OMG")
     hs.caffeinate.lockScreen()
