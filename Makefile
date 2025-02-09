@@ -79,3 +79,8 @@ backup:
 
 
 include .config/Makefile
+
+fixreboot: hyperkey
+	@-pkill -f "DisplayLink Manager"
+	@-pkill -f "printscout-ui"
+	@-pkill -f "FindMe"

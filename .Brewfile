@@ -84,7 +84,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "1password-cli"
   cask "bruno"
   cask "docker"
-  cask "hiddenbar"
   cask "cursor"
   mas "Boop", id: 1518425043
   mas "Numbers", id: 409203825

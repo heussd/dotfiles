@@ -104,3 +104,7 @@ openwith com.colliderli.iina mkv mov mp4 avi webm m3u mp3
 openwith com.aone.keka 7z zip zipx rar tar gzip bzip2 xz lzip brotli zstd lrzip lzma cab wim msi pax 
 openwith com.microsoft.VSCode xml yml yaml Dockerfile Makefile java kt js jsx log tex txt json cls sh 
 openwith com.uranusjr.macdown md
+
+
+
+defaults write com.microsoft.wdav hideStatusMenuIcon -bool YES
