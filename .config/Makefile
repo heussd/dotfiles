@@ -102,3 +102,7 @@ linux-apt-no-sudo-passwd: ## Allow apt without admin password
 linux-disable-unattended-updates: ## Disable unattended updates
 	sudo cp /usr/share/unattended-upgrades/20auto-upgrades-disabled /etc/apt/apt.conf.d/
 
+
+hyperkey:
+	hidutil property --set \
+ 		'{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006D}]}'

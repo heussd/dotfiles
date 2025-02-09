@@ -24,7 +24,6 @@ hs.menuIcon(false)
 hs.consoleOnTop(false)
 
 
-require('f18')
 require('utils')
 
 --require('focussed-border')
