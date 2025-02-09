@@ -85,11 +85,26 @@ function focus_mode()
 end
 
 
+require('media-control')
+
+function toggleMediaControl()
+    mediaControlActive = not mediaControlActive
+    if mediaControlActive then
+        horizontalScroll:start()
+        homeButton:start()
+    else
+        horizontalScroll:stop()
+        homeButton:stop()
+    end
+end
+
+
 function generate_menu()
     bar:setMenu({
         {title = "-" },
         {title = "Toggle Dark Mode", fn = toggle_dark_mode },
         {title = "-" },
+        {title = "Toggle Mouse media control Mode", fn = toggleMediaControl },
         {title = "Gita sync", fn = gita_sync },
         {title = "-" },
         {title = "Focus Mode", fn = focus_mode },
