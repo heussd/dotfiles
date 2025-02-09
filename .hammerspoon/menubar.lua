@@ -92,6 +92,11 @@ function toggleMediaControl()
     if mediaControlActive then
         horizontalScroll:start()
         homeButton:start()
+        
+        for i = 1, 10 do
+            hs.eventtap.event.newSystemKeyEvent('BRIGHTNESS_DOWN', true):post()
+            hs.eventtap.event.newSystemKeyEvent('BRIGHTNESS_DOWN', false):post()
+        end
     else
         horizontalScroll:stop()
         homeButton:stop()
