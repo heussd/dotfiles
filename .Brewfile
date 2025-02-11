@@ -72,6 +72,7 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "maccy"
   cask "macdown"
   cask "clockify"
+  brew "the_silver_searcher"
   mas "Disk Graph", id: 697942581
   
   brew "dive"
@@ -91,6 +92,8 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "clockify"
   cask "microsoft-teams"
   mas "MeetingBar", id: 1532419400
+
+  cask "microsoft-azure-storage-explorer"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
 
