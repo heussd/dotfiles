@@ -42,7 +42,7 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	head = log -1
 	co = checkout
 	s = status
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	hist = log --all --decorate --oneline --graph 
 	whatsnew = diff --stat --cached
 	ref-ignore = !sh -c 'curl https://raw.githubusercontent.com/github/gitignore/master/'$1'.gitignore >> .gitignore'
 	# https://davidwalsh.name/more-awesome-git-aliases
