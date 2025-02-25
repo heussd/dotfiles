@@ -66,7 +66,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   brew "yq"
   brew "zsh-completions"
   cask "adapter" # General purpose video converter
-  cask "fluor"
   cask "hammerspoon"
   cask "handbrake"
   cask "maccy"
@@ -187,7 +186,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   cask "db-browser-for-sqlite"
   cask "devtoys"
   cask "docker"
-  cask "fluor"
   cask "gephi"
   cask "gimp"
   cask "google-cloud-sdk"
