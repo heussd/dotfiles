@@ -51,10 +51,8 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "docker"
   cask "visual-studio-code"
   cask "microsoft-teams"
-  cask "netnewswire"
   cask "keepassxc"
   cask "cryptomator"
-  cask "hiddenbar"
   cask "maestral"
   brew "gh" # GitHub cli
   brew "gnupg"
