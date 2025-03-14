@@ -1,11 +1,30 @@
 local bar = hs.menubar.new()
--- bar:setTitle(hs.host:localizedName())
-bar:setTitle("CW " .. string.format("%u", os.date( "%V")))
 
 
-hs.timer.doAt("00:01",function()
-	bar:setTitle("CW " .. string.format("%u", os.date( "%V")))
+require('time-tracker')
+
+
+function update_menubar()
+    print("Updating")
+    local cw = "CW " .. string.format("%u", os.date("%V"))
+    local stats = show_work_stats()
+
+    local clock_ticking = worktimer:running() and "🔴" or "⏸"
+
+    local styledText = hs.styledtext.new(cw .. "\n " .. clock_ticking .. " " .. stats, {
+        font = {name = ".AppleSystemUIFont", size = 8},
+        color = {hex = "#FFFFFF"}
+    })
+    bar:setTitle(styledText)
+end
+
+
+
+update_menubar()
+updateTimer = hs.timer.doEvery(60, function()
+    update_menubar()
 end)
+
 
 
 function test()
@@ -104,9 +123,24 @@ function toggleMediaControl()
 end
 
 
+
+
+function toggleWorktimer()
+    if worktimer:running() then
+        worktimer:stop()
+    else
+        worktimer:start()
+    end
+
+    update_menubar()
+    generate_menu()
+end
+
+
 function generate_menu()
     bar:setMenu({
         {title = "-" },
+        {title = "Work timer is " .. (worktimer:running() and "ON" or "OFF"), fn = toggleWorktimer},
         {title = "Toggle Dark Mode", fn = toggle_dark_mode },
         {title = "-" },
         {title = "Toggle Mouse media control Mode", fn = toggleMediaControl },
@@ -133,3 +167,12 @@ end
 
 
 generate_menu()
+
+
+menuStandbyWatcher = hs.caffeinate.watcher.new(function(eventType)
+    if eventType == hs.caffeinate.watcher.screensDidUnlock then
+        hs.sleep(4)
+        update_menubar()
+    end
+end)
+menuStandbyWatcher:start()

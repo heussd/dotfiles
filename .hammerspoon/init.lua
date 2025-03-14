@@ -21,7 +21,7 @@ hs.preferencesDarkMode(true)
 hs.accessibilityState(true) -- show System Preferences if Accessibility is not enabled for Hammerspoon
 hs.dockIcon(false)
 hs.menuIcon(false)
-hs.consoleOnTop(false)
+hs.consoleOnTop(true)
 
 
 require('utils')
