@@ -9,13 +9,22 @@ function update_menubar()
     local cw = "CW " .. string.format("%u", os.date("%V"))
     local stats = show_work_stats()
 
-    local clock_ticking = worktimer:running() and "🔴" or "⏸"
-
-    local styledText = hs.styledtext.new(cw .. "\n " .. clock_ticking .. " " .. stats, {
+    if stats == "0.0 / 0.0" then
+        local styledText = hs.styledtext.new(cw .. "\n ", {
         font = {name = ".AppleSystemUIFont", size = 8},
-        color = {hex = "#FFFFFF"}
-    })
-    bar:setTitle(styledText)
+            color = {hex = "#FFFFFF"}
+        })
+        bar:setTitle(styledText)
+        return
+    else
+        local clock_ticking = worktimer:running() and "🔴" or "⏸"
+
+        local styledText = hs.styledtext.new(cw .. "\n " .. clock_ticking .. " " .. stats, {
+            font = {name = ".AppleSystemUIFont", size = 8},
+            color = {hex = "#FFFFFF"}
+        })
+        bar:setTitle(styledText)
+    end
 end
 
 

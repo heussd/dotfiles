@@ -6,17 +6,6 @@ function log()
     file:close()
 end
 
-standbyWatcher = hs.caffeinate.watcher.new(function(eventType)
-    if eventType == hs.caffeinate.watcher.screensDidLock then
-        print("[TT] screens locked, stopping work timer.")
-        worktimer:stop()
-    elseif eventType == hs.caffeinate.watcher.screensDidUnlock then
-        print("[TT] screens unlocked, starting work timer.")
-        worktimer:start()
-    end
-end)
-standbyWatcher:start()
-
 
 worktimer = hs.timer.new((5*60), function()
     print("Log work activity")
@@ -86,10 +75,30 @@ function show_work_stats()
 end
 
 
+function start_automatically()
+    local hostname = hs.host.localizedName()
+    if not hostname:sub(1,2) == "AU" then
+        return
+    end
 
-local hostname = hs.host.localizedName()
-if hostname:sub(1,2) == "AU" then
+    local day_of_week = tonumber(os.date("%w"))
+    if day_of_week == 0 or day_of_week == 6 then
+        return
+    end
+
     worktimer:start()
     print("Starting work log tracker")
 end
+start_automatically()
 
+
+standbyWatcher = hs.caffeinate.watcher.new(function(eventType)
+    if eventType == hs.caffeinate.watcher.screensDidLock then
+        print("[TT] screens locked, stopping work timer.")
+        worktimer:stop()
+    elseif eventType == hs.caffeinate.watcher.screensDidUnlock then
+        print("[TT] screens unlocked, starting work timer.")
+        start_automatically()
+    end
+end)
+standbyWatcher:start()
