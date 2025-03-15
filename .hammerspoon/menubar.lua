@@ -6,11 +6,12 @@ require('time-tracker')
 
 function update_menubar()
     print("Updating")
+    local iso_date = os.date("%Y-%m-%d")
     local cw = "CW " .. string.format("%u", os.date("%V"))
     local stats = show_work_stats()
 
     if stats == "0.0 / 0.0" then
-        local styledText = hs.styledtext.new(cw .. "\n ", {
+        local styledText = hs.styledtext.new(iso_date .. " " .. cw .. "\n ", {
         font = {name = ".AppleSystemUIFont", size = 8},
             color = {hex = "#FFFFFF"}
         })
@@ -19,7 +20,7 @@ function update_menubar()
     else
         local clock_ticking = worktimer:running() and "🔴" or "⏸"
 
-        local styledText = hs.styledtext.new(cw .. "\n " .. clock_ticking .. " " .. stats, {
+        local styledText = hs.styledtext.new(iso_date .. " " .. cw .. "\n " .. clock_ticking .. " " .. stats, {
             font = {name = ".AppleSystemUIFont", size = 8},
             color = {hex = "#FFFFFF"}
         })
