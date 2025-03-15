@@ -66,7 +66,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "adapter" # General purpose video converter
   cask "hammerspoon"
   cask "handbrake"
-  cask "maccy"
   cask "macdown"
   cask "clockify"
   brew "the_silver_searcher"
