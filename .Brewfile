@@ -67,7 +67,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "hammerspoon"
   cask "handbrake"
   cask "macdown"
-  cask "clockify"
   brew "the_silver_searcher"
   mas "Disk Graph", id: 697942581
   
@@ -85,7 +84,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   mas "Boop", id: 1518425043
   mas "Numbers", id: 409203825
   mas "Xcode", id: 497799835
-  cask "clockify"
   cask "microsoft-teams"
   mas "MeetingBar", id: 1532419400
 
@@ -206,7 +204,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "nats-io/nats-tools/nats"
       
   
-  cask "clockify"
   #cask "itsycal" replaced by Hammerspoons menu entry
   cask "microsoft-edge"
   cask "microsoft-teams"
