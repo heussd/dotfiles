@@ -80,7 +80,12 @@ backup:
 
 include .config/Makefile
 
+
 fixreboot: hyperkey
 	@-pkill -f "DisplayLink Manager"
 	@-pkill -f "printscout-ui"
 	@-pkill -f "FindMe"
+	@while read -r app; do \
+		osascript -e "id of application \"$$app\"" 2>/dev/null && \
+			open --background -a "$$app" || true; \
+	done < .macos-autostart
