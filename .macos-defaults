@@ -112,8 +112,8 @@ defaults write com.microsoft.wdav hideStatusMenuIcon -bool YES
 
 
 # https://gist.github.com/webel/464f9c58b22979fa37d4d12eb6d4faae
-layouts=('U.S.' 'German-DIN-2137')
-ids=('0' '-18133')
+layouts=('U.S.' 'German')
+ids=('0' '3')
 
 # The keys we have to add for each layout
 apple_keys=("AppleEnabledInputSources" "AppleInputSourceHistory" "AppleSelectedInputSources")
