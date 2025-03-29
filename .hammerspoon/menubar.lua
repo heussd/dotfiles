@@ -6,26 +6,12 @@ require('time-tracker')
 
 function update_menubar()
     print("Updating")
-    local iso_date = os.date("%Y-%m-%d")
-    local cw = "CW " .. string.format("%u", os.date("%V"))
-    local stats = show_work_stats()
+    local iso_date = os.date("%d.%m.%Y")
+    local cw = string.format("%u", os.date("%V"))
+    local clock_ticking = worktimer:running() and "🔴" or "⏸"
 
-    if stats == "0.0 / 0.0" then
-        local styledText = hs.styledtext.new(iso_date .. " " .. cw .. "\n ", {
-        font = {name = ".AppleSystemUIFont", size = 8},
-            color = {hex = "#FFFFFF"}
-        })
-        bar:setTitle(styledText)
-        return
-    else
-        local clock_ticking = worktimer:running() and "🔴" or "⏸"
 
-        local styledText = hs.styledtext.new(iso_date .. " " .. cw .. "\n " .. clock_ticking .. " " .. stats, {
-            font = {name = ".AppleSystemUIFont", size = 8},
-            color = {hex = "#FFFFFF"}
-        })
-        bar:setTitle(styledText)
-    end
+    bar:setTitle(clock_ticking .. " " .. iso_date .. " / " .. cw)
 end
 
 
@@ -150,7 +136,7 @@ end
 function generate_menu()
     bar:setMenu({
         {title = "-" },
-        {title = "Work timer is " .. (worktimer:running() and "ON" or "OFF"), fn = toggleWorktimer},
+        {title = show_work_stats() .. " - Work timer is " .. (worktimer:running() and "ON" or "OFF"), fn = toggleWorktimer},
         {title = "Toggle Dark Mode", fn = toggle_dark_mode },
         {title = "-" },
         {title = "Toggle Mouse media control Mode", fn = toggleMediaControl },
