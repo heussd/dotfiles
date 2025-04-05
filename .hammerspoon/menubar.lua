@@ -4,23 +4,6 @@ local bar = hs.menubar.new()
 require('time-tracker')
 
 
-function update_menubar()
-    print("Updating")
-    local iso_date = os.date("%d.%m.%Y")
-    local cw = string.format("%u", os.date("%V"))
-    local clock_ticking = worktimer:running() and "🔴" or "⏸"
-
-
-    bar:setTitle(clock_ticking .. " " .. iso_date .. " / " .. cw)
-end
-
-
-
-update_menubar()
-updateTimer = hs.timer.doEvery(60, function()
-    update_menubar()
-end)
-
 
 
 function test()
@@ -172,3 +155,24 @@ menuStandbyWatcher = hs.caffeinate.watcher.new(function(eventType)
     end
 end)
 menuStandbyWatcher:start()
+
+
+
+
+function update_menubar()
+    print("Updating")
+    local iso_date = os.date("%d.%m.%Y")
+    local cw = string.format("%u", os.date("%V"))
+    local clock_ticking = worktimer:running() and "🔴" or "⏸"
+
+
+    bar:setTitle(clock_ticking .. " " .. iso_date .. " / " .. cw)
+    generate_menu()
+end
+
+
+
+update_menubar()
+updateTimer = hs.timer.doEvery(60, function()
+    update_menubar()
+end)
