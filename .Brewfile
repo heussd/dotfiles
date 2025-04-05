@@ -26,6 +26,8 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   cask "firefox"
   cask "finicky"
   cask "font-sauce-code-pro-nerd-font"
+  cask "font-open-sans"
+  cask "ollama"
   cask "hammerspoon"
   cask "keka"
   cask "kitty"
