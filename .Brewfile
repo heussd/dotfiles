@@ -84,6 +84,7 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "bruno"
   cask "docker"
   cask "cursor"
+  cask "visual-studio-code"
   mas "Boop", id: 1518425043
   mas "Numbers", id: 409203825
   mas "Xcode", id: 497799835
