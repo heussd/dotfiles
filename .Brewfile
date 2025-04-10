@@ -58,6 +58,7 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "maestral"
   brew "gh" # GitHub cli
   brew "gnupg"
+  cask "microsoft-edge"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
 
@@ -87,7 +88,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   mas "Numbers", id: 409203825
   mas "Xcode", id: 497799835
   cask "microsoft-teams"
-  mas "MeetingBar", id: 1532419400
 
   cask "microsoft-azure-storage-explorer"
 
@@ -209,7 +209,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   #cask "itsycal" replaced by Hammerspoons menu entry
   cask "microsoft-edge"
   cask "microsoft-teams"
-  mas "MeetingBar", id: 1532419400
 end
 
 end
