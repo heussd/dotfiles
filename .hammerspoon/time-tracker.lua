@@ -77,7 +77,8 @@ end
 
 function start_automatically()
     local hostname = hs.host.localizedName()
-    if not hostname:sub(1,2) == "AU" then
+
+    if hostname:sub(1,2) ~= "AU" then
         return
     end
 
