@@ -41,6 +41,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   tap "marwanhawari/tap"
   brew "stew"
  
+  mas "Numbers", id: 409203825
 end
 
 
@@ -85,8 +86,9 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "docker"
   cask "cursor"
   cask "visual-studio-code"
+  cask "visual-studio-code@insiders"
+  cask "claude"
   mas "Boop", id: 1518425043
-  mas "Numbers", id: 409203825
   mas "Xcode", id: 497799835
   cask "microsoft-teams"
 
