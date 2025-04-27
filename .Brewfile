@@ -17,6 +17,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "coreutils"
   brew "ctop"
   brew "eza" # a fork of the discontinued exa
+  brew "the_silver_searcher"
   brew "git-delta"
   brew "git-gui"		# gitk
   brew "git-lfs"
@@ -24,7 +25,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "markdownlint-cli"
   cask "appcleaner"
   cask "firefox"
-  cask "finicky"
   cask "font-sauce-code-pro-nerd-font"
   cask "font-open-sans"
   cask "ollama"
@@ -40,8 +40,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   
   tap "marwanhawari/tap"
   brew "stew"
- 
-  mas "Numbers", id: 409203825
 end
 
 
@@ -71,7 +69,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "hammerspoon"
   cask "handbrake"
   cask "macdown"
-  brew "the_silver_searcher"
   mas "Disk Graph", id: 697942581
   
   brew "dive"
@@ -199,7 +196,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   mas "Boop", id: 1518425043
   mas "CotEditor", id: 1024640650
   mas "GIPHY CAPTURE", id: 668208984
-  mas "Numbers", id: 409203825
   mas "Xcode", id: 497799835
   
   tap "Azure/kubelogin"
