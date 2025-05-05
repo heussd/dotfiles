@@ -85,6 +85,7 @@ fixreboot: hyperkey
 	@-pkill -f "DisplayLink Manager"
 	@-pkill -f "printscout-ui"
 	@-pkill -f "FindMe"
+	@-pkill -f "OneDrive"
 	@while read -r app; do \
 		osascript -e "id of application \"$$app\"" 2>/dev/null && \
 			open --background -a "$$app" || true; \
