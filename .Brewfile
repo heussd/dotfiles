@@ -37,6 +37,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   cask "syntax-highlight"
   brew "rclone"
   brew "pipx"
+  brew "gnupg"
   
   tap "marwanhawari/tap"
   brew "stew"
@@ -56,7 +57,6 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "cryptomator"
   cask "maestral"
   brew "gh" # GitHub cli
-  brew "gnupg"
   cask "microsoft-edge"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
