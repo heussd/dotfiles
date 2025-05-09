@@ -220,7 +220,9 @@ alias kitty-colors-white='kitty @ set-colors --all --configured ~/.config/kitty/
 
 
 # Kubectl
-_hasFolder "${HOME}/.kube" && export KUBECONFIG=$(find ~/.kube/kubeconfigs -type f ! -name '.*' -print0 | xargs -0 echo | tr ' ' ':')
+_hasFolder "${HOME}/.kube" && \
+	_hasFolder "${HOME}/.kube/kubeconfigs" && \
+	export KUBECONFIG=$(find ~/.kube/kubeconfigs -type f ! -name '.*' -print0 | xargs -0 echo | tr ' ' ':')
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k="kubectl"
 
