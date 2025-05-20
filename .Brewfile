@@ -23,7 +23,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "git-lfs"
   brew "lazygit"
   brew "markdownlint-cli"
-  cask "appcleaner"
   cask "firefox"
   cask "font-sauce-code-pro-nerd-font"
   cask "font-open-sans"
@@ -46,6 +45,7 @@ end
 
 if system 'hostname | grep "DE_" > /dev/null'
  
+  cask "appcleaner"
   brew "dive"
   cask "1password"
   cask "1password-cli"
@@ -83,7 +83,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "docker"
   cask "cursor"
   cask "visual-studio-code"
-  cask "visual-studio-code@insiders"
   cask "claude"
   mas "Boop", id: 1518425043
   mas "Xcode", id: 497799835
