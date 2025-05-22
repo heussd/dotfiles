@@ -16,27 +16,23 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "bat"
   brew "coreutils"
   brew "ctop"
+  brew "dive"
   brew "eza" # a fork of the discontinued exa
-  brew "the_silver_searcher"
   brew "git-delta"
   brew "git-gui"		# gitk
   brew "git-lfs"
+  brew "gnupg"
   brew "lazygit"
   brew "markdownlint-cli"
-  cask "firefox"
-  cask "font-sauce-code-pro-nerd-font"
+  brew "pipx"
+  brew "rclone"
+  brew "the_silver_searcher"
   cask "font-open-sans"
+  cask "font-sauce-code-pro-nerd-font"
   cask "ollama"
-  cask "hammerspoon"
-  cask "keka"
-  cask "kitty"
-  cask "iina"
   cask "onedrive"
   cask "sourcetree"
   cask "syntax-highlight"
-  brew "rclone"
-  brew "pipx"
-  brew "gnupg"
   
   tap "marwanhawari/tap"
   brew "stew"
@@ -46,7 +42,11 @@ end
 if system 'hostname | grep "DE_" > /dev/null'
  
   cask "appcleaner"
-  brew "dive"
+  cask "firefox"
+  cask "hammerspoon"
+  cask "keka"
+  cask "kitty"
+  cask "iina"
   cask "1password"
   cask "1password-cli"
   cask "bruno"
@@ -58,37 +58,34 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "maestral"
   brew "gh" # GitHub cli
   cask "microsoft-edge"
+  cask "adapter" # General purpose video converter
+  cask "handbrake"
+  cask "macdown"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
 
-  brew "rclone"
-  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
-  brew "yq"
-  brew "zsh-completions"
-  cask "adapter" # General purpose video converter
-  cask "hammerspoon"
-  cask "handbrake"
-  cask "macdown"
-  mas "Disk Graph", id: 697942581
-  
   brew "dive"
   brew "hadolint"
   brew "imagemagick"
+  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
   brew "nvm"
+  brew "rclone"
   brew "shellcheck"
   brew "yarn"
+  brew "yq"
+  brew "zsh-completions"
   cask "1password"
   cask "1password-cli"
   cask "bruno"
-  cask "docker"
-  cask "cursor"
-  cask "visual-studio-code"
   cask "claude"
-  mas "Boop", id: 1518425043
-  mas "Xcode", id: 497799835
-  cask "microsoft-teams"
-
+  cask "cursor"
+  cask "docker"
   cask "microsoft-azure-storage-explorer"
+  cask "microsoft-teams"
+  cask "visual-studio-code"
+  mas "Boop", id: 1518425043
+  mas "Disk Graph", id: 697942581
+  mas "Xcode", id: 497799835
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
 
