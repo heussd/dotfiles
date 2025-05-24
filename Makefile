@@ -90,3 +90,11 @@ fixreboot: hyperkey
 		osascript -e "id of application \"$$app\"" 2>/dev/null && \
 			open --background -a "$$app" || true; \
 	done < .macos-autostart
+
+
+dark:
+	dark-mode
+
+
+vpn:
+	togglevpn

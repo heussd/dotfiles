@@ -94,6 +94,7 @@ alias dotfiles-private='git --git-dir=$HOME/.dotfiles-private-bare-repo/ --work-
 alias dotfiels='dotfiles'
 alias dotifles='dotfiles'
 alias .f='dotfiles'
+alias .m='make -f "$HOME/Makefile"'
 alias .fp='dotfiles-private'
 
 alias .fe='export GIT_DIR=$HOME/.dotfiles-bare-repo; export GIT_WORK_TREE=$HOME/; vim -c "GFiles"; git status; unset GIT_DIR; unset GIT_WORK_TREE'
