@@ -58,7 +58,6 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "maestral"
   brew "gh" # GitHub cli
   cask "microsoft-edge"
-  cask "adapter" # General purpose video converter
   cask "handbrake"
   cask "macdown"
 

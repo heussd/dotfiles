@@ -137,6 +137,12 @@ defaults -currentHost write -globalDomain NSStatusItemSpacing -int 5
 defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 8
 
 
+# Set default Terminal profile, profile must have been opened before
+defaults write com.apple.Terminal "Default Window Settings" "Timm"
+defaults write com.apple.Terminal "Startup Window Settings" "Timm"
+
+
+
 killall SystemUIServer
 killall Dock
 killall Finder

@@ -53,7 +53,8 @@ auto: \
 	killall Dock
 	@touch .auto-macos-dock
 
-.auto-macos-defaults: .macos-defaults .Brewfile
+.auto-macos-defaults: .macos-defaults .config/Terminal.app/Timm.terminal .Brewfile
+	@open .config/Terminal.app/Timm.terminal
 	@source .macos-defaults
 	@touch .auto-macos-defaults
 
