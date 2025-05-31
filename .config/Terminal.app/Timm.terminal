@@ -48,6 +48,8 @@
 	ADcASQBMAFEAUwBaAGAAawB4AH4AiwCgAKcA0gD8AP4BAAECAQkBDwEZARsBHQEfAzsD
 	QANLA1QDYQNkA3EDegN/A4cAAAAAAAACAQAAAAAAAAAoAAAAAAAAAAAAAAAAAAADig==
 	</data>
+	<key>Bell</key>
+	<false/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
@@ -86,6 +88,8 @@
 	oACnANEA5QDnAOkA6wDyAPgBAgEEAQYBCAMkAykDNAM9A0oDTQNaA2MDaANwAAAAAAAA
 	AgEAAAAAAAAAKAAAAAAAAAAAAAAAAAAAA3M=
 	</data>
+	<key>VisualBellOnlyWhenMuted</key>
+	<false/>
 	<key>name</key>
 	<string>Timm</string>
 	<key>shellExitAction</key>
