@@ -33,6 +33,7 @@ antigen bundle Cloudstek/zsh-plugin-appup
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle joshskidmore/zsh-fzf-history-search
+antigen bundle Aloxaf/fzf-tab
 
 antigen apply
 
@@ -79,6 +80,10 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd set-title-precmd
 add-zsh-hook preexec set-title-preexec
 
+zstyle ':completion:*' matcher-list '' \
+  'm:{a-z\-}={A-Z\_}' \
+  'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+  'r:|?=** m:{a-z\-}={A-Z\_}'
 
 
 
