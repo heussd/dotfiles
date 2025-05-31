@@ -63,9 +63,6 @@ bindkey '^[OA'  up-line-or-beginning-search
 bindkey '^[[B'  down-line-or-beginning-search  # Arrow down
 bindkey '^[OB'  down-line-or-beginning-search
 
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
-
 
 # Set Kitty tab name automatically
 # https://github.com/kovidgoyal/kitty/issues/610
@@ -83,11 +80,6 @@ add-zsh-hook precmd set-title-precmd
 add-zsh-hook preexec set-title-preexec
 
 
-# Alt Arrow to move by word
-# https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh#16411270
-bindkey -e
-bindkey '[C' forward-word
-bindkey '[D' backward-word
 
 
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
@@ -109,3 +101,22 @@ export PATH="$PATH:/opt/homebrew/bin/"
 
 # Created by `pipx` on 2025-02-01 14:07:48
 export PATH="$PATH:/Users/theuss001/.local/bin"
+
+
+# Alt Arrow to move by word
+# https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh#16411270
+bindkey -e
+bindkey '[C' forward-word
+bindkey '[D' backward-word
+
+
+bindkey -s '^gp' '~/.scripts/git-pull-helper\n'
+bindkey -s '^gü' '~/.scripts/git-push-helper\n'
+bindkey -s '^o' '~/.scripts/oop\n'
+bindkey -s '^p' '~/.scripts/goto\n'
+bindkey -s '^h' 'vimwiki\n'
+bindkey -s '^x' '~/.scripts/lazygit-helper\n'
+bindkey -s '^y' '~/.scripts/snippets-choose\n'
+bindkey -s '^e' 'open .'
+bindkey -s '^s' 'stree .'
+
