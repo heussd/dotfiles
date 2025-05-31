@@ -6,7 +6,14 @@ set -o nounset
 
 folder="$(cd ~/Developer/ && find . -maxdepth 1 -print0 | xargs -0 gstat --format '%Y :%y %n' | sort -nr | cut -d: -f2- | fzf | cut -d" " -f 4)"
 
-kitty @launch --type=tab --tab-title="$folder" --cwd="$HOME/Developer/$folder"
+
+
+if [ "${TERM_PROGRAM:-}" = "kitty" ]; then
+    kitty @launch --type=tab --tab-title="$folder" --cwd="$HOME/Developer/$folder"
+else
+    cd "$HOME/Developer/$folder"
+    exec "$SHELL"
+fi
 
 #kitty @launch --type=tab --tab-title="$folder" --cwd="$HOME/Developer/$folder" open-with-auto
 
