@@ -1,0 +1,12 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+gitcmd="git"
+if [ "$PWD" = "$HOME" ]; then
+  gitcmd="git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
+fi
+gitcmd="$gitcmd vimi"
+eval "${gitcmd}"
+

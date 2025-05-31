@@ -80,6 +80,8 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd set-title-precmd
 add-zsh-hook preexec set-title-preexec
 
+
+# https://superuser.com/questions/415650/does-a-fuzzy-matching-mode-exist-for-the-zsh-shell
 zstyle ':completion:*' matcher-list '' \
   'm:{a-z\-}={A-Z\_}' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
@@ -122,6 +124,7 @@ bindkey -s '^p' '~/.scripts/goto\n'
 bindkey -s '^h' 'vimwiki\n'
 bindkey -s '^x' '~/.scripts/lazygit-helper\n'
 bindkey -s '^y' '~/.scripts/snippets-choose\n'
-bindkey -s '^e' 'open .'
-bindkey -s '^s' 'stree .'
+bindkey -s '^n' '~/.scripts/git-vimi-helper\n'
+bindkey -s '^e' 'open .\n'
+bindkey -s '^s' 'stree .\n'
 
