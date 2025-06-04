@@ -87,7 +87,9 @@ zstyle ':completion:*' matcher-list '' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
-
+# Needs to be before fzf init
+# https://github.com/junegunn/fzf/issues/1596#issuecomment-2700305264
+bindkey -v
 
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
 export FZF_COMPLETION_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
@@ -107,7 +109,7 @@ export PATH="$PATH:/opt/homebrew/bin/"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Created by `pipx` on 2025-02-01 14:07:48
-export PATH="$PATH:/Users/theuss001/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 
 # Alt Arrow to move by word
