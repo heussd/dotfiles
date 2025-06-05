@@ -106,3 +106,9 @@ linux-disable-unattended-updates: ## Disable unattended updates
 hyperkey:
 	hidutil property --set \
  		'{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006D}]}'
+ 
+
+touchid-sudo:
+	# https://apple.stackexchange.com/questions/259093/can-touch-id-on-mac-authenticate-sudo-in-terminal
+	sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
