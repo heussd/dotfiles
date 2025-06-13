@@ -81,11 +81,7 @@ backup:
 include .config/Makefile
 
 
-fixreboot: hyperkey
-	@-pkill -f "DisplayLink Manager"
-	@-pkill -f "printscout-ui"
-	@-pkill -f "FindMe"
-	@-pkill -f "OneDrive"
+fixreboot: kill hyperkey
 	@while read -r app; do \
 		osascript -e "id of application \"$$app\"" 2>/dev/null && \
 			open --background -a "$$app" || true; \
@@ -98,3 +94,14 @@ dark:
 
 vpn:
 	togglevpn
+
+
+kill:
+	@sudo -v
+	@-ps ax|grep -i docker|egrep -iv 'grep|com.docker.vmnetd'|awk '{print $$1}'|xargs kill
+	@-pkill -f "Maestral"
+	@-pkill -f "DisplayLink Manager"
+	@-pkill -f "printscout-ui"
+	@-pkill -f "FindMe"
+	@-sudo pkill -f "OneDrive"
+
