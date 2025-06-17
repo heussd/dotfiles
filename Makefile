@@ -104,4 +104,5 @@ kill:
 	@-pkill -f "printscout-ui"
 	@-pkill -f "FindMe"
 	@-sudo pkill -f "OneDrive"
+	@sudo launchctl stop com.vastlimits.uberAgent
 
