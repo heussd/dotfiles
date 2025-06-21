@@ -4,8 +4,10 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 defaults write com.apple.screencapture location "$HOME/Downloads"
 
 defaults write -g AppleReduceDesktopTinting -bool yes
+defaults delete -g AppleReduceDesktopTinting
 
 defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
+defaults delete com.apple.Accessibility
 
 # Displays have separate spaces
 # Turns out: Enabling this has all kinds of implications, for example,
