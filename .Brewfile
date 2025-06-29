@@ -54,10 +54,10 @@ if system 'hostname | grep "^.._" > /dev/null'
   brew "dive"
   cask "1password"
   cask "1password-cli"
-  cask "docker"
+  cask "docker-desktop"
   cask "microsoft-edge"
   cask "microsoft-teams"
-  cask "ollama"
+  cask "ollama-app"
 end
 
 
