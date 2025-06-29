@@ -5,6 +5,7 @@ autocmd FileType conf setlocal filetype+=.tabsep
 " https://www.reddit.com/r/KittyTerminal/comments/rzpjed/easier_ways_to_reload_kitty/
 autocmd bufwritepost ~/.config/kitty/* :silent !kill -SIGUSR1 $(pgrep -a kitty)
 
+autocmd BufWritePre ~/.vscode-extensions :%sort
 autocmd BufWritePre ~/.vscode-packages :%sort
 autocmd BufWritePre ~/.config/kitty/kitty.d/hotkeys.conf :%sort
 autocmd BufWritePre ~/.config/kitty/kitty.d/hotkeys.conf :Tabularize/\t

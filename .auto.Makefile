@@ -16,6 +16,7 @@ auto: \
 	.auto-lock \
 	.auto-pull-dotfiles \
 	.auto-Brewfile \
+	.auto-vscode-extensions \
 	.auto-Stewfile \
 	.auto-pipx \
 	.auto-compose.yml \
@@ -67,10 +68,17 @@ auto: \
 		brew upgrade && \
 		touch .auto-Brewfile
 
+.auto-vscode-extensions: .vscode-extensions
+	@while read l; do \
+		command -v cursor &> /dev/null && cursor --install-extension "$$l" || true; \
+		command -v code &> /dev/null && code --install-extension "$$l" || true; \
+	done < .vscode-extensions
+	touch .auto-vscode-extensions
+
 .auto-Stewfile: .config/stew/Stewfile
 	@-command -v stew &> /dev/null && \
 		stew install .config/stew/Stewfile && \
-		touch .auto-Stewfile
+touch .auto-Stewfile
 
 .auto-requirements.txt: .requirements.txt
 	@-command -v pip3 &> /dev/null && \
