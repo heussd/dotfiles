@@ -17,7 +17,6 @@ auto: \
 	.auto-pull-dotfiles \
 	.auto-Brewfile \
 	.auto-vscode-extensions \
-	.auto-Stewfile \
 	.auto-pipx \
 	.auto-compose.yml \
 	.auto-vscode-settings \

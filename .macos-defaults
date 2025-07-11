@@ -9,6 +9,10 @@ defaults delete -g AppleReduceDesktopTinting
 defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
 defaults delete com.apple.Accessibility
 
+# Appearance: Auto
+defaults write -globalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
+
+
 # Displays have separate spaces
 # Turns out: Enabling this has all kinds of implications, for example,
 # full screens can no longer be split. It's probably better not to enable
@@ -16,7 +20,7 @@ defaults delete com.apple.Accessibility
 defaults write com.apple.spaces "spans-displays" -bool "false"
 
 # Change "Move focus to next window" shortcut to Command+<
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 27 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>60</integer><integer>50</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>"
+#defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 27 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>60</integer><integer>50</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>"
 
 
 defaults write com.apple.Dock autohide -bool true 
@@ -96,11 +100,11 @@ defaults write com.colliderli.iina recordPlaybackHistory 0
 defaults write com.colliderli.iina recordRecentFiles 0
 
 
-openwith com.colliderli.iina mkv mov mp4 avi webm m3u mp3
+#openwith com.colliderli.iina mkv mov mp4 avi webm m3u mp3
 #openwith org.libreoffice.script csv xls xlsx
-openwith com.aone.keka 7z zip zipx rar tar gzip bzip2 xz lzip brotli zstd lrzip lzma cab wim msi pax 
-openwith com.microsoft.VSCode xml yml yaml Dockerfile Makefile java kt js jsx log tex txt json cls sh 
-openwith com.uranusjr.macdown md
+#openwith com.aone.keka 7z zip zipx rar tar gzip bzip2 xz lzip brotli zstd lrzip lzma cab wim msi pax 
+#openwith com.microsoft.VSCode xml yml yaml Dockerfile Makefile java kt js jsx log tex txt json cls sh 
+#openwith com.uranusjr.macdown md
 
 
 
@@ -148,3 +152,6 @@ defaults write com.apple.Terminal "Startup Window Settings" "Timm"
 killall SystemUIServer
 killall Dock
 killall Finder
+
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
