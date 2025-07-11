@@ -78,7 +78,7 @@ backup:
 	tmutil startbackup --rotation
 
 
-include .config/Makefile
+include $(HOME)/.config/Makefile
 
 
 fixreboot: kill hyperkey
