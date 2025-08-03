@@ -33,5 +33,6 @@
         "editor.defaultFormatter": "golang.go"
     },
     "hediet.vscode-drawio.resizeImages": null,
-    "terminal.integrated.fontSize": 16
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.copyOnSelection": true
 }

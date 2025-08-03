@@ -111,7 +111,7 @@ bindkey -s '^h' 'vimwiki\n'
 bindkey -s '^x' '~/.scripts/lazygit-helper\n'
 bindkey -s '^y' '~/.scripts/snippets-fzf\n'
 bindkey -s '^n' '~/.scripts/git-vimi-helper\n'
-bindkey -s '^e' 'open .\n'
+#bindkey -s '^e' 'open .\n'
 bindkey -s '^k' 'code .\n'
 bindkey -s '^s' 'stree .\n'
 
