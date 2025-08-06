@@ -19,7 +19,6 @@ auto: \
 	.auto-vscode-extensions \
 	.auto-pipx \
 	.auto-compose.yml \
-	.auto-vscode-settings \
 	.auto-$(OS_NAME) \
 	delete-old-states 
 	rm .auto-lock || true
