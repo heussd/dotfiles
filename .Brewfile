@@ -36,6 +36,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "yarn"
   brew "yq"
   brew "zsh-completions"
+  brew "golang"
   cask "bruno"
   cask "font-open-sans"
   cask "font-sauce-code-pro-nerd-font"
