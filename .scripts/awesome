@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Parse command line arguments
+FORCE=false
+while [[ $# -gt 0 ]]; do
+	case $1 in
+		-f|--force)
+			FORCE=true
+			shift
+			;;
+		*)
+			shift
+			;;
+	esac
+done
+
 AWESOME=$TH_PROJECTS_FOLDER/awesome-templates/
 
 template=$(find "$AWESOME" \
@@ -9,6 +23,10 @@ template=$(find "$AWESOME" \
 	| fzf)
 
 if [ -n "$template" ]; then
-	cp -Rv -n "$template"/. .
+	if [ "$FORCE" = true ]; then
+		cp -Rv "$template"/. .
+	else
+		cp -Rv -n "$template"/. .
+	fi
 fi
 
