@@ -3,6 +3,8 @@
 defaults write -g NSWindowShouldDragOnGesture -bool true
 defaults write com.apple.screencapture location "$HOME/Downloads"
 
+defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
+
 defaults write -g AppleReduceDesktopTinting -bool yes
 defaults delete -g AppleReduceDesktopTinting
 
