@@ -63,3 +63,11 @@ alias opsifyc='docker run --pull always --interactive --tty --platform linux/amd
 	registry.gitlab.com/pwc-de/team-advisory-digital-incubator/devops/opsify:latest'
 
 alias magick='dockerrunuw minidocks/imagemagick'
+
+
+alias tmt="docker run --rm --interactive --tty \
+		--user th \
+		--volume \"\$PWD\":\"\$PWD\" \
+		--volume \"\$HOME\":\"/home/th\" \
+		--workdir \"\$PWD\" \
+		ghcr.io/heussd/tmtools"

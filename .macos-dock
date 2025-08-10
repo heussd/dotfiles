@@ -1,27 +1,27 @@
-/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
+#/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
 /System/Applications/Utilities/Terminal
-/Applications/kitty
-/System/Applications/Mail
-/Applications/Thunderbird
-/Applications/NetNewsWire
-/Applications/Signal
-/Applications/KeePassXC
-/Applications/Cryptomator
-/System/Applications/Calendar
-/System/Applications/Notes
-/System/Applications/Reminders
-/System/Applications/Photos
-/System/Applications/Music
-/System/Applications/Podcasts
+#/Applications/kitty
+#/System/Applications/Mail
+#/Applications/Thunderbird
+#/Applications/NetNewsWire
+#/Applications/Signal
+#/Applications/KeePassXC
+#/Applications/Cryptomator
+#/System/Applications/Calendar
+#/System/Applications/Notes
+#/System/Applications/Reminders
+#/System/Applications/Photos
+#/System/Applications/Music
+#/System/Applications/Podcasts
 #/System/Applications/TV
-/Applications/Clockify Desktop
-/Applications/Keka
-/Applications/VLC
-/Applications/Steam
-/Applications/mpv
-/Applications/IINA
-/Applications/MacVim
-/Applications/CotEditor
+#/Applications/Clockify Desktop
+#/Applications/Keka
+#/Applications/VLC
+#/Applications/Steam
+#/Applications/mpv
+#/Applications/IINA
+#/Applications/MacVim
+#/Applications/CotEditor
 /Applications/Visual Studio Code
 /Applications/Visual Studio Code - Insiders
 /Applications/Cursor

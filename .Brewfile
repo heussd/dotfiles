@@ -6,6 +6,19 @@
 
 tap "homebrew/bundle"
 
+
+
+if system 'hostname | grep "AU_" > /dev/null'
+  cask "1password"
+  cask "bruno"
+  cask "cursor"
+  cask "docker-desktop"
+  cask "font-sauce-code-pro-nerd-font"
+  cask "microsoft-edge"
+  cask "microsoft-teams"
+  cask "visual-studio-code"
+else
+
 brew "git"
 brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
@@ -13,23 +26,18 @@ brew "ripgrep" # Also needed for vim
 
 if system 'uname -s | grep "Darwin" > /dev/null'
   brew "bat"
-  brew "coreutils"
-  brew "ctop"
   brew "dive"
   brew "eza" # a fork of the discontinued exa
   brew "gh" # GitHub cli
   brew "git-delta"
   brew "git-gui"		# gitk
   brew "git-lfs"
-  brew "gnupg"
   brew "hadolint"
-  brew "imagemagick"
   brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
   brew "lazygit"
   brew "markdownlint-cli"
   brew "nvm"
   brew "pipx"
-  brew "rclone"
   brew "rclone"
   brew "shellcheck"
   brew "the_silver_searcher"
@@ -40,11 +48,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   cask "bruno"
   cask "font-open-sans"
   cask "font-sauce-code-pro-nerd-font"
-  cask "onedrive"
-  cask "sourcetree"
-  cask "syntax-highlight"
   cask "visual-studio-code"
-  mas "Disk Graph", id: 697942581
   
   tap "marwanhawari/tap"
   brew "stew"
@@ -52,36 +56,32 @@ end
 
 
 if system 'hostname | grep "^.._" > /dev/null'
-  brew "dive"
   cask "1password"
-  cask "1password-cli"
   cask "docker-desktop"
   cask "microsoft-edge"
   cask "microsoft-teams"
-  cask "ollama-app"
 end
 
 
 if system 'hostname | grep "DE_" > /dev/null'
+  brew "gnupg"
+  brew "imagemagick"
   cask "appcleaner"
   cask "cryptomator"
   cask "iina"
   cask "keepassxc"
   cask "maestral"
+  cask "ollama-app"
+  cask "sourcetree"
+  cask "syntax-highlight"
+  mas "Disk Graph", id: 697942581
 
-elsif system 'hostname | grep "AU_" > /dev/null'
-  cask "claude"
-  cask "cursor"
-  cask "microsoft-azure-storage-explorer"
-  mas "Boop", id: 1518425043
-  mas "Xcode", id: 497799835
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
   brew "podman"
   cask "steam"
   cask "thunderbird"
 
-else
   cask "gimp"
   cask "inkscape"
 
@@ -115,4 +115,4 @@ else
   end
 
 end
-
+end
