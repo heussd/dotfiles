@@ -106,3 +106,6 @@ kill:
 	@-sudo pkill -f "OneDrive"
 	@sudo launchctl stop com.vastlimits.uberAgent
 
+update:
+	rm .auto-*
+	make -f .auto.Makefile

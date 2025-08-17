@@ -19,8 +19,7 @@ auto: \
 	.auto-vscode-extensions \
 	.auto-pipx \
 	.auto-compose.yml \
-	.auto-$(OS_NAME) \
-	delete-old-states 
+	.auto-$(OS_NAME)
 	rm .auto-lock || true
 
 .auto-lock:
@@ -54,7 +53,7 @@ auto: \
 
 .auto-macos-defaults: .macos-defaults .config/Terminal.app/Timm.terminal .Brewfile
 	@open .config/Terminal.app/Timm.terminal
-	@source .macos-defaults
+	. $(HOME)/.macos-defaults
 	@touch .auto-macos-defaults
 
 
