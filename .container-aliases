@@ -65,9 +65,8 @@ alias opsifyc='docker run --pull always --interactive --tty --platform linux/amd
 alias magick='dockerrunuw minidocks/imagemagick'
 
 
-alias tmt="docker run --rm --interactive --tty \
-		--user th \
-		--volume \"\$PWD\":\"\$PWD\" \
-		--volume \"\$HOME\":\"/home/th\" \
-		--workdir \"\$PWD\" \
-		ghcr.io/heussd/tmtools"
+alias tmt='docker run --rm --interactive --tty \
+	--volume "$PWD":"$PWD" \
+        --volume "/Users/$USER":"/home/th" \
+        --workdir "$PWD" \
+        ghcr.io/heussd/tmtools'
