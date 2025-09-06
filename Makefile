@@ -89,7 +89,15 @@ fixreboot: kill hyperkey
 
 
 dark:
-	dark-mode
+	#dark-mode
+	defaults write -g NSRequiresAquaSystemAppearance -bool true
+
+light:
+	defaults write -g NSRequiresAquaSystemAppearance -bool false
+
+toggle-color-mode:
+	osascript -e "tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode"
+
 
 
 vpn:
