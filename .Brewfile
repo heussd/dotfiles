@@ -15,8 +15,10 @@ if system 'hostname | grep "AU_" > /dev/null'
   cask "docker-desktop"
   cask "font-sauce-code-pro-nerd-font"
   cask "microsoft-edge"
+  cask "onedrive"
   cask "microsoft-teams"
   cask "visual-studio-code"
+  cask "microsoft-azure-storage-explorer"
 else
 
 brew "git"
