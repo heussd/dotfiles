@@ -76,7 +76,6 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "ollama-app"
   cask "sourcetree"
   cask "syntax-highlight"
-  mas "Disk Graph", id: 697942581
 
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
