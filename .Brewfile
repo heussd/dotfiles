@@ -19,6 +19,13 @@ if system 'hostname | grep "AU_" > /dev/null'
   cask "microsoft-teams"
   cask "visual-studio-code"
   cask "microsoft-azure-storage-explorer"
+  cask "sourcetree"
+  brew "uv"
+  brew "fzf"
+  brew "dive"
+  brew "lazygit"
+  cask "iterm2"
+  brew "coreutils"
 else
 
 brew "git"
