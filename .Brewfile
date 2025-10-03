@@ -24,8 +24,6 @@ if system 'hostname | grep "AU_" > /dev/null'
   brew "fzf"
   brew "dive"
   brew "lazygit"
-  cask "iterm2"
-  brew "coreutils"
 else
 
 brew "git"
@@ -70,6 +68,8 @@ if system 'hostname | grep "^.._" > /dev/null'
   cask "docker-desktop"
   cask "microsoft-edge"
   cask "microsoft-teams"
+  cask "iterm2"
+  brew "coreutils"
 end
 
 
