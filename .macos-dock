@@ -1,6 +1,6 @@
 /System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
-#/System/Applications/Utilities/Terminal
-#/Applications/kitty
+/System/Applications/Utilities/Terminal
+/Applications/kitty
 /Applications/iTerm
 #/System/Applications/Mail
 #/Applications/Thunderbird

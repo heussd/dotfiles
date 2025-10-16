@@ -68,7 +68,6 @@ if system 'hostname | grep "^.._" > /dev/null'
   cask "docker-desktop"
   cask "microsoft-edge"
   cask "microsoft-teams"
-  cask "iterm2"
   brew "coreutils"
 end
 
