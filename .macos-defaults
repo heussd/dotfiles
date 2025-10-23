@@ -149,6 +149,10 @@ defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 8
 defaults write com.apple.Terminal "Default Window Settings" "Timm"
 defaults write com.apple.Terminal "Startup Window Settings" "Timm"
 
+# Do not restore previous sessions
+# https://superuser.com/questions/1106832/how-to-stop-bash-restoring-closed-sessions
+defaults write com.apple.Terminal NSQuitAlwaysKeepsWindows -bool false
+
 
 
 killall SystemUIServer
