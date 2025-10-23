@@ -18,12 +18,12 @@ Install:andUse("FadeLogo", {
 })
 
 
-local SkyRocket = hs.loadSpoon("SkyRocket")
-
-sky = SkyRocket:new({
-  opacity = 0.3,
-  moveModifiers = {'cmd', 'shift'},
-  moveMouseButton = 'left',
-  resizeModifiers = {'cmd', 'shift'},
-  resizeMouseButton = 'right',
-})
+-- local SkyRocket = hs.loadSpoon("SkyRocket")
+-- 
+-- sky = SkyRocket:new({
+--   opacity = 0.3,
+--   moveModifiers = {'cmd', 'shift'},
+--   moveMouseButton = 'left',
+--   resizeModifiers = {'cmd', 'shift'},
+--   resizeMouseButton = 'right',
+-- })

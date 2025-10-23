@@ -4,6 +4,3 @@
 [submodule "_externals/674099"]
 	path = .dotfiles-externals/674099
 	url = https://gist.github.com/mathiasbynens/674099
-[submodule ".hammerspoon/Spoons/SkyRocket.spoon"]
-	path = .hammerspoon/Spoons/SkyRocket.spoon
-	url = https://github.com/dbalatero/SkyRocket.spoon
