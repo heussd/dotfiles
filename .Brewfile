@@ -3,38 +3,19 @@
 # When changing this file, you might also want to change these files:
 # ~/.macos-dock
 #
-
 tap "homebrew/bundle"
-
-
-
-if system 'hostname | grep "AU_" > /dev/null'
-  cask "1password"
-  cask "bruno"
-  cask "cursor"
-  cask "docker-desktop"
-  cask "font-sauce-code-pro-nerd-font"
-  cask "microsoft-edge"
-  cask "onedrive"
-  cask "microsoft-teams"
-  cask "visual-studio-code"
-  cask "microsoft-azure-storage-explorer"
-  cask "sourcetree"
-  brew "uv"
-  brew "fzf"
-  brew "dive"
-  brew "lazygit"
-else
 
 brew "git"
 brew "fzf" # Needed because apt version is too old for vim
 brew "ripgrep" # Also needed for vim
 
-
 if system 'uname -s | grep "Darwin" > /dev/null'
   brew "bat"
+  brew "block-goose-cli"
+  brew "coreutils"
   brew "dive"
   brew "eza" # a fork of the discontinued exa
+  brew "fzf"
   brew "gh" # GitHub cli
   brew "git-delta"
   brew "git-gui"		# gitk
@@ -48,29 +29,26 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "rclone"
   brew "shellcheck"
   brew "the_silver_searcher"
+  brew "uv"
   brew "yarn"
   brew "yq"
   brew "zsh-completions"
-  brew "golang"
   cask "bruno"
-  cask "onedrive"
-  cask "font-open-sans"
   cask "font-sauce-code-pro-nerd-font"
+  cask "onedrive"
+  cask "sourcetree"
   cask "visual-studio-code"
-  
   tap "marwanhawari/tap"
   brew "stew"
 end
-
 
 if system 'hostname | grep "^.._" > /dev/null'
   cask "1password"
   cask "docker-desktop"
   cask "microsoft-edge"
   cask "microsoft-teams"
-  brew "coreutils"
+  cask "microsoft-azure-storage-explorer"
 end
-
 
 if system 'hostname | grep "DE_" > /dev/null'
   brew "gnupg"
@@ -81,9 +59,9 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "keepassxc"
   cask "maestral"
   cask "ollama-app"
-  cask "sourcetree"
-  cask "syntax-highlight"
 
+elsif system 'hostname | grep "AU_" > /dev/null'
+  cask "cursor"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
   brew "podman"
@@ -122,5 +100,4 @@ elsif system 'hostname | grep "kabylake" > /dev/null'
     cask "fuse-t"
   end
 
-end
 end
