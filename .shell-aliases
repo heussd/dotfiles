@@ -238,3 +238,8 @@ nvm() {
   unset -f nvm
   source $(brew --prefix nvm)/nvm.sh && nvm "$@"
 }
+
+
+lg='lazygit'
+ld='lazydocker'
+
