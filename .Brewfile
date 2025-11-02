@@ -44,10 +44,8 @@ end
 
 if system 'hostname | grep "^.._" > /dev/null'
   cask "1password"
-  cask "docker-desktop"
   cask "microsoft-edge"
   cask "microsoft-teams"
-  cask "microsoft-azure-storage-explorer"
 end
 
 if system 'hostname | grep "DE_" > /dev/null'
@@ -59,9 +57,12 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "keepassxc"
   cask "maestral"
   cask "ollama-app"
+  brew "podman"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
   cask "cursor"
+  cask "docker-desktop"
+  cask "microsoft-azure-storage-explorer"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
   brew "podman"
