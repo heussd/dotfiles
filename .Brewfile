@@ -33,7 +33,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "yarn"
   brew "yq"
   brew "zsh-completions"
-  cask "bruno"
   cask "font-sauce-code-pro-nerd-font"
   cask "onedrive"
   cask "sourcetree"
@@ -58,9 +57,11 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "maestral"
   cask "ollama-app"
   brew "podman"
+  brew "podman-compose"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
   cask "cursor"
+  cask "bruno"
   cask "docker-desktop"
   cask "microsoft-azure-storage-explorer"
 
