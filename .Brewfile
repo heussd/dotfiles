@@ -23,6 +23,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "hadolint"
   brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
   brew "lazygit"
+  brew "lazydocker"
   brew "markdownlint-cli"
   brew "nvm"
   brew "pipx"

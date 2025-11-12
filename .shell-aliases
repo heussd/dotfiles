@@ -240,6 +240,6 @@ nvm() {
 }
 
 
-lg='lazygit'
-ld='lazydocker'
+alias lgit='lazygit'
+alias ldocker='lazydocker'
 
