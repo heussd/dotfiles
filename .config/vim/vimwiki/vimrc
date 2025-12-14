@@ -13,7 +13,6 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'michal-h21/vim-zettel'
-Plug 'morhetz/gruvbox'
 Plug 'sbdchd/neoformat'
 Plug 'stsewd/gx-extended.vim'
 Plug 'vimwiki/vimwiki'
@@ -47,7 +46,5 @@ autocmd VimEnter * execute 'VimwikiIndex'
 
 autocmd BufWritePost * silent exec '%!markdownlint --fix --config "$HOME/markdownlint.yml" "%" > /dev/null; slmd "%" -o; git add "%" && git commit -n -m "[auto-commit] on $HOST" > /dev/null' 
 
-let g:gruvbox_transparent_bg = 1
-let g:gruvbox_contrast_light = "hard"
-colorscheme gruvbox
+colorscheme slate
 

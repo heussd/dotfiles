@@ -19,7 +19,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'mcchrish/nnn.vim'
 Plug 'michal-h21/vim-zettel'
-Plug 'morhetz/gruvbox'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'pseewald/vim-anyfold'
