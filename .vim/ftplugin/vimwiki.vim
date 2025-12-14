@@ -1,6 +1,14 @@
 " Folding for markdown-based vimwiki
 " Taken and modified from https://vimwiki.github.io/vimwikiwiki/Tips%20and%20Snips.html
 
+if &compatible
+      \ || v:version < 700
+      \ || !exists('VimwikiIndex')
+  finish
+endif
+
+
+
 setlocal foldlevel=1
 setlocal foldenable
 setlocal foldmethod=expr
