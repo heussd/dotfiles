@@ -63,7 +63,9 @@ let g:netrw_liststyle = 3
 set maxmempattern=5000
 
 
-colorscheme slate
+colorscheme retrobox
+
+
 
 " Change to workdir of opened files automatically
 " Might break some plugins

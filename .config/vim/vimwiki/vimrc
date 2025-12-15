@@ -46,5 +46,5 @@ autocmd VimEnter * execute 'VimwikiIndex'
 
 autocmd BufWritePost * silent exec '%!markdownlint --fix --config "$HOME/markdownlint.yml" "%" > /dev/null; slmd "%" -o; git add "%" && git commit -n -m "[auto-commit] on $HOST" > /dev/null' 
 
-colorscheme slate
+colorscheme retrobox
 
