@@ -3,7 +3,6 @@
 
 if &compatible
       \ || v:version < 700
-      \ || !exists('VimwikiIndex')
   finish
 endif
 
