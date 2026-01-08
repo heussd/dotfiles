@@ -17,6 +17,7 @@ auto: \
 	.auto-pull-dotfiles \
 	.auto-Brewfile \
 	.auto-vscode-extensions \
+	.auto-vscode-settings \
 	.auto-pipx \
 	.auto-compose.yml \
 	.auto-$(OS_NAME)
@@ -65,13 +66,6 @@ auto: \
 		brew upgrade && \
 		touch .auto-Brewfile
 
-.auto-vscode-extensions: .vscode-extensions
-	@while read l; do \
-		command -v cursor &> /dev/null && cursor --install-extension "$$l" || true; \
-		command -v code &> /dev/null && code --install-extension "$$l" || true; \
-	done < .vscode-extensions
-	touch .auto-vscode-extensions
-
 .auto-Stewfile: .config/stew/Stewfile
 	@-command -v stew &> /dev/null && \
 		stew install .config/stew/Stewfile && \
@@ -91,13 +85,21 @@ $(HOME)/Library/Application\ Support/Code/User/settings.json:
 	mkdir -p "$$HOME/Library/Application Support/Code/User/"
 	@echo "{}" > "$$HOME/Library/Application Support/Code/User/settings.json"
 
-.auto-vscode-settings: .vscode-settings $(HOME)/Library/Application\ Support/Code/User/settings.json
-	@-command -v code &> /dev/null && \
-		while read setting; do \
-			jq "$$setting" "$$HOME/Library/Application Support/Code/User/settings.json" > tmp; \
-			mv tmp "$$HOME/Library/Application Support/Code/User/settings.json"; \
-		done < .vscode-settings
+.auto-vscode-settings: .vscode-settings.json 
+	mkdir -p $(HOME)/Library/Application\ Support/Code/User
+	touch $(HOME)/Library/Application\ Support/Code/User/settings.json
+	@jq -s add $(HOME)/Library/Application\ Support/Code/User/settings.json .vscode-settings.json > tmp; mv tmp $(HOME)/Library/Application\ Support/Code/User/settings.json
+	mkdir -p $(HOME)/Library/Application\ Support/Cursor/User
+	touch $(HOME)/Library/Application\ Support/Cursor/User/settings.json
+	@jq -s add $(HOME)/Library/Application\ Support/Cursor/User/settings.json .vscode-settings.json > tmp; mv tmp $(HOME)/Library/Application\ Support/Cursor/User/settings.json
 	@touch .auto-vscode-settings
+
+.auto-vscode-extensions: .vscode-extensions
+	@while read l; do \
+		command -v cursor &> /dev/null && cursor --install-extension "$$l" || true; \
+		command -v code &> /dev/null && code --install-extension "$$l" || true; \
+	done < .vscode-extensions
+	touch .auto-vscode-extensions
 
 .auto-pipx: .pipx-packages
 	@-command -v pipx &> /dev/null && \

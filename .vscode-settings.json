@@ -1,0 +1,19 @@
+{
+  "editor.fontLigatures": true,
+  "telemetry.telemetryLevel": "off",
+  "window.restoreWindows": "none",
+  "workbench.editor.restoreViewState": false,
+  "workbench.startupEditor": "none",
+  "redhat.telemetry.enabled": false,
+  "peacock.surpriseMeOnStartup": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "terminal.integrated.copyOnSelection": true,
+  "window.restoreFullscreen": true,
+  "editor.fontFamily": "'SauceCodePro Nerd Font Mono'",
+  "editor.fontSize": 16
+}
