@@ -54,9 +54,7 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "appcleaner"
   cask "cryptomator"
   cask "iina"
-  cask "keepassxc"
   cask "maestral"
-  cask "ollama-app"
   brew "podman"
   brew "podman-compose"
 
