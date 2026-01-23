@@ -42,8 +42,8 @@ function VimwikiMode()
 	" https://stackoverflow.com/questions/20593268/vim-on-ubuntu-text-rendering-bug-repeating-and-disappearing-weirdly#25085808
 	" set lines=50 columns=130
 
-	nnoremap <C-p> :Git pull<CR>
-    nnoremap <C-o> :Git push<CR>
+	map <C-p> :terminal git-pull-helper<CR>
+    	map <C-u> :terminal git-push-helper<CR>
 
 	map <Leader>wp  :VimwikiDiaryPrevDay<CR>
     map <Leader>wn  :VimwikiDiaryNextDay<CR>

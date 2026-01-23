@@ -24,7 +24,6 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --producti
 Plug 'pseewald/vim-anyfold'
 Plug 'sbdchd/neoformat'
 Plug 'stsewd/gx-extended.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'zivyangll/git-blame.vim'
 Plug 'girishji/vimcomplete'
