@@ -61,6 +61,7 @@ if system 'hostname | grep "DE_" > /dev/null'
 elsif system 'hostname | grep "AU_" > /dev/null'
   cask "cursor"
   cask "bruno"
+  cask "claude-code"
   cask "docker-desktop"
   cask "microsoft-azure-storage-explorer"
 
