@@ -104,6 +104,7 @@ bindkey '[D' backward-word
 
 
 bindkey -s '^gp' '~/.scripts/git-pull-helper\n'
+bindkey -s '^gP' '~/.scripts/git-push-helper\n'
 bindkey -s '^gü' '~/.scripts/git-push-helper\n'
 bindkey -s '^o' '~/.scripts/oop\n'
 bindkey -s '^p' '~/.scripts/goto\n'
@@ -114,4 +115,5 @@ bindkey -s '^n' '~/.scripts/git-vimi-helper\n'
 #bindkey -s '^e' 'open .\n'
 bindkey -s '^k' 'code .\n'
 bindkey -s '^s' '~/.scripts/snippets-fzf .\n'
+bindkey -s '^f' '~/.scripts/op .\n'
 
