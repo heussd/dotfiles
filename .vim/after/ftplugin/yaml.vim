@@ -9,3 +9,4 @@ let g:ale_lint_on_text_changed = 'never'
 set foldlevel=0
 
 set autoread
+autocmd BufWritePost * silent exec '!prettier --write --tab-width 2 "%" &> /dev/null;'

@@ -63,3 +63,6 @@ call VimwikiMode()
 
 
 hi folded ctermbg=NONE
+
+
+source ~/.vim/after/ftplugin/markdown.vim
