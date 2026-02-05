@@ -59,7 +59,6 @@ if system 'hostname | grep "DE_" > /dev/null'
   brew "podman-compose"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
-  cask "cursor"
   cask "bruno"
   cask "claude-code"
   cask "docker-desktop"
