@@ -25,7 +25,7 @@ defaults write com.apple.spaces "spans-displays" -bool "false"
 #defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 27 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>60</integer><integer>50</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>"
 
 
-defaults write com.apple.Dock autohide -bool false
+defaults write com.apple.Dock autohide -bool true
 defaults write com.apple.Dock autohide-delay -float 0.0001
 defaults write com.apple.dock autohide-time-modifier -float 0.25
 defaults write com.apple.dock magnification -bool false
@@ -143,6 +143,8 @@ defaults write com.apple.HIToolbox AppleFnUsageType 1
 # Tighter menubar item spacing
 defaults -currentHost write -globalDomain NSStatusItemSpacing -int 5
 defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 8
+defaults -currentHost delete -globalDomain NSStatusItemSpacing
+defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
 
 
 # Set default Terminal profile, profile must have been opened before

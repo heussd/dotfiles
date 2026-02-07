@@ -29,9 +29,6 @@ export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
 export PATH="$PATH:$HOME/.local/bin/"
-export PATH="$HOME/.dotfiles-externals/git-fuzzy/bin:$PATH"
-
-export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 export PATH="$PATH:$HOME/.scripts/"
 
 export PATH="/opt/homebrew/bin:$PATH"
