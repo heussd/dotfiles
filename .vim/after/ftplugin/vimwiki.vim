@@ -66,3 +66,7 @@ hi folded ctermbg=NONE
 
 
 source ~/.vim/after/ftplugin/markdown.vim
+
+" List linter prefers this
+set shiftwidth=3
+
