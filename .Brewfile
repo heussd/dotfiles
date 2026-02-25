@@ -44,7 +44,7 @@ end
 
 if system 'hostname | grep "^.._" > /dev/null'
   cask "1password"
-  cask "microsoft-edge"
+  cask "google-chrome"
   cask "microsoft-teams"
 end
 
@@ -62,7 +62,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   cask "bruno"
   cask "claude-code"
   cask "docker-desktop"
-  cask "microsoft-azure-storage-explorer"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
   brew "podman"
