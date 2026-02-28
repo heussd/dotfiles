@@ -86,12 +86,12 @@ macos-disable-timemachine-throttling-temporarily:
 	@sudo sysctl debug.lowpri_throttle_enabled=0
 
 
-config-wallpaper: .esoc0932a.jpg config-wallpaper-$(OS_NAME) ## Set my default wallpaper
+wallpaper: .esoc0932a.jpg wallpaper-$(OS_NAME) ## Set my default wallpaper
 .esoc0932a.jpg:
-	@wget https://cdn.eso.org/images/large/eso0932a.jpg -O ~/.esoc0932a.jpg
-config-wallpaper-linux:
+	@curl https://cdn.eso.org/images/large/eso0932a.jpg -o ~/.esoc0932a.jpg
+wallpaper-linux:
 	@feh --bg-scale .esoc0932a.jpg
-config-wallpaper-darwin:
+wallpaper-darwin:
 	@osascript -e 'tell application "System Events" to tell every desktop to set picture to ((path to home folder as text) & ".esoc0932a.jpg")'
 
 
