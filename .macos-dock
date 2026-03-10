@@ -34,8 +34,6 @@
 #Applications/Meld
 #Applications/DiffMerge
 #Applications/Sourcetree
-/Applications/Postman
-/Applications/Bruno
 #/Applications/Insomnia
 #/Applications/RapidAPI
 #~/Applications/Aqua
@@ -53,14 +51,14 @@
 /Applications/Numbers
 /Applications/Keynote
 /Applications/Google Chrome
-/Applications/Microsoft Edge
-/Applications/Microsoft Edge Beta
+#/Applications/Microsoft Edge
+#/Applications/Microsoft Edge Beta
 /Applications/Microsoft Teams
 /Applications/Microsoft Teams (work or school)
 /Applications/Microsoft Outlook
-/Applications/Microsoft Excel
-/Applications/Microsoft Word
-/Applications/Microsoft Powerpoint
+#/Applications/Microsoft Excel
+#/Applications/Microsoft Word
+#/Applications/Microsoft Powerpoint
 #/Applications/ColorSlurp
 #/Applications/Inkscape
 #/Applications/GIMP
