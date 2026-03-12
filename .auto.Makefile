@@ -16,9 +16,7 @@ auto: \
 	.auto-lock \
 	.auto-pull-dotfiles \
 	.auto-Brewfile \
-	.auto-vscode-extensions \
 	.auto-vscode-settings \
-	.auto-pipx \
 	.auto-compose.yml \
 	.auto-$(OS_NAME)
 	rm .auto-lock || true
@@ -100,13 +98,6 @@ $(HOME)/Library/Application\ Support/Code/User/settings.json:
 		command -v code &> /dev/null && code --install-extension "$$l" || true; \
 	done < .vscode-extensions
 	touch .auto-vscode-extensions
-
-.auto-pipx: .pipx-packages
-	@-command -v pipx &> /dev/null && \
-		while read -r package; do \
-			pipx install "$$package" > /dev/null ; \
-		done <".pipx-packages" && \
-		touch .auto-pipx
 
 delete-old-states:
 	@find "$$HOME" \

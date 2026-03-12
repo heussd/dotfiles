@@ -3,19 +3,17 @@
 # When changing this file, you might also want to change these files:
 # ~/.macos-dock
 #
-tap "homebrew/bundle"
 
 brew "git"
-brew "fzf" # Needed because apt version is too old for vim
-brew "ripgrep" # Also needed for vim
+brew "fzf"	# Needed because apt version is too old for vimwiki
+brew "ripgrep"	# Also needed for vim
+uv "slmd"
 
 if system 'uname -s | grep "Darwin" > /dev/null'
   brew "bat"
-  brew "block-goose-cli"
   brew "coreutils"
   brew "dive"
   brew "eza" # a fork of the discontinued exa
-  brew "fzf"
   brew "gh" # GitHub cli
   brew "git-delta"
   brew "git-gui"		# gitk
@@ -26,20 +24,63 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "lazydocker"
   brew "markdownlint-cli"
   brew "nvm"
-  brew "pipx"
   brew "rclone"
   brew "shellcheck"
   brew "the_silver_searcher"
-  brew "uv"
-  brew "yarn"
   brew "yq"
   brew "zsh-completions"
   cask "font-sauce-code-pro-nerd-font"
   cask "onedrive"
   cask "sourcetree"
+  
+  #tap "marwanhawari/tap"
+  #brew "stew"
+  #brew "go"		# Required for go bundle
+  #go "github.com/marwanhawari/stew"
+  brew "duti"
+
+  uv "pre-commit"
+  uv "gita"
+  uv "uv"
+
   cask "visual-studio-code"
-  tap "marwanhawari/tap"
-  brew "stew"
+  vscode "anweber.httpbook"
+  vscode "anweber.vscode-httpyac"
+  vscode "dakara.transformer"
+  vscode "davidanson.vscode-markdownlint"
+  vscode "donjayamanne.githistory"
+  vscode "dotjoshjohnson.xml"
+  vscode "esbenp.prettier-vscode"
+  vscode "exiasr.hadolint"
+  vscode "file-icons.file-icons"
+  vscode "formulahendry.auto-close-tag"
+  vscode "formulahendry.auto-rename-tag"
+  vscode "github.copilot-chat"
+  vscode "github.vscode-github-actions"
+  vscode "github.vscode-pull-request-github"
+  vscode "hashicorp.hcl"
+  vscode "hediet.vscode-drawio"
+  vscode "johnpapa.vscode-peacock"
+  vscode "mhutchie.git-graph"
+  vscode "ms-azuretools.vscode-containers"
+  vscode "ms-azuretools.vscode-docker"
+  vscode "ms-python.debugpy"
+  vscode "ms-python.python"
+  vscode "ms-python.vscode-pylance"
+  vscode "ms-python.vscode-python-envs"
+  vscode "ms-vscode-remote.remote-containers"
+  vscode "nhoizey.gremlins"
+  vscode "oderwat.indent-rainbow"
+  vscode "pflannery.vscode-versionlens"
+  vscode "redhat.vscode-xml"
+  vscode "redhat.vscode-yaml"
+  vscode "rooveterinaryinc.roo-cline"
+  vscode "shd101wyy.markdown-preview-enhanced"
+  vscode "streetsidesoftware.code-spell-checker"
+  vscode "timonwong.shellcheck"
+  vscode "usernamehw.errorlens"
+  vscode "yzhang.markdown-all-in-one"
+
 end
 
 if system 'hostname | grep "^.._" > /dev/null'
@@ -71,26 +112,6 @@ elsif system 'hostname | grep "kabylake" > /dev/null'
   cask "gimp"
   cask "inkscape"
 
-  vscode "dakara.transformer"
-  vscode "dotjoshjohnson.xml"
-  vscode "esbenp.prettier-vscode"
-  vscode "exiasr.hadolint"
-  vscode "file-icons.file-icons"
-  vscode "formulahendry.auto-close-tag"
-  vscode "formulahendry.auto-rename-tag"
-  vscode "github.copilot"
-  vscode "github.copilot-chat"
-  vscode "github.vscode-github-actions"
-  vscode "johnpapa.vscode-peacock"
-  vscode "ms-azuretools.vscode-docker"
-  vscode "ms-vscode-remote.remote-containers"
-  vscode "nhoizey.gremlins"
-  vscode "redhat.vscode-xml"
-  vscode "redhat.vscode-yaml"
-  vscode "streetsidesoftware.code-spell-checker"
-  vscode "timonwong.shellcheck"
-  vscode "yzhang.markdown-all-in-one"
-
   if system 'uname -p | grep "i386" > /dev/null'
     cask "macfuse" # macfuse is still the best choice for non-arm Macs
   end
@@ -101,3 +122,4 @@ elsif system 'hostname | grep "kabylake" > /dev/null'
   end
 
 end
+
