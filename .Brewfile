@@ -81,6 +81,9 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   vscode "usernamehw.errorlens"
   vscode "yzhang.markdown-all-in-one"
 
+  vscode "charliermarsh.ruff"
+  vscode "anthropic.claude-code"
+
 end
 
 if system 'hostname | grep "^.._" > /dev/null'
