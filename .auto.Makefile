@@ -14,6 +14,7 @@ endif
 
 auto: \
 	.auto-lock \
+	delete-old-states \
 	.auto-pull-dotfiles \
 	.auto-Brewfile \
 	.auto-vscode-settings \
@@ -69,11 +70,6 @@ auto: \
 		stew install .config/stew/Stewfile && \
 touch .auto-Stewfile
 
-.auto-requirements.txt: .requirements.txt
-	@-command -v pip3 &> /dev/null && \
-		pip3 install --user --upgrade --requirement .requirements.txt && \
-		touch .auto-requirements.txt
-
 .auto-compose.yml: .compose.yml
 	@-command -v docker &> /dev/null && \
 		docker compose -f .compose.yml pull && \
@@ -101,11 +97,10 @@ $(HOME)/Library/Application\ Support/Code/User/settings.json:
 
 delete-old-states:
 	@find "$$HOME" \
-		-maxdepth 1 -mmin +$$((7*24*60)) \
+		-maxdepth 1 -mmin +$$((2*24*60)) \
 		\( \
 		-name ".auto-Brewfile" -o \
-		-name ".auto-compose" -o \
-		-name ".auto-pipx" \
+		-name ".auto-compose" \
 		\) \
 		-delete \
 		-exec echo "{} was outdated and has been removed." \;
