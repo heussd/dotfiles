@@ -3,7 +3,7 @@
 system_info() {
 	hostname
 	_isMacOS && (
-		echo "$(sw_vers -productName) $(sw_vers -productVersion) $(sw_vers -buildVersion)"
+		echo "macOS $(sw_vers -productVersion)"
 	)
 	_isLinux && (
 		lsb_release --short --description

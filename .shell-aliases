@@ -230,15 +230,27 @@ alias k="kubectl"
 export GOPRIVATE=*
 
 
-# Lazy load nvm, based on https://medium.com/@dannysmith/little-thing-2-speeding-up-zsh-f1860390f92
+# https://broken-by.me/lazy-load-nvm/
 nvm() {
-  unset -f nvm
-  source $(brew --prefix nvm)/nvm.sh && nvm "$@"
+    unset -f nvm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvm "$@"
 }
 
-_hasFolder "$HOME/.nvm" && \
-	export NVM_DIR="$HOME/.nvm" && \
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+node() {
+    unset -f node
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    node "$@"
+}
+
+npm() {
+    unset -f npm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    npm "$@"
+}
 
 
 alias lgit='lazygit'

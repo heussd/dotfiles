@@ -1,3 +1,5 @@
+#zmodload zsh/zprof
+
 [[ ! -d "$HOME/.antigen" ]] && git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen"
 source "$HOME/.antigen/antigen.zsh"
 
@@ -116,4 +118,7 @@ bindkey -s '^n' '~/.scripts/git-vimi-helper\n'
 bindkey -s '^k' 'code .\n'
 bindkey -s '^s' '~/.scripts/snippets-fzf .\n'
 bindkey -s '^f' '~/.scripts/op .\n'
+
+
+#zprof
 
