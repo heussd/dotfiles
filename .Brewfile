@@ -39,9 +39,10 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   #go "github.com/marwanhawari/stew"
   brew "duti"
 
+  uv "uv"
+  uv "apm-cli"
   uv "pre-commit"
   uv "gita"
-  uv "uv"
 
   cask "visual-studio-code"
   vscode "anweber.httpbook"
