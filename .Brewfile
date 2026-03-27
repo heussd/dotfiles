@@ -103,6 +103,9 @@ if system 'hostname | grep "DE_" > /dev/null'
   brew "podman-compose"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
+  brew "yarn"
+  brew "azure-cli"
+  brew "nx"
   cask "bruno"
   cask "claude-code"
   cask "docker-desktop"
