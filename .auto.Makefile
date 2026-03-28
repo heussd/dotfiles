@@ -37,7 +37,7 @@ auto: \
 	@touch .auto-apt-packages
 
 
-.auto-darwin: .auto-macos-dock .auto-macos-defaults
+.auto-darwin: .auto-macos-dock .auto-macos-defaults $(HOME)/.config/macos/.auto-Timm.terminal
 
 
 .auto-macos-dock: .macos-dock .Brewfile
@@ -51,11 +51,13 @@ auto: \
 	killall Dock
 	@touch .auto-macos-dock
 
-.auto-macos-defaults: .macos-defaults .config/Terminal.app/Timm.terminal .Brewfile
-	@open .config/Terminal.app/Timm.terminal
+.auto-macos-defaults: .macos-defaults Brewfile
 	. $(HOME)/.macos-defaults
 	@touch .auto-macos-defaults
 
+$(HOME)/.config/macos/.auto-Timm.terminal: $(HOME)/.config/macos/Timm.terminal
+	@open $(HOME)/.config/macos/Timm.terminal
+	touch $(HOME)/.config/macos/.auto-Timm.terminal
 
 .auto-Brewfile: .Brewfile
 	@-command -v brew &> /dev/null && \
