@@ -95,7 +95,6 @@ end
 
 if system 'hostname | grep "DE_" > /dev/null'
   brew "gnupg"
-  brew "imagemagick"
   cask "appcleaner"
   cask "cryptomator"
   cask "iina"
