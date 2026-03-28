@@ -8,11 +8,8 @@
 	required = true
 	process = git-lfs filter-process
 [core]
-	pager = delta
 	excludesfile = ~/.git-global-ignore
 
-[interactive]
-    diffFilter = delta --color-only
 
 change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
 [difftool "sourcetree"]
@@ -100,8 +97,6 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 [pull]
 	rebase = true
 
-[delta]
-    features = side-by-side line-numbers 
 [commit]
 	verbose = true
 [init]

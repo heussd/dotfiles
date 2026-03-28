@@ -15,8 +15,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "dive"
   brew "eza" # a fork of the discontinued exa
   brew "gh" # GitHub cli
-  brew "git-delta"
-  brew "git-gui"		# gitk
   brew "git-lfs"
   brew "hadolint"
   brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
