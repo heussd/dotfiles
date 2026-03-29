@@ -78,8 +78,6 @@ backup:
 	tmutil startbackup --rotation
 
 
-include $(HOME)/.config/Makefile
-
 
 fixreboot: kill hyperkey
 	@while read -r app; do \

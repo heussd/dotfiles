@@ -29,10 +29,6 @@ macos-lockscreen: ## Configure macOS lockscreen
 	#@tccutil reset AddressBook
 
 
-git-over-ssh: ## Configure git to prefer SSH
-	@ln -s $(HOME)/.git-over-ssh $(HOME)/.git-over-ssh-enabled
-
-
 zsh-as-default: ## Configure ZSH as default shell
 	@chsh -s $(which zsh) $(whoami)
 
@@ -111,4 +107,7 @@ hyperkey:
 touchid-sudo:
 	# https://apple.stackexchange.com/questions/259093/can-touch-id-on-mac-authenticate-sudo-in-terminal
 	sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
+
+include ./git/Makefile
 

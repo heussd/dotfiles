@@ -8,16 +8,10 @@
 	required = true
 	process = git-lfs filter-process
 [core]
-	excludesfile = ~/.git-global-ignore
+	excludesfile = ~/.config/git/global-ignore
 
 
 change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
-[difftool "sourcetree"]
-	cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
-	trustExitCode = true
 
 
 [core]
@@ -84,14 +78,14 @@ change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --en
 	# https://stackoverflow.com//questions/7124914/how-to-search-a-git-repository-by-commit-message#answer-7125014
 	find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
 
-	mirror-to-bitbucket = "!$HOME/.git-scripts/mirror-to-bitbucket"
+	mirror-to-bitbucket = "!$HOME/.config/git/scripts/mirror-to-bitbucket"
 
 	# https://stackoverflow.com/questions/6127328/how-do-i-delete-all-git-branches-which-have-been-merged
 	delete-merged = "!git branch --merged | grep -Ev \"(^\\*|master|main|dev)\" | xargs git branch -d"
 
 	graph = "log --graph --decorate --oneline --all"
 [include]
-	path = ~/.git-over-ssh-enabled
+	path = ~/.config/git/git-over-ssh-enabled
 [help]
 	autocorrect = 10
 [pull]
