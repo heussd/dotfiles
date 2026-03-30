@@ -51,7 +51,7 @@ auto: \
 	killall Dock
 	@touch .auto-macos-dock
 
-.auto-macos-defaults: .macos-defaults Brewfile
+.auto-macos-defaults: .macos-defaults .Brewfile
 	. $(HOME)/.macos-defaults
 	@touch .auto-macos-defaults
 
