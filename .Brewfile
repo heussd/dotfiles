@@ -91,6 +91,7 @@ end
 if system 'hostname | grep "^.._" > /dev/null'
   cask "1password"
   cask "google-chrome"
+  cask "microsoft-edge"
   cask "microsoft-teams"
 end
 
