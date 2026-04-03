@@ -4,28 +4,28 @@
 # ~/.macos-dock
 #
 
+use_devtools	= false
+use_vscode 	= false
+use_uv 		= false
+
 brew "git"
 brew "fzf"	# Needed because apt version is too old for vimwiki
 brew "ripgrep"	# Also needed for vim
-uv "slmd"
+
 
 if system 'uname -s | grep "Darwin" > /dev/null'
+  use_vscode 	= true
+  use_uv 	= true
+
   brew "bat"
   brew "coreutils"
-  brew "dive"
-  brew "eza" # a fork of the discontinued exa
   brew "gh" # GitHub cli
   brew "git-lfs"
-  brew "hadolint"
-  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
   brew "lazygit"
   brew "lazydocker"
   brew "markdownlint-cli"
-  brew "nvm"
   brew "rclone"
-  brew "shellcheck"
   brew "the_silver_searcher"
-  brew "yq"
   brew "zsh-completions"
   cask "font-sauce-code-pro-nerd-font"
   cask "onedrive"
@@ -36,13 +36,76 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   #brew "go"		# Required for go bundle
   #go "github.com/marwanhawari/stew"
   brew "duti"
+end
 
-  uv "uv"
+if system 'hostname | grep "^.._" > /dev/null'
+  cask "1password"
+  cask "google-chrome"
+  cask "microsoft-teams"
+end
+
+if system 'hostname | grep "DE_" > /dev/null'
+  brew "gnupg"
+  cask "appcleaner"
+  cask "cryptomator"
+  cask "iina"
+  cask "maestral"
+  brew "podman"
+  brew "podman-compose"
+
+elsif system 'hostname | grep "AU_" > /dev/null'
+  USE_DEVTOOLS = true
+  cask "microsoft-edge"
+  cask "claude-code"
+  cask "docker-desktop"
+
+elsif system 'hostname | grep "kabylake" > /dev/null'
+  brew "podman"
+  cask "steam"
+  cask "thunderbird"
+
+  cask "gimp"
+  cask "inkscape"
+
+  if system 'uname -p | grep "i386" > /dev/null'
+    cask "macfuse" # macfuse is still the best choice for non-arm Macs
+  end
+  if system 'uname -p | grep "arm" > /dev/null'
+    # userspace implementation of FUSE, replaces macfuse
+    tap "macos-fuse-t/homebrew-cask"
+    cask "fuse-t"
+  end
+
+end
+
+
+if use_devtools
+  brew "azure-cli"
+  brew "hadolint"
+  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
+  brew "nvm"
+  brew "nx"
+  brew "shellcheck"
+  brew "dive"
+  brew "yarn"
+  brew "yq"
+  cask "bruno"
+end
+
+
+if use_uv
+  brew "uv"
+
   uv "apm-cli"
   uv "pre-commit"
   uv "gita"
+  uv "slmd"
+end
 
+
+if use_vscode
   cask "visual-studio-code"
+
   vscode "anweber.httpbook"
   vscode "anweber.vscode-httpyac"
   vscode "dakara.transformer"
@@ -79,55 +142,9 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   vscode "timonwong.shellcheck"
   vscode "usernamehw.errorlens"
   vscode "yzhang.markdown-all-in-one"
-
   vscode "charliermarsh.ruff"
   vscode "anthropic.claude-code"
-
   vscode "hbenl.vscode-test-explorer"
   vscode "littlefoxteam.vscode-python-test-adapter"
-
+  vscode "ms-vscode.test-adapter-converter"
 end
-
-if system 'hostname | grep "^.._" > /dev/null'
-  cask "1password"
-  cask "google-chrome"
-  cask "microsoft-edge"
-  cask "microsoft-teams"
-end
-
-if system 'hostname | grep "DE_" > /dev/null'
-  brew "gnupg"
-  cask "appcleaner"
-  cask "cryptomator"
-  cask "iina"
-  cask "maestral"
-  brew "podman"
-  brew "podman-compose"
-
-elsif system 'hostname | grep "AU_" > /dev/null'
-  brew "yarn"
-  brew "azure-cli"
-  brew "nx"
-  cask "bruno"
-  cask "claude-code"
-  cask "docker-desktop"
-
-elsif system 'hostname | grep "kabylake" > /dev/null'
-  brew "podman"
-  cask "steam"
-  cask "thunderbird"
-
-  cask "gimp"
-  cask "inkscape"
-
-  if system 'uname -p | grep "i386" > /dev/null'
-    cask "macfuse" # macfuse is still the best choice for non-arm Macs
-  end
-  if system 'uname -p | grep "arm" > /dev/null'
-    # userspace implementation of FUSE, replaces macfuse
-    tap "macos-fuse-t/homebrew-cask"
-    cask "fuse-t"
-  end
-
-end
-
