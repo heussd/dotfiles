@@ -23,7 +23,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "git-lfs"
   brew "lazygit"
   brew "lazydocker"
-  brew "markdownlint-cli"
   brew "rclone"
   brew "the_silver_searcher"
   brew "zsh-completions"
@@ -36,6 +35,9 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   #brew "go"		# Required for go bundle
   #go "github.com/marwanhawari/stew"
   brew "duti"
+
+  tap "ttscoff/thelab"
+  brew "md-fixup"
 end
 
 if system 'hostname | grep "^.._" > /dev/null'

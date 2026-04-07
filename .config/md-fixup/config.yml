@@ -1,0 +1,38 @@
+width: 60
+overwrite: false
+rules:
+  skip:
+    - wrap
+  include:
+    - line-endings
+    - trailing
+    - blank-lines
+    - header-spacing
+    - header-newline
+    - code-before
+    - code-after
+    - list-before
+    - list-after
+    - rule-before
+    - rule-after
+    - list-tabs
+    - list-marker
+    - end-newline
+    - ial-spacing
+    - code-lang-spacing
+    - ref-link-spacing
+    - task-checkbox
+    - blockquote-spacing
+    - math-spacing
+    - table-format
+    - emoji-spellcheck
+    - typography
+    - bold-italic
+    - list-markers
+    - list-reset
+    - reference-links
+    - links-at-end
+    - inline-links
+    - liquid-tags
+    - blockquote-markers
+    - compress-lists
