@@ -82,13 +82,15 @@ macos-disable-timemachine-throttling-temporarily:
 	@sudo sysctl debug.lowpri_throttle_enabled=0
 
 
-wallpaper: .esoc0932a.jpg wallpaper-$(OS_NAME) ## Set my default wallpaper
+wallpaper: .art002e000192.jpg wallpaper-$(OS_NAME) ## Set my default wallpaper
+.art002e000192.jpg:
+	@curl https://www.nasa.gov/wp-content/uploads/2026/04/art002e000192.jpg -o ~/.art002e000192.jpg
 .esoc0932a.jpg:
 	@curl https://cdn.eso.org/images/large/eso0932a.jpg -o ~/.esoc0932a.jpg
 wallpaper-linux:
-	@feh --bg-scale .esoc0932a.jpg
+	@feh --bg-scale .art002e000192.jpg
 wallpaper-darwin:
-	@osascript -e 'tell application "System Events" to tell every desktop to set picture to ((path to home folder as text) & ".esoc0932a.jpg")'
+	@osascript -e 'tell application "System Events" to tell every desktop to set picture to ((path to home folder as text) & ".art002e000192.jpg")'
 
 
 linux-apt-no-sudo-passwd: ## Allow apt without admin password
