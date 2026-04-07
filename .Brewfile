@@ -54,10 +54,8 @@ if system 'hostname | grep "DE_" > /dev/null'
   brew "podman-compose"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
-  USE_DEVTOOLS = true
+  use_devtools = true
   cask "microsoft-edge"
-  cask "claude-code"
-  cask "docker-desktop"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
   brew "podman"
@@ -90,6 +88,8 @@ if use_devtools
   brew "yarn"
   brew "yq"
   cask "bruno"
+  brew "copilot"
+  cask "claude-code"
 end
 
 
@@ -147,4 +147,6 @@ if use_vscode
   vscode "hbenl.vscode-test-explorer"
   vscode "littlefoxteam.vscode-python-test-adapter"
   vscode "ms-vscode.test-adapter-converter"
+  vscode "ms-azuretools.vscode-azureresourcegroups"
+
 end
