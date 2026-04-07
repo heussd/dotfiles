@@ -124,7 +124,6 @@ duti -s com.microsoft.VSCode md
 duti -s com.microsoft.VSCode public.plain-text all
 duti -s com.microsoft.VSCode public.text all
 # this works for files without a filename extension
-duti -s com.microsoft.VSCode public.data all
 
 
 defaults write com.microsoft.wdav hideStatusMenuIcon -bool YES
