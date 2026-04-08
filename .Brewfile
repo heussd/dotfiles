@@ -90,7 +90,7 @@ if use_devtools
   brew "yarn"
   brew "yq"
   cask "bruno"
-  brew "copilot"
+  cask "copilot-cli"
   cask "claude-code"
 end
 
