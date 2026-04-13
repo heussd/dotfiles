@@ -92,6 +92,9 @@ if use_devtools
   cask "bruno"
   cask "copilot-cli"
   cask "claude-code"
+
+  tap "anomalyco/tap"
+  brew "opencode"
 end
 
 
@@ -101,7 +104,7 @@ if use_uv
   uv "apm-cli"
   uv "pre-commit"
   uv "gita"
-  uv "slmd"
+  uv "specify-cli"
 end
 
 
