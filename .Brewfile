@@ -141,7 +141,7 @@ if use_vscode
   vscode "pflannery.vscode-versionlens"
   vscode "redhat.vscode-xml"
   vscode "redhat.vscode-yaml"
-  vscode "rooveterinaryinc.roo-cline"
+  vscode "saoudrizwan.claude-dev" # Roo Code is discontinued
   vscode "shd101wyy.markdown-preview-enhanced"
   vscode "streetsidesoftware.code-spell-checker"
   vscode "timonwong.shellcheck"
