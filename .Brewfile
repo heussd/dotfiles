@@ -142,7 +142,6 @@ if use_vscode
   vscode "redhat.vscode-xml"
   vscode "redhat.vscode-yaml"
   vscode "saoudrizwan.claude-dev" # Roo Code is discontinued
-  vscode "shd101wyy.markdown-preview-enhanced"
   vscode "streetsidesoftware.code-spell-checker"
   vscode "timonwong.shellcheck"
   vscode "usernamehw.errorlens"
