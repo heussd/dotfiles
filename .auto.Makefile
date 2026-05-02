@@ -65,6 +65,7 @@ $(HOME)/.config/macos/.auto-Timm.terminal: $(HOME)/.config/macos/Timm.terminal
 		brew update && \
 		brew bundle install -v --cleanup --force --zap --file=.Brewfile && \
 		brew upgrade && \
+		uv tool upgrade --all && \
 		touch .auto-Brewfile
 
 .auto-Stewfile: .config/stew/Stewfile
