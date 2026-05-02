@@ -152,5 +152,6 @@ if use_vscode
   vscode "littlefoxteam.vscode-python-test-adapter"
   vscode "ms-vscode.test-adapter-converter"
   vscode "ms-azuretools.vscode-azureresourcegroups"
+  vscode "bierner.markdown-mermaid"
 
 end
