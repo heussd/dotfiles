@@ -100,6 +100,7 @@ end
 
 if use_uv
   brew "uv"
+  uv "uv" # seems to be needed
 
   uv "apm-cli"
   uv "pre-commit"
