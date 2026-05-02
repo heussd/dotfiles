@@ -18,7 +18,7 @@ export TH_PROJECTS_FOLDER="$HOME/Developer"
 export HOMEBREW_NO_ANALYTICS=1
 export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
 
-export HOMEBREW_CASK_OPTS="--no-quarantine --require-sha"
+export HOMEBREW_CASK_OPTS="--require-sha"
 function brew-forget() { rm -rfv "/usr/local/Caskroom/$1"; }
 
 
