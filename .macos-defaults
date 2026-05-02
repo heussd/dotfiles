@@ -172,6 +172,10 @@ defaults write com.apple.Terminal "Startup Window Settings" "Timm"
 defaults write com.apple.Terminal NSQuitAlwaysKeepsWindows -bool false
 
 
+defaults write com.apple.Siri StatusMenuVisible -bool false
+defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
+
+
 
 killall SystemUIServer
 killall Dock
