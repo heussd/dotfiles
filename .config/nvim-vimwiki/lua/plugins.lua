@@ -49,5 +49,14 @@ return {
                 -- Your config
             })
         end
-    }
+    },
+    {
+    	"ibhagwan/fzf-lua",
+  	dependencies = { "nvim-tree/nvim-web-devicons" },
+  	config = function()
+  		require("fzf-lua").setup()
+  		vim.keymap.set("n", "<C-f>", require('fzf-lua').files, { desc = "Fzf Files" })
+  		vim.keymap.set("n", "<C-g>", require('fzf-lua').live_grep, { desc = "Fzf Grep" })
+      	end
+}
 }
