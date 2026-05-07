@@ -11,6 +11,7 @@ use_uv 		= false
 brew "git"
 brew "fzf"	# Needed because apt version is too old for vimwiki
 brew "ripgrep"	# Also needed for vim
+brew "neovim"
 
 
 if system 'uname -s | grep "Darwin" > /dev/null'
