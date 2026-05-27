@@ -155,5 +155,7 @@ if use_vscode
   vscode "ms-vscode.test-adapter-converter"
   vscode "ms-azuretools.vscode-azureresourcegroups"
   vscode "bierner.markdown-mermaid"
+  vscode "redhat.vscode-extension-bpmn-editor"
+  vscode "linhmtran168.mac-ca-vscode"
 
 end
