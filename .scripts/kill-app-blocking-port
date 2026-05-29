@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <port>"
+    exit 1
+fi
+
+PID=$(lsof -ti:""$"1")
+if [ -n "$PID" ]; then
+    kill -9 "$PID"
+    echo "Process on port $1 has been killed."
+else
+    echo "No process found on port $1."
+fi
