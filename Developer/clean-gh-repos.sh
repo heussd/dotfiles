@@ -2,53 +2,80 @@
 set -o errexit
 set -o nounset
 
+SKIP_DIRS=("snippets/" "awesome-github-workflows/" "vimwiki/")
+
+is_skipped() {
+	local dir=$1
+	for skip in "${SKIP_DIRS[@]}"; do
+		[[ "$dir" == "$skip" ]] && return 0
+	done
+	return 1
+}
+
+has_remote() {
+	[[ -n "$(git remote 2>/dev/null)" ]]
+}
+
+has_upstream() {
+	git rev-parse --abbrev-ref '@{u}' &>/dev/null
+}
+
+has_uncommitted_changes() {
+	[[ -n "$(git status --porcelain)" ]]
+}
+
+has_unpushed_commits() {
+	[[ -n "$(git rev-list '@{u}..HEAD')" ]]
+}
+
+try_push() {
+	local dir=$1
+	if [[ "$DRY_RUN" == true ]]; then
+		echo "  [dry-run] would push $dir" >&2
+		return 1
+	fi
+	git push
+}
+
+delete_dir() {
+	local dir=$1
+	if [[ "$DRY_RUN" == true ]]; then
+		echo "  [dry-run] would delete $dir"
+	else
+		rm -Rf "$dir"
+	fi
+}
+
+
 DRY_RUN=false
 if [[ "${1:-}" == "--dry-run" ]]; then
 	DRY_RUN=true
 	echo "Running in dry-run mode — no directories will be deleted."
 fi
 
-for d in */ ; do
-	if [ "$d" = "snippets/" ] || [ "$d" = "awesome-github-workflows/" ] || [ "$d" = "vimwiki/" ]; then
-		continue
-	fi
+for d in */; do
+	is_skipped "$d" && continue
 
-	# Skip non-git directories
-	if [ ! -d "$d/.git" ]; then
+	if [[ ! -d "$d/.git" ]]; then
 		echo "⏭️  $d (not a git repo, skipping)"
 		continue
 	fi
 
-	action=💾
-	pushd "$d" > /dev/null
+	# cd into a subshell so the outer loop's working directory is never
+	# corrupted if a git command fails under set -o errexit.
+	action=$(cd "$d" && {
+		! has_remote            && echo "🔌" && exit
+		has_uncommitted_changes && echo "✏️" && exit
+		! has_upstream          && echo "⬆️" && exit
 
-	if [[ -n "$(git remote 2>/dev/null)" ]]; then
-		local_changes=$(git status --porcelain)
-
-		# Check for unpushed commits only if an upstream tracking branch is configured.
-		# If no upstream is set, treat as dirty (keep).
-		if git rev-parse --abbrev-ref @{u} &>/dev/null; then
-			unpushed=$(git rev-list @{u}..HEAD)
-		else
-			unpushed="no-upstream"
+		if has_unpushed_commits; then
+			try_push "$d" && echo "❌" || echo "💾"
+			exit
 		fi
 
-		if [[ -n "$local_changes" || -n "$unpushed" ]]; then
-			action=💾
-		else
-			action=❌
-		fi
-	fi
-
-	popd > /dev/null
+		echo "❌"
+	})
 	echo "$action $d"
 
-	if [ "$action" = "❌" ]; then
-		if [ "$DRY_RUN" = true ]; then
-			echo "  [dry-run] would delete $d"
-		else
-			rm -Rf "$d"
-		fi
-	fi
+	[[ "$action" == "❌" ]] && delete_dir "$d"
 done
-
