@@ -107,6 +107,7 @@ if use_uv
   uv "pre-commit"
   uv "gita"
   uv "specify-cli"
+  uv "promptfoo"
 end
 
 
