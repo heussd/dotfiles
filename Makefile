@@ -2,16 +2,50 @@ SHELL         	 := bash
 .SHELLFLAGS   	 := -eu -o pipefail -c
 MAKEFLAGS     	 += --warn-undefined-variables
 MAKEFLAGS     	 += --no-builtin-rules
+#MAKEFLAGS     	 += --silent
 HOST          	 := $$(hostname | cut -d"." -f 1)
 OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
+DOTFILES_BARE 	 := $(HOME)/.dotfiles-bare-repo/
+
+ifneq ("$(wildcard .auto-lock)", "")
+locked:
+	$(info Auto Makefile operation is locked through file .auto-lock)
+endif
 
 
-# https://gist.github.com/prwhite/8168133?permalink_comment_id=3456785#gistcomment-3456785
-help: 
-	@awk 'BEGIN {FS = ":.*##"; printf "\033[36m\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-25s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+auto: \
+	delete-old-states \
+	pull-dotfiles \
+	.Brewfile.auto
+	@[ -f ".auto-lock" ] && rm .auto-lock || true
 
 
-clean-all:	## Cleans various places
+pull-dotfiles:
+	@find "$(DOTFILES_BARE)/FETCH_HEAD" -mmin +$$((7*24*60)) \
+ 		-exec bash -c "git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules ; touch $(DOTFILES_BARE)/FETCH_HEAD" \; ;\
+
+
+.Brewfile.auto: .Brewfile
+	touch .auto-lock
+	@-command -v brew &> /dev/null && \
+		HOMEBREW_CASK_OPTS="--require-sha" \
+		brew update && \
+		brew bundle install -v --cleanup --jobs=4 --force --zap --file=.Brewfile && \
+		brew upgrade && \
+		uv tool upgrade --all && \
+		touch .Brewfile.auto
+
+
+delete-old-states:
+	@find "$$HOME" \
+		-maxdepth 1 -mmin +$$((2*24*60)) \
+		\( \
+		-name ".Brewfile.auto" \
+		\) \
+		-delete
+
+
+clean-all:
 	@-rm -rf ~/.tmp/*
 	@-rm -rf ~/.Trash/*
 	@-rm -rf ~/Library/Caches/*
@@ -26,76 +60,9 @@ clean-all:	## Cleans various places
 	@-rm -rf ~/.m2/*
 
 
-clean-downloads: ## Cleans old downloads
+clean-downloads:
 	@find ~/Downloads -maxdepth 1 -mtime +30 -exec mv -v {} ~/.Trash/ \;
 .PHONY: clean-downloads
-
-
-# rsyncs a remote location with this user's home
-# $1 - Source machine
-# $2 - Target machine
-# $3 - Filter name to apply (.rsync-filter-$2)
-# $4 - Additional options
-define rsync
-	@rsync -auip --progress --safe-links \
-		--filter=". $$HOME/.rsync-filters/$(3)" --exclude=/* \
-		$(1) $(2) \
-		$(4)
-endef
-
-
-rsync: 
-	$(call rsync,kabylake:~/,~/,$(HOST),)
-	$(call rsync,~/,kabylake:~/,$(HOST),)
-rsync-geneva: 
-	$(call rsync,geneva:~/,~/,geneva,)
-	$(call rsync,~/,geneva:~/,geneva,)
-
-force-push:
-	@gita push
-	$(call rsync,~/,maya:~/,$(HOST),--delete)
-
-
-
-
-backup:
-	sudo sysctl debug.lowpri_throttle_enabled=0
-	BORG_PASSCOMMAND='keepasspw-fzf' \
-	borg create \
-		--stats \
-		--progress \
-		--compression lz4 \
-		/Volumes/Backup/borg::{hostname}-{user}-{now:%Y-%m-%dT%H:%M:%S} \
-		~/Archive	\
-		~/Documents/	\
-		~/Dropbox/	\
-		~/OneDrive/	\
-		~/Pictures/	\
-		~/data/		\
-		~/Library/Thunderbird/	\
-		~/Library/Application\ Support/Firefox/
-	cd ~/Documents && git bundle create /Volumes/Backup/Documents-git-bundle --all
-	tmutil startbackup --rotation
-
-
-
-fixreboot: kill hyperkey
-	@while read -r app; do \
-		osascript -e "id of application \"$$app\"" 2>/dev/null && \
-			open --background -a "$$app" || true; \
-	done < .macos-autostart
-
-
-dark:
-	#dark-mode
-	defaults write -g NSRequiresAquaSystemAppearance -bool true
-
-light:
-	defaults write -g NSRequiresAquaSystemAppearance -bool false
-
-toggle-color-mode:
-	osascript -e "tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode"
-
 
 
 vpn:
@@ -112,6 +79,3 @@ kill:
 	@-sudo pkill -f "OneDrive"
 	@sudo launchctl stop com.vastlimits.uberAgent
 
-update:
-	rm .auto-*
-	make -f .auto.Makefile

@@ -1,9 +1,0 @@
-services:
-  babellint:
-    image: ghcr.io/heussd/babellint:main
-  tmtools:
-    image: ghcr.io/heussd/tmtools:latest
-  fivefilters:
-    image: heussd/fivefilters-full-text-rss:latest
-    ports:
-      - "55000:80"
