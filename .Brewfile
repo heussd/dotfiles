@@ -26,9 +26,9 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "lazydocker"
   brew "rclone"
   brew "the_silver_searcher"
+  brew "tmux"
   brew "zsh-completions"
   cask "font-sauce-code-pro-nerd-font"
-  cask "onedrive"
   cask "sourcetree"
   
   #tap "marwanhawari/tap"
@@ -42,9 +42,9 @@ if system 'uname -s | grep "Darwin" > /dev/null'
 end
 
 if system 'hostname | grep "^.._" > /dev/null'
-  cask "1password"
-  cask "google-chrome"
-  cask "microsoft-teams"
+  #cask "1password"
+  #cask "google-chrome"
+  #cask "microsoft-teams"
 end
 
 if system 'hostname | grep "DE_" > /dev/null'
@@ -58,7 +58,6 @@ if system 'hostname | grep "DE_" > /dev/null'
 
 elsif system 'hostname | grep "AU_" > /dev/null'
   use_devtools = true
-  cask "microsoft-edge"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
   brew "podman"
@@ -90,7 +89,6 @@ if use_devtools
   brew "dive"
   brew "yarn"
   brew "yq"
-  cask "bruno"
   cask "copilot-cli"
   cask "claude-code"
 
