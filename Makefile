@@ -14,11 +14,14 @@ endif
 
 
 auto: \
+	lock \
 	delete-old-states \
 	pull-dotfiles \
 	.Brewfile.auto
 	@[ -f ".auto-lock" ] && rm .auto-lock || true
 
+lock:
+	@touch .auto-lock
 
 pull-dotfiles:
 	@find "$(DOTFILES_BARE)/FETCH_HEAD" -mmin +$$((7*24*60)) \
@@ -26,7 +29,6 @@ pull-dotfiles:
 
 
 .Brewfile.auto: .Brewfile
-	touch .auto-lock
 	@-command -v brew &> /dev/null && \
 		HOMEBREW_CASK_OPTS="--require-sha" \
 		brew update && \
