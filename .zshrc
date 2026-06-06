@@ -6,48 +6,12 @@ source "$HOME/.antigen/antigen.zsh"
 source ~/.shell-aliases
 source ~/.container-aliases
 source ~/.shell-motd
-antigen use oh-my-zsh
 
 
-# Specify plugins we want
-antigen bundle editor
-antigen bundle history
-antigen bundle utility
-antigen bundle completion
-antigen bundle command-not-found
-
-# Specify additional external plugins we want
-antigen bundle smallhadroncollider/antigen-git-rebase
-antigen bundle zsh-users/zsh-autosuggestions
-
-auto-ls-ls-extended() {
-	ls-extended;
-	echo ""; # For some reason this is needed to not truncate previous commands output
-}
-AUTO_LS_COMMANDS=(ls-extended)
-
-antigen bundle desyncr/auto-ls
-antigen bundle Cloudstek/zsh-plugin-appup
-antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
-
-antigen theme spaceship-prompt/spaceship-prompt
-
-
 antigen bundle joshskidmore/zsh-fzf-history-search
 
-
-export SPACESHIP_KUBECTL_SHOW=false
-export SPACESHIP_KUBECTL_VERSION_SHOW=false
-export SPACESHIP_KUBECTL_CONTEXT_SHOW=false
-export SPACESHIP_GCLOUD_SHOW=false
-export SPACESHIP_AZURE_SHOW=false
-export SPACESHIP_TERRAFORM_SHOW=false
-export SPACESHIP_HOST_SHOW=false
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#8a7575"
- 
-# Load everything
 antigen apply
 
 
@@ -62,7 +26,6 @@ zstyle ':completion:*' matcher-list '' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
 
-
 # https://www.arp242.net/zshrc.html
 hash -d p="$TH_PROJECTS_FOLDER" # use ~p in commands, e.g. ls ~p
 
@@ -70,7 +33,6 @@ autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-
 
 
 bindkey '^[[A'  up-line-or-beginning-search    # Arrow up
@@ -81,20 +43,10 @@ bindkey '^[OB'  down-line-or-beginning-search
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
-# Suffix aliases
-#alias -s {sh,css,js,ts,html,md,txt}=code
  
 _hasFile ~/.fzf.zsh && source ~/.fzf.zsh
 export FZF_COMPLETION_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
 export FZF_COMPLETION_TRIGGER='**'
- 
-# https://medium.com/@dannysmith/little-thing-2-speeding-up-zsh-f1860390f92
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
- 
  
  
 export PATH="$PATH:/opt/homebrew/bin/"
@@ -120,5 +72,14 @@ bindkey -s '^s' '~/.scripts/snippets-fzf .\n'
 bindkey -s '^f' '~/.scripts/op .\n'
 
 
-#zprof
+autoload -Uz vcs_info
+precmd() { vcs_info }
 
+zstyle ':vcs_info:git:*' formats '%b '
+
+setopt PROMPT_SUBST
+
+NEWLINE=$'\n'
+PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f${NEWLINE}$ '
+
+#zprof
