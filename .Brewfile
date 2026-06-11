@@ -155,5 +155,6 @@ if use_vscode
   vscode "ms-azuretools.vscode-azureresourcegroups"
   vscode "redhat.vscode-extension-bpmn-editor"
   vscode "linhmtran168.mac-ca-vscode"
+  vscode "chdsbd.github-code-owners"
 
 end
