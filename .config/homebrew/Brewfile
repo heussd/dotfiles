@@ -92,8 +92,8 @@ if use_devtools
   cask "copilot-cli"
   cask "claude-code"
 
-  tap "anomalyco/tap"
-  brew "opencode"
+  brew "node"
+  npm "opencode-ai"
 end
 
 

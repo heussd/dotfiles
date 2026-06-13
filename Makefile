@@ -28,13 +28,14 @@ pull-dotfiles:
  		-exec bash -c "git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules ; touch $(DOTFILES_BARE)/FETCH_HEAD" \; ;\
 
 
-.Brewfile.auto: .Brewfile
+.Brewfile.auto: .config/homebrew/Brewfile
 	@-command -v brew &> /dev/null && \
 		HOMEBREW_CASK_OPTS="--require-sha" \
 		brew update && \
-		brew bundle install -v --cleanup --jobs=4 --force --zap --file=.Brewfile && \
-		brew upgrade && \
+		brew bundle install --jobs=4 --force --global && \
+		brew bundle cleanup --all --zap --force --global && \
 		uv tool upgrade --all && \
+		npm update -g && \
 		touch .Brewfile.auto
 
 
