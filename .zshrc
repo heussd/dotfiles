@@ -1,18 +1,22 @@
 #zmodload zsh/zprof
 
-[[ ! -d "$HOME/.antigen" ]] && git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen"
-source "$HOME/.antigen/antigen.zsh"
-
 source ~/.shell-aliases
 source ~/.container-aliases
 source ~/.shell-motd
 
+# https://mijndertstuij.nl/posts/life-is-too-short-for-a-slow-terminal/
+source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
+source ~/.zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 
-antigen bundle zdharma-continuum/fast-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen bundle joshskidmore/zsh-fzf-history-search
-
-antigen apply
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qNmh-24) ]]; then
+  compinit -C
+else
+  compinit
+fi
 
 
 zstyle ':filter-select:highlight' matched fg=red
