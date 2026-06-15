@@ -76,45 +76,8 @@ bindkey -s '^s' '~/.scripts/snippets-fzf .\n'
 bindkey -s '^f' '~/.scripts/op .\n'
 
 
-setopt PROMPT_SUBST
+fpath+=$HOME/.zsh/pure
 
-git_prompt_simple() {
-  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+autoload -U promptinit; promptinit
+prompt pure
 
-  local branch ahead=0 behind=0
-  local status_icons=""
-  local ab_counts
-
-  branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || return
-
-  # Staged changes
-  git diff --cached --quiet --ignore-submodules 2>/dev/null || status_icons+=" ●"
-  # Unstaged changes
-  git diff --quiet --ignore-submodules 2>/dev/null || status_icons+=" ✚"
-  # Untracked files
-  [[ -n "$(git ls-files --others --exclude-standard 2>/dev/null)" ]] && status_icons+=" …"
-
-  ab_counts=$(git rev-list --left-right --count @{upstream}...HEAD 2>/dev/null)
-  if [[ -n "$ab_counts" ]]; then
-    read -r behind ahead <<<"${ab_counts}"
-    behind=${behind:-0}
-    ahead=${ahead:-0}
-    (( ahead > 0 )) && status_icons+=" ⇡${ahead}"
-    (( behind > 0 )) && status_icons+=" ⇣${behind}"
-  fi
-
-  if [[ -z "$status_icons" ]]; then
-    echo "@ ${branch} %F{green}✓%f "
-  else
-    echo "@ ${branch}${status_icons} "
-  fi
-}
-
-precmd() {
-  GIT_PROMPT_INFO="$(git_prompt_simple)"
-}
-
-NEWLINE=$'\n'
-PROMPT='%F{blue}%~%f %F{red}${GIT_PROMPT_INFO}%f${NEWLINE}$ '
-
-#zprof
