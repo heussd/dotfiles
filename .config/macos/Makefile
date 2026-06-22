@@ -50,6 +50,10 @@ finder:
 	killall Finder
 
 
+touchid-sudo: # https://apple.stackexchange.com/questions/259093/can-touch-id-on-mac-authenticate-sudo-in-terminal
+	sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
+
 filetypes:
 	#openwith com.colliderli.iina mkv mov mp4 avi webm m3u mp3
 	#openwith org.libreoffice.script csv xls xlsx
