@@ -42,7 +42,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
 end
 
 if system 'hostname | grep "^.._" > /dev/null'
-  #cask "1password"
+  brew "container"
   #cask "google-chrome"
   #cask "microsoft-teams"
 end
