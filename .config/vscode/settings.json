@@ -15,5 +15,7 @@
   "terminal.integrated.copyOnSelection": true,
   "window.restoreFullscreen": true,
   "editor.fontFamily": "'SauceCodePro Nerd Font Mono'",
-  "editor.fontSize": 16
+  "editor.fontSize": 16,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.activityBar.compact": true
 }
