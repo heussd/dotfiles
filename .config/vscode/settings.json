@@ -17,5 +17,6 @@
   "editor.fontFamily": "'SauceCodePro Nerd Font Mono'",
   "editor.fontSize": 16,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "workbench.activityBar.compact": true
+  "workbench.activityBar.compact": true,
+  "window.autoDetectColorScheme": true
 }
