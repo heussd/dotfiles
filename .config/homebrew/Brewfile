@@ -37,8 +37,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   #go "github.com/marwanhawari/stew"
   brew "duti"
 
-  tap "ttscoff/thelab"
-  brew "md-fixup"
+  brew "ttscoff/thelab/md-fixup", trusted: true
 end
 
 if system 'hostname | grep "^.._" > /dev/null'
