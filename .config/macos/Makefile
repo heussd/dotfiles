@@ -26,6 +26,12 @@ dock:
 	killall Dock
 
 
+hotcorners:
+	defaults write com.apple.dock wvous-bl-corner -int 2 # Mission Control
+	defaults write com.apple.dock wvous-br-corner -int 4 # Show Desktop
+	killall Dock
+
+
 screenshots:
 	defaults write com.apple.screencapture location "$$HOME/Downloads"
 
