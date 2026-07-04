@@ -114,7 +114,6 @@ if use_vscode
   vscode "anweber.httpbook"
   vscode "anweber.vscode-httpyac"
   vscode "dakara.transformer"
-  vscode "davidanson.vscode-markdownlint"
   vscode "donjayamanne.githistory"
   vscode "dotjoshjohnson.xml"
   vscode "esbenp.prettier-vscode"
@@ -145,7 +144,6 @@ if use_vscode
   vscode "streetsidesoftware.code-spell-checker"
   vscode "timonwong.shellcheck"
   vscode "usernamehw.errorlens"
-  vscode "yzhang.markdown-all-in-one"
   vscode "charliermarsh.ruff"
   vscode "anthropic.claude-code"
   vscode "hbenl.vscode-test-explorer"
@@ -155,5 +153,5 @@ if use_vscode
   vscode "redhat.vscode-extension-bpmn-editor"
   vscode "linhmtran168.mac-ca-vscode"
   vscode "chdsbd.github-code-owners"
-
+  vscode "emeraldwalk.RunOnSave"
 end
