@@ -41,22 +41,20 @@ if system 'uname -s | grep "Darwin" > /dev/null'
 end
 
 if system 'hostname | grep "^.._" > /dev/null'
-  brew "container"
-  brew "podman"
-  brew "podman-compose"
   #cask "google-chrome"
   #cask "microsoft-teams"
 end
 
 if system 'hostname | grep "DE_" > /dev/null'
   brew "gnupg"
-  cask "appcleaner"
   cask "cryptomator"
-  cask "iina"
   cask "maestral"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
   use_devtools = true
+  brew "container"
+  brew "podman"
+  brew "podman-compose"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
   brew "podman"
