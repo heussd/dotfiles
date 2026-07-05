@@ -34,8 +34,8 @@ pull-dotfiles:
 		brew update && \
 		brew bundle install --jobs=4 --force --global && \
 		brew bundle cleanup --all --zap --force --global && \
-		uv tool upgrade --all && \
-		npm update -g && \
+		command -v uv &> /dev/null && uv tool upgrade --all || true && \
+		command -v npm &> /dev/null && npm update -g || true && \
 		touch .Brewfile.auto
 
 
