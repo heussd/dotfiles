@@ -116,3 +116,11 @@ coteditor:
 #ln -vfs /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/cot
 
 
+sidebar:
+	defaults write -g NSSplitViewItemSidebarDefaultsToFloatingAppearance -bool false
+	defaults write -g NSConvolutionOverride1 -float 15
+	killall Finder
+
+keyboard:
+	cp -rv *.bundle "$$HOME/Library/Keyboard Layouts"
+
