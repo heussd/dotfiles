@@ -30,9 +30,6 @@ zstyle ':completion:*' matcher-list '' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
 
-# https://www.arp242.net/zshrc.html
-hash -d p="$TH_PROJECTS_FOLDER" # use ~p in commands, e.g. ls ~p
-
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 
 zle -N up-line-or-beginning-search

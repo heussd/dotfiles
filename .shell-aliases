@@ -55,6 +55,8 @@ alias mv='mv -v'
 alias reboot='sudo reboot'
 
 alias g='git'
+alias c='container'
+alias p='podman'
 
 
 alias vim-vimwiki='pushd "$TH_PROJECTS_FOLDER/vimwiki"; vim -u ~/.config/vim/vimwiki/vimrc; popd'
@@ -99,7 +101,6 @@ alias tv='customboat "tv"'
 function take() { mkdir -p "$1" && cd "$1" || exit; }
 alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
-alias p="cd $TH_PROJECTS_FOLDER"
 
 alias add-url-to-diary="~/.config/newsboat/scripts/vimwiki"
 
