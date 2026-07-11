@@ -75,11 +75,7 @@ vpn:
 
 kill:
 	@sudo -v
-	@-ps ax|grep -i docker|egrep -iv 'grep|com.docker.vmnetd'|awk '{print $$1}'|xargs kill
-	@-pkill -f "Maestral"
 	@-pkill -f "DisplayLink Manager"
 	@-pkill -f "printscout-ui"
-	@-pkill -f "FindMe"
 	@-sudo pkill -f "OneDrive"
-	@sudo launchctl stop com.vastlimits.uberAgent
 
