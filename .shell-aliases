@@ -182,3 +182,8 @@ alias ldocker='lazydocker'
 
 
 _isMacOS && [ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME=$HOME/.config
+
+
+# Note: Only one certificate is supported, so if you have multiple certificates, you need to combine them into a single file.
+NODE_EXTRA_CA_CERTS="$(find "$HOME/.node-extra-ca-certs/" -type f 2>/dev/null | head -n 1)"
+export NODE_EXTRA_CA_CERTS
