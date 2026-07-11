@@ -53,6 +53,7 @@ if system 'hostname | grep "DE_" > /dev/null'
 elsif system 'hostname | grep "AU_" > /dev/null'
   use_devtools = true
   brew "container"
+  brew "us/tap/mocker", trusted: true
   brew "podman"
   brew "podman-compose"
 
@@ -135,7 +136,6 @@ if use_vscode
   vscode "ms-vscode-remote.remote-containers"
   vscode "nhoizey.gremlins"
   vscode "oderwat.indent-rainbow"
-  vscode "pflannery.vscode-versionlens"
   vscode "redhat.vscode-xml"
   vscode "redhat.vscode-yaml"
   vscode "saoudrizwan.claude-dev" # Roo Code is discontinued
