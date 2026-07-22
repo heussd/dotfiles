@@ -56,6 +56,7 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   brew "us/tap/mocker", trusted: true
   brew "podman"
   brew "podman-compose"
+  cask "ollama-app"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
   brew "podman"
@@ -104,6 +105,7 @@ if use_uv
   uv "gita"
   uv "specify-cli"
   uv "promptfoo"
+  uv "nbstripout"
 end
 
 
@@ -121,7 +123,6 @@ if use_vscode
   vscode "formulahendry.auto-close-tag"
   vscode "formulahendry.auto-rename-tag"
   vscode "github.copilot-chat"
-  vscode "github.vscode-github-actions"
   vscode "github.vscode-pull-request-github"
   vscode "hashicorp.hcl"
   vscode "hediet.vscode-drawio"
@@ -152,4 +153,5 @@ if use_vscode
   vscode "linhmtran168.mac-ca-vscode"
   vscode "chdsbd.github-code-owners"
   vscode "emeraldwalk.RunOnSave"
+  vscode "ms-ossdata.vscode-pgsql"
 end
