@@ -32,7 +32,7 @@ pull-dotfiles:
 	@-command -v brew &> /dev/null && \
 		HOMEBREW_CASK_OPTS="--require-sha" \
 		brew update && \
-		brew bundle install --jobs=4 --force --global && \
+		brew bundle install --jobs=4 --force --global --verbose && \
 		brew bundle cleanup --all --zap --force --global && \
 		command -v uv &> /dev/null && uv tool upgrade --all || true && \
 		command -v npm &> /dev/null && npm update -g || true && \
@@ -78,4 +78,11 @@ kill:
 	@-pkill -f "DisplayLink Manager"
 	@-pkill -f "printscout-ui"
 	@-sudo pkill -f "OneDrive"
+
+stop:
+	@-container stop --all
+	@-container rm --all --force
+	@-podman stop --all
+	@-podman rm --all --force
+	@-podman machine stop
 
