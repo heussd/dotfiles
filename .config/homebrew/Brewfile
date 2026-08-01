@@ -38,6 +38,8 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "duti"
 
   brew "ttscoff/thelab/md-fixup", trusted: true
+
+  brew "transcrypt"
 end
 
 if system 'hostname | grep "^.._" > /dev/null'
