@@ -9,4 +9,6 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 map <C-F> :GFiles <CR>
-map <C-G> :GGrep <CR>
+
+" Rg works with transcrypted git repos
+map <C-G> :Rg <CR> 
