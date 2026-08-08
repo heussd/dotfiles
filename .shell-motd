@@ -44,6 +44,11 @@ resume_screen() {
 		fi
 	)
 }
+
+resume_tmux() {
+	_hasCmd tmux && tmux attach &> /dev/null
+}
+
 auto_make() {
 	make -f Makefile
 }
@@ -58,4 +63,5 @@ if [ "$PWD" = "$HOME" ]; then
 fi
 
 resume_screen
+resume_tmux
 
