@@ -7,12 +7,16 @@ source ~/.shell-aliases
 source ~/.container-aliases
 source ~/.shell-motd
 
+
+
 # https://mijndertstuij.nl/posts/life-is-too-short-for-a-slow-terminal/
 source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
+#`source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
 source ~/.zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
+
+
 
 autoload -Uz compinit
 # shellcheck disable=SC1009,SC1036,SC1073
@@ -22,16 +26,6 @@ else
   compinit
 fi
 
-
-zstyle ':filter-select:highlight' matched fg=red
-zstyle ':filter-select' max-lines 1000
-zstyle ':filter-select' rotate-list yes
-zstyle ':filter-select' case-insensitive yes # enable case-insensitive searchhttps://github.com/tideflow-io/tideflow
-
-zstyle ':completion:*' matcher-list '' \
-  'm:{a-z\-}={A-Z\_}' \
-  'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
-  'r:|?=** m:{a-z\-}={A-Z\_}'
 
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
