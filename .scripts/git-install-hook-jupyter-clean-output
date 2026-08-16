@@ -7,10 +7,9 @@ command -v nbstripout >/dev/null 2>&1 || { pip install --upgrade nbstripout; }
 
 { echo '#!/bin/sh' & \
   echo "python3 -m nbstripout *.ipynb"; \
-} > .git/hooks/pre-commit 
+} > .git/hooks/pre-commit
 
 [[ ! -e .git/hooks/pre-commit ]] && echo "Failed to install hook" && exit 1
 
 echo "Hook installed"
 exit 0
-

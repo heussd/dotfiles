@@ -23,4 +23,3 @@ sleep 5 && (
 	amixer set Headphone 95% &
 	amixer set Master 100% &
 )
-

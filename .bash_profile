@@ -1,3 +1,6 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1091
+
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
@@ -62,11 +65,11 @@ fi
 
 
 
-source $HOME/.shell-aliases
-source $HOME/.container-aliases
+source "$HOME/.shell-aliases"
+source "$HOME/.container-aliases"
 
-_hasFile ~/.fzf.bash && source ~/.fzf.bash
-source-if-exist ".bash_profile."`uname -s`
+_hasFile ~/.fzf.bash && source "$HOME/.fzf.bash"
+source-if-exist ".bash_profile.$(uname -s)"
 
 source "$HOME/.shell-motd"
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"

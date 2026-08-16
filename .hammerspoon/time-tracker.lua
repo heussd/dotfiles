@@ -30,11 +30,11 @@ function process_log(filename)
     end
 
     print("Using log file: " .. filename)
-    
+
     -- Read the file and process lines
     local daily_counts = {}
     local total_count = 0
-    
+
     for line in io.lines(filename) do
         total_count = total_count + 1
         local date = line:match("^([^,]+)")  -- get first field before comma
@@ -43,7 +43,7 @@ function process_log(filename)
             daily_counts[date] = (daily_counts[date] or 0) + 1
         end
     end
-    
+
     local dates = {}
     for date in pairs(daily_counts) do
         table.insert(dates, date)

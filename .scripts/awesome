@@ -29,4 +29,3 @@ if [ -n "$template" ]; then
 		cp -Rv -n "$template"/. .
 	fi
 fi
-

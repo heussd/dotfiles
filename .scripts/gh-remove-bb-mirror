@@ -3,7 +3,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-#rm .github/workflows/mirror-to-bitbucket.yml 
+#rm .github/workflows/mirror-to-bitbucket.yml
 gh secret remove BITBUCKET_PASSWORD || true
 
 commithash=$(git log --oneline --grep='Enable automatic mirroring to BitBucket' | awk -F' ' '{ print $1 }')
@@ -11,4 +11,3 @@ commithash=$(git log --oneline --grep='Enable automatic mirroring to BitBucket' 
 git revert "$commithash"
 
 git push -f
-

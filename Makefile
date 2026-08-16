@@ -85,4 +85,3 @@ stop:
 	@-podman stop --all
 	@-podman rm --all --force
 	@-podman machine stop
-

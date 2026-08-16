@@ -2,7 +2,7 @@
 # Ignore RSS items having keywords provided as parameters in their title
 # Designed to be called as newsboat filter script, for example:
 #    "filter:~/.config/newsboat/scripts/ignore-titles-with 'windows':https://www.heise.de/rss/heise.rdf"
-# 
+#
 # Copyright (c) 2021, Timm Heuss
 #
 # Based on
@@ -55,4 +55,3 @@ end
 
 # write the modified rss
 STDOUT.puts(rss)
-

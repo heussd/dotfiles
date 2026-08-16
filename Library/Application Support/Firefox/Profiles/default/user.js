@@ -103,4 +103,3 @@ user_pref("app.normandy.api_url", "");
 user_pref("dom.private-attribution.submission.enabled", false);
 
 user_pref("signon.rememberSignons", false);
-

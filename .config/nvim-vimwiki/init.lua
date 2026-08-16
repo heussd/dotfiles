@@ -64,4 +64,3 @@ vim.keymap.set('n', '<S-j>', function() next_closed_fold('j') end,
                {silent = true})
 vim.keymap.set('n', '<S-k>', function() next_closed_fold('k') end,
                {silent = true})
-

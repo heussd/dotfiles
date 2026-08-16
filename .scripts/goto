@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -o errexit
 set -o pipefail
 set -o nounset
@@ -16,4 +16,3 @@ else
 fi
 
 #kitty @launch --type=tab --tab-title="$folder" --cwd="$HOME/Developer/$folder" open-with-auto
-

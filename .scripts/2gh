@@ -13,5 +13,5 @@ open -a SourceTree -W --args "$PWD"
 
 gh repo create "$repository" --private
 
-git remote add origin "git@github.com:heussd/$repository.git" 
+git remote add origin "git@github.com:heussd/$repository.git"
 git push --set-upstream origin main --no-verify

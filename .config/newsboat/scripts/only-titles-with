@@ -56,4 +56,3 @@ end
 
 # write the modified rss
 STDOUT.puts(rss)
-

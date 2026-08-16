@@ -46,7 +46,7 @@ if [[ "$number" -gt 0 ]]; then
     for app in "${nonworkapps[@]}"; do open --background -a "$app"; done
 else
     echo "Work mode"
-    
+
     for app in "${nonworkapps[@]}"; do killall "$app"; done
 
     gita sync
@@ -54,5 +54,3 @@ else
 
     for app in "${workapps[@]}"; do open --background -a "$app"; done
 fi
-
-

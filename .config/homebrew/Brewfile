@@ -30,7 +30,7 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "zsh-completions"
   cask "font-sauce-code-pro-nerd-font"
   cask "sourcetree"
-  
+
   #tap "marwanhawari/tap"
   #brew "stew"
   #brew "go"		# Required for go bundle

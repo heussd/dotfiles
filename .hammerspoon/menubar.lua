@@ -42,7 +42,7 @@ end
 function gita_sync()
     local output = hs.execute("gita sync", true)
     hs.alert(output)
-end 
+end
 
 function open_config()
     hs.execute("code ~/.hammerspoon", true)
@@ -90,7 +90,7 @@ function toggleMediaControl()
     if mediaControlActive then
         horizontalScroll:start()
         homeButton:start()
-        
+
         for i = 1, 10 do
             hs.eventtap.event.newSystemKeyEvent('BRIGHTNESS_DOWN', true):post()
             hs.eventtap.event.newSystemKeyEvent('BRIGHTNESS_DOWN', false):post()

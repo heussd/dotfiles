@@ -54,10 +54,10 @@ end
 
 hyper:bind({}, "q", nil, function()
     pre_lock()
-    
+
     local message = "Going down for sleep..."
     hs.alert.show(message, 2)
-    
+
     local duration = 2.5
     hs.timer.doAfter(duration, function()
         hs.alert(message .. " 3")

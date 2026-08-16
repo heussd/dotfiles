@@ -9,7 +9,7 @@ function color() {
 	words=${#3}
 	cols=$((cols - words - 2))
 	cols=$((cols / 2 ))
-	
+
 	printf "\\n"
 	printf "\\e[1;%sm" "$1" # foreground color
 	printf "\\e[1;%sm" "$2" # background color
@@ -38,4 +38,3 @@ if [ "$PWD" = "$HOME" ]; then
 fi
 
 eval "${gitcmd}"
-

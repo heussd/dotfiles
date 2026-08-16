@@ -1,25 +1,10 @@
 # Timm's dotfiles
 
 [![Babellint](https://github.com/heussd/dotfiles/actions/workflows/babellint.yml/badge.svg)](https://github.com/heussd/dotfiles/actions/workflows/babellint.yml)
+[![Pre-commit](https://github.com/heussd/dotfiles/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/heussd/dotfiles/actions/workflows/pre-commit.yml)
 [![Smoke Tests](https://github.com/heussd/dotfiles/actions/workflows/smoke-tests.yml/badge.svg)](https://github.com/heussd/dotfiles/actions/workflows/smoke-tests.yml)
-[![Mirror to BitBucket](https://github.com/heussd/dotfiles/actions/workflows/mirror-to-bitbucket.yml/badge.svg)](https://github.com/heussd/dotfiles/actions/workflows/mirror-to-bitbucket.yml)
 
 In the great tradition of sharing dotfiles, this repository contains various configuration files for Unix and Linux software.
-
-## Feature highlights
-
-- Automatic sync and installation of macOS preferences and the Dock.
-- Automatic sync of installed items with brew, stew, pip, Docker images, VS Code extensions and apt.
-- Automatic, rudimentary steam-tests with GitHub Actions.
-- Automatic, scheduled update installation with brew and pip.
-- Cross-OS (Linux, macOS) and cross-architecture (ARM, x64) compatibility.
-- Developer and power-user brewfile with CPU-architecture- and OS-specific instructions.
-- Fine-tuned configurations for kitty, newsboat, zsh, vim, git and Firefox.
-- Git-native versioning, syncing and deployment of dotfiles.
-- Installation with one command on Linux, macOS and devcontainers.
-- Motto-of-the-day in the shell to show version info and git status.
-- Tearless, Kernel-extension-free Hyper-key in macOS with Hammerspoon and launch-service.
-
 
 ## Installation
 

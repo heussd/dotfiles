@@ -1,4 +1,4 @@
-# This file is called right before user prompt is available. 
+# This file is called right before user prompt is available.
 
 system_info() {
 	hostname
@@ -64,4 +64,3 @@ fi
 
 resume_screen
 resume_tmux
-

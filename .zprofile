@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 # Duplicate PATH setup for homebrew for certain apps with ZSH-default.
 #
 # For example, MacVim cannot resolve rg if the following line is not set:

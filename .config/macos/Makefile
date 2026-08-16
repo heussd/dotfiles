@@ -17,7 +17,7 @@ dock:
 	#defaults write com.apple.Dock contents-immutable -bool true
 	#defaults write com.apple.dock show-recents -bool true
 	#defaults write com.apple.dock show-recent-count -int 3
-	
+
 	defaults write com.apple.dock persistent-apps -array
 	@while read -r package; do \
 		app="$${package/#\~/$$HOME}"; \
@@ -38,11 +38,11 @@ screenshots:
 
 terminal:
 	@open $(HOME)/.config/macos/Timm.terminal
-	
+
 	# Profile must have been opened before
 	defaults write com.apple.Terminal "Default Window Settings" "Timm"
 	defaults write com.apple.Terminal "Startup Window Settings" "Timm"
-	
+
 	# Do not restore previous sessions
 	defaults write com.apple.Terminal NSQuitAlwaysKeepsWindows -bool false
 	defaults write com.apple.TextEdit RichText -int 0
@@ -123,4 +123,3 @@ sidebar:
 
 keyboard:
 	cp -rv *.bundle "$$HOME/Library/Keyboard Layouts"
-

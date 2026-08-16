@@ -4,7 +4,7 @@ set p to ""
 --	tell application "Preview"
 --		set p to path of document 1
 --	end tell
---	
+--
 --	set p to encode_text(p, true, false)
 --	set p to "file://" & p
 --end try

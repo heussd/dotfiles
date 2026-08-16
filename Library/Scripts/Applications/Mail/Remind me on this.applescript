@@ -8,18 +8,18 @@ tell application "Mail"
 	on error
 		return
 	end try
-	
+
 	set theSubject to theMessage's subject
 	set theOrigMessageId to theMessage's message id
 	set theUrl to {"message:%3C" & my replaceText(theOrigMessageId, "%", "%25") & "%3E"}
-	
-	
+
+
 	# Get the unique identifier (ID) of selected email/message
 	set theOrigMessageId to theMessage's message id
-	
+
 	#we need to encode % with %25 because otherwise the URL will be screwed up in Reminders and you won't be able to just click on it to open the linked message in Mail
 	set theUrl to {"message:%3C" & my replaceText(theOrigMessageId, "%", "%25") & "%3E"}
-	
+
 end tell
 
 tell application "Reminders"
@@ -42,10 +42,10 @@ on replaceText(subject, find, replace)
 	set prevTIDs to text item delimiters of AppleScript
 	set text item delimiters of AppleScript to find
 	set subject to text items of subject
-	
+
 	set text item delimiters of AppleScript to replace
 	set subject to "" & subject
 	set text item delimiters of AppleScript to prevTIDs
-	
+
 	return subject
 end replaceText

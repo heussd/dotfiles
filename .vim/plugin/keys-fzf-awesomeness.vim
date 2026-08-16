@@ -11,4 +11,4 @@ let g:fzf_action = {
 map <C-F> :GFiles <CR>
 
 " Rg works with transcrypted git repos
-map <C-G> :Rg <CR> 
+map <C-G> :Rg <CR>

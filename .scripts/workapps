@@ -60,11 +60,9 @@ end tell
 EOF
 else
     echo "Work mode"
-    
+
     for app in "${nonworkapps[@]}"; do killApp "$app"; done
     for app in "${workapps[@]}"; do launchHidden "$app"; done
 
     #osascript -e 'tell application "System Events" to set visible of application process "Teams" to false'
 fi
-
-

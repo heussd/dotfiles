@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-xml
+      - id: check-json
+      - id: detect-private-key
+      - id: pretty-format-json
+        args: ["--autofix"]
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/thoughtworks/talisman
+    rev: "v1.32.2" # Update me!
+    hooks:
+      # both pre-commit and pre-push supported
+      # -   id: talisman-push
+      - id: talisman-commit
+        exclude: '(\.bashrc|\.bash_profile|\.zshenv|\.zshrc)$'

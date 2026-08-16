@@ -12,7 +12,7 @@ function omg(test)
 end
 
 
-hyper:bind({}, "ä", nil, function() 
+hyper:bind({}, "ä", nil, function()
     hs.alert("Playground")
 
     notify("OMOMOMOMOOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMOMO")

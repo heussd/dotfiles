@@ -14,7 +14,7 @@ horizontalScroll = hs.eventtap.new({ hs.eventtap.event.types.scrollWheel }, func
         hs.eventtap.event.newSystemKeyEvent('SOUND_DOWN', true):post()
         hs.eventtap.event.newSystemKeyEvent('SOUND_DOWN', false):post()
         return true
-    end 
+    end
 end)
 
 homeButton = hs.eventtap.new({ hs.eventtap.event.types.otherMouseDown }, function(event)

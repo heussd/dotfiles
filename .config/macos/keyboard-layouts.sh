@@ -21,4 +21,3 @@ for ((i=0 ; i<${#layouts[@]}; i++)) ; do
 				-array-add "<dict><key>InputSourceKind</key><string>Keyboard Layout</string><key>KeyboardLayout ID</key><integer>${ids[i]}</integer><key>KeyboardLayout Name</key><string>${layouts[i]}</string></dict>"
 	done
 done
-

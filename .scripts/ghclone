@@ -9,4 +9,3 @@ repository=$(echo "$selection" | awk '{print $1}')
 gh repo clone "$repository"
 
 cd "${repository#*/}"
-

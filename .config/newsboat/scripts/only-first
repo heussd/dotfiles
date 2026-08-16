@@ -47,4 +47,3 @@ rss.channel.items.push(item)
 
 # write the modified rss
 STDOUT.puts(rss)
-

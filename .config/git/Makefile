@@ -8,5 +8,3 @@ OS_NAME       	 := $(shell uname -s | tr A-Z a-z)
 
 git-over-ssh: ## Configure git to prefer SSH
 	@ln -s git-over-ssh git-over-ssh-enabled
-
-

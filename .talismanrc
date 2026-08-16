@@ -1,0 +1,6 @@
+fileignoreconfig:
+
+- filename: .config/firefox/policies.json
+  checksum: 3af86dca87c872866e0c8f7a71cb110cc8eb6ecf3a80103505408a3844410a6b
+- filename: .scripts/gh-add-secret
+  checksum: 6d97453745a8cb50363fa4edc529d8c9fe65c45605c7c772672c4a292949926c

@@ -80,7 +80,7 @@
     # Close all notifications
     close_all = ctrl+shift+space
 
-    # Recall last message(s) 
+    # Recall last message(s)
     history = mod1+grave
 
     # Context menu

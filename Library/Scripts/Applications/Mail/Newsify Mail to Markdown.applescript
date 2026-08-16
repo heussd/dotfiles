@@ -12,8 +12,8 @@ on run
 				set theDecodedZettel to do shell script "pbpaste | perl -MMIME::QuotedPrint=decode_qp -e 'print decode_qp join\"\",<>' | tail -n +8 | tail -r | tail -n +2 | tail -r"
 				set theDecodedZettel to "> " & my replaceText(ASCII character 13, "
 > ", theDecodedZettel)
-				
-				
+
+
 				display dialog theDecodedZettel
 			end repeat
 		end if
@@ -77,16 +77,16 @@ on fsEscape(filename)
 	set filename to my replaceText("/", "", filename)
 	set filename to my replaceText(":", "", filename)
 	set filename to my replaceText("?", "", filename)
-	
+
 	-- This is hard bug using I guess...
 	set AppleScript's text item delimiters to ASCII character 13
 	set filename to text item 1 of filename
-	
-	
+
+
 	if length of filename is less than 70 then
 		return filename
 	end if
-	
+
 	set filename to text 1 thru 70 of filename
 	return filename
 end fsEscape
@@ -104,11 +104,11 @@ on replaceText(find, replace, subject)
 	set prevTIDs to text item delimiters of AppleScript
 	set text item delimiters of AppleScript to find
 	set subject to text items of subject
-	
+
 	set text item delimiters of AppleScript to replace
 	set subject to subject as text
 	set text item delimiters of AppleScript to prevTIDs
-	
+
 	return subject
 end replaceText
 

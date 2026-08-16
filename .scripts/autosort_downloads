@@ -11,12 +11,12 @@ if [ ! -e "$filename" ]; then
 	exit
 fi
 
-case "$filename" in 
+case "$filename" in
 	Linux_Magazin*.zip )
 		tempdir="temp$RANDOM"
 		notify "Detected Linux Magazin abo download."
 		cd ~/Downloads || exit 1
-		mkdir $tempdir 
+		mkdir $tempdir
 		mv "$filename" $tempdir
 		cd "$tempdir" || exit 1
 		unzip "$filename"

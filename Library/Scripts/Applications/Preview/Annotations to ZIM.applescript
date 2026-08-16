@@ -6,29 +6,29 @@ end tell
 tell application "Skim"
 	open pdfFile
 	set allNotes to ""
-	
+
 	convert notes document 1
-	
+
 	log (number of notes of document 1) & " notes to extract"
 	set pdfName to name of document 1 as text
-	
+
 	set counter to 0
 	repeat with oneNote in (notes of document 1)
 		set pdfPage to label of page of oneNote
 		set counter to (counter + 1)
-		
+
 		set oneNoteType to (type of oneNote)
-		
+
 		log "Found a " & oneNoteType
-		
+
 		if oneNoteType is in {highlight note, text note, anchored note, strike out note} then
-			
+
 			if (oneNoteType is in {anchored note, text note}) then
 				set oneNoteText to text of oneNote
 			else
 				set oneNoteText to selection of oneNote
 			end if
-			
+
 			if oneNoteText is missing value or oneNoteText is "" then
 				display alert "Failed to extract the text of notation" & my newline() & my newline() & "Note number " & counter & " on Page " & pdfPage & my newline() & "Type " & oneNoteType
 			else
@@ -43,7 +43,7 @@ tell application "Skim"
 			end if
 		end if
 	end repeat
-	
+
 	quit saving no
 end tell
 
@@ -92,7 +92,7 @@ on fsEscape(filename)
 	if length of filename is less than 70 then
 		return filename
 	end if
-	
+
 	set filename to text 1 thru 70 of filename
 	return filename
 end fsEscape
@@ -102,11 +102,11 @@ on replaceText(find, replace, subject)
 	set prevTIDs to text item delimiters of AppleScript
 	set text item delimiters of AppleScript to find
 	set subject to text items of subject
-	
+
 	set text item delimiters of AppleScript to replace
 	set subject to subject as text
 	set text item delimiters of AppleScript to prevTIDs
-	
+
 	return subject
 end replaceText
 

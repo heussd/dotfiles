@@ -1,7 +1,7 @@
 #!/bin/sh
 # Redirect RSS feeds to fivefilters full text retrieval service
 # Designed to be called as newsboat execurl, for example:
-#   "exec:~/.config/newsboat/scripts/fulltextfeed https://www.tagesschau.de/xml/rss2/" 
+#   "exec:~/.config/newsboat/scripts/fulltextfeed https://www.tagesschau.de/xml/rss2/"
 
 if [ -z "$FIVE_FILTERS_SERVICE" ]; then
     FIVE_FILTERS_SERVICE=maya.local:8080

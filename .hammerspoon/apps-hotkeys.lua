@@ -1,4 +1,4 @@
-hyper:bind({}, "c", nil, function() 
+hyper:bind({}, "c", nil, function()
     hs.application.launchOrFocus("kitty")
 end)
 
@@ -6,7 +6,7 @@ hyper:bind({}, "a", nil, function()
     hs.application.launchOrFocus("Ferdi")
 end)
 
-hyper:bind({}, "e", nil, function() 
+hyper:bind({}, "e", nil, function()
     hs.application.launchOrFocus("Finder")
 end)
 

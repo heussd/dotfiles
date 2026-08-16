@@ -6,7 +6,7 @@ set -o pipefail
 set -o nounset
 
 # This would also be nice, but it does not work for non-GitHub git repos
-# gh repo view --web    
+# gh repo view --web
 
 gitops="git "
 if [ "$PWD" = "$HOME" ]; then
@@ -29,4 +29,3 @@ case "$remoteUrl" in
 esac
 
 open "$remoteUrl"
-

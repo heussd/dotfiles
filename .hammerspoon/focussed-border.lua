@@ -1,6 +1,6 @@
 lastMouseClick = hs.timer.secondsSinceEpoch()
 mouseClickListener = hs.eventtap.new({ hs.eventtap.event.types.leftMouseDown }, function(event)
-    lastMouseClick = hs.timer.secondsSinceEpoch() 
+    lastMouseClick = hs.timer.secondsSinceEpoch()
 end):start()
 
 function redrawBorder()

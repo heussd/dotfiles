@@ -33,7 +33,7 @@ order += "tztime local"
 #order += "wireless wlan0"
 
 volume master {
-	format = " ♪: %volume  " 
+	format = " ♪: %volume  "
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
@@ -78,7 +78,7 @@ cpu_temperature 3 {
 }
 
 disk "/" {
-	format = " %avail " 
+	format = " %avail "
 }
 
 wireless wlan0 {

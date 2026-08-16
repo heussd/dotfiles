@@ -15,4 +15,3 @@ while read -r sourceimage; do
 	targetimage=${sourceimage//$sourcetag/$targettag}
 	docker tag "$sourceimage" "$targetimage"
 done <<< "$images"
-

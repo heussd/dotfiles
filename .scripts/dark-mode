@@ -7,10 +7,10 @@ function kittytheme() {
 	pushd "$HOME/.config/kitty" || exit 1
 
 	activeTheme="active_mode.conf"
-	
+
 	rm "$activeTheme" || true
 	ln -s "modes/$1.conf" "$activeTheme"
-	
+
 	popd
 
 	for pid in $(pgrep 'kitty'); do
@@ -24,7 +24,7 @@ function wallpaper() {
 
 
 
-if [ "$(defaults read -g AppleInterfaceStyle | grep 'Dark')" ]; then
+if defaults read -g AppleInterfaceStyle | grep -q 'Dark'; then
 	echo "Going white"
 	#wallpaper "Silver"
 	kittytheme "white"

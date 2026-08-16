@@ -89,7 +89,7 @@ function move_to_next_screen()
 	-- get the screen where the focused window is displayed, a.k.a. current screen
 	local screen = win:screen()
 	-- compute the unitRect of the focused window relative to the current screen
-	-- and move the window to the next screen setting the same unitRect 
+	-- and move the window to the next screen setting the same unitRect
 	win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
 
 	-- Also move mouse cursor

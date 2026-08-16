@@ -22,4 +22,3 @@ function! NextClosedFold(dir)
         call winrestview(view)
     endif
 endfunction
-

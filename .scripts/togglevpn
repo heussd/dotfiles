@@ -18,4 +18,3 @@ else
     echo "Work mode"
     startvpn
 fi
-

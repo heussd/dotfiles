@@ -9,4 +9,3 @@ if [ "$PWD" = "$HOME" ]; then
 fi
 gitcmd="$gitcmd vimi"
 eval "${gitcmd}"
-

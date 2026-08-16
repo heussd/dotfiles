@@ -11,5 +11,5 @@ if [ -e /usr/bin/firefox ]; then
 fi
 
 # Fallback: might be a headless system
-echo "$@" | less 
+echo "$@" | less
 exit 0

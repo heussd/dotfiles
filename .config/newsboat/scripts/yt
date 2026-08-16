@@ -7,7 +7,7 @@ channel="$1"
 baseUrl="https://www.youtube.com/feeds/videos.xml"
 
 query="$baseUrl"
-[[ ! -z $channel ]] && query="$query?channel_id=$channel"
+[[ -n $channel ]] && query="$query?channel_id=$channel"
 
 
 curl --fail "$query"

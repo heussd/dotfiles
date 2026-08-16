@@ -70,5 +70,3 @@ source ~/.vim/after/ftplugin/markdown.vim
 " List linter prefers this
 "set shiftwidth=3
 set autoindent noexpandtab tabstop=4 shiftwidth=4
-
-

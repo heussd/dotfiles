@@ -111,15 +111,15 @@
   <menu id="bin" label="_bin" execute="obBins ~/bin" />
   <menu id="downloads" label="_downloads" execute="obDirMenu ~/downloads" />
   <menu id="hda" label="_h_da" execute="obDirMenu ~/h_da" />
-  
+
   <separator label="Applications" />
   <menu id="menu-internet"/>
   <menu id="apps-office-menu"/>
   <menu id="VBoxMachines" label="_VirtualBox Machines" execute="obVBMachines" />
-  
+
   <separator label="System" />
   <menu id="system-menu"/>
-  
+
   <separator label="Podcasts"/>
   <menu id="heute" label="_heute Journal" execute="obPodcast0r http://content.zdf.de/podcast/zdf_hjo/hjo.xml" />
   <menu id="tagesthemen" label="_Tagesthemen" execute="obPodcast0r http://www.tagesschau.de/export/video-podcast/tagesthemen" />

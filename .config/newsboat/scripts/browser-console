@@ -3,4 +3,3 @@
 curl "http://localhost:8080/extract.php?url=$*" | \
 	jq -r .content | \
 	w3m -T text/html
-

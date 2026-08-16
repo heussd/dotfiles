@@ -23,4 +23,3 @@ autocmd BufRead,BufNewFile reflections setfiletype reflections
 autocmd BufRead,BufNewFile urls,config setfiletype conf.tabsep
 
 autocmd BufRead compose*.yml source ~/.vim/files/docker-compose.vim
-

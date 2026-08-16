@@ -11,7 +11,7 @@ NC='\033[0m'
 
 username="heussd"
 # Set this up via
-# security add-generic-password -a $LOGNAME -s bitbucket -w LALALALA 
+# security add-generic-password -a $LOGNAME -s bitbucket -w LALALALA
 password=$(security find-generic-password -w -a "$LOGNAME" -s bitbucket)
 
 CURL_OPTS=(-u "$username:$password" --silent)

@@ -20,4 +20,3 @@ file="$HOME/Developer/vimwiki/$(date +"%Y-%m-%d").md"
 	echo "" >> "$file";
 	echo "<$url>" >> "$file";
 } >> "$file"
-

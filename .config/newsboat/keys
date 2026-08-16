@@ -27,7 +27,7 @@ bind-key   	 J 	 next-feed feedlist
 unbind-key 	 k
 bind-key   	 k 	 up article
 bind-key   	 k 	 prev articlelist
-bind-key   	 k 	 prev feedlist 
+bind-key   	 k 	 prev feedlist
 bind-key   	 k 	 prev tagselection
 bind-key 	 k	 prev filterselection
 unbind-key 	 K
@@ -42,4 +42,3 @@ bind-key   	 l 	 open tagselection
 bind-key   	 l 	 open filterselection
 unbind-key 	 h
 bind-key   	 h 	 quit
-

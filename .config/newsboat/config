@@ -54,4 +54,3 @@ include ~/.config/newsboat/autogen
 highlight-article "tags # \"red\"" red default
 
 selecttag-format "%5n - %T (%n) %f/%u"
-

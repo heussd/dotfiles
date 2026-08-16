@@ -35,17 +35,17 @@ print "<" . $opts{'r'} . ">\n";
 my @line;
 while(@line = split($opts{'d'}, <CSV>)) {
 	chomp @line;
-	
+
 	$_ =~ s/"//g foreach @line;
-	
+
 	print "<" . $opts{'e'} . ">\n";
-	
+
 	for(my $i=0; $i<@columns; $i++) {
 		print "\t<" . $columns[$i] . ">" . "\n";
 		print "\t\t" . $line[$i] . "\n";
 		print "\t</" . $columns[$i] . ">" . "\n";
 	}
-	
+
 	print '</' . $opts{'e'} . '>' . "\n";
 }
 print "</" . $opts{'r'} . ">\n";

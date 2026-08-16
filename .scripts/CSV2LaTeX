@@ -3,7 +3,7 @@ use strict;
 
 open(CSV, $ARGV[0]) or die($!);
 
-my $line = "";	
+my $line = "";
 my $firstLine = 0;
 foreach $line (<CSV>) {
 	if($firstLine == 0) {
@@ -14,10 +14,10 @@ foreach $line (<CSV>) {
 			print "c|";
 		}
 		print "}\n" . '\hline' . "\n";
-		
+
 		$firstLine = 1;
 	}
-	
+
 	$line =~ s/\;/ \& /g;
 	chop($line);
 	print $line . ' \\\\' . "\n";
@@ -25,4 +25,3 @@ foreach $line (<CSV>) {
 }
 
 print '\end{tabular}' . "\n";
-

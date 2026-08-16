@@ -3,6 +3,5 @@
 if type "mpv" > /dev/null; then
 	mpv "$@" &> /dev/null &
 else
-	echo "$@" | less 
+	echo "$@" | less
 fi
-

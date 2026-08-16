@@ -8,7 +8,7 @@ autocmd BufWritePost * silent :Tabularize /^[^\t]*\zs=
 
 
 
-setlocal foldlevel=0 
+setlocal foldlevel=0
 setlocal foldenable
 setlocal foldmethod=expr
 setlocal foldexpr=Fold(v:lnum)
@@ -20,5 +20,3 @@ function! Fold(lnum)
   endif
   return '=' " return previous fold level
 endfunction
-
-

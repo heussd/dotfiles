@@ -17,4 +17,3 @@ command -v "lima" >/dev/null 2>&1 && {
 command -v "docker" >/dev/null 2>&1 && {
 	DOCKER_BUILDKIT=1 docker "$@"
 }
-

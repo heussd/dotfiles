@@ -6,4 +6,3 @@ scrub:
 		-name '.cache' -o \
 		-name 'node_modules' \
 		\) -depth -print -exec rm -Rf {} \;
-

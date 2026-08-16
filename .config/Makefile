@@ -36,7 +36,7 @@ zsh-as-default: ## Configure ZSH as default shell
 reset-firefox-permissions:
 	tccutil reset Microphone org.mozilla.firefox
 	tccutil reset Camera org.mozilla.firefox
-	
+
 
 linux-install-docker: ## Install Docker
 	@curl -fsSL https://get.docker.com/ -o - | sh
@@ -104,9 +104,8 @@ linux-disable-unattended-updates: ## Disable unattended updates
 hyperkey:
 	hidutil property --set \
  		'{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006D}]}'
- 
+
 
 
 
 include ./git/Makefile
-

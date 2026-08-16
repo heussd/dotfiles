@@ -9,8 +9,8 @@ url="https://mediathekviewweb.de/feed?future=false&query="
 
 # https://github.com/mediathekview/mediathekviewweb#erweiterte-suche
 query=""
-[[ ! -z $channel ]] && query="$query !$channel"
-[[ ! -z $title ]] && query="$query #$title"
+[[ -n $channel ]] && query="$query !$channel"
+[[ -n $title ]] && query="$query #$title"
 query=$(echo "$query" | jq -sRr @uri)
 
 

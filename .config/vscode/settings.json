@@ -1,22 +1,22 @@
 {
-  "editor.fontLigatures": true,
-  "telemetry.telemetryLevel": "off",
-  "window.restoreWindows": "none",
-  "workbench.editor.restoreViewState": false,
-  "workbench.startupEditor": "none",
-  "redhat.telemetry.enabled": false,
-  "peacock.surpriseMeOnStartup": true,
-  "editor.formatOnPaste": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
+  "editor.fontFamily": "'SauceCodePro Nerd Font Mono'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
+  "peacock.surpriseMeOnStartup": true,
+  "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
   "terminal.integrated.copyOnSelection": true,
+  "window.autoDetectColorScheme": true,
   "window.restoreFullscreen": true,
-  "editor.fontFamily": "'SauceCodePro Nerd Font Mono'",
-  "editor.fontSize": 16,
-  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "window.restoreWindows": "none",
   "workbench.activityBar.compact": true,
-  "window.autoDetectColorScheme": true
+  "workbench.editor.restoreViewState": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.startupEditor": "none"
 }
