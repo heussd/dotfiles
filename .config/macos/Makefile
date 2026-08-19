@@ -53,6 +53,9 @@ finder:
 	defaults write com.apple.finder AppleShowAllFiles false
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 	defaults write com.apple.finder ShowPathbar -bool true
+	# Use list view in all Finder windows by default
+	# Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
+	defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 	killall Finder
 
 
