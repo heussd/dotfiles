@@ -17,6 +17,13 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 
 
+if type brew &>/dev/null; then
+     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+
+# Case insensitive matching
+# https://stackoverflow.com/a/69014927
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 autoload -Uz compinit
 # shellcheck disable=SC1009,SC1036,SC1073
