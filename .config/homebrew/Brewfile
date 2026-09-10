@@ -11,7 +11,6 @@ use_uv 		= false
 brew "git"
 brew "fzf"	# Needed because apt version is too old for vimwiki
 brew "ripgrep"	# Also needed for vim
-brew "neovim"
 
 
 if system 'uname -s | grep "Darwin" > /dev/null'
@@ -114,46 +113,15 @@ end
 if use_vscode
   cask "visual-studio-code"
 
-  vscode "anweber.httpbook"
   vscode "anweber.vscode-httpyac"
-  vscode "dakara.transformer"
-  vscode "donjayamanne.githistory"
-  vscode "dotjoshjohnson.xml"
-  vscode "esbenp.prettier-vscode"
-  vscode "exiasr.hadolint"
-  vscode "file-icons.file-icons"
-  vscode "formulahendry.auto-close-tag"
-  vscode "formulahendry.auto-rename-tag"
   vscode "github.copilot-chat"
   vscode "github.vscode-pull-request-github"
-  vscode "hashicorp.hcl"
   vscode "hediet.vscode-drawio"
   vscode "johnpapa.vscode-peacock"
-  vscode "mhutchie.git-graph"
-  vscode "ms-azuretools.vscode-containers"
-  vscode "ms-azuretools.vscode-docker"
-  vscode "ms-python.debugpy"
-  vscode "ms-python.python"
-  vscode "ms-python.vscode-pylance"
-  vscode "ms-python.vscode-python-envs"
   vscode "ms-vscode-remote.remote-containers"
-  vscode "nhoizey.gremlins"
-  vscode "oderwat.indent-rainbow"
-  vscode "redhat.vscode-xml"
-  vscode "redhat.vscode-yaml"
-  vscode "saoudrizwan.claude-dev" # Roo Code is discontinued
   vscode "streetsidesoftware.code-spell-checker"
   vscode "timonwong.shellcheck"
   vscode "usernamehw.errorlens"
-  vscode "charliermarsh.ruff"
   vscode "anthropic.claude-code"
-  vscode "hbenl.vscode-test-explorer"
-  vscode "littlefoxteam.vscode-python-test-adapter"
-  vscode "ms-vscode.test-adapter-converter"
-  vscode "ms-azuretools.vscode-azureresourcegroups"
   vscode "redhat.vscode-extension-bpmn-editor"
-  vscode "linhmtran168.mac-ca-vscode"
-  vscode "chdsbd.github-code-owners"
-  vscode "emeraldwalk.RunOnSave"
-  vscode "ms-ossdata.vscode-pgsql"
 end
