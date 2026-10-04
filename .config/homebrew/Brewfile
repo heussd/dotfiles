@@ -92,7 +92,7 @@ if use_devtools
   brew "yq"
   cask "claude-code"
   cask "copilot-cli"
-  
+
   brew "node"
   npm "opencode-ai"
 
@@ -100,7 +100,7 @@ if use_devtools
 	if use_uv
 	  brew "uv"
 	  uv "uv" # seems to be needed
-	
+
 	  uv "apm-cli"
 	  uv "pre-commit"
 	  uv "gita"
