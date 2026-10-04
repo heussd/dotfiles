@@ -14,15 +14,12 @@ brew "ripgrep"	# Also needed for vim
 
 
 if system 'uname -s | grep "Darwin" > /dev/null'
-  use_vscode 	= true
   use_uv 	= true
 
   brew "bat"
   brew "coreutils"
-  brew "gh" # GitHub cli
   brew "git-lfs"
   brew "lazygit"
-  brew "lazydocker"
   brew "rclone"
   brew "the_silver_searcher"
   brew "tmux"
@@ -52,7 +49,9 @@ if system 'hostname | grep "DE_" > /dev/null'
   cask "maestral"
 
 elsif system 'hostname | grep "AU_" > /dev/null'
+  use_vscode 	= true
   use_devtools = true
+
   brew "container"
   brew "us/tap/mocker", trusted: true
   brew "podman"
@@ -81,19 +80,35 @@ end
 
 if use_devtools
   brew "azure-cli"
+  brew "dive"
+  brew "gh" # GitHub cli
   brew "hadolint"
   brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
+  brew "lazydocker"
   brew "nvm"
   brew "nx"
   brew "shellcheck"
-  brew "dive"
   brew "yarn"
   brew "yq"
-  cask "copilot-cli"
   cask "claude-code"
-
+  cask "copilot-cli"
+  
   brew "node"
   npm "opencode-ai"
+
+
+	if use_uv
+	  brew "uv"
+	  uv "uv" # seems to be needed
+	
+	  uv "apm-cli"
+	  uv "pre-commit"
+	  uv "gita"
+	  uv "specify-cli"
+	  uv "promptfoo"
+	  uv "nbstripout"
+	end
+
 end
 
 
@@ -101,12 +116,8 @@ if use_uv
   brew "uv"
   uv "uv" # seems to be needed
 
-  uv "apm-cli"
   uv "pre-commit"
   uv "gita"
-  uv "specify-cli"
-  uv "promptfoo"
-  uv "nbstripout"
 end
 
 
