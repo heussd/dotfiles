@@ -8,3 +8,6 @@ settings:
 	mkdir -p $(HOME)/Library/Application\ Support/Cursor/User
 	touch $(HOME)/Library/Application\ Support/Cursor/User/settings.json
 	@jq -s add $(HOME)/Library/Application\ Support/Cursor/User/settings.json settings.json > tmp; mv tmp $(HOME)/Library/Application\ Support/Cursor/User/settings.json
+
+extensions:
+	brew bundle install --force --verbose --file ./Brewfile

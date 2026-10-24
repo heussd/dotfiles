@@ -86,15 +86,13 @@ if use_devtools
   brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
   brew "lazydocker"
   brew "nvm"
-  brew "nx"
   brew "shellcheck"
   brew "yarn"
   brew "yq"
+
   cask "claude-code"
   cask "copilot-cli"
-
-  brew "node"
-  npm "opencode-ai"
+  brew "anomalyco/tap/opencode-v2", trusted: true
 
 
 	if use_uv
@@ -123,16 +121,4 @@ end
 
 if use_vscode
   cask "visual-studio-code"
-
-  vscode "anweber.vscode-httpyac"
-  vscode "github.copilot-chat"
-  vscode "github.vscode-pull-request-github"
-  vscode "hediet.vscode-drawio"
-  vscode "johnpapa.vscode-peacock"
-  vscode "ms-vscode-remote.remote-containers"
-  vscode "streetsidesoftware.code-spell-checker"
-  vscode "timonwong.shellcheck"
-  vscode "usernamehw.errorlens"
-  vscode "anthropic.claude-code"
-  vscode "redhat.vscode-extension-bpmn-editor"
 end
