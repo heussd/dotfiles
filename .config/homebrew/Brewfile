@@ -55,7 +55,6 @@ elsif system 'hostname | grep "AU_" > /dev/null'
   brew "container"
   brew "us/tap/mocker", trusted: true
   brew "podman"
-  brew "podman-compose"
   cask "ollama-app"
 
 elsif system 'hostname | grep "kabylake" > /dev/null'
@@ -92,7 +91,7 @@ if use_devtools
 
   cask "claude-code"
   cask "copilot-cli"
-  brew "anomalyco/tap/opencode-v2", trusted: true
+  brew "opencode"
 
 
 	if use_uv
