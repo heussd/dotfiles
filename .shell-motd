@@ -46,7 +46,7 @@ resume_screen() {
 }
 
 resume_tmux() {
-	_hasCmd tmux && tmux attach &> /dev/null
+	_hasCmd tmux && [[ "$TERM_PROGRAM" != "vscode" ]] && tmux attach &> /dev/null
 }
 
 auto_make() {
