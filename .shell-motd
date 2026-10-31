@@ -46,7 +46,10 @@ resume_screen() {
 }
 
 resume_tmux() {
-	_hasCmd tmux && [[ "$TERM_PROGRAM" != "vscode" ]] && tmux attach &> /dev/null
+	_hasCmd tmux && \
+	[[ "$TERM_PROGRAM" != "vscode" ]] && \
+	[ -z "$(tmux list-clients -t "0" -F '#{client_name}')" ] && \
+	tmux attach -t "$session" &> /dev/null
 }
 
 auto_make() {
