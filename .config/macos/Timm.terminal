@@ -165,6 +165,8 @@
 	<integer>1</integer>
 	<key>type</key>
 	<string>Window Settings</string>
+	<key>useOptionAsMetaKey</key>
+	<true/>
 	<key>warnOnShellCloseAction</key>
 	<integer>0</integer>
 </dict>
