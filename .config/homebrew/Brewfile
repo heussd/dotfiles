@@ -11,6 +11,7 @@ use_uv 		= false
 brew "git"
 brew "fzf"	# Needed because apt version is too old for vimwiki
 brew "ripgrep"	# Also needed for vim
+brew "tmux"
 
 
 if system 'uname -s | grep "Darwin" > /dev/null'
@@ -22,7 +23,6 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "lazygit"
   brew "rclone"
   brew "the_silver_searcher"
-  brew "tmux"
   brew "zsh-completions"
   cask "font-sauce-code-pro-nerd-font"
   cask "sourcetree"

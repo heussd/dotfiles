@@ -53,7 +53,7 @@ resume_tmux() {
 }
 
 auto_make() {
-	make -f Makefile
+	tmux new-window -d -n 'Auto make' "if make -f Makefile; then read -r -t 2; else read -r; fi"
 }
 
 
