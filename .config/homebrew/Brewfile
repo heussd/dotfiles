@@ -12,6 +12,7 @@ brew "git"
 brew "fzf"	# Needed because apt version is too old for vimwiki
 brew "ripgrep"	# Also needed for vim
 brew "tmux"
+brew "btop"
 
 
 if system 'uname -s | grep "Darwin" > /dev/null'
