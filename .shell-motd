@@ -48,22 +48,20 @@ resume_screen() {
 resume_tmux() {
 	_hasCmd tmux && \
 	[[ "$TERM_PROGRAM" != "vscode" ]] && \
-	[ -z "$(tmux list-clients -t "0" -F '#{client_name}')" ] && \
+	[ -z "$(tmux list-clients -t "0" -F '#{client_name}' &> /dev/null)" ] && \
 	tmux attach -t "$session" &> /dev/null
 }
 
 auto_make() {
-	tmux new-window -d -n 'Auto make' "if make -f Makefile; then read -r -t 2; else read -r; fi"
+	tmux new-window -d -n 'Auto make' "if make -f Makefile; then read -r -t 2; else read -r; fi" &> /dev/null
 }
 
 
 if [ "$PWD" = "$HOME" ]; then
 	system_info
-	repair_macos_make
 	zpool_status
 	dotfiles_status
 	auto_make
+	resume_screen
+	resume_tmux
 fi
-
-resume_screen
-resume_tmux
