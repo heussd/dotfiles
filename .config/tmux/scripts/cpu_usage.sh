@@ -1,59 +1,59 @@
 #!/bin/sh
 # CPU usage as integer percent, rounded.
 
-os="$(uname -s 2>/dev/null)"
+export LC_ALL=C
 
-if [ "$os" = "Darwin" ]; then
-  # macOS: sum user + system percentages from top output.
-  top -l 1 | awk '/^CPU usage:/ {
-    user = $3
-    sys = $5
-    gsub("%", "", user)
-    gsub("%", "", sys)
-    gsub(",", ".", user)
-    gsub(",", ".", sys)
-    printf "%02.0f\n", (user + 0) + (sys + 0)
-    found = 1
-    exit
+out() {
+  printf "%02d\n" "${1:-0}"
+  exit 0
+}
+
+case "$(uname -s 2>/dev/null)" in
+Darwin)
+  # macOS: the first top sample is a since-boot average, so take two
+  # samples 1s apart and use the last one. Usage = 100 - idle.
+  top -l 2 -n 0 -s 1 2>/dev/null | awk '
+    /^CPU usage:/ {
+      for (i = 1; i <= NF; i++) if ($i ~ /^idle/) { idle = $(i - 1) }
+      gsub(/[%,]/, "", idle)
+      have = (idle != "")
+    }
+    END {
+      if (!have) { print "00"; exit }
+      used = 100 - idle
+      if (used < 0) used = 0
+      if (used > 100) used = 100
+      printf "%02.0f\n", used
+    }'
+  ;;
+Linux)
+  # Linux: two /proc/stat samples, then compute usage delta.
+  # Fields: user nice system idle iowait irq softirq steal (guest is
+  # already counted in user/nice). Missing fields on old kernels default to 0.
+  [ -r /proc/stat ] || out 0
+
+  sample() {
+    read -r _ u n s i w q sq st _ </proc/stat || return 1
+    idle=$((i + ${w:-0}))
+    total=$((u + n + s + i + ${w:-0} + ${q:-0} + ${sq:-0} + ${st:-0}))
   }
-  END {
-    if (!found) printf "%02d\n", 0
-  }'
-elif [ "$os" = "Linux" ]; then
-  # Linux KISS: two /proc/stat samples, then compute usage delta.
-  read -r _ u1 n1 s1 i1 w1 irq1 sirq1 st1 _ < /proc/stat || {
-    printf "%02d\n" 0
-    exit 0
-  }
 
-  t1=$((u1 + n1 + s1 + i1 + w1 + irq1 + sirq1 + st1))
-  id1=$((i1 + w1))
-
+  sample || out 0
+  t1=$total id1=$idle
   sleep 1
+  sample || out 0
 
-  read -r _ u2 n2 s2 i2 w2 irq2 sirq2 st2 _ < /proc/stat || {
-    printf "%02d\n" 0
-    exit 0
-  }
+  dt=$((total - t1))
+  did=$((idle - id1))
+  [ "$dt" -gt 0 ] || out 0
 
-  t2=$((u2 + n2 + s2 + i2 + w2 + irq2 + sirq2 + st2))
-  id2=$((i2 + w2))
-
-  dt=$((t2 - t1))
-  did=$((id2 - id1))
-
-  if [ "$dt" -gt 0 ]; then
-    used=$(((dt - did) * 100 / dt))
-    if [ "$used" -lt 0 ]; then
-      used=0
-    fi
-    if [ "$used" -gt 100 ]; then
-      used=100
-    fi
-    printf "%02d\n" "$used"
-  else
-    printf "%02d\n" 0
-  fi
-else
-  printf "%02d\n" 0
-fi
+  # Round to nearest integer.
+  used=$(((200 * (dt - did) + dt) / (2 * dt)))
+  [ "$used" -lt 0 ] && used=0
+  [ "$used" -gt 100 ] && used=100
+  out "$used"
+  ;;
+*)
+  out 0
+  ;;
+esac
