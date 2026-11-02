@@ -10,7 +10,7 @@ n=${n:-0}
 
 if   [ "$n" -ge 90 ]; then c='#ef476f' # vivid pink-red
 elif [ "$n" -ge 75 ]; then c='#ffb145' # bright amber
-else                       c='#d4d4d4' # white/gray
+else                       c='default' # terminal foreground
 fi
 
 printf '#[fg=%s]%s\n' "$c" "$v"
