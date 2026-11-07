@@ -33,8 +33,12 @@ if [ ! -e "$gitcmd" ]; then
 	gitcmd="/usr/local/bin/lazygit";
 fi
 
-if [ "$PWD" = "$HOME" ]; then
+case "$PWD" in
+	"$HOME"|"$HOME/.config"|"$HOME/.config"/*)
   gitcmd="$gitcmd --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME/"
-fi
+	;;
+esac
+
+
 
 eval "${gitcmd}"
