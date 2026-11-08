@@ -3,8 +3,8 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-
-folder="$(cd ~/Developer/ && find . -maxdepth 1 -print0 | xargs -0 gstat --format '%Y :%y %n' | sort -nr | cut -d: -f2- | fzf | cut -d" " -f 4)"
+# shellcheck disable=SC2012
+folder="$(cd "$HOME/Developer" && ls -dt ./*/ 2>/dev/null | sed 's#^\./##' | fzf)"
 
 
 if [ "${TERM_PROGRAM:-}" = "kitty" ]; then
