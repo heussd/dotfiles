@@ -10,7 +10,6 @@ source ~/.shell-motd
 
 
 # https://mijndertstuij.nl/posts/life-is-too-short-for-a-slow-terminal/
-source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #`source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
@@ -32,7 +31,6 @@ if [[ -n $HOME/.zcompdump(#qNmh-24) ]]; then
 else
   compinit
 fi
-
 
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -61,21 +59,6 @@ export PATH="$PATH:/opt/homebrew/bin/"
 bindkey -e
 bindkey '[C' forward-word
 bindkey '[D' backward-word
-
-
-bindkey -s '^gp' "$HOME/.scripts/git-pull-helper\\n"
-bindkey -s '^gP' "$HOME/.scripts/git-push-helper\\n"
-bindkey -s '^gü' "$HOME/.scripts/git-push-helper\\n"
-bindkey -s '^o' "$HOME/.scripts/oop\\n"
-bindkey -s '^p' "$HOME/.scripts/goto\\n"
-bindkey -s '^h' 'vimwiki\n'
-bindkey -s '^x' "$HOME/.scripts/lazygit-helper\\n"
-bindkey -s '^y' "$HOME/.scripts/snippets-fzf\\n"
-bindkey -s '^n' "$HOME/.scripts/git-vimi-helper\\n"
-#bindkey -s '^e' 'open .\n'
-bindkey -s '^k' 'code .\n'
-bindkey -s '^s' "$HOME/.scripts/snippets-fzf .\\n"
-bindkey -s '^f' "$HOME/.scripts/op .\\n"
 
 
 fpath+=$HOME/.zsh/pure
