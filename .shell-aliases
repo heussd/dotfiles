@@ -48,6 +48,7 @@ alias dud='du -h -d 1'
 alias grep='grep --color'
 alias halt='sudo halt'
 
+_hasCmd eza && alias ls='eza --links --icons --git'
 alias l='ls -lh'
 alias ll='l -ltr'
 alias la='ls -lha'

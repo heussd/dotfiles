@@ -11,8 +11,11 @@ use_uv 		= false
 brew "git"
 brew "fzf"	# Needed because apt version is too old for vimwiki
 brew "ripgrep"	# Also needed for vim
-brew "tmux"
+brew "ag"
 brew "btop"
+brew "eza"
+brew "lazydocker"
+brew "lazygit"
 
 
 if system 'uname -s | grep "Darwin" > /dev/null'
@@ -21,12 +24,12 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "bat"
   brew "coreutils"
   brew "git-lfs"
-  brew "lazygit"
   brew "rclone"
   brew "the_silver_searcher"
   brew "zsh-completions"
   cask "font-sauce-code-pro-nerd-font"
   cask "sourcetree"
+  brew "tmux"
 
   #tap "marwanhawari/tap"
   #brew "stew"
@@ -37,6 +40,10 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "ttscoff/thelab/md-fixup", trusted: true
 
   brew "transcrypt"
+  brew "container"
+  brew "podman"
+  brew "docker-compose"
+  use_vscode 	= true
 end
 
 if system 'hostname | grep "^.._" > /dev/null'
@@ -84,7 +91,6 @@ if use_devtools
   brew "gh" # GitHub cli
   brew "hadolint"
   brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
-  brew "lazydocker"
   brew "nvm"
   brew "shellcheck"
   brew "yarn"

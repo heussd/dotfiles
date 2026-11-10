@@ -36,7 +36,6 @@ pull-dotfiles:
 		brew bundle cleanup --all --zap --force --file .config/homebrew/Brewfile && \
 		command -v uv &> /dev/null && uv tool upgrade --all || true && \
 		command -v npm &> /dev/null && npm update -g || true && \
-		command -v code &> /dev/null && code --update-extensions || true && \
 		touch .Brewfile.auto
 
 
