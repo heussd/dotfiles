@@ -16,10 +16,13 @@ brew "btop"
 brew "eza"
 brew "lazydocker"
 brew "lazygit"
+brew "podman"
+brew "docker-compose"
 
 
-if system 'uname -s | grep "Darwin" > /dev/null'
+if OS.mac?
   use_uv 	= true
+  use_vscode 	= true
 
   brew "bat"
   brew "coreutils"
@@ -40,10 +43,14 @@ if system 'uname -s | grep "Darwin" > /dev/null'
   brew "ttscoff/thelab/md-fixup", trusted: true
 
   brew "transcrypt"
+
   brew "container"
-  brew "podman"
-  brew "docker-compose"
-  use_vscode 	= true
+elsif OS.linux?
+  brew "nats"
+end
+
+
+if system 'uname -s | grep "Darwin" > /dev/null'
 end
 
 if system 'hostname | grep "^.._" > /dev/null'

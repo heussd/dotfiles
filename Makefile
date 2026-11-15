@@ -32,10 +32,9 @@ pull-dotfiles:
 	@-command -v brew &> /dev/null && \
 		HOMEBREW_CASK_OPTS="--require-sha" \
 		brew update && \
-		brew bundle install --jobs=4 --force --verbose --file .config/homebrew/Brewfile && \
+		brew bundle install --force --verbose --file .config/homebrew/Brewfile && \
 		brew bundle cleanup --all --zap --force --file .config/homebrew/Brewfile && \
 		command -v uv &> /dev/null && uv tool upgrade --all || true && \
-		command -v npm &> /dev/null && npm update -g || true && \
 		touch .Brewfile.auto
 
 
