@@ -16,7 +16,6 @@ brew "btop"
 brew "eza"
 brew "lazydocker"
 brew "lazygit"
-brew "podman"
 brew "docker-compose"
 
 
@@ -45,6 +44,7 @@ if OS.mac?
   brew "transcrypt"
 
   brew "container"
+  brew "podman"
 elsif OS.linux?
   brew "nats"
 end
