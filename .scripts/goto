@@ -5,6 +5,8 @@ set -o nounset
 
 # shellcheck disable=SC2012
 folder="$(cd "$HOME/Developer" && ls -dt ./*/ 2>/dev/null | sed 's#^\./##' | fzf)"
+# strip trailing slash: a PWD ending in "/" makes pure discard its async git info
+folder="${folder%/}"
 
 
 if [ "${TERM_PROGRAM:-}" = "kitty" ]; then
