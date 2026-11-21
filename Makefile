@@ -30,7 +30,7 @@ pull-dotfiles:
 
 .Brewfile.auto: .config/homebrew/Brewfile
 	@-command -v brew &> /dev/null && \
-		HOMEBREW_CASK_OPTS="--require-sha" \
+		HOMEBREW_CASK_OPTS="--require-sha --appdir=$$HOME/Applications/" \
 		brew update && \
 		brew bundle install --force --verbose --file .config/homebrew/Brewfile && \
 		brew bundle cleanup --all --zap --force --file .config/homebrew/Brewfile && \
