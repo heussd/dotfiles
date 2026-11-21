@@ -93,7 +93,6 @@ end
 
 
 if use_devtools
-  brew "azure-cli"
   brew "dive"
   brew "gh" # GitHub cli
   brew "hadolint"
@@ -112,6 +111,7 @@ if use_devtools
 	  brew "uv"
 	  uv "uv" # seems to be needed
 
+  	  uv "azure-cli"
 	  uv "apm-cli"
 	  uv "pre-commit"
 	  uv "gita"
