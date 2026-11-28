@@ -124,5 +124,10 @@ sidebar:
 	defaults write -g NSConvolutionOverride1 -float 15
 	killall Finder
 
+
+lookup:
+	defaults write com.apple.lookup.shared LookupSuggestionsDisabled -bool true
+
+
 keyboard:
 	cp -rv *.bundle "$$HOME/Library/Keyboard Layouts"
