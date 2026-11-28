@@ -21,7 +21,6 @@ brew "ttscoff/thelab/md-fixup", trusted: true
 brew "transcrypt"
 
 brew "container"
-brew "podman"
 
 
 brew "uv"

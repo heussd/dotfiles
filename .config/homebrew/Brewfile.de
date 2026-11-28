@@ -1,3 +1,4 @@
 brew "gnupg"
+brew "podman"
 cask "cryptomator"
 cask "maestral"
