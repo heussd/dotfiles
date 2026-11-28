@@ -79,3 +79,5 @@ buildNumber.properties
 node_modules/
 .tmp/
 dist/
+
+**/.claude/settings.local.json
