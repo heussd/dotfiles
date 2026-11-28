@@ -3,9 +3,9 @@
 
 #zmodload zsh/zprof
 
-source ~/.shell-aliases
+source ~/.config/shell/aliases
 source ~/.container-aliases
-source ~/.shell-motd
+source ~/.config/shell/motd
 
 
 

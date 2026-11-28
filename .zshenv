@@ -5,4 +5,4 @@ SHELL_SESSIONS_DISABLE=1
 # Remove duplicate PATH entries
 typeset -U path PATH
 
-source "$HOME/.shell-environment"
+source "$HOME/.config/shell/env"

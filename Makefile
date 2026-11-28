@@ -28,9 +28,8 @@ pull-dotfiles:
  		-exec bash -c "git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules ; touch $(DOTFILES_BARE)/FETCH_HEAD" \; ;\
 
 
-.Brewfile.auto: .config/homebrew/Brewfile
+.Brewfile.auto: .config/homebrew/*
 	@-command -v brew &> /dev/null && \
-		HOMEBREW_CASK_OPTS="--require-sha --appdir=$$HOME/Applications/"; HOMEBREW_NO_SUDO=1 \
 		brew update && \
 		brew bundle install --force --verbose --file .config/homebrew/Brewfile && \
 		brew bundle cleanup --all --zap --force --file .config/homebrew/Brewfile && \

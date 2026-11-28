@@ -65,11 +65,12 @@ fi
 
 
 
-source "$HOME/.shell-aliases"
+source "$HOME/.config/shell/env"
+source "$HOME/.config/shell/aliases"
 source "$HOME/.container-aliases"
 
 _hasFile ~/.fzf.bash && source "$HOME/.fzf.bash"
 source-if-exist ".bash_profile.$(uname -s)"
 
-source "$HOME/.shell-motd"
+source "$HOME/.config/shell/motd"
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"

@@ -1,0 +1,37 @@
+# vim: ft=zsh
+for _brew in \
+    /opt/homebrew/bin/brew \
+    /usr/local/bin/brew \
+    /home/linuxbrew/.linuxbrew/bin/brew \
+    "$HOME/.linuxbrew/bin/brew"
+do
+    if [ -x "$_brew" ]; then
+        eval "$("$_brew" shellenv)"
+        break
+    fi
+done
+unset _brew
+
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+
+export PATH="$PATH:$HOME/.local/bin/"
+export PATH="$PATH:$HOME/.scripts/"
+
+export TH_PROJECTS_FOLDER="$HOME/Developer"
+
+export EDITOR='vim'
+export LC_ALL='en_US.UTF-8'
+
+
+export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+export HOMEBREW_CASK_OPTS="--require-sha --appdir=$HOME/Applications/"
+export HOMEBREW_NO_SUDO=1
+export HOMEBREW_NO_ANALYTICS=1
+
+
+# Note: Only one certificate is supported, so if you have multiple certificates, you need to combine them into a single file.
+NODE_EXTRA_CA_CERTS="$(find "$HOME/.node-extra-ca-certs/" -type f 2>/dev/null | head -n 1)"
+export NODE_EXTRA_CA_CERTS

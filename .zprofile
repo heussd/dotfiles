@@ -1,3 +1,3 @@
 # shellcheck disable=SC2148
 
-source "$HOME/.shell-environment"
+source "$HOME/.config/shell/env"
