@@ -16,8 +16,8 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 
 
-if type brew &>/dev/null; then
-     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+if [[ -n $HOMEBREW_PREFIX ]]; then
+     FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
 fi
 
 # Case insensitive matching
@@ -53,7 +53,6 @@ export FZF_COMPLETION_OPTS="--preview 'bat --style=numbers --color=always --line
 export FZF_COMPLETION_TRIGGER='**'
 
 
-export PATH="$PATH:/opt/homebrew/bin/"
 # Alt Arrow to move by word
 # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh#16411270
 bindkey -e
