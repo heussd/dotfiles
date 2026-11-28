@@ -17,6 +17,7 @@ repos:
     rev: v0.10.0.1
     hooks:
       - id: shellcheck
+        args: [--rcfile=.config/shellcheckrc]
   - repo: https://github.com/thoughtworks/talisman
     rev: "v1.32.2" # Update me!
     hooks:
