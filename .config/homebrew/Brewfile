@@ -1,12 +1,7 @@
-# Software I like
-#
-# When changing this file, you might also want to change these files:
-# ~/.macos-dock
-#
-
-use_devtools	= false
-use_vscode 	= false
-use_uv 		= false
+def import(file)
+  path = File.join(__dir__, file)
+  instance_eval(File.read(path), path)
+end
 
 brew "git"
 brew "fzf"	# Needed because apt version is too old for vimwiki
@@ -19,119 +14,12 @@ brew "lazygit"
 brew "docker-compose"
 
 
-if OS.mac?
-  use_uv 	= true
-  use_vscode 	= true
-
-  brew "bat"
-  brew "coreutils"
-  brew "git-lfs"
-  brew "rclone"
-  brew "the_silver_searcher"
-  brew "zsh-completions"
-  cask "font-sauce-code-pro-nerd-font"
-  cask "sourcetree"
-  brew "tmux"
-
-  #tap "marwanhawari/tap"
-  #brew "stew"
-  #brew "go"		# Required for go bundle
-  #go "github.com/marwanhawari/stew"
-  brew "duti"
-
-  brew "ttscoff/thelab/md-fixup", trusted: true
-
-  brew "transcrypt"
-
-  brew "container"
-  brew "podman"
-elsif OS.linux?
-  brew "nats"
-end
+kernelBrewfile = "Brewfile.#{OS.kernel_name.downcase}"
+import kernelBrewfile if File.exist?(File.join(__dir__, kernelBrewfile))
 
 
-if system 'uname -s | grep "Darwin" > /dev/null'
-end
+require "socket"
+hostname = Socket.gethostname.split(/[._-]/).first.downcase
 
-if system 'hostname | grep "^.._" > /dev/null'
-  #cask "google-chrome"
-  #cask "microsoft-teams"
-end
-
-if system 'hostname | grep "DE_" > /dev/null'
-  brew "gnupg"
-  cask "cryptomator"
-  cask "maestral"
-
-elsif system 'hostname | grep "AU_" > /dev/null'
-  use_vscode 	= true
-  use_devtools = true
-
-  brew "container"
-  brew "us/tap/mocker", trusted: true
-  brew "podman"
-  cask "ollama-app"
-
-elsif system 'hostname | grep "kabylake" > /dev/null'
-  brew "podman"
-  cask "steam"
-  cask "thunderbird"
-
-  cask "gimp"
-  cask "inkscape"
-
-  if system 'uname -p | grep "i386" > /dev/null'
-    cask "macfuse" # macfuse is still the best choice for non-arm Macs
-  end
-  if system 'uname -p | grep "arm" > /dev/null'
-    # userspace implementation of FUSE, replaces macfuse
-    tap "macos-fuse-t/homebrew-cask"
-    cask "fuse-t"
-  end
-
-end
-
-
-if use_devtools
-  brew "dive"
-  brew "gh" # GitHub cli
-  brew "hadolint"
-  brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
-  brew "nvm"
-  brew "shellcheck"
-  brew "yarn"
-  brew "yq"
-
-  cask "claude-code"
-  cask "copilot-cli"
-  brew "opencode"
-
-
-	if use_uv
-	  brew "uv"
-	  uv "uv" # seems to be needed
-
-  	  uv "azure-cli"
-	  uv "apm-cli"
-	  uv "pre-commit"
-	  uv "gita"
-	  uv "specify-cli"
-	  uv "promptfoo"
-	  uv "nbstripout"
-	end
-
-end
-
-
-if use_uv
-  brew "uv"
-  uv "uv" # seems to be needed
-
-  uv "pre-commit"
-  uv "gita"
-end
-
-
-if use_vscode
-  cask "visual-studio-code"
-end
+hostBrewfile = "Brewfile.#{hostname}"
+import hostBrewfile if File.exist?(File.join(__dir__, hostBrewfile))

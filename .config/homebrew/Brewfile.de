@@ -1,0 +1,3 @@
+brew "gnupg"
+cask "cryptomator"
+cask "maestral"

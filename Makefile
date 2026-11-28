@@ -28,7 +28,7 @@ pull-dotfiles:
  		-exec bash -c "git --git-dir=$(DOTFILES_BARE) --work-tree=$(HOME)/ pull --recurse-submodules ; touch $(DOTFILES_BARE)/FETCH_HEAD" \; ;\
 
 
-.Brewfile.auto: .config/homebrew/*
+.Brewfile.auto: .config/homebrew/Brewfile*
 	@-command -v brew &> /dev/null && \
 		brew update && \
 		brew bundle install --force --verbose --file .config/homebrew/Brewfile && \

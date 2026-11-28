@@ -1,0 +1,6 @@
+{
+  "trustedformulae": [
+    "ttscoff/thelab/md-fixup",
+    "us/tap/mocker"
+  ]
+}

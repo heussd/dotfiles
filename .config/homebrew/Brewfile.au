@@ -1,0 +1,6 @@
+import "Brewfile.dev"
+
+brew "container"
+brew "us/tap/mocker", trusted: true
+brew "podman"
+cask "ollama-app"

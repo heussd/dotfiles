@@ -1,0 +1,24 @@
+brew "dive"
+brew "gh" # GitHub cli
+brew "hadolint"
+brew "jq"	# jq is a lightweight and flexible command-line JSON processor.
+brew "nvm"
+brew "shellcheck"
+brew "yarn"
+brew "yq"
+
+cask "claude-code"
+cask "copilot-cli"
+brew "opencode"
+
+
+brew "uv"
+uv "uv" # seems to be needed
+
+uv "azure-cli"
+uv "apm-cli"
+uv "pre-commit"
+uv "gita"
+uv "specify-cli"
+uv "promptfoo"
+uv "nbstripout"

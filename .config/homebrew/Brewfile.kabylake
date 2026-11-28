@@ -1,0 +1,15 @@
+brew "podman"
+cask "steam"
+cask "thunderbird"
+
+cask "gimp"
+cask "inkscape"
+
+if system 'uname -p | grep "i386" > /dev/null'
+  cask "macfuse" # macfuse is still the best choice for non-arm Macs
+end
+if system 'uname -p | grep "arm" > /dev/null'
+  # userspace implementation of FUSE, replaces macfuse
+  tap "macos-fuse-t/homebrew-cask"
+  cask "fuse-t"
+end
