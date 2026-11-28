@@ -16,6 +16,7 @@
   "window.restoreFullscreen": true,
   "window.restoreWindows": "none",
   "workbench.activityBar.compact": true,
+  "workbench.editor.restoreEditors": false,
   "workbench.editor.restoreViewState": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.startupEditor": "none"
